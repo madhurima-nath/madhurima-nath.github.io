@@ -59,34 +59,42 @@
             Pre-processing data to extract relevant information
             and summarizing it helped to improve accuracy and reduce
             latency.
-            Implementing <code>LLM agents</code> with carefully
+            Implementing <code>LLM agent</code> with carefully
             designed prompt and the appropriate tools provided
             a flexible framework to answer various types questions,
             as well as the capability to expand the scope of
             questions in the future.
             <br>
-            The results from the clustering analysis, 
-            was numeric and structured, saved as <samp>json</samp> files.
-            Each group had specific characteristic which
-            represented various medical conditions or
-            symptoms. The descriptions for these were also
-            ingested to provide more context to the model.
-
-
-            The architecture involved following steps:
+            <b>
+                Solution architecture
+            </b>
             <li>
-                Conversion of the structured <samp>json</samp> numeric data
-                into textual input for the <code>prompt</code> template
-                of the model.
+                The numeric results from the clustering analysis
+                were parsed to extract the relevant information
+                from the structured <samp>json</samp> heatmaps.
             </li>
             <li>
-                Summarization of the descriptions to 100 characters
-                to retain the important information, and not exceed
-                the token limits of the <code>prompt</code> defined by 
-                <code>Claude</code>.
+                LLM pipeline #1: <code>LLM chain</code> 
+                to summarize descriptions
+                of characteristics of each group which represent
+                various medical conditions or symptoms.
             </li>
             <li>
-                Using <code>LangChain agents</code>
+                LLM pipeline #2: <code>LLM chain</code>
+                to propose a name for each group/clusters
+                from the heatmaps.
+            </li>
+            <li>
+                LLM pipeline #3: <code>LangChain agent</code>
+                to answer questions about the groups.
+                <li>
+                    A custom agent to interact with AWS Bedrock
+                    and Anthropic Claude.
+                </li>
+                <li>
+                    Graph specific question tools to gain
+                    answers from the heatmaps.
+                </li>
             </li>
             
             Improved application interface, 
