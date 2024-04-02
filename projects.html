@@ -34,10 +34,10 @@
 
     <main>
         <h2>
-            GenAI Projects
+            Genrative AI (GenAI) Projects
         </h2>
-        <b>
-            Healthcare Q&A assistant
+        <b style="color: blue;">
+            Healthcare Q&A virtual assistant
         </b> 
         <p>
             A healthcare technology start-up client wanted
@@ -52,14 +52,27 @@
             to easily gain insights about these groups.
             I paired up with another data scientist to develop
             a prototype chatbot powered by the 
-            <code>Anthropic Claude</code> model on AWS Bedrock.
+            <code>Anthropic Claude LLM</code> on AWS Bedrock.
             <br>
-            The data from the clustering analysis, 
-            was numeric and structured, saved as json files.
+            Ingesting data as-is in the <code>LLM prompt</code>
+            increased latency, token usage and thus cost.
+            Pre-processing data to extract relevant information
+            and summarizing it helped to improve accuracy and reduce
+            latency.
+            Implementing <code>LLM agents</code> with carefully
+            designed prompt and the appropriate tools provided
+            a flexible framework to answer various types questions,
+            as well as the capability to expand the scope of
+            questions in the future.
+            <br>
+            The results from the clustering analysis, 
+            was numeric and structured, saved as <samp>json</samp> files.
             Each group had specific characteristic which
             represented various medical conditions or
             symptoms. The descriptions for these were also
             ingested to provide more context to the model.
+
+
             The architecture involved following steps:
             <li>
                 Conversion of the structured <samp>json</samp> numeric data
