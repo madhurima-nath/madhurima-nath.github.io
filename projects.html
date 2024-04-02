@@ -52,7 +52,7 @@
             to easily gain insights about these groups.
             I paired up with another data scientist to develop
             a prototype chatbot powered by the 
-            Anthropic Claude model on AWS Bedrock.
+            <code>Anthropic Claude</code> model on AWS Bedrock.
             <br>
             The data from the clustering analysis, 
             was numeric and structured, saved as json files.
@@ -63,16 +63,17 @@
             The architecture involved following steps:
             <li>
                 Conversion of the structured <samp>json</samp> numeric data
-                into textual input for the prompt template
+                into textual input for the <code>prompt</code> template
                 of the model.
             </li>
             <li>
                 Summarization of the descriptions to 100 characters
                 to retain the important information, and not exceed
-                the token limits of the prompt defined by Claude.
+                the token limits of the <code>prompt</code> defined by 
+                <code>Claude</code>.
             </li>
             <li>
-                Using LangChain agents
+                Using <code>LangChain agents</code>
             </li>
             
             Improved application interface, 
