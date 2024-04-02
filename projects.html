@@ -50,11 +50,30 @@
             The clients wanted to build a Q&A chatbot which would
             assist both experts and non-medical users 
             to easily gain insights about these groups.
-
             I paired up with another data scientist to develop
             a prototype chatbot powered by the 
             Anthropic Claude model on AWS Bedrock.
-            The architecture involved 
+            <br>
+            The data from the clustering analysis, 
+            was numeric and structured, saved as json files.
+            Each group had specific characteristic which
+            represented various medical conditions or
+            symptoms. The descriptions for these were also
+            ingested to provide more context to the model.
+            The architecture involved following steps:
+            <li>
+                Conversion of the structured json numeric data
+                into textual input for the prompt template
+                of the model.
+            </li>
+            <li>
+                Summarization of the descriptions to 100 characters
+                to retain the important information, and not exceed
+                the token limits of the prompt defined by Claude.
+            </li>
+            <li>
+                Using LangChain agents\
+            </li>
             
             Improved application interface, 
             boosting customer satisfaction by enhancing usability and
