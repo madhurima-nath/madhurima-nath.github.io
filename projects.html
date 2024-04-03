@@ -107,26 +107,42 @@
         </p>
 
         <b style="color: blue;">
-            Chatbot assistant for sales representatives
+            Knowledge support tool for sales representatives
         </b>
         <p>
             A leading equipment rental firm chose to build
             a GenAI knowledge-based chatbot as their
             inaugural digital innovation initiative.
-            This tool would assist sales representatives
+            This tool would leverage custom client data 
+            in order to assist sales representatives
             respond to customer inquiries quicker,
             serve as an internal training hub and
             replace manual document searches. 
-            In addition, SMEs (subject matters experts)
+            In addition, internal SMEs (subject matters experts)
             needed the ability to review and update
             any response that was flagged by the end users
             as an incorrect or incomplete.
             I worked with a cloud engineer to deploy
-            this chatbot using OpenAI on AWS platform,
+            this chatbot using <code>OpenAI</code> on AWS platform,
             and implemented a RAG (Retrieval-Augmented Generation)
             approach.
             <br>
-            Insert executive summary, findings, delivered results
+            To understand their domain and provide relevant
+            answers from their data, various documents (both 
+            structured - <samp>csv, json</samp>
+            and unstructured - <samp>pdf, html</samp>) were
+            ingested into <code>S3 bucket</code> 
+            to create a knowledge base.
+            Employing RAG architecture was essential to augment
+            the <code>OPenAI LLM</code> model and
+            provide accurate responses.
+            Multiple <code>Lambda</code> functions were assigned
+            to handle different parts of the solution, i.e., 
+            processing input, returning <code>OpenAI</code> response,
+            updating database with feedback from SMEs etc.
+            <code>Lex</code> was the backbone of the solution,
+            providing all NLP and NLU capabilities to understand
+            user questions and determine best possible answers.
             <br>
             Solution architecture
             insert image of solution architecture.
