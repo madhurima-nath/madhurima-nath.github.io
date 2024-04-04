@@ -65,6 +65,8 @@
             a flexible framework to answer various types questions,
             as well as the capability to expand the scope of
             questions in the future. 
+            <br>
+            Note: We were not responsible for the front-end development.
             <br><br>
             <b>
                 Solution architecture
@@ -99,11 +101,9 @@
                     answers from the heatmaps.
                 </li>
             </li>
-            <br>
             At the end of the engagement we were able to deliver
             a fully functioning chatbot that could be
             integrated with their existing application interface.
-            (Note: We were not responsible for the front-end development.)
         </p>
 
         <b style="color: #0A65C1;">
@@ -145,6 +145,9 @@
             <code>Lex</code> was the backbone of the solution,
             providing all NLP and NLU capabilities to understand
             user questions and determine best possible answers.
+            <br>
+            Note: There was a front-end developer who was
+            responsible for the user interface.
             <br>
             Solution architecture
             insert image of solution architecture.
@@ -189,17 +192,14 @@
                 the data collected from the SMEs were stored
                 in <code>DynamoDB</code>.
             </li>
-            (Note: This project had a front-end developer)
-            <br>
             The chatbot provided accurate results
             when tested extensively by the
             users from the firm on a variety of questions.
             There was also a ~22% reduction in response
-            time of customer inquiries. 
-             
+            time of customer inquiries.    
         </p>
 
-        <hr>
+    <hr>
 
         <h2>
             Natural Language Processing (NLP) Projects
@@ -209,6 +209,47 @@
             CPG
         </b>
         <p>
+            Optimizing multi-billion dollars spend portfolio for 
+            global procurement
+            Why:
+            Customer world’s largest CPG/manufacturing companies 
+            in the beverage/snacks space with a $34B spend portfolio 
+            managed by its global procurement group.
+            In current state, customer struggling to gain visibility 
+            across its massive spend portfolio due to lack of a single 
+            source of truth for spend data soread across globally 
+            disparate ERP platforms, lack of common deifnitions or 
+            taxonomy structure for key data objects like product 
+            hierarchy, spend categories, supplier family etc. 
+            Answering simple questions asked by senior leaders 
+            would translate into weeks ling exercise of manual 
+            data collection and consolidation from internal systems 
+            and asking around external suppliers etc.
+            Even achieving 1-2% efficiency gain in the 
+            data collection, cleansing, consolidation and 
+            reportig would result in savings of millions of dollars.
+
+            What:
+            team engaged with the client starting a 
+            discovery workstream involving interviews and 
+            workshops with many global spend portfolio leaders, 
+            data & IT SMEs to understand and document the pain 
+            areas, current state and define a future state vision 
+            around global spend visibility and data collection
+            and cleansing processes.
+            In order to rapidly bring this future state vision 
+            to life, team quickly established and implemented an 
+            end-to-end Azure Databricks delta lakehouse solution 
+            architecture including:
+            - metadata driven, reusable data ingestion, 
+            cleansing and processing frameworks involving 
+            databricks and Azure services
+            - NLP based ML pipeline in databricks for product 
+            hierarchy harmonization
+            - DevOps CI/CD and MLOps solution to deploy the solution
+            - a set of separate spend visibility and monitoring 
+            dashboards for the initial pilot release
+
         Collaboratively led the implementation of a
         Delta Lakehouse solution on Azure Databricks and 
         developed NLP pipelines 
