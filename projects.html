@@ -134,8 +134,10 @@
             ingested into <code>S3 bucket</code> 
             to create a knowledge base.
             Employing RAG architecture was essential to augment
-            the <code>OPenAI LLM</code> model and
+            the <code>OpenAI LLM</code> model and
             provide accurate responses.
+            <code>Chroma</code> vectorstore was used
+            to store the embeddings.
             Multiple <code>Lambda</code> functions were assigned
             to handle different parts of the solution, i.e., 
             processing input, returning <code>OpenAI</code> response,
@@ -146,7 +148,47 @@
             <br>
             Solution architecture
             insert image of solution architecture.
-            Describe solution in details.
+            <li>
+                Lex processed user input and triggered
+                <code>OpenAI Lambda</code> to get response.
+                <code>LangChain RetrievalQA Chain</code>
+                was implemented to answer user query in a
+                conversational manner.
+                The prompt template was designed as per
+                the requirements from the clinets, e.g.,
+                answers formatted into a list
+                wherever possible (and when requested by the user),
+                provide hyperlinks to resources referenced
+                in the answers, etc.
+            </li>
+            <li>
+                <code>Sagemaker</code> was used to
+                preprocess all the documents used for RAG approach,
+                stored in <code>S3 bucket</code>.
+                Data from <code>DynamoDB</code> was also
+                analyzed and used to augment the
+                <code>gpt3.5 model</code>.
+            </li>
+            <li>
+                All <code>LangChain</code> dependencies were
+                deployed by a <code>Docker image</code>
+                through <code>ECR (Elastic Container Registry)</code>
+                hosted on the <code>EC2</code> instance and
+                used by a <code>Lambda</code> function to
+                connect responses to <code>Lex</code>.
+            </li>
+            <li>
+                The expert interface designed for SMEs to review
+                and update chatbot answers was connected to
+                the rest of the backend architecture using 
+                <code>API Gateway</code> and <code>Lambda</code>
+                functions.
+            </li>
+            <li>
+                The metadata from the chatbot as well as
+                the data collected from the SMEs were stored
+                in <code>DynamoDB</code>.
+            </li>
             (Note: This project had a front-end developer)
             <br>
             The chatbot provided accurate results
