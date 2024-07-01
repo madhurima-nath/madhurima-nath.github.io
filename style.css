@@ -144,3 +144,11 @@ a:hover {
 		font-size: 1.3em;
 	}
 }
+
+
+/* red asterisks for mandatory fields 
+.required-field::after {
+  content: "*";
+  color: red;
+  margin-left:2px
+}*/
