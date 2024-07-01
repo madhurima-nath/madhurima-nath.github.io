@@ -145,6 +145,11 @@ a:hover {
 	}
 }
 
+.form {
+	float: rught;
+	margin-left: 30px;
+}
+
 
 /* red asterisks for mandatory fields 
 .required-field::after {
