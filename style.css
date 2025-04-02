@@ -29,7 +29,7 @@ body {
 }
 
 .side-image {
-	width: 100%;
+	width: 10%;
 	max-width: 210px;
 	display: block;
 	margin: 20px auto;
@@ -67,6 +67,31 @@ body {
 	position: relative;
 }
 
+.tab {
+	display: block;
+	padding: 15px 25px;
+	text-decoration: none;
+	color: #333;
+	font-weight: bold;
+	transition: background-color 0.3s;
+}
+
+.tab:hover {
+	background-color: #f0f0f0;
+}
+
+.dropdown-content a {
+	display: none;
+	position: absolute;
+	top: 100%;
+	left: 0;
+	background-color: #fff;
+	min-width: 200px;
+	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+	z-index: 1;
+	border-radius: 0 0 5px 5px;
+}
+
 .dropdown-content a {
 	color: #333;
 	padding: 12px 16px;
@@ -82,6 +107,17 @@ body {
 /* show dropdown on hover */
 .dropdown:hover .dropdown-content {
 	display: block;
+}
+
+/* active tab and dropdown item styling */
+.tab.active {
+	background-color: #e0e0ee;
+	color: #2c3e50;
+}
+
+.dropdown-content a.active {
+	background-color: #f0f0f0;
+	font-weight: bold;
 }
 
 /* introduction styling */
