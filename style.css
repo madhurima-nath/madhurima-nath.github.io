@@ -16,28 +16,8 @@ body {
 }
 
 .container {
-	display: flex;
-	min-height: 100vh;
-}
-
-/* sidebar with image  */
-.sidebar {
-	width: 250px;
-	background-color: #f0f0f0;
-	padding: 20px;
-	box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-}
-
-.side-image {
-	width: 10%;
-	max-width: 210px;
-	display: block;
-	margin: 20px auto;
-}
-
-/* main content area */
-.main-content {
-	flex: 1;
+	max-width: 1200px;
+	margin: 0 auto;
 	padding: 20px;
 }
 
@@ -58,15 +38,6 @@ body {
 	position: relative;
 }
 
-.tab:hover {
-	background-color: #f0f0f0;
-}
-
-/* dropdown style */
-.dropdown {
-	position: relative;
-}
-
 .tab {
 	display: block;
 	padding: 15px 25px;
@@ -80,6 +51,58 @@ body {
 	background-color: #f0f0f0;
 }
 
+/* content wrapper for side by side layout*/
+.content-wrapper {
+	display: flex;
+	gap: 30px;
+}
+
+/* sidebar with image  */
+.sidebar {
+	flex: 0 0 300px; /* fixed width */
+	background-color: #f0f0f0;
+	padding: 20px;
+	border-radius: 5px;
+	box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.side-image {
+	width: 100%;
+	display: block;
+}
+
+/* introduction styling */
+.introduction {
+	flex: 1;
+	background-color: #fff;
+	padding: 25px;
+	border-radius:  5px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.introduction h1 {
+	margin-bottom: 20px;
+	color: #2c3e50;
+}
+
+.introduction p {
+	margin-bottom: 15px;
+}
+
+.introduction a:hover {
+	text-decoration: underline;
+}
+
+.introduction ul {
+	margin-left: 20px;
+	margin-top: 10px;
+}
+
+/* dropdown style - fixed to hide until hover*/
+.dropdown {
+	position: relative;
+}
+
 .dropdown-content a {
 	display: none;
 	position: absolute;
@@ -88,7 +111,7 @@ body {
 	background-color: #fff;
 	min-width: 200px;
 	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-	z-index: 1;
+	z-index: 100;
 	border-radius: 0 0 5px 5px;
 }
 
@@ -115,36 +138,6 @@ body {
 	color: #2c3e50;
 }
 
-.dropdown-content a.active {
-	background-color: #f0f0f0;
-	font-weight: bold;
-}
-
-/* introduction styling */
-.introduction {
-	background-color: #fff;
-	padding: 25px;
-	border-radius:  5px;
-	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.introduction h1 {
-	margin-bottom: 20px;
-	color: #2c3e50;
-}
-
-.introduction p {
-	margin-bottom: 15px;
-}
-
-.introduction a:hover {
-	text-decoration: underline;
-}
-
-.introduction ul {
-	margin-left: 20px;
-	margin-top: 10px;
-}
 
 hr {
 	border: none;
@@ -212,17 +205,18 @@ a:hover {
 /* Make site responsive for mobile screens */
 
 @media(max-width: 768px) {
-	.container {
+	.content-wrapper {
 		flex-direction: column;
 	}
 
 	.sidebar {
+		flex: none;
 		width: 100%;
-		padding: 10px;
 	}
 
-	.side-image {
-		max-width: 150px;
+	.sidebar {
+		flex: none;
+		width: 100%;
 	}
 	
 	.nav-tabs ul {
