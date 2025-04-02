@@ -1,7 +1,7 @@
 /* General settings */
 
 * {
-	margin: 0;
+	margin: 10px;
 	padding: 0;
 	box-sizing: border-box;
 }
@@ -17,7 +17,7 @@ body {
 /* header with title and navigation */
 .site-header {
 	background-color: #fff;
-	padding: 15px 30px;
+	padding: 25px 30px;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -34,8 +34,8 @@ body {
 .nav-tabs {
 	background-color: #f8f8f8;
 	border-radius: 5px;
-	padding: 5px;
-	border: 1px solid #e0e0e0;
+	padding: 15px;
+	border: 2px solid #e0e0e0;
 	/* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
 }
 
