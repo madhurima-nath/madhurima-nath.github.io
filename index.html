@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1>
     <meta name="keywords" content="madhurima nath, machine learning, 
     data science, computational physics, 
     epidemic modeling, network reliability, AI/ML, genai, 
@@ -16,23 +16,60 @@
 </head>
 
 <body>
-    <header>
-        <h1>Madhurima Nath</h1>
-    </header>
+    <div class="container">
+        <!--left side image-->
+        <div class="sidebar">
+            <img src="images/madhurima_nath.jpg" alt="Portrait", class="side-image">
+        </div>
+    </div>
 
-    <nav>
-        <ul>
-            <li>Home</li>
-            <li><a href="genaiProjects.html">GenAI Projects</a></li>
-            <li><a href="nlpProjects.html">NLP Projects</a></li>
-            <li><a href="research.html">Research</a></li>
-            <li><a href="teaching.html">Teaching</a></li>
-        </ul>
-    </nav>
+    <!--main content area-->
+    <div class="main-content">
+        <!--navigation tabs with dropdowns-->
+        <nav class="nav-tabs">
+            <ul>
+                <li><a href="experience.html">About</a></li>
+                <li class="dropdown">
+                    <a href="genaiProjects.html">GenAI Chatbots</a>
+                    <div class="dropdown-content">
+                        <a ref = "finance.html">Finance</a>
+                        <a ref = "healthtech.html">Health Tech</a>
+                        <a ref = "rentals.html">Rentals</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="nlpProjects.html">NLP</a>
+                    <div class="dropdown-content">
+                        <a ref = "topic.html">Topic Modeling</a>
+                        <a ref = "classify.html">Text Classification</a>
+                    </div>
+                </li>
+                <li><a href="research.html">Research</a></li>
+                <li><a href="teaching.html">Teaching</a></li>
+                <li><a href="outreach.html">Outreach</a></li>
+            </ul>
+        </nav>
 
-    <main>
+        <!--introduction section-->
+        <section class="introduction">
+            <p>
+                Short introduction.
+            </p>
+            <p>
+                Refer to:
+                <ul>
+                    <li>
+                        <a href="#" onclick="document.querySelector('.dropdown:nth-child(2).tab').click()">
+                            Resources in Tab 2
+                        </a>
+                    </li>
+                </ul>
+            </p>
+        </section>
+    </div>
+
         <p>
-            <img src="images/madhurima_nath.jpg" alt="Portrait">
+            
             As a senior data scientist at Slalom, Inc., 
             I have developed innovative Generative AI tools,
             deployed Natural Language Processing (NLP) solutions,
