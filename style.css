@@ -66,7 +66,7 @@ body {
 
 /* main content container */
 .container {
-	max-width: 1200px;
+	max-width: 1000px;
 	margin: 30px auto;
 	padding: 0 20px;
 }
@@ -74,17 +74,13 @@ body {
 /* content wrapper for side by side layout*/
 .content-wrapper {
 	display: flex;
-	gap: 30px;
+	gap: 50px;
 	align-items: flex-start;
 }
 
 /* sidebar with image  */
 .sidebar {
-	flex: 0 0 150px; /* fixed width */
-	/* background-color: #f0f0f0;
-	padding: 20px;
-	border-radius: 5px;
-	box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); */
+	flex: 0 0 150px; 
 }
 
 .side-image {
