@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="keywords" content="madhurima nath, machine learning, 
+    data science, computational physics, 
+    epidemic modeling, network reliability, AI/ML, genai, 
+    diffusive processes, graph dynamical systems, physics">
+    <meta name="author" content="Madhurima Nath">
+    <meta name="description" content="Personal homepage of Dr. Madhurima Nath">
+    
+    <title>Madhurima Nath</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Madhurima Nath</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</li></a>
+            <li><a href="genaiProjects.html">GenAI Projects</a></li>
+            <li>NLP Projects</a></li>
+            <li><a href="research.html">Research</a></li>
+            <li><a href="teaching.html">Teaching</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        
+        <h2 style="color: #0A65C1;">
+            Healthcare Q&A virtual assistant
+        </h2> 
+        <p>
+            A healthcare technology start-up client wanted
+            to improve their application interface by 
+            incorporating GenAI to boost customer experience.
+            At the current state, the interface performed
+            clustering on the biopharmaceutical and medtech datasets
+            and generated plots representing the different groups.
+            The objective was to build a Q&A chatbot to
+            assist both experts and non-medical users 
+            to easily gain insights from these plots.
+            A prototype chatbot powered by the 
+            <code>Anthropic Claude LLM</code> on AWS Bedrock
+            was 
+            <br>
+            Ingesting data as-is in the <code>LLM prompt</code>
+            increased latency, token usage and thus cost.
+            Pre-processing data to extract relevant information
+            and summarizing it helped to improve accuracy and reduce
+            latency.
+            Implementing <code>LLM agent</code> with carefully
+            designed prompt and the appropriate tools provided
+            a flexible framework to answer various types questions,
+            as well as the capability to expand the scope of
+            questions in the future. 
+            <br>
+            Note: We were not responsible for the front-end development.
+            <br><br>
+            <b>
+                Solution architecture
+            </b>
+            <img src="images/SolutionArchChatbot.jpg"
+            style="max-width: 100%;">
+            <li>
+                The numeric results from the clustering analysis
+                were parsed to extract the relevant information
+                from the structured <samp>json</samp> heatmaps.
+            </li>
+            <li>
+                LLM pipeline #1: <code>LLM chain</code> 
+                to summarize descriptions
+                of characteristics of each group which represent
+                various medical conditions or symptoms.
+            </li>
+            <li>
+                LLM pipeline #2: <code>LLM chain</code>
+                to propose a name for each group/clusters
+                from the graphs.
+            </li>
+            <li>
+                LLM pipeline #3: <code>LangChain agent</code>
+                to answer questions about the groups.
+                <li>
+                    A custom agent to interact with AWS Bedrock
+                    and Anthropic Claude.
+                </li>
+                <li>
+                    Graph specific question tools to gain
+                    answers from the heatmaps.
+                </li>
+            </li>
+            At the end of the engagement we were able to deliver
+            a fully functioning chatbot that could be
+            integrated with their existing application interface.
+        </p>
+
+        <b style="color: #0A65C1;">
+            Knowledge support tool for sales representatives
+        </b>
+        <p>
+            A leading equipment rental firm chose to build
+            a GenAI knowledge-based chatbot as their
+            inaugural digital innovation initiative.
+            This tool would leverage custom client data 
+            in order to assist sales representatives
+            respond to customer inquiries quicker,
+            serve as an internal training hub and
+            replace manual document searches. 
+            In addition, internal SMEs (subject matters experts)
+            needed the ability to review and update
+            any response that was flagged by the end users
+            as an incorrect or incomplete.
+            I worked with a cloud engineer to deploy
+            this chatbot using <code>OpenAI</code> on AWS platform,
+            and implemented a RAG (Retrieval-Augmented Generation)
+            approach.
+            <br>
+            To understand their domain and provide relevant
+            answers from their data, various documents (both 
+            structured - <samp>csv, json</samp>
+            and unstructured - <samp>pdf, html</samp>) were
+            ingested into <code>S3 bucket</code> 
+            to create a knowledge base.
+            Employing RAG architecture was essential to augment
+            the <code>OpenAI LLM</code> model and
+            provide accurate responses.
+            <code>Chroma</code> vectorstore was used
+            to store the embeddings.
+            Multiple <code>Lambda</code> functions were assigned
+            to handle different parts of the solution, i.e., 
+            processing input, returning <code>OpenAI</code> response,
+            updating database with feedback from SMEs etc.
+            <code>Lex</code> was the backbone of the solution,
+            providing all NLP and NLU capabilities to understand
+            user questions and determine best possible answers.
+            <br>
+            Note: There was a front-end developer who was
+            responsible for the user interface.
+            <br>
+            <b>
+            Solution architecture
+            </b>
+            <img src="images/SolutionArchRAG.JPG" style="max-width: 100%;">            
+            <li>
+                Lex processed user input and triggered
+                <code>OpenAI Lambda</code> to get response.
+                <code>LangChain RetrievalQA Chain</code>
+                was implemented to answer user query in a
+                conversational manner.
+                The prompt template was designed as per
+                the requirements from the clinets, e.g.,
+                answers formatted into a list
+                wherever possible (and when requested by the user),
+                provide hyperlinks to resources referenced
+                in the answers, etc.
+            </li>
+            <li>
+                <code>Sagemaker</code> was used to
+                preprocess all the documents used for RAG approach,
+                stored in <code>S3 bucket</code>.
+                Data from <code>DynamoDB</code> was also
+                analyzed and used to generate embeddings using
+                <code>gpt3.5 model</code>.
+            </li>
+            <li>
+                All <code>LangChain</code> dependencies were
+                deployed by a <code>Docker image</code>
+                through <code>ECR (Elastic Container Registry)</code>
+                hosted on the <code>EC2</code> instance and
+                used by a <code>Lambda</code> function to
+                connect responses to <code>Lex</code>.
+            </li>
+            <li>
+                The expert interface designed for SMEs to review
+                and update chatbot answers was connected to
+                the rest of the backend architecture using 
+                <code>API Gateway</code> and <code>Lambda</code>
+                functions.
+            </li>
+            <li>
+                The metadata from the chatbot as well as
+                the data collected from the SMEs were stored
+                in <code>DynamoDB</code>.
+            </li>
+            The chatbot provided accurate results
+            when tested extensively by the
+            users from the firm on a variety of questions.
+            There was also a ~22% reduction in response
+            time of customer inquiries.    
+        </p>
+
+    <hr>
+
+        <h2>
+            Natural Language Processing (NLP) Projects
+        </h2>
+        
+        <b style="color: #0A65C1;;">
+            Optimizing multi-billion dollars spend portfolio for 
+            global procurement
+        </b>
+        <p>
+            The procurement group of
+            one of world's largest CPG (consumer product goods) companies
+            struggled to gain visibility across its $34B spend
+            portfolio due to lack of
+            a single source of truth and manual practices.
+            Achieving a small percentage (~2-3%) efficiency gain in the 
+            data collection, cleansing, consolidation and 
+            reporting would result in savings of millions of dollars.
+            In its current state, the data was
+            spread across multiple disparate ERP
+            (Enterprise Resource Planning) platforms,
+            with no common
+            definitions or taxonomy structure for key data objects,
+            i.e., product hierarchy, spend categories, supplier
+            family etc., and weeks long exercise of manual 
+            data collection and consolidation from internal systems 
+            and asking around external suppliers etc.
+            <br>
+            After an extensive discovery process, the team
+            designed and implemented an end-to-end Azure
+            Databricks delta lakehouse solution architecture:
+            <li>
+                metadata driven, reusable data ingestion, 
+                cleansing and processing pipelines
+            </li>
+            <li>
+                product taxonomy harmonization using
+                NLP models with MLOps integrated pipelines
+            </li>
+            <li>
+                a set of dashboards showing key metrics and
+                KPIs (key performance indicators)
+            </li>
+            <li>
+                DevOps CI/CD framework to deploy the solution
+            </li>
+            This accelerated the data foundation roadmap by over a year, 
+            delivered improved visibility, uniformity, and 
+            consistency, and resulting in significant efficiency 
+            gains.
+        </p>
+
+        <b style="color: blue;">
+            Utility (To be completed)
+        </b>
+        <p>
+        Directed the implementation of NLP 
+        pipelines in Azure Databricks for sentiment analysis 
+        and topic modeling to extract safety-related themes. 
+        Empowered the executive safety committee of a large 
+        Midwest utility client to refine policies, ensuring 
+        employee safety and reducing incident frequency and severity.
+        </p>
+
+    </main>
