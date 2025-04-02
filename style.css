@@ -42,7 +42,7 @@ body {
 .nav-tabs ul {
 	display: flex;
 	list-style: none;
-	gap: 20px; /* space between tabs */
+	gap: 25px; /* space between tabs */
 }
 
 .nav-tabs li {
@@ -53,9 +53,9 @@ body {
 	display: block;
 	padding: 10px 20px;
 	text-decoration: none !important;
-	color: #4a6fa5 !important;
+	color: #1e86b0 !important;
 	font-weight: bold;
-	font-size: 20px;
+	font-size: 30px;
 	transition: all 0.3s;
 	border-radius: 4px;
 }
