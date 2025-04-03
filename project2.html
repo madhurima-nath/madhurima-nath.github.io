@@ -1,73 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1>
+    <meta name="keywords" content="madhurima nath, machine learning, 
+    data science, computational physics, 
+    epidemic modeling, network reliability, AI/ML, genai, 
+    diffusive processes, graph dynamical systems, physics">
+    <meta name="author" content="Madhurima Nath">
+    <meta name="description" content="Personal homepage of Dr. Madhurima Nath">
+    
+    <title>Project 2</title>
+    <link rel="stylesheet" href="style.css">
 
+    <!--home icon-->
+    <link rel="stylesheet" href="https://cdnjs.cloudfare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
 
+<body>
+    <!--header with title and navigation-->
+    <header class="site-header">
+        <div class="site-title">
+            <h1>Madhurima Nath</h1>
+        </div>
 
+        <!--navigation tabs with dropdowns-->
+        <nav class="nav-tabs">
+            <ul>
+                <!--home tab with icon-->
+                <li class="no-dropdown">
+                    <a href="index.html" class="tab"><i class="fa fa-home"></i></a>
+                </li>
+                <!-- tab without dropdown -->
+                <li class="no-dropdown">
+                    <a href="experience.html" class="tab">About</a>
+                </li>
+                <li class="dropdown current-page">
+                    <a href="#" class="tab">Chatbots</a>
+                    <div class="dropdown-content">
+                        <a href = "project1.html">Project 1</a>
+                        <a href = "project2.html" class="active">Project 2</a>
+                        <a href = "project3.html">Project 3</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="nlpProjects.html" class="tab">NLP</a>
+                    <div class="dropdown-content">
+                        <a ref = "topic.html">Topic Modeling</a>
+                        <a ref = "classify.html">Text Classification</a>
+                    </div>
+                </li>
+                <li class="no-dropdown">
+                    <a href="research.html" class="tab">Research</a>
+                </li>
+                <li class="no-dropdown">
+                    <a href="teaching.html" class="tab">Teaching</a>
+                </li>
+                <li class="no-dropdown">
+                    <a href="outreach.html" class="tab">Outreach</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
 
+    <!--main content container-->
+    <div class="container">
+        <!--breadcrumb navigation-->
+        <div class="breadcrumb">
+            <a href="index.html" class="tab"><i class="fa fa-home"></i></a> &gt;
+            <a href="#">Chatbots</a> &gt;
+            <span class="current">Project 2</span>
+        </div>
 
-<h2 style="color: #0A65C1;">
-    Healthcare Q&A virtual assistant
-</h2> 
-<p>
-    A healthcare technology start-up client wanted
-    to improve their application interface by 
-    incorporating GenAI to boost customer experience.
-    At the current state, the interface performed
-    clustering on the biopharmaceutical and medtech datasets
-    and generated plots representing the different groups.
-    The objective was to build a Q&A chatbot to
-    assist both experts and non-medical users 
-    to easily gain insights from these plots.
-    A prototype chatbot powered by the 
-    <code>Anthropic Claude LLM</code> on AWS Bedrock
-    was 
-    <br>
-    Ingesting data as-is in the <code>LLM prompt</code>
-    increased latency, token usage and thus cost.
-    Pre-processing data to extract relevant information
-    and summarizing it helped to improve accuracy and reduce
-    latency.
-    Implementing <code>LLM agent</code> with carefully
-    designed prompt and the appropriate tools provided
-    a flexible framework to answer various types questions,
-    as well as the capability to expand the scope of
-    questions in the future. 
-    <br>
-    Note: We were not responsible for the front-end development.
-    <br><br>
-    <b>
-        Solution architecture
-    </b>
-    <img src="images/SolutionArchChatbot.jpg"
-    style="max-width: 100%;">
-    <li>
-        The numeric results from the clustering analysis
-        were parsed to extract the relevant information
-        from the structured <samp>json</samp> heatmaps.
-    </li>
-    <li>
-        LLM pipeline #1: <code>LLM chain</code> 
-        to summarize descriptions
-        of characteristics of each group which represent
-        various medical conditions or symptoms.
-    </li>
-    <li>
-        LLM pipeline #2: <code>LLM chain</code>
-        to propose a name for each group/clusters
-        from the graphs.
-    </li>
-    <li>
-        LLM pipeline #3: <code>LangChain agent</code>
-        to answer questions about the groups.
-        <li>
-            A custom agent to interact with AWS Bedrock
-            and Anthropic Claude.
-        </li>
-        <li>
-            Graph specific question tools to gain
-            answers from the heatmaps.
-        </li>
-    </li>
-    At the end of the engagement we were able to deliver
-    a fully functioning chatbot that could be
-    integrated with their existing application interface.
-</p>
+        <!--main content-->
+        <div class="page-content">
+            <h2 style="color: #0A65C1;">
+                Healthcare Q&A virtual assistant
+            </h2> 
+            <p>
+                A healthcare technology start-up client wanted
+                to improve their application interface by 
+                incorporating GenAI to boost customer experience.
+                At the current state, the interface performed
+                clustering on the biopharmaceutical and medtech datasets
+                and generated plots representing the different groups.
+                The objective was to build a Q&A chatbot to
+                assist both experts and non-medical users 
+                to easily gain insights from these plots.
+                A prototype chatbot powered by the 
+                <code>Anthropic Claude LLM</code> on AWS Bedrock
+                was 
+                <br>
+                Ingesting data as-is in the <code>LLM prompt</code>
+                increased latency, token usage and thus cost.
+                Pre-processing data to extract relevant information
+                and summarizing it helped to improve accuracy and reduce
+                latency.
+                Implementing <code>LLM agent</code> with carefully
+                designed prompt and the appropriate tools provided
+                a flexible framework to answer various types questions,
+                as well as the capability to expand the scope of
+                questions in the future. 
+                <br>
+                Note: We were not responsible for the front-end development.
+                <br><br>
+                <b>
+                    Solution architecture
+                </b>
+                <img src="images/SolutionArchChatbot.jpg"
+                style="max-width: 100%;">
+                <li>
+                    The numeric results from the clustering analysis
+                    were parsed to extract the relevant information
+                    from the structured <samp>json</samp> heatmaps.
+                </li>
+                <li>
+                    LLM pipeline #1: <code>LLM chain</code> 
+                    to summarize descriptions
+                    of characteristics of each group which represent
+                    various medical conditions or symptoms.
+                </li>
+                <li>
+                    LLM pipeline #2: <code>LLM chain</code>
+                    to propose a name for each group/clusters
+                    from the graphs.
+                </li>
+                <li>
+                    LLM pipeline #3: <code>LangChain agent</code>
+                    to answer questions about the groups.
+                    <li>
+                        A custom agent to interact with AWS Bedrock
+                        and Anthropic Claude.
+                    </li>
+                    <li>
+                        Graph specific question tools to gain
+                        answers from the heatmaps.
+                    </li>
+                </li>
+                At the end of the engagement we were able to deliver
+                a fully functioning chatbot that could be
+                integrated with their existing application interface.
+            </p>
+            
+        </div>
+    </div>
+
+    <!--footer-->
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2025 Website Title. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
+
