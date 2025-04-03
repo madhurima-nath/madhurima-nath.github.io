@@ -1,7 +1,7 @@
 /* General settings */
 
 * {
-	margin: 5px;
+	margin: 15px;
 	padding: 0;
 	box-sizing: border-box;
 }
@@ -37,7 +37,7 @@ body {
 }
 
 .site-title h1 {
-	font-size: 30px;
+	font-size: 40px;
 	color:  #174293;
 	font-weight: bold;
 }
@@ -78,7 +78,6 @@ body {
 /* home icon color */
 .fa-home {
 	color: #0b5474;
-	font-size: 18px;
 }
 
 /* current page highlighting */
