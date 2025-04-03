@@ -1,0 +1,73 @@
+
+
+
+
+
+
+<h2 style="color: #0A65C1;">
+    Healthcare Q&A virtual assistant
+</h2> 
+<p>
+    A healthcare technology start-up client wanted
+    to improve their application interface by 
+    incorporating GenAI to boost customer experience.
+    At the current state, the interface performed
+    clustering on the biopharmaceutical and medtech datasets
+    and generated plots representing the different groups.
+    The objective was to build a Q&A chatbot to
+    assist both experts and non-medical users 
+    to easily gain insights from these plots.
+    A prototype chatbot powered by the 
+    <code>Anthropic Claude LLM</code> on AWS Bedrock
+    was 
+    <br>
+    Ingesting data as-is in the <code>LLM prompt</code>
+    increased latency, token usage and thus cost.
+    Pre-processing data to extract relevant information
+    and summarizing it helped to improve accuracy and reduce
+    latency.
+    Implementing <code>LLM agent</code> with carefully
+    designed prompt and the appropriate tools provided
+    a flexible framework to answer various types questions,
+    as well as the capability to expand the scope of
+    questions in the future. 
+    <br>
+    Note: We were not responsible for the front-end development.
+    <br><br>
+    <b>
+        Solution architecture
+    </b>
+    <img src="images/SolutionArchChatbot.jpg"
+    style="max-width: 100%;">
+    <li>
+        The numeric results from the clustering analysis
+        were parsed to extract the relevant information
+        from the structured <samp>json</samp> heatmaps.
+    </li>
+    <li>
+        LLM pipeline #1: <code>LLM chain</code> 
+        to summarize descriptions
+        of characteristics of each group which represent
+        various medical conditions or symptoms.
+    </li>
+    <li>
+        LLM pipeline #2: <code>LLM chain</code>
+        to propose a name for each group/clusters
+        from the graphs.
+    </li>
+    <li>
+        LLM pipeline #3: <code>LangChain agent</code>
+        to answer questions about the groups.
+        <li>
+            A custom agent to interact with AWS Bedrock
+            and Anthropic Claude.
+        </li>
+        <li>
+            Graph specific question tools to gain
+            answers from the heatmaps.
+        </li>
+    </li>
+    At the end of the engagement we were able to deliver
+    a fully functioning chatbot that could be
+    integrated with their existing application interface.
+</p>
