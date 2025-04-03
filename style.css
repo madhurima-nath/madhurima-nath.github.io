@@ -50,7 +50,7 @@ body {
 .nav-tabs ul {
 	display: flex;
 	list-style: none;
-	gap: 15px; /* space between tabs */
+	gap: 5px; /* space between tabs */
 	border-bottom: 1px solid #04458f;
 	padding-bottom: 0;
 }
@@ -62,9 +62,9 @@ body {
 
 .tab {
 	display: block;
-	padding: 10px 15px;
+	padding: 5px 5px;
 	text-decoration: none !important;
-	color: #118285 !important;
+	color: #076a77 !important;
 	font-weight: bold;
 	font-size: 20px !important;
 	transition: all 0.3s;
@@ -73,24 +73,25 @@ body {
 
 /* home icon color */
 .fas.fa-home {
-	color: #0b5474 !important;
+	color: #013146 !important;
 	font-size: 18px;
 }
 
 /* current page highlighting */
 .current-page .tab {
 	background-color: #cce0f1bb;
+	opacity: 0.3;
 	border-bottom: 3px solid #5280f8;
 	margin-bottom: -1px;
 }
 
 /* content wrapper for side by side layout*/
-.content-wrapper {
+/* .content-wrapper {
 	display: flex;
 	gap: 30px;
 	align-items: flex-start;
 	margin-top: 30px;
-}
+} */
 
 /* sidebar with image  - aligned with header*/
 .sidebar {
