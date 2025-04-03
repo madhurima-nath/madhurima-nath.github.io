@@ -32,17 +32,17 @@ body {
 
 /* navigation tabs styling */
 .nav-tabs {
-	background-color: #f8f8f8;
+	background-color: #f8f8f8; /* need to change */
 	border-radius: 5px;
-	padding: 5px;
-	border: 2px solid #e0e0e0;
+	padding: 2px;
+	border: 1px solid #e0e0e0;
 	/* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
 }
 
 .nav-tabs ul {
 	display: flex;
 	list-style: none;
-	gap: 25px; /* space between tabs */
+	gap: 20px; /* space between tabs */
 }
 
 .nav-tabs li {
@@ -110,7 +110,7 @@ body {
 }
 
 a, a:link, a:visited, a:active, a:hover {
-	text-decoration: none;
+	text-decoration: none !important;
 }
 
 .introduction a, .introduction a:visited {
