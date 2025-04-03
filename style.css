@@ -16,7 +16,7 @@ body {
 
 /* container for consistent width */
 .container {
-	max-width: 1000px;
+	max-width: 950px;
 	margin: 0 auto;
 	padding: 0 30px;
 }
@@ -24,14 +24,10 @@ body {
 /* header with title and navigation */
 .site-header {
 	background-color: #fff;
-	padding: 15px 0;
-}
-
-.site-header {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	max-width: 1200px;
+	max-width: fit-content;
 	margin: 0 auto;
 	padding: 15px 30px;
 }
@@ -42,12 +38,13 @@ body {
 	font-weight: bold;
 }
 
-
 /* navigation tabs styling */
 .nav-tabs {
 	background-color: transparent;
 	padding: 0;
 	border: none;
+	display: flex;
+	align-items: flex-end;
 }
 
 .nav-tabs ul {
@@ -56,11 +53,11 @@ body {
 	gap: 15px; /* space between tabs */
 	border-bottom: 1px solid #04458f;
 	padding-bottom: 0;
-	align-items: flex-end;
 }
 
 .nav-tabs li {
 	position: relative;
+	margin-bottom: -1px;
 }
 
 .tab {
@@ -69,23 +66,22 @@ body {
 	text-decoration: none !important;
 	color: #118285 !important;
 	font-weight: bold;
-	font-size: 30px;
+	font-size: 30px !important;
 	transition: all 0.3s;
 	border-radius: 4px 4px 0 0;
-	line-height: 1;
 }
 
 /* home icon color */
-.fa-home {
-	color: #0b5474;
+.fas.fa-home {
+	color: #0b5474 !important;
+	font-size: 18px;
 }
 
 /* current page highlighting */
 .current-page .tab {
 	background-color: #cce0f1bb;
 	border-bottom: 3px solid #5280f8;
-	position: relative;
-	bottom: -1px;
+	margin-bottom: -1px;
 }
 
 /* content wrapper for side by side layout*/
@@ -99,7 +95,6 @@ body {
 /* sidebar with image  - aligned with header*/
 .sidebar {
 	flex: 0 0 150px; 
-	margin-left: 0;
 }
 
 .side-image {
@@ -213,7 +208,7 @@ a, a:link, a:visited, a:active, a:hover {
 }
 
 
-hr {
+/* hr {
 	border: none;
 	border-top: 3px double #333;
 	color: #333;
@@ -228,7 +223,7 @@ hr:after {
 	padding: 0 4px;
 	position: relative;
 	top: -13px;
-}
+} */
 
 
 /* Make site responsive for mobile screens */
