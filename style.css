@@ -218,6 +218,7 @@ a, a:link, a:visited, a:active, a:hover {
 }
 
 .dropbtn {
+	background-color: transparent;
 	text-decoration: none !important;
 	color: #076a77 !important;
 	padding: 10px 15px;
