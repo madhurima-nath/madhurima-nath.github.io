@@ -56,7 +56,7 @@ body {
 .nav-tabs ul {
 	display: flex;
 	list-style: none;
-	gap: 2px; /* space between tabs */
+	gap: 4px; /* space between tabs */
 	border-bottom: 1px solid #04458f;
 	margin: 0;
 	padding: 0;
