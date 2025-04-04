@@ -78,6 +78,10 @@ body {
 	border-radius: 4px 4px 0 0;
 }
 
+.nav-tabs:hover .tab {
+	background-color: #cce0f1bb;
+}
+
 /* home icon color */
 .fas.fa-home {
 	/* color: #013146 !important; */
@@ -213,7 +217,7 @@ a, a:link, a:visited, a:active, a:hover {
 }
 
 .dropdown:hover .dropbtn {
-	background-color: #5280f8;
+	background-color: #cce0f1bb;
 }
 
 /* show dropdown on hover */
@@ -235,11 +239,8 @@ a, a:link, a:visited, a:active, a:hover {
 }
   
 .dropbtn:hover, .dropbtn:focus {
-background-color: #2980B9;
+background-color: #d3e7f5;
 }
-  
-/* .show {display: block;} */
-
 
 /* breadcrumb navigation */
 .breadcrumb {
