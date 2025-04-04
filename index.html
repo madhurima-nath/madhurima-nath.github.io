@@ -51,7 +51,17 @@
                             <a ref = "nlpProjects.html">Topic Modeling</a>
                             <a ref = "classify.html">Text Classification</a>
                         </div>
+                        <input type=button value="Go" onclick="goToNewPage()" />
                     </li>
+                    <script type="text/javascript">
+                        function goToNewPage()
+                        {
+                            var url = document.getElementById('list').value;
+                            if(url != 'none') {
+                                window.location = url;
+                            }
+                        }
+                    </script>
                     <script>
                     /* When the user clicks on the button, 
                     toggle between hiding and showing the dropdown content */
