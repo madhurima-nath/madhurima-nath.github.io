@@ -180,20 +180,20 @@ a, a:link, a:visited, a:active, a:hover {
 /* dropdown style - fixed to hide until hover*/
 .dropdown {
 	position: relative;
+	display: inline-block;
 }
 
 .dropdown-content {
-	visibility: hidden;
-	opacity: 0;
+	display: none;
 	position: absolute;
 	top: 100%;
 	left: 0;
 	background-color: #fff;
 	min-width: 200px;
 	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-	z-index: 100;
-	border-radius: 4px;
-	overflow: hidden;
+	z-index: 1;
+	/* border-radius: 4px;
+	overflow: hidden; */
 }
 
 .dropdown-content a,
@@ -209,7 +209,7 @@ a, a:link, a:visited, a:active, a:hover {
 }
 
 .dropdown-content a:hover {
-	background-color: #f1f1f1;
+	background-color: #ddd;
 	text-decoration: none !important;
 }
 
@@ -217,6 +217,21 @@ a, a:link, a:visited, a:active, a:hover {
 .dropdown:hover .dropdown-content {
 	display: flex;
 }
+
+.dropbtn {
+	background-color: #b7dffa6b;
+	color: #076a77 !important;
+	padding: 16px;
+	font-size: 16px;
+	border: none;
+	cursor: pointer;
+}
+  
+.dropbtn:hover, .dropbtn:focus {
+background-color: #2980B9;
+}
+  
+/* .show {display: block;} */
 
 
 /* breadcrumb navigation */
