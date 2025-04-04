@@ -38,7 +38,7 @@ body {
 }
 
 .site-title h1 {
-	font-size: 30px;
+	font-size: 35px;
 	color:  #174293;
 	font-weight: bold;
 }
@@ -55,7 +55,7 @@ body {
 .nav-tabs ul {
 	display: flex;
 	list-style: none;
-	gap: 5px; /* space between tabs */
+	gap: 2px; /* space between tabs */
 	border-bottom: 1px solid #04458f;
 	margin: 0;
 	padding: 0;
