@@ -192,8 +192,7 @@ a, a:link, a:visited, a:active, a:hover {
 	min-width: 200px;
 	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 	z-index: 1;
-	/* border-radius: 4px;
-	overflow: hidden; */
+
 }
 
 .dropdown-content a,
@@ -219,12 +218,14 @@ a, a:link, a:visited, a:active, a:hover {
 }
 
 .dropbtn {
-	background-color: #b7dffa6b;
+	text-decoration: none !important;
 	color: #076a77 !important;
-	padding: 16px;
-	font-size: 16px;
+	padding: 10px 15px;
+	font-size: 20px;
+	font-weight: bold;
 	border: none;
 	cursor: pointer;
+	border-radius: 4px 4px 0 0;
 }
   
 .dropbtn:hover, .dropbtn:focus {
