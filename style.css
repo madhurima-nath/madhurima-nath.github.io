@@ -8,7 +8,7 @@
 
 html, body {
 	width: 100%;
-	overflow: hidden;
+	overflow-x: hidden;
 }
 
 body {
@@ -17,6 +17,9 @@ body {
 	text-align: left;
 	padding: 0;
 	margin: 0;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
 }
 
 /* container for consistent width */
@@ -25,7 +28,6 @@ body {
 	max-width: 1200px;
 	margin: 0 auto;
 	padding: 20px;
-	overflow: hidden;
 }
 
 /* header with title and navigation */
@@ -49,7 +51,6 @@ body {
 	padding: 0;
 	border: none;
 	margin-left: auto;
-	width: auto;
 }
 
 .nav-tabs ul {
@@ -75,19 +76,19 @@ body {
 	font-size: 20px !important;
 	transition: all 0.3s;
 	border-radius: 4px 4px 0 0;
-	max-width: fit-content;
 }
 
 /* home icon color */
 .fas.fa-home {
-	color: #013146 !important;
+	/* color: #013146 !important; */
+	color: #333;
 	font-size: 18px;
 }
 
 /* current page highlighting */
 .current-page .tab {
 	background-color: #cce0f1bb;
-	opacity: 0.9;
+	opacity: 0.1;
 	border-bottom: 3px solid #5280f8;
 	margin-bottom: -1px;
 }
@@ -191,9 +192,8 @@ a, a:link, a:visited, a:active, a:hover {
 	min-width: 200px;
 	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 	z-index: 100;
-	border-radius: 0 0 5px 5px;
+	border-radius: 4px;
 	overflow: hidden;
-	transition: opacity 0.2s, visibility 0.2s;
 }
 
 .dropdown-content a,
@@ -213,11 +213,9 @@ a, a:link, a:visited, a:active, a:hover {
 	text-decoration: none !important;
 }
 
-
 /* show dropdown on hover */
 .dropdown:hover .dropdown-content {
-	visibility: visible;
-	opacity: 1;
+	display: block;
 }
 
 
@@ -264,6 +262,7 @@ hr:after {
 	color: #666;
 	text-align: center;
 	width: 100%;
+	margin: auto;
 }
 
 .site-footer .container {
