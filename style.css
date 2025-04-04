@@ -92,6 +92,7 @@ body {
 /* current page highlighting */
 .current-page .tab {
 	background-color: #cce0f1bb;
+	color: #076a77;
 	opacity: 0.1;
 	border-bottom: 3px solid #5280f8;
 	margin-bottom: -1px;
