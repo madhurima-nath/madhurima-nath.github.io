@@ -83,10 +83,9 @@ body {
 }
 
 /* home icon color */
-.fas.fa-home {
-	/* color: #013146 !important; */
-	color: #333;
-	font-size: 18px;
+.home-icon {
+	font-size: 2em;
+	color: #076a77;
 }
 
 /* current page highlighting */
