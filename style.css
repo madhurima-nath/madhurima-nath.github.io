@@ -78,7 +78,7 @@ body {
 	border-radius: 4px 4px 0 0;
 }
 
-.nav-tabs:hover .tab {
+.tab:hover .tab:active {
 	background-color: #cce0f1bb;
 }
 
