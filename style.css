@@ -218,6 +218,7 @@ a, a:link, a:visited, a:active, a:hover {
 }
 
 .dropbtn {
+	font-family: 'Times New Roman', Times, serif;
 	background-color: transparent;
 	text-decoration: none !important;
 	color: #076a77 !important;
