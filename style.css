@@ -241,16 +241,6 @@ a, a:link, a:visited, a:active, a:hover {
 background-color: #d3e7f5;
 }
 
-.dropdown-list {
-	position: relative;
-}
-
-.dropdown-list .dropdown-menu {
-	top: 0;
-	left: 100%;
-	margin-top: -1px;
-}
-
 /* breadcrumb navigation */
 .breadcrumb {
 	margin: 20px 0;
