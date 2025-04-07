@@ -37,20 +37,23 @@
                     <li class="dropdown">
                         <button onclick="myFunction()" class="dropbtn">Projects</button>
                         <div id="myDropdown" class="dropdown-content">
-                            <li class="dropdown">
-                            <button onclick="myFunction()" class="dropbtn">Chatbots</button>
-                            <div id="myDropdown" class="dropdown-content">
+                            <li class="dropdown-list">
+                                <a class="test" tabindex="-1" href="#">Chatbots<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                  <li><a href="project1.html">Project 1</a></li>
+                                  <li><a href="project2.html">Project 2</a></li>
+                                </ul>
+                                <a class="test" tabindex="-1" href="#">NLP<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="nlpProjects.html">Topic Modeling</a></li>
+                                    <li><a href="classify.html">Text Classification</a></li>
+                                  </ul>
+                            <!-- <div id="myDropdown" class="dropdown-content">
                                 <a href="project1.html">Project 1</a>
                                 <a href="project2.html">Project 2</a>
                                 <a href="project3.html">Project 3</a>
-                            </div>
+                            </div> -->
                             </li>
-                        <!-- <li class="dropdown">
-                        <button onclick="myFunction()" class="dropbtn">NLP</button>
-                        <div id="myDropdown" class="dropdown-content">
-                            <a href="nlpProjects.html">Topic Modeling</a>
-                            <a href="classify.html">Text Classification</a>
-                        </div> -->
                     </li>
                     <script>
                     /* When the user clicks on the button, 
