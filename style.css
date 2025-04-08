@@ -94,6 +94,9 @@ li:hover li a:hover {
 
 .nav-tabs li ul li {
 	border-top: 0;
+	border-bottom-style: solid;
+	border-bottom-color: #2c3e50;
+	border-bottom-width: 2px;
 }
 
 ul ul ul {
