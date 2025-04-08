@@ -72,7 +72,7 @@ ul li a {
 	text-decoration: none !important;
 	color: #076a77 !important;
 	font-weight: bold ;
-	font-size: 20px !important;
+	font-size: 24px !important;
 	transition: all 0.3s;
 }
 
@@ -145,7 +145,7 @@ ul:after {
 .introduction h2 {
 	margin-bottom: 20px;
 	color: #2c3e50;
-	font-size: 24px;
+	font-size: 20px;
 }
 
 .introduction p {
@@ -197,41 +197,6 @@ a, a:link, a:visited, a:active, a:hover {
 	object-fit: contain;
 }
 
-/* dropdown style - fixed to hide until hover*/
-/* .dropdown {
-	position: relative;
-	display: inline-block;
-} */
-
-/* .dropdown-content a,
-.dropdown-content a:link,
-.dropdown-content a:visited,
-.dropdown-content a:active
- {
-	color: #333 !important;
-	padding: 12px 16px;
-	text-decoration: none !important;
-	display: block;
-	transition: background-color 0.2s;
-}
-
-.dropdown:hover .dropbtn,
-.dropdown:focus {
-	background-color: #cce0f1bb;
-}
-
-.dropbtn {
-	font-family: 'Times New Roman', Times, serif;
-	background-color: transparent;
-	text-decoration: none !important;
-	color: #076a77 !important;
-	padding: 10px 15px;
-	font-size: 20px;
-	font-weight: bold;
-	border: none;
-	cursor: pointer;
-	border-radius: 4px 4px 0 0;
-} */
 
 /* breadcrumb navigation */
 .breadcrumb {
@@ -250,8 +215,7 @@ a, a:link, a:visited, a:active, a:hover {
 	font-weight: bold;
 }
 
-
-/* hr {
+hr {
 	border: none;
 	border-top: 3px double #333;
 	color: #333;
@@ -266,7 +230,7 @@ hr:after {
 	padding: 0 4px;
 	position: relative;
 	top: -13px;
-} */
+}
 
 .site-footer {
 	background-color: #e8f3f5;
