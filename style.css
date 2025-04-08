@@ -75,16 +75,6 @@ ul li a {
 	border-radius: 4px 4px 0 0;
 }
 
-ul li a ul li a ul li a {
-	display: block;
-	padding: 2px 5px;
-	text-decoration: none !important;
-	color: #076a77 !important;
-	font-weight: normal ;
-	font-size: 18px !important;
-	transition: all 0.3s;
-	border-radius: 4px 4px 0 0;
-}
 
 li:hover > ul {
 	display: block;
@@ -95,9 +85,9 @@ li:hover li {
 	float: none;
 }
 
-/* li:hover a {
+li:hover a {
 	background: #cce0f1bb;
-} */
+}
 
 li:hover li a:hover {
 	background: none;
