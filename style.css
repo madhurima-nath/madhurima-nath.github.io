@@ -78,7 +78,7 @@ ul li a {
 
 li:hover > ul {
 	display: block;
-	position: relative;
+	position: absolute;
 }
 
 li:hover li {
@@ -96,7 +96,7 @@ li:hover li a:hover {
 .nav-tabs {
 	border-top: 0;
 	border-bottom-style: solid;
-	border-bottom-color: #2c3e50;
+	border-bottom-color: #315eb4;
 	border-bottom-width: 2px;
 }
 
