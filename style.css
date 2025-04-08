@@ -75,14 +75,6 @@ ul li a {
 	border-radius: 4px 4px 0 0;
 }
 
-ul li a:hover a:active {
-	background-color: #cce0f1bb;
-	color: #076a77;
-	opacity: 0.1;
-	border-bottom: 3px solid #5280f8;
-	margin-bottom: -1px;
-}
-
 li:hover > ul {
 	display: block;
 	position: absolute;
