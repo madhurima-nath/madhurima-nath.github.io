@@ -46,28 +46,25 @@ body {
 }
 
 /* navigation tabs styling */
-.nav-tabs {
-	background-color: transparent;
-	padding: 0;
-	border: none;
-	margin-left: auto;
-}
-
-.nav-tabs ul {
-	display: flex;
+ul {
 	list-style: none;
-	gap: 0.2px; /* space between tabs */
-	border-bottom: 1px solid #04458f;
-	margin: 0;
 	padding: 0;
+	margin: 0;
+	background: #ffff;
 }
 
-.nav-tabs li {
+ul li {
+	display: block;
 	position: relative;
-	margin-bottom: -1px;
+	float: left;
+	background: #ffff;
 }
 
-.tab {
+li ul {
+	display: none;
+}
+
+ul li a {
 	display: block;
 	padding: 10px 15px;
 	text-decoration: none !important;
@@ -78,17 +75,47 @@ body {
 	border-radius: 4px 4px 0 0;
 }
 
-.tab:hover .tab:active {
-	background-color: #cce0f1bb;
-}
-
-/* current page highlighting */
-.current-page .tab {
+ul li a:hover a:active {
 	background-color: #cce0f1bb;
 	color: #076a77;
 	opacity: 0.1;
 	border-bottom: 3px solid #5280f8;
 	margin-bottom: -1px;
+}
+
+li:hover > ul {
+	display: block;
+	position: absolute;
+}
+
+li:hover li {
+	float: none;
+}
+
+li:hover a {
+	background: #fff;
+}
+
+li:hover li a:hover {
+	background: #cce0f1bb;
+}
+
+.nav-tabs li ul li {
+	border-top: 0;
+}
+
+ul ul ul {
+	left: 100%;
+	top: 0;
+}
+
+ul:before, ul:after {
+	content: " "; 
+	display: table;
+}
+
+ul:after {
+	clear: both;
 }
 
 /* content wrapper for side by side layout*/
@@ -176,24 +203,12 @@ a, a:link, a:visited, a:active, a:hover {
 }
 
 /* dropdown style - fixed to hide until hover*/
-.dropdown {
+/* .dropdown {
 	position: relative;
 	display: inline-block;
-}
+} */
 
-.dropdown-content {
-	display: none;
-	position: absolute;
-	top: 100%;
-	left: 0;
-	background-color: #fff;
-	min-width: 200px;
-	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-	z-index: 100;
-
-}
-
-.dropdown-content a,
+/* .dropdown-content a,
 .dropdown-content a:link,
 .dropdown-content a:visited,
 .dropdown-content a:active
@@ -205,18 +220,9 @@ a, a:link, a:visited, a:active, a:hover {
 	transition: background-color 0.2s;
 }
 
-.dropdown-content a:hover {
-	background-color: #ddd;
-	text-decoration: none !important;
-}
-
-.dropdown:hover .dropbtn {
+.dropdown:hover .dropbtn,
+.dropdown:focus {
 	background-color: #cce0f1bb;
-}
-
-/* show dropdown on hover */
-.dropdown:hover .dropdown-content {
-	display: block;
 }
 
 .dropbtn {
@@ -230,11 +236,7 @@ a, a:link, a:visited, a:active, a:hover {
 	border: none;
 	cursor: pointer;
 	border-radius: 4px 4px 0 0;
-}
-  
-.dropdown:hover, .dropdown:focus {
-background-color: #d3e7f5;
-}
+} */
 
 /* breadcrumb navigation */
 .breadcrumb {
