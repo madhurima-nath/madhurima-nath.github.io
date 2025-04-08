@@ -82,11 +82,6 @@ body {
 	background-color: #cce0f1bb;
 }
 
-.home-icon{ 
-	text-decoration: none;
-	cursor: pointer;
-}
-
 /* current page highlighting */
 .current-page .tab {
 	background-color: #cce0f1bb;
@@ -237,7 +232,7 @@ a, a:link, a:visited, a:active, a:hover {
 	border-radius: 4px 4px 0 0;
 }
   
-.dropbtn:hover, .dropbtn:focus {
+.dropdown:hover, .dropdown:focus {
 background-color: #d3e7f5;
 }
 
