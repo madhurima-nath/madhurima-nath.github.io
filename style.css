@@ -134,6 +134,11 @@ ul:after {
 	border-radius: 5px;
 }
 
+.sidebar a:active,
+a:visited {
+	text-decoration: none !important;
+}
+
 /* introduction styling */
 .introduction {
 	flex: 1;
