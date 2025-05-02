@@ -140,7 +140,7 @@ ul:after {
 .content-wrapper {
 	/* display: flex; */
 	gap: 30px;
-	width: 110% !important;
+	width: 100% !important;
 	align-items: flex-start;
 }
 
@@ -296,7 +296,7 @@ hr:after {
 
 
 /* Make site responsive for mobile screens */
-
+/*
 @media(max-width: 900px) {
 	.site-header {
 		flex-direction: column;
@@ -365,7 +365,7 @@ hr:after {
 		opacity: 1;
 		max-height: 500px;
 	}
-}
+} */
 
 
 
