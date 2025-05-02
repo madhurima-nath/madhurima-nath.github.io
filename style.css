@@ -380,7 +380,7 @@ a:hover {
 } */
 
 /* Timeline Container and Line */
-/* .timeline-container {
+.timeline-container {
     position: relative;
     display: flex;
     justify-content: center;
@@ -405,7 +405,7 @@ a:hover {
 }
 
 /* Timeline Entries */
-/*.timeline-entry {
+.timeline-entry {
     position: relative;
     margin-bottom: 4rem;
     width: 45%;
@@ -516,14 +516,14 @@ a:hover {
 .detailed-content p {
     margin-bottom: 1rem;
     line-height: 1.6;
-} */
+} 
 
-/* 
+
 .skills-container {
     margin: 1rem 0;
-} */
+} 
 
-/* .skills-container h5 {
+.skills-container h5 {
     font-size: 0.9rem;
     margin-bottom: 0.5rem;
     color: var(--secondary-color);
@@ -542,9 +542,9 @@ a:hover {
     border-radius: 20px;
     font-size: 0.8rem;
     transition: background-color var(--transition-speed);
-} */
+}
 
-/* .skill-tag.first-occurrence {
+.skill-tag.first-occurrence {
     background-color: #e1f0fa;
     border: 1px solid #3498db;
 }
@@ -561,9 +561,9 @@ a:hover {
 .skill-tag:hover, .skill-reference:hover, 
 .skill-tag.highlighted, .skill-reference.highlighted {
     background-color: #d6eaf8;
-} */
+}
 
-/* .links-container {
+.links-container {
     margin-top: 1rem;
     display: flex;
     gap: 1rem;
@@ -578,6 +578,6 @@ a:hover {
 
 .resource-link i {
     margin-right: 0.4rem;
-} */
+}
 
 /* Entry States */
