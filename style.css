@@ -139,8 +139,7 @@ ul:after {
 /* content wrapper for side by side layout*/
 .content-wrapper {
 	display: flex;
-	gap: 30px;
-	width: 100%;
+	width: 100% !important;
 	align-items: flex-start;
 }
 
