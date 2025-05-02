@@ -140,7 +140,7 @@ ul:after {
 .content-wrapper {
 	display: flex;
 	gap: 30px;
-	width: 100% !important;
+	width: 105% !important;
 	align-items: flex-start;
 }
 
