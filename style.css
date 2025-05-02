@@ -48,9 +48,9 @@ body {
 /* container for consistent width */
 .container {
 	width: 100%;
-	max-width: 1200px;
+	max-width: 1000px;
 	margin: 0 auto;
-	padding: 2px;
+	padding: 0;
 }
 
 /* header with title and navigation */
