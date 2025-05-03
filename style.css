@@ -150,11 +150,6 @@ header .subtitle {
     font-size: 1.2rem;
 } 
 
-main {
-    padding: 2rem 0;
-    max-width: 1200px;
-    margin: 0 auto;
-}
 
 /* introduction styling */
 .introduction {
