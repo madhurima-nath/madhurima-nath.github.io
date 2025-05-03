@@ -252,8 +252,8 @@ hr:after {
 .exp-container {
 	display: grid;
 	gap: 1px;
-	justify-content: space-between;
-	max-width: 500px !important;
+	justify-content: flex-start;
+	max-width: 980px !important;
 	width: 100%;
 }
 
