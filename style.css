@@ -315,12 +315,12 @@ hr:after {
 }
 
 .exp-card-sidebar {
-	flex: 0 0 80px; 
-	max-width: 120px;
+	flex: 0 0 50px; 
+	max-width: 70px;
 }
 
 .exp-card-side-image {
-	width: 100%;
+	width: 80%;
 	display: flex;
 	border-radius: 5px;
 }
