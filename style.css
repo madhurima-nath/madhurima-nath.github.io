@@ -258,7 +258,7 @@ hr:after {
 	display: grid;
 	gap: 5px;
 	justify-content: space-between;
-	max-width: 995px;
+	max-width: 990px;
 	width: 100%;
 }
 
@@ -266,7 +266,7 @@ hr:after {
 	display: flex;
 	flex-direction: column;
 	width: 100%;
-	max-width: 300px;
+	max-width: 290px;
 	height: 100%;
 	padding: 2px;
 	border-radius: 2px;
@@ -329,7 +329,7 @@ hr:after {
 	display: grid;
 	gap: 8px;
 	justify-content: space-between;
-	max-width: 998px;
+	max-width: 990px;
 	width: 100%;
 }
 
@@ -337,7 +337,7 @@ hr:after {
 	display: flex;
 	flex-direction: column;
 	width: 100%;
-	max-width: 250px;
+	max-width: 330px;
 	height: 100%;
 	padding: 2px;
 	border-radius: 2px;
