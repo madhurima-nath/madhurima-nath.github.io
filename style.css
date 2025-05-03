@@ -253,8 +253,8 @@ hr:after {
 	display: grid;
 	gap: 2px;
 	justify-content: space-between;
-	max-width: 950px !important;
-	width: 100%;
+	max-width: 980px !important;
+	width: 98%;
 }
 
 .exp-card {
