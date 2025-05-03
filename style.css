@@ -257,7 +257,7 @@ hr:after {
 .exp-container {
 	display: grid;
 	gap: 15px;
-	grid-template-columns: repeat(3, 1fr);
+	/* grid-template-columns: repeat(3, 1fr); */
 	justify-content: space-between;
 	max-width: 1200px;
 	width: 100%;
@@ -318,7 +318,7 @@ hr:after {
 .edu-container {
 	display: grid;
 	gap: 15px;
-	grid-template-columns: repeat(4, 1fr);
+	/* grid-template-columns: repeat(4, 1fr); */
 	justify-content: space-between;
 	max-width: 1200px;
 	width: 100%;
