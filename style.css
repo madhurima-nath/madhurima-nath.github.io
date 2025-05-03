@@ -355,14 +355,6 @@ hr:after {
 	font-size: 15px;
 }
 
-.edu-content {
-	flex-grow: 1;
-}
-
-.edu-content .description {
-	margin: 0;
-	line-height: 1.2;
-}
 
 .edu-content a, .edu-content a:link, 
 .edu-content a:visited, .edu-content a:active
@@ -371,20 +363,16 @@ hr:after {
 	text-decoration: none;
 }
 
-.edu-content a:hover {
-	text-decoration: underline;
-} 
 
 .img-container {
-	width: 90%;
-	height: 90%;
+	width: 80%;
+	height: 80%;
 	position: relative;
 }
 
 .card-image {
 	width: 50%;
 	height: 50%;
-	display: flex;
 	transition: transform 0.3s ease;
 }
 
