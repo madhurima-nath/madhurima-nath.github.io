@@ -286,11 +286,6 @@ hr:after {
 	font-size: 15px;
 }
 
-.exp-header .date {
-	margin: 0;
-	font-size: 14px;
-}
-
 .exp-content {
 	flex-grow: 1;
 }
@@ -298,6 +293,7 @@ hr:after {
 .exp-content .description {
 	margin: 0;
 	line-height: 1.2;
+	font-size: 12px;
 }
 
 .exp-content a, .exp-content a:link, 
