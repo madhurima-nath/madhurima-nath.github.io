@@ -314,6 +314,17 @@ hr:after {
 	text-decoration: underline;
 }
 
+.exp-card-sidebar {
+	flex: 0 0 75px; 
+	max-width: 100px;
+}
+
+.exp-card-side-image {
+	width: 100%;
+	display: block;
+	border-radius: 5px;
+}
+
 .edu-container {
 	display: grid;
 	gap: 10px;
