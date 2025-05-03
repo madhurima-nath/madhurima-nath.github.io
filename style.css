@@ -375,6 +375,24 @@ hr:after {
 	text-decoration: underline;
 } 
 
+.img-container {
+	width: 80%;
+	height: 80px;
+	overflow: hidden;
+	position: relative;
+}
+
+.card-image {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transition: transform 0.3s ease;
+}
+
+.edu-card:hover .card-image {
+	transform: scale(1.05);
+} 
+
 /* Make site responsive for mobile screens */
 /*
 @media(max-width: 900px) {
