@@ -258,7 +258,7 @@ hr:after {
 	display: grid;
 	gap: 5px;
 	justify-content: space-between;
-	max-width: 1000px;
+	max-width: 995px;
 	width: 100%;
 }
 
@@ -269,7 +269,7 @@ hr:after {
 	max-width: 300px;
 	height: 100%;
 	padding: 2px;
-	border-radius: 5px;
+	border-radius: 2px;
 	box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 	transition: transform 0.3s ease;
 	background-color: #ffffff;
@@ -281,17 +281,17 @@ hr:after {
 
 /* internal structure of the card */
 .exp-header {
-	margin-bottom: 5px;
+	margin-bottom: 2px;
 }
 
 .exp-header h3 {
-	margin: 0 0 5px 0;
-	font-size: 18px;
+	margin: 0 0 2px 0;
+	font-size: 15px;
 }
 
 .exp-header .date {
 	margin: 0;
-	font-size: 18px;
+	font-size: 12px;
 }
 
 .exp-content {
@@ -316,10 +316,10 @@ hr:after {
 
 .edu-container {
 	display: grid;
-	gap: 15px;
+	gap: 10px;
 	/* grid-template-columns: repeat(4, 1fr); */
 	justify-content: space-between;
-	max-width: 1200px;
+	max-width: 990px;
 	width: 100%;
 }
 
@@ -327,11 +327,11 @@ hr:after {
 	display: flex;
 	flex-direction: column;
 	width: 100%;
-	max-width: 300px;
+	max-width: 200px;
 	height: 100%;
 	padding: 2px;
-	border-radius: 5px;
-	box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+	border-radius: 2px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 	transition: transform 0.3s ease;
 	background-color: #ffffff;
 }
@@ -346,13 +346,8 @@ hr:after {
 }
 
 .edu-header h3 {
-	margin: 0 0 5px 0;
-	font-size: 18px;
-}
-
-.edu-header .date {
-	margin: 0;
-	font-size: 18px;
+	margin: 0 0 2px 0;
+	font-size: 15px;
 }
 
 .edu-content {
