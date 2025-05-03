@@ -272,6 +272,68 @@ hr:after {
 	padding: 0;
 }
 
+.exp-container {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+	gap: 25px;
+	justify-content: space-between;
+}
+
+.exp-card {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	padding: 20px;
+	border-radius: 8px;
+	box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+	transition: transform 0.3s ease;
+	background-color: #ffffff;
+}
+
+.exp-card:hover {
+	transform: translateY(-5px);
+}
+
+/* internal structure of the card */
+.exp-header {
+	margin-bottom: 10px;
+}
+
+.exp-header h3 {
+	margin: 0 0 5px 0;
+	font-size: 18px;
+}
+
+.exp-header .date {
+	margin: 0;
+	font-size: 15px;
+}
+
+.exp-content {
+	flex-grow: 1;
+}
+
+.exp-content .description {
+	margin: 0;
+	line-height: 1.2;
+}
+
+.exp-content a, .exp-content a:link, 
+.exp-content a:visited, .exp-content a:active
+ {
+	color: #315eb4 !important;
+	text-decoration: none;
+}
+
+.exp-content a:hover {
+	text-decoration: underline;
+}
+
+/* highlight most recent position */
+.exp-card:first-child {
+	border-left: 4px solid #8bc1ff;
+}
+
 
 /* Make site responsive for mobile screens */
 /*
