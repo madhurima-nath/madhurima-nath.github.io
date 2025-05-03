@@ -256,7 +256,6 @@ hr:after {
 
 .exp-container {
 	display: grid;
-	/* grid-template-columns: repeat(auto-fill, minmax(500px, 1fr)); */
 	gap: 25px;
 	justify-content: space-between;
 	max-width: 1200px;
@@ -267,10 +266,10 @@ hr:after {
 	display: flex;
 	flex-direction: column;
 	width: 100%;
-	max-width: 400px;
+	max-width: 300px;
 	height: 100%;
-	padding: 20px;
-	border-radius: 8px;
+	padding: 10px;
+	border-radius: 5px;
 	box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 	transition: transform 0.3s ease;
 	background-color: #ffffff;
@@ -282,7 +281,7 @@ hr:after {
 
 /* internal structure of the card */
 .exp-header {
-	margin-bottom: 10px;
+	margin-bottom: 5px;
 }
 
 .exp-header h3 {
@@ -292,7 +291,7 @@ hr:after {
 
 .exp-header .date {
 	margin: 0;
-	font-size: 15px;
+	font-size: 18px;
 }
 
 .exp-content {
@@ -315,10 +314,6 @@ hr:after {
 	text-decoration: underline;
 }
 
-/* highlight most recent position */
-.exp-card:first-child {
-	border-left: 4px solid #8bc1ff;
-}
 
 
 /* Make site responsive for mobile screens */
