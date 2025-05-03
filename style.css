@@ -252,9 +252,9 @@ hr:after {
 .exp-container {
 	display: grid;
 	gap: 1px;
-	justify-content: flex-start;
-	max-width: 980px !important;
-	width: 100%;
+	justify-content: space-evenly;
+	max-width: 800px !important;
+	width: 98%;
 }
 
 .exp-card {
