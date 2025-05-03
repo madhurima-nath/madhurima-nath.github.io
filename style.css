@@ -310,14 +310,14 @@ hr:after {
 }
 
 .exp-card-sidebar {
-	flex: 0 0 50px; 
-	max-width: 70px;
+	flex: 0 0 80px; 
+	max-width: 90px;
 }
 
 .exp-card-side-image {
 	width: 100%;
 	display: flex;
-	border-radius: 5px;
+	border-radius: 2px;
 }
 
 .edu-container {
@@ -376,14 +376,14 @@ hr:after {
 } 
 
 .img-container {
-	width: 50%;
-	height: 50%;
-	position: absolute;
+	width: 90%;
+	height: 90%;
+	position: relative;
 }
 
 .card-image {
 	width: 50%;
-	height: 5%;
+	height: 50%;
 	display: flex;
 	transition: transform 0.3s ease;
 }
