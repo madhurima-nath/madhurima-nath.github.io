@@ -257,9 +257,10 @@ hr:after {
 .exp-container {
 	display: grid;
 	gap: 25px;
+	grid-template-columns: repeat(3, 1fr);
 	justify-content: space-between;
 	max-width: 1200px;
-	width: 200%;
+	width: 100%;
 }
 
 .exp-card {
