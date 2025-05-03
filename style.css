@@ -256,7 +256,7 @@ hr:after {
 
 .exp-container {
 	display: grid;
-	gap: 25px;
+	gap: 15px;
 	grid-template-columns: repeat(3, 1fr);
 	justify-content: space-between;
 	max-width: 1200px;
@@ -269,7 +269,7 @@ hr:after {
 	width: 100%;
 	max-width: 300px;
 	height: 100%;
-	padding: 10px;
+	padding: 2px;
 	border-radius: 5px;
 	box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 	transition: transform 0.3s ease;
@@ -315,7 +315,66 @@ hr:after {
 	text-decoration: underline;
 }
 
+.edu-container {
+	display: grid;
+	gap: 15px;
+	grid-template-columns: repeat(4, 1fr);
+	justify-content: space-between;
+	max-width: 1200px;
+	width: 100%;
+}
 
+.edu-card {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	max-width: 300px;
+	height: 100%;
+	padding: 2px;
+	border-radius: 5px;
+	box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+	transition: transform 0.3s ease;
+	background-color: #ffffff;
+}
+
+.edu-card:hover {
+	transform: translateY(-5px);
+}
+
+/* internal structure of the card */
+.edu-header {
+	margin-bottom: 5px;
+}
+
+.edu-header h3 {
+	margin: 0 0 5px 0;
+	font-size: 18px;
+}
+
+.edu-header .date {
+	margin: 0;
+	font-size: 18px;
+}
+
+.edu-content {
+	flex-grow: 1;
+}
+
+.edu-content .description {
+	margin: 0;
+	line-height: 1.2;
+}
+
+.edu-content a, .edu-content a:link, 
+.edu-content a:visited, .edu-content a:active
+ {
+	color: #315eb4 !important;
+	text-decoration: none;
+}
+
+.edu-content a:hover {
+	text-decoration: underline;
+} 
 
 /* Make site responsive for mobile screens */
 /*
