@@ -286,24 +286,20 @@ hr:after {
 	font-size: 15px;
 }
 
-.exp-content {
-	flex-grow: 1;
-}
-
 .exp-header .description {
 	margin: 0;
 	line-height: 1.2;
-	/* font-size: 14px; */
+	flex-grow: 1;
 }
 
-.exp-content a, .exp-content a:link, 
-.exp-content a:visited, .exp-content a:active
+.exp-header a, .exp-header a:link, 
+.exp-header a:visited, .exp-header a:active
  {
 	color: #315eb4 !important;
 	text-decoration: none;
 }
 
-.exp-content a:hover {
+.exp-header a:hover {
 	text-decoration: underline;
 }
 
