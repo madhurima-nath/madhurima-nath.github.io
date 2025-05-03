@@ -258,7 +258,7 @@ hr:after {
 	display: grid;
 	gap: 5px;
 	justify-content: space-between;
-	max-width: 950px !important;
+	max-width: 9800px !important;
 	width: 100%;
 }
 
@@ -266,7 +266,7 @@ hr:after {
 	display: flex;
 	flex-direction: column;
 	width: 100%;
-	max-width: 200px;
+	max-width: 300px;
 	height: 100%;
 	padding: 2px;
 	border-radius: 2px;
