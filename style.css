@@ -220,24 +220,6 @@ a, a:link, a:visited, a:active, a:hover {
 	object-fit: contain;
 }
 
-
-/* breadcrumb navigation */
-.breadcrumb {
-	margin: 20px 0;
-	font-size: 18px;
-	color: #666;
-}
-
-.breadcrumb a {
-	color: #333;
-	text-decoration: none;
-}
-
-.breadcrumb .current {
-	color: #333;
-	font-weight: bold;
-}
-
 hr {
 	border: none;
 	border-top: 3px double #333;
@@ -274,9 +256,11 @@ hr:after {
 
 .exp-container {
 	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+	grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
 	gap: 25px;
 	justify-content: space-between;
+	max-width: 1000px;
+	width: 100%;
 }
 
 .exp-card {
