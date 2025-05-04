@@ -314,6 +314,7 @@ hr:after {
 	justify-content: space-between;
 	max-width: 980px !important;
 	width: 98%;
+	height: 10%;
 }
 
 .edu-card {
@@ -321,7 +322,6 @@ hr:after {
 	flex-direction: column;
 	width: 100%;
 	max-width: 300px;
-	height: 10% !important;
 	padding: 0;
 	border-radius: 2px;
 	box-shadow: 0 5px 8px rgba(0, 0, 0, 0.1);
