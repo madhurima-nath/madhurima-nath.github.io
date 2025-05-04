@@ -283,7 +283,7 @@ hr:after {
 
 .exp-header h3 {
 	margin: 0 0 2px 0;
-	font-size: 12px;
+	font-size: 15px;
 }
 
 .exp-header a, .exp-header a:link, 
@@ -291,7 +291,6 @@ hr:after {
  {
 	color: #315eb4 !important;
 	text-decoration: none;
-	font-size: 12px;
 }
 
 .exp-header a:hover {
@@ -350,7 +349,6 @@ hr:after {
  {
 	color: #315eb4 !important;
 	text-decoration: none;
-	font-size: 12px;
 }
 
 .card-image-wrapper {
