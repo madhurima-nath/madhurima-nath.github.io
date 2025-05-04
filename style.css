@@ -351,23 +351,13 @@ hr:after {
 	text-decoration: none;
 }
 
-.card-image-wrapper {
-	width: 100%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	padding: 5px 0 0 0;
-	background-color: #f9f9f9;
-	box-sizing: border-box;
-}
-
 .img-container {
 	width: 50%;
 	aspect-ratio: 1/1;
 	display: flex;
-	justify-content: center;
+	/* justify-content: center; */
 	align-items: center;
-	overflow: hidden;
+	/* overflow: hidden; */
 }
 
 .card-image {
