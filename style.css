@@ -314,7 +314,7 @@ hr:after {
 	justify-content: space-between;
 	max-width: 980px !important;
 	width: 98%;
-	height: 10%;
+	height: auto;
 }
 
 .edu-card {
