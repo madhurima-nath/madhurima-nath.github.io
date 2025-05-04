@@ -286,12 +286,6 @@ hr:after {
 	font-size: 15px;
 }
 
-.exp-header .description {
-	margin: 0;
-	line-height: 1.2;
-	flex-grow: 1;
-}
-
 .exp-header a, .exp-header a:link, 
 .exp-header a:visited, .exp-header a:active
  {
