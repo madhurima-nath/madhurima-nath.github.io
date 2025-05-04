@@ -351,9 +351,8 @@ hr:after {
 }
 
 .img-container {
-	width: 50%;
+	width: 40%;
 	aspect-ratio: 1/1;
-	align-items: center;
 }
 
 .card-image {
