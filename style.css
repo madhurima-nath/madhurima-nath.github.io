@@ -351,16 +351,29 @@ hr:after {
 	text-decoration: none;
 }
 
+.card-image-wrapper {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 5px 0 0 0;
+	background-color: #f9f9f9;
+	box-sizing: border-box;
+}
 
 .img-container {
 	width: 80%;
-	height: 80%;
-	position: relative;
+	aspect-ratio: 1/1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	overflow: hidden;
 }
 
 .card-image {
-	width: 50%;
-	height: 50%;
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
 	transition: transform 0.3s ease;
 }
 
