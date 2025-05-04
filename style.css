@@ -312,7 +312,7 @@ hr:after {
 	display: grid;
 	gap: 0;
 	/* justify-content: space-between; */
-	max-width: 980px !important;
+	max-width: 950px !important;
 	width: 98%;
 }
 
