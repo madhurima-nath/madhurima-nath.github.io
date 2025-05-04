@@ -252,7 +252,7 @@ hr:after {
 .exp-container {
 	display: grid;
 	gap: 2px;
-	padding: 2px;
+	padding: 1px;
 	margin: 0;
 	max-width: 900px !important;
 	width: 98%;
