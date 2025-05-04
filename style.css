@@ -311,17 +311,16 @@ hr:after {
 .edu-container {
 	display: grid;
 	gap: 2px;
-	justify-content: space-between;
+	/* justify-content: space-between; */
 	max-width: 980px !important;
 	width: 98%;
-	height: 99%;
 }
 
 .edu-card {
 	display: flex;
 	flex-direction: column;
 	width: 100%;
-	max-width: 300px;
+	/* max-width: 300px; */
 	padding: 0;
 	border-radius: 2px;
 	box-shadow: 0 5px 8px rgba(0, 0, 0, 0.1);
