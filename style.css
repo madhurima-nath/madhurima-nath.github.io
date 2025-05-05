@@ -38,13 +38,12 @@ body {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	margin-bottom: 30px;
+	margin-bottom: 20px;
 	width: 100%;
-	flex-wrap: wrap; /* allow wrapping for small screens */
 }
 
 .site-title h1 {
-	font-size: 35px;
+	font-size: 32px;
 	color:  #174293;
 	font-weight: bold;
 }
@@ -76,8 +75,8 @@ ul li a {
 	padding: 5px 10px;
 	text-decoration: none !important;
 	color: #076a77 !important;
-	font-weight: normal ;
-	font-size: 20px !important;
+	font-weight: bold ;
+	font-size: 22px !important;
 	transition: all 0.3s;
 }
 
