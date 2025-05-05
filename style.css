@@ -324,6 +324,9 @@ hr:after {
 .img-container {
 	width: 40%;
 	aspect-ratio: 1/1;
+	justify-content: center;
+	align-items: center;
+	margin: 0 auto;
 }
 
 .card-image {
@@ -331,6 +334,8 @@ hr:after {
 	height: 100%;
 	object-fit: contain;
 	transition: transform 0.3s ease;
+	display: block;
+	margin: 0 auto;
 }
 
 .edu-card:hover .card-image {
