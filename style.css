@@ -210,7 +210,7 @@ hr:after {
 .site-footer {
 	position: absolute;
 	background-color: #e8f3f5;
-	padding: 5px;
+	padding: 0;
 	margin-top: 15px;
 	border-top: 1px solid #315eb4;
 	color: #666;
@@ -285,7 +285,7 @@ hr:after {
 .edu-container {
 	display: grid;
 	gap: 0;
-	max-width: 980px !important;
+	max-width: 920px !important;
 	width: 98%;
 }
 
