@@ -17,7 +17,8 @@ body {
 	text-align: left;
 	padding: 0;
 	margin: 0;
-	max-height: 99vh !important;
+	max-height: 100vh !important;
+	height: fit-content;
 	display: flex;
 	flex-direction: column;
 	overflow: hidden;
@@ -74,7 +75,7 @@ ul li a {
 	padding: 5px 10px;
 	text-decoration: none !important;
 	color: #076a77 !important;
-	font-weight: bold ;
+	font-weight: normal ;
 	font-size: 20px !important;
 	transition: all 0.3s;
 }
