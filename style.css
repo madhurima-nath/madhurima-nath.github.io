@@ -285,7 +285,7 @@ hr:after {
 .edu-container {
 	display: grid;
 	gap: 0;
-	max-width: 960px !important;
+	max-width: 950px !important;
 	width: 98%;
 }
 
