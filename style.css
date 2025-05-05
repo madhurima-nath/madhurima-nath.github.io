@@ -17,7 +17,7 @@ body {
 	text-align: left;
 	padding: 0;
 	margin: 0;
-	max-height: 95vh !important;
+	max-height: 99vh !important;
 	display: flex;
 	flex-direction: column;
 	overflow: hidden;
@@ -60,6 +60,7 @@ ul li {
 	position: relative;
 	float: left;
 	background: #ffff;
+	font-size: 12px;
 }
 
 li ul {
@@ -70,17 +71,17 @@ ul li a {
 	display: block;
 	width: auto;
 	gap: 2px;
-	padding: 10px 15px;
+	padding: 5px 10px;
 	text-decoration: none !important;
 	color: #076a77 !important;
 	font-weight: bold ;
-	font-size: 24px !important;
+	font-size: 20px !important;
 	transition: all 0.3s;
 }
 
 li:hover > ul {
 	display: block;
-	position: absolute;
+	position: relative;
 }
 
 li:hover li {
