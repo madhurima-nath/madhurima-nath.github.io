@@ -229,7 +229,7 @@ hr:after {
 	gap: 2px;
 	padding: 1px;
 	margin: 0;
-	max-width: 950px !important;
+	max-width: 1000px !important;
 	width: 98%;
 	box-sizing: border-box;
 }
@@ -285,7 +285,7 @@ hr:after {
 .edu-container {
 	display: grid;
 	gap: 0;
-	max-width: 920px !important;
+	max-width: 960px !important;
 	width: 98%;
 }
 
