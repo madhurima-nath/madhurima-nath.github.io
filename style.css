@@ -56,7 +56,7 @@ ul {
 
 ul li {
 	display: block;
-	position: relative;
+	position: absolute;
 	float: left;
 	background: #ffff;
 	font-size: 12px;
@@ -80,7 +80,7 @@ ul li a {
 
 li:hover > ul {
 	display: block;
-	position: relative;
+	position: absolute;
 }
 
 li:hover li {
