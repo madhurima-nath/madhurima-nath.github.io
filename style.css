@@ -156,7 +156,7 @@ header .subtitle {
 	padding: 0;
 	background-color: transparent;
 	box-shadow: none;
-	max-width: calc(100% - 200px);
+	max-width: calc(100% - 100px);
 }
 
 .introduction h2 {
@@ -168,7 +168,6 @@ header .subtitle {
 .introduction p {
 	margin-bottom: 15px;
 	font-size: 18px;
-	width: 250%;
 }
 
 a, a:link, a:visited, a:active, a:hover {
