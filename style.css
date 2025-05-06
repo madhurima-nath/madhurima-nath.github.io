@@ -26,7 +26,7 @@ body {
 /* container for consistent width */
 .container {
 	width: 100%;
-	max-width: 998px;
+	max-width: 1000px;
 	margin: 0 auto;
 	padding: 0;
 }
