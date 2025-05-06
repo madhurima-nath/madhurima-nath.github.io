@@ -304,7 +304,7 @@ hr:after {
 	transition: transform 0.3s ease;
 	background-color: #ffffff;
 	height: 98%;
-	max-height: 100vh;
+	max-height: 10vh;
 }
 
 .edu-card:hover {
