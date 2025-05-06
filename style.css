@@ -286,7 +286,6 @@ hr:after {
 }
 
 .edu-container {
-	/* display: grid; */
 	display: flex;
 	gap: 0;
 	max-width: 998px !important;
@@ -304,6 +303,8 @@ hr:after {
 	box-shadow: 0 5px 8px rgba(0, 0, 0, 0.1);
 	transition: transform 0.3s ease;
 	background-color: #ffffff;
+	height: 98%;
+	max-height: 100vh;
 }
 
 .edu-card:hover {
