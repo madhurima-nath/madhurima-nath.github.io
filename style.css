@@ -156,7 +156,7 @@ header .subtitle {
 	padding: 0;
 	background-color: transparent;
 	box-shadow: none;
-	max-width: calc(100% - 330px);
+	max-width: calc(100% - 300px);
 }
 
 .introduction h2 {
