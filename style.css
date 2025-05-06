@@ -286,10 +286,10 @@ hr:after {
 }
 
 .edu-container {
-	display: grid;
-	/* display: flex; */
+	/* display: grid; */
+	display: flex;
 	gap: 0;
-	max-width: 990px !important;
+	max-width: 998px !important;
 	width: 100%;
 	flex: 1;
 }
