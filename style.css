@@ -156,7 +156,7 @@ header .subtitle {
 	padding: 0;
 	background-color: transparent;
 	box-shadow: none;
-	max-width: calc(100% - 70px);
+	max-width: calc(100% - 60px);
 }
 
 .introduction h2 {
@@ -303,7 +303,7 @@ hr:after {
 	transition: transform 0.3s ease;
 	background-color: #ffffff;
 	height: 98%;
-	max-height: 70vh;
+	max-height: 80vh;
 }
 
 .edu-card:hover {
