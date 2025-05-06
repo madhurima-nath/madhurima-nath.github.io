@@ -9,6 +9,7 @@
 html, body {
 	width: 100%;
 	overflow-x: hidden;
+	overflow-y: hidden;
 }
 
 body {
@@ -26,7 +27,7 @@ body {
 /* container for consistent width */
 .container {
 	width: 100%;
-	max-width: 1000px;
+	max-width: 998px;
 	margin: 0 auto;
 	padding: 0;
 }
@@ -117,7 +118,7 @@ ul:after {
 .content-wrapper {
 	display: flex; 
 	gap: 35px;
-	width: 100% !important;
+	width: 99% !important;
 	align-items: flex-start;
 }
 
@@ -229,7 +230,7 @@ hr:after {
 	gap: 2px;
 	padding: 1px;
 	margin: 0;
-	max-width: 1000px !important;
+	max-width: 990px !important;
 	width: 98%;
 	box-sizing: border-box;
 	flex: 1;
