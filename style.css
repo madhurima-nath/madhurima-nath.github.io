@@ -343,7 +343,6 @@ hr:after {
 	display: block;
 	margin: 0 auto;
 	background-color: transparent;
-	opacity: 0.5;
 }
 
 .edu-card:hover .card-image {
