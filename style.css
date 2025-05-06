@@ -332,6 +332,7 @@ hr:after {
 	justify-content: center;
 	align-items: center;
 	margin: 0 auto;
+	background-color: transparent;
 }
 
 .card-image {
@@ -341,6 +342,8 @@ hr:after {
 	transition: transform 0.3s ease;
 	display: block;
 	margin: 0 auto;
+	background-color: transparent;
+	opacity: 0.5;
 }
 
 .edu-card:hover .card-image {
