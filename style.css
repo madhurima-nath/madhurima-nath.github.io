@@ -260,7 +260,7 @@ hr:after {
 	color: #666;
 	text-align: center;
 	width: 100%;
-	margin: auto;
+	margin: 2px;
 	bottom: 0;
 }
 
@@ -361,7 +361,7 @@ hr:after {
 	transition: transform 0.3s ease;
 	background-color: #ffffff;
 	height: 98%;
-	max-height: 80vh;
+	max-height: 70vh;
 	display: -webkit-box;
 	display: -webkit-flex;
 	display: -ms-flexbox;
