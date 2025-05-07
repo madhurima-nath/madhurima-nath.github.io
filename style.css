@@ -99,14 +99,21 @@ ul li a {
 	font-weight: bold ;
 	font-size: 22px !important;
 	transition: all 0.3s;
+	-webkit-transition: all 0.3s;
+	min-height: 32px;
 }
 
-li:hover > ul {
+li:hover > ul,
+li:focus > ul,
+li:active > ul {
 	display: block;
 	position: absolute;
+	z-index: 100; 
 }
 
-li:hover li {
+li:hover li,
+li:focus li,
+li:active li {
 	float: none;
 }
 
@@ -142,12 +149,22 @@ ul:after {
 	gap: 35px;
 	width: 100% !important;
 	align-items: flex-start;
+	display: -webkit-box; 
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	-webkit-box-align: start;
+	-webkit-align-items: flex-start;
+	-ms-flex-align: start;
+	align-items: flex-start;
 }
 
 /* sidebar with image  - aligned with header*/
 .sidebar {
 	flex: 0 0 150px; 
 	max-width: 200px;
+	-webkit-box-flex: 0;
+	-webkit-flex: 0 0 150px;
+	-ms-flex: 0 0 150px;
 }
 
 .side-image {
@@ -180,6 +197,10 @@ header .subtitle {
 	background-color: transparent;
 	box-shadow: none;
 	max-width: calc(100% - 60px);
+	-webkit-box-flex: 1;
+	-webkit-flex: 1;
+	-ms-flex: 1;
+	-webkit-box-shadow: none;
 }
 
 .introduction h2 {
@@ -231,7 +252,7 @@ hr:after {
 }
 
 .site-footer {
-	position: absolute;
+	position: relative;
 	background-color: #e8f3f5;
 	padding: 5px;
 	margin-top: 15px;
@@ -244,7 +265,7 @@ hr:after {
 }
 
 .site-footer .container {
-	padding: 0;
+	padding: 0 10px;
 }
 
 .exp-container {
@@ -256,6 +277,7 @@ hr:after {
 	width: 100%;
 	box-sizing: border-box;
 	flex: 1;
+	-webkit-box-sizing: border-box;
 }
 
 .exp-card {
@@ -270,6 +292,17 @@ hr:after {
 	transition: transform 0.3s ease;
 	background-color: #ffffff;
 	box-sizing: border-box;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
+	-webkit-box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+	-webkit-transition: -webkit-transform 0.3s ease;
+	transition: -webkit-transform 0.3s ease;
+	-webkit-box-sizing: border-box;
 }
 
 .exp-header {
@@ -295,12 +328,18 @@ hr:after {
 .exp-card-sidebar {
 	flex: 0 0 80px; 
 	max-width: 90px;
+	-webkit-box-flex: 0;
+	-webkit-flex: 0 0 80px;
+	-ms-flex: 0 0 80px;
 }
 
 .exp-card-side-image {
 	width: 100%;
 	display: flex;
 	border-radius: 2px;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
 }
 
 .edu-container {
@@ -323,6 +362,16 @@ hr:after {
 	background-color: #ffffff;
 	height: 98%;
 	max-height: 80vh;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
+	-webkit-box-shadow: 0 5px 8px rgba(0, 0, 0, 0.1);
+	-webkit-transition: -webkit-transform 0.3s ease;
+	transition: -webkit-transform 0.3s ease;
 }
 
 .edu-header {
@@ -358,6 +407,9 @@ hr:after {
 	display: block;
 	margin: 0 auto;
 	background-color: transparent;
+	-o-object-fit: contain;
+	-webkit-transition: -webkit-transform 0.3s ease;
+	transition: -webkit-transform 0.3s ease;
 }
 
 .edu-card:hover .card-image {
@@ -365,6 +417,31 @@ hr:after {
 } 
 
 /* Responsive Media Queries */
+@supports (-webkit-touch-callout: none) {
+	/* CSS specific to iOS devices */
+	body {
+		/* Fix for Safari on iOS to handle vh units properly */
+		height: -webkit-fill-available;
+	}
+
+	.content-wrapper {
+		/* Prevent content overflow issues in Safari */
+		width: auto !important;
+	}
+
+	/* Fix Safari flexbox gap alternative (gap not fully supported in older Safari) */
+	.content-wrapper > * + * {
+		margin-left: 35px;
+	}
+	
+	@media (max-width: 768px) {
+		.content-wrapper > * + * {
+			margin-left: 0;
+			margin-top: 20px;
+		}
+	}
+}
+
 
 /* Tablet and smaller desktop screens */
 @media screen and (max-width: 768px) {

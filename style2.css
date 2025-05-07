@@ -109,7 +109,8 @@ li:focus > ul,
 li:active > ul {
 	display: block;
 	position: absolute;
-	z-index: 100; /* Ensure dropdown appears above other content */
+	z-index: 100; 
+    /* Ensure dropdown appears above other content */
 }
 
 li:hover li,
