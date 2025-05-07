@@ -1,0 +1,630 @@
+/* General settings with vendor prefixes for better cross-browser support */
+
+* {
+	margin: 2px;
+	padding: 0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	-webkit-tap-highlight-color: rgba(0,0,0,0); /* Prevents default highlight on tap for iOS */
+}
+
+html, body {
+	width: 100%;
+	overflow-x: hidden;
+	-webkit-overflow-scrolling: touch; /* Enables momentum scrolling on iOS */
+	-webkit-text-size-adjust: 100%; /* Prevents iOS from auto-adjusting font sizes */
+}
+
+body {
+	font-family: 'Times New Roman', Times, serif;
+	line-height: 1.5em;
+	text-align: left;
+	padding: 0;
+	margin: 0;
+	max-height: 95vh !important;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	overflow: hidden;
+}
+
+/* container for consistent width */
+.container {
+	width: 100%;
+	max-width: 1000px;
+	margin: 0 auto;
+	padding: 0 15px; /* Added padding for all screen sizes */
+}
+
+/* header with title and navigation */
+.site-header {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	-ms-flex-pack: justify;
+	justify-content: space-between;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
+	margin-bottom: 30px;
+	width: 100%;
+	-webkit-flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap; /* Allow wrapping on small screens */
+}
+
+.site-title h1 {
+	font-size: 35px;
+	color: #174293;
+	font-weight: bold;
+}
+
+/* navigation tabs styling with improved touch target areas */
+ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	background: #ffff;
+}
+
+ul li {
+	display: block;
+	position: relative;
+	float: left;
+	background: #ffff;
+}
+
+li ul {
+	display: none;
+}
+
+ul li a {
+	display: block;
+	width: auto;
+	gap: 2px;
+	padding: 10px 15px; 
+	text-decoration: none !important;
+	color: #076a77 !important;
+	font-weight: bold;
+	font-size: 24px !important;
+	-webkit-transition: all 0.3s;
+	transition: all 0.3s;
+	min-height: 44px; /* Minimum recommended touch target size for iOS */
+}
+
+/* Modified hover handling for touch devices */
+li:hover > ul, 
+li:focus > ul,
+li:active > ul {
+	display: block;
+	position: absolute;
+	z-index: 100; /* Ensure dropdown appears above other content */
+}
+
+li:hover li,
+li:focus li,
+li:active li {
+	float: none;
+}
+
+.nav-tabs {
+	border-top: 0;
+	border-bottom-style: solid;
+	border-bottom-color: #315eb4;
+	border-bottom-width: 2px;
+}
+
+.nav-tabs li a:active,
+a:hover {
+	background: #cce0f1bb;
+}
+
+ul ul ul {
+	left: 100%;
+	top: 0;
+}
+
+ul:before, ul:after {
+	content: " "; 
+	display: flex;
+}
+
+ul:after {
+	clear: both;
+}
+
+/* content wrapper for side by side layout*/
+.content-wrapper {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex; 
+	gap: 35px;
+	width: 100%; /* Changed from 115% for better responsive behavior */
+	-webkit-box-align: start;
+	-webkit-align-items: flex-start;
+	-ms-flex-align: start;
+	align-items: flex-start;
+}
+
+/* sidebar with image - aligned with header*/
+.sidebar {
+	-webkit-box-flex: 0;
+	-webkit-flex: 0 0 150px;
+	-ms-flex: 0 0 150px;
+	flex: 0 0 150px; 
+	max-width: 200px;
+}
+
+.side-image {
+	width: 100%;
+	display: block;
+	border-radius: 5px;
+	-webkit-backface-visibility: hidden; /* Prevents Safari image rendering issues */
+}
+
+.sidebar a:active,
+a:visited {
+	text-decoration: none !important;
+}
+
+header h1 {
+	font-size: 2.5rem;
+	margin-bottom: 0.5rem;
+	color: var(--primary-color);
+}
+
+header .subtitle {
+	color: var(--light-text);
+	font-size: 1.2rem;
+} 
+
+/* introduction styling */
+.introduction {
+	-webkit-box-flex: 1;
+	-webkit-flex: 1;
+	-ms-flex: 1;
+	flex: 1;
+	padding: 0;
+	background-color: transparent;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	max-width: calc(100% - 60px);
+}
+
+.introduction h2 {
+	margin-bottom: 20px;
+	color: #076a77;
+	font-size: 20px;
+}
+
+.introduction p {
+	margin-bottom: 15px;
+	font-size: 18px;
+}
+
+a, a:link, a:visited, a:active, a:hover {
+	text-decoration: none !important;
+}
+
+.introduction a, .introduction a:link, 
+.introduction a:visited, .introduction a:active {
+	color: #315eb4 !important;
+	text-decoration: none;
+}
+
+.introduction a:hover {
+	text-decoration: underline;
+}
+
+.introduction ul {
+	margin-left: 20px;
+	margin-top: 10px;
+}
+
+hr {
+	border: none;
+	border-top: 3px double #333;
+	color: #333;
+	overflow: visible;
+	text-align: center;
+	height: 5px;
+}
+
+hr:after {
+	background: #ffffff;
+	content: '§';
+	padding: 0 4px;
+	position: relative;
+	top: -8px;
+}
+
+.site-footer {
+	position: relative; /* Changed from absolute for better responsive layout */
+	background-color: #e8f3f5;
+	padding: 10px 0;
+	margin-top: 5px;
+	border-top: 1px solid #315eb4;
+	color: #666;
+	text-align: center;
+	width: 100%;
+	margin: auto;
+}
+
+.site-footer .container {
+	padding: 0 15px;
+}
+
+/* Grid layouts with prefixed properties for better cross-browser support */
+.exp-container {
+	display: -ms-grid;
+	display: grid;
+	-ms-grid-columns: (minmax(250px, 1fr))[auto-fill];
+	grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Made grid responsive */
+	gap: 15px;
+	padding: 1px;
+	margin: 0;
+	max-width: 900px !important;
+	width: 98%;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.exp-card {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	width: 100%;
+	max-width: 260px;
+	height: 100%;
+	border-radius: 2px;
+	-webkit-box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+	box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+	-webkit-transition: -webkit-transform 0.3s ease;
+	transition: -webkit-transform 0.3s ease;
+	transition: transform 0.3s ease;
+	transition: transform 0.3s ease, -webkit-transform 0.3s ease;
+	background-color: #ffffff;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.exp-card:hover {
+	-webkit-transform: translateY(-5px);
+	transform: translateY(-5px);
+}
+
+.exp-header {
+	margin-bottom: 2px;
+}
+
+.exp-header h3 {
+	margin: 0 0 2px 0;
+	font-size: 15px;
+}
+
+.exp-header a, .exp-header a:link, 
+.exp-header a:visited, .exp-header a:active {
+	color: #315eb4 !important;
+	text-decoration: none;
+}
+
+.exp-header a:hover {
+	text-decoration: underline;
+}
+
+.exp-card-sidebar {
+	-webkit-box-flex: 0;
+	-webkit-flex: 0 0 80px;
+	-ms-flex: 0 0 80px;
+	flex: 0 0 80px; 
+	max-width: 90px;
+}
+
+.exp-card-side-image {
+	width: 100%;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	border-radius: 2px;
+}
+
+.edu-container {
+	display: -ms-grid;
+	display: grid;
+	-ms-grid-columns: (minmax(280px, 1fr))[auto-fill];
+	grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Made grid responsive */
+	gap: 15px;
+	max-width: 950px !important;
+	width: 98%;
+}
+
+.edu-card {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	width: 100%;
+	padding: 10px;
+	margin: 0;
+	border-radius: 2px;
+	-webkit-box-shadow: 0 5px 8px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 5px 8px rgba(0, 0, 0, 0.1);
+	-webkit-transition: -webkit-transform 0.3s ease;
+	transition: -webkit-transform 0.3s ease;
+	transition: transform 0.3s ease;
+	transition: transform 0.3s ease, -webkit-transform 0.3s ease;
+	background-color: #ffffff;
+}
+
+.edu-card:hover {
+	-webkit-transform: translateY(-5px);
+	transform: translateY(-5px);
+}
+
+.edu-header {
+	margin-bottom: 2px;
+}
+
+.edu-header h3 {
+	margin: 0 0 2px 0;
+	font-size: 15px;
+}
+
+.edu-content a, .edu-content a:link, 
+.edu-content a:visited, .edu-content a:active {
+	color: #315eb4 !important;
+	text-decoration: none;
+}
+
+.img-container {
+	width: 40%;
+	aspect-ratio: 1/1;
+}
+
+.card-image {
+	width: 100%;
+	height: 100%;
+	-o-object-fit: contain;
+	object-fit: contain;
+	-webkit-transition: -webkit-transform 0.3s ease;
+	transition: -webkit-transform 0.3s ease;
+	transition: transform 0.3s ease;
+	transition: transform 0.3s ease, -webkit-transform 0.3s ease;
+}
+
+.edu-card:hover .card-image {
+	-webkit-transform: scale(1.05);
+	transform: scale(1.05);
+}
+
+/* Safari-specific fixes */
+@supports (-webkit-touch-callout: none) {
+	/* CSS specific to iOS devices */
+	body {
+		/* Fix for Safari on iOS to handle vh units properly */
+		height: -webkit-fill-available;
+	}
+	
+	.content-wrapper {
+		/* Prevent content overflow issues in Safari */
+		width: auto !important;
+	}
+	
+	/* Fix Safari flexbox gap alternative (gap not fully supported in older Safari) */
+	.content-wrapper > * + * {
+		margin-left: 35px;
+	}
+	
+	@media (max-width: 768px) {
+		.content-wrapper > * + * {
+			margin-left: 0;
+			margin-top: 20px;
+		}
+	}
+}
+
+/* iPad-specific media query */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+	body {
+		overflow-y: auto; /* Enable scrolling for iPad */
+		-webkit-overflow-scrolling: touch;
+		max-height: none !important;
+	}
+	
+	ul li a {
+		padding: 12px 20px; /* Larger touch targets for iPad */
+	}
+	
+	/* Improve dropdown behavior on iPad */
+	li ul {
+		min-width: 200px;
+	}
+	
+	/* Fix for scrolling issues in iPad landscape mode */
+	.site-footer {
+		position: relative;
+		bottom: auto;
+	}
+	
+	/* Better handling of fixed positioning in iPad */
+	.site-header {
+		position: relative;
+		z-index: 1000;
+	}
+}
+
+/* General Responsive Media Queries */
+@media screen and (max-width: 768px) {
+	body {
+		overflow-y: auto;
+		max-height: none !important;
+	}
+	
+	.site-header {
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		-webkit-flex-direction: column;
+		-ms-flex-direction: column;
+		flex-direction: column;
+		-webkit-box-align: center;
+		-webkit-align-items: center;
+		-ms-flex-align: center;
+		align-items: center;
+	}
+	
+	.site-title h1 {
+		font-size: 30px;
+		margin-bottom: 15px;
+	}
+	
+	.content-wrapper {
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		-webkit-flex-direction: column;
+		-ms-flex-direction: column;
+		flex-direction: column;
+		gap: 20px;
+	}
+	
+	.sidebar {
+		-webkit-box-flex: 0;
+		-webkit-flex: 0 0 auto;
+		-ms-flex: 0 0 auto;
+		flex: 0 0 auto;
+		max-width: 200px;
+		margin: 0 auto;
+	}
+	
+	.introduction {
+		max-width: 100%;
+	}
+	
+	.exp-card {
+		max-width: 100%;
+	}
+	
+	.nav-tabs {
+		width: 100%;
+		overflow-x: auto;
+		-webkit-overflow-scrolling: touch;
+		display: -webkit-box;
+		display: -webkit-flex;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-pack: center;
+		-webkit-justify-content: center;
+		-ms-flex-pack: center;
+		justify-content: center;
+	}
+}
+
+/* Mobile phones and small tablets */
+@media screen and (max-width: 480px) {
+	.site-title h1 {
+		font-size: 24px;
+	}
+	
+	ul li a {
+		font-size: 18px !important;
+		padding: 8px 10px;
+	}
+	
+	.introduction h2 {
+		font-size: 18px;
+	}
+	
+	.introduction p {
+		font-size: 16px;
+	}
+	
+	/* Stack navigation items on very small screens */
+	ul li {
+		float: none;
+		display: block;
+		text-align: center;
+	}
+	
+	li:hover > ul,
+	li:focus > ul,
+	li:active > ul {
+		position: static;
+		width: 100%;
+	}
+	
+	.exp-container, .edu-container {
+		grid-template-columns: 1fr;
+		-ms-grid-columns: 1fr;
+	}
+	
+	.img-container {
+		width: 70%;
+		margin: 0 auto;
+	}
+}
+
+/* Special handling for touch devices - improves behavior in iPad browsers including DuckDuckGo */
+@media (hover: none) {
+	li ul {
+		width: 100%;
+	}
+	
+	li:hover > ul,
+	li:focus > ul,
+	li:active > ul {
+		position: static;
+	}
+	
+	/* Improve tap behavior */
+	ul li a {
+		-webkit-touch-callout: none; /* Prevents callout to copy image */
+	}
+}
+
+/* Workaround for some bugs in older iPad Safari/WebKit */
+@supports (-webkit-overflow-scrolling: touch) {
+	.site-header, .content-wrapper, .sidebar, .introduction {
+		-webkit-transform: translateZ(0); /* Activates GPU rendering */
+	}
+	
+	/* Workaround for flex gap issues in Safari */
+	@supports not (gap: 35px) {
+		.content-wrapper {
+			gap: 0;
+		}
+		
+		.content-wrapper > *:not(:first-child) {
+			margin-left: 35px;
+		}
+		
+		@media screen and (max-width: 768px) {
+			.content-wrapper > *:not(:first-child) {
+				margin-left: 0;
+				margin-top: 20px;
+			}
+		}
+	}
+}
