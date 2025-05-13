@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width", initial-scale=1>
+    <meta name="keywords" content="madhurima nath, machine learning, 
+    data science, computational physics, 
+    epidemic modeling, network reliability, AI/ML, genai, 
+    diffusive processes, graph dynamical systems, physics">
+    <meta name="author" content="Madhurima Nath">
+    <meta name="description" content="Personal homepage of Dr. Madhurima Nath">
+    
+    <title>Madhurima Nath</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <!--main container for all content-->
+    <div class="container">
+        <!--header with title and navigation-->
+        <header class="site-header">
+            <div class="site-title">
+                <a href="index.html"><h1>Madhurima Nath</h1></a>
+            </div>
+
+            <!--navigation tabs with dropdowns-->
+            <ul class="nav-tabs">
+                <li><a href="experience.html">Bio</a></li>
+                <li>
+                    <a href="#" style="background-color: #a6cef1bb;">Projects</a>
+                        <ul>
+                            <li>
+                                <a href="research.html">Academic Research</a>
+                            </li>
+                            <li>
+                                <a href="industry.html">Industry &amp; Consulting</a>
+                            </li>
+                        </ul>
+                </li>
+                <li><a href="teaching.html">Teaching</a></li>
+                <li><a href="outreach.html">Outreach</a></li>
+            </ul>
+        </header>
+    
+        <h2 style="color: #076a77; font-size: 18px;">MACHINE LEARNING</h2>
+        <p>
+            some text
+        </p>
+
+        <h2 style="color: #076a77; font-size: 18px;">DATA ENGINEERING</h2>
+        <p>
+            Landing zone in ADLS storage.
+            Azure SQL Hyperscale service tier for benefits:
+            - designed to support a variety of workloads
+            - supports dedicated read replicas
+            - most appropriate tool in Azure to handle 
+            transactional data at volume, with all benefits 
+            of Azure SQL server.
+            - much better support for concurrency and high
+            performance.
+            - supports autoscaling storage up to 100TB
+            (current state supports on 8 TB)
+            - most cost-effective storage and compute solution
+            compared to Synapse dedicated SQL pool.
+
+
+            Why not use Synapse dedicated SQL pool?
+            - not suited for small batch transactional workloads
+            - query concurrency is limited, meaning
+            queries are stuck waiting in a queue when
+            all slots are occupied.
+            - workload management and performance tuning requires
+            routine monitoring and maintenance.
+            
+            Changes:
+            - Adopt more reliable Azure Data Factory for pipeline design
+            and orchestration.
+            - Adopt ELTL instead of ETL for pipeline design.
+            - Remove complex, long running data flows from
+            data pipeline design to resolve limitations on
+            concurrent pipeline operations, adopt ADF copy 
+            activities (extract and load) and parameterized
+            SQL stored procedures (transform load) for
+            stable and robust performance.
+            - break down complex, larger pipelines into
+            smaller, atomic, reusable pipelines through
+            parameterisation.
+
+            Store procedures are powerful and resilient transformation
+            toll within Azure SQL database.
+            - enables performant and reliable ELT operations
+            allowing to pushdown the processing workload
+            towards the powerful compute power of the
+            database server and performs optimally with 
+            appropriate indexing and partitioning policies
+            adopted for larger tables.
+
+            parameterised store procedure can be written to encapsulate
+            and secure sets of reusable code. can be used to secure 
+            database by restricting the actions that can be performed
+            on a given database object.
+            pros:
+            - data stays within integration platform, with no
+            ingress or egress required from the database.
+            code is fully buildable and centralized in T-SQL 
+            invalud code will be idetified early.
+            easier to adopt and maintain for team.
+            cons-
+            - some duplicative code
+            - difficult to interpret.
+            - less secure when dynamic
+            - transformastions are limited
+        </p>
+    </div>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&COPY; 2025 Madhurima Nath. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
