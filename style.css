@@ -45,6 +45,11 @@ body {
 	padding: 0;
 }
 
+.container h2 {
+	font-size: 18px;
+	color: #076a77;
+}
+
 /* header with title and navigation */
 .site-header {
 	display: flex;
