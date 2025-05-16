@@ -417,9 +417,24 @@ hr:after {
 	transition: -webkit-transform 0.3s ease;
 }
 
-.edu-card:hover .card-image {
-	transform: scale(1.05);
-} 
+.project-list {
+	list-style-type: none;
+}
+
+.project-list li {
+	position: relative;
+	margin-bottom: 5px;
+	padding-left: 20px;
+}
+
+.project-list li::before {
+	content: "\25AA";
+	position: absolute;
+	left: 0;
+}
+
+
+
 
 /* Responsive Media Queries */
 @supports (-webkit-touch-callout: none) {
