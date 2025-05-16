@@ -442,6 +442,11 @@ hr:after {
 	font-size: 18px;
 }
 
+.project-list li a:active,
+a:hover {
+	background: none;
+}
+
 
 
 
