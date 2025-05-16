@@ -439,12 +439,7 @@ hr:after {
  {
 	color: #315eb4 !important;
 	text-decoration: none;
-	font-size: 18px;
-}
-
-.project-list li a:active,
-a:hover {
-	background: none;
+	font-size: 12px;
 }
 
 
