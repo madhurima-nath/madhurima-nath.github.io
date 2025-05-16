@@ -432,6 +432,7 @@ hr:after {
 	content: "\25AA";
 	position: absolute;
 	left: 0;
+	font-size: large;
 }
 
 .project-list a, .project-list a:link, 
@@ -439,7 +440,9 @@ hr:after {
  {
 	color: #315eb4 !important;
 	text-decoration: none;
-	font-size: 12px;
+	font-size: 5px;
+	background: none;
+	font-weight: normal;
 }
 
 
