@@ -425,12 +425,20 @@ hr:after {
 	position: relative;
 	margin-bottom: 5px;
 	padding-left: 20px;
+	font-size: 18px;
 }
 
 .project-list li::before {
 	content: "\25AA";
 	position: absolute;
 	left: 0;
+}
+
+.project-list a, .project-list a:link, 
+.project-list a:visited, .project-list a:active
+ {
+	color: #315eb4 !important;
+	text-decoration: none;
 }
 
 
