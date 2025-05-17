@@ -436,7 +436,7 @@ hr:after {
 }
 
 .project-list li a {
-	font-size: inherit;
+	font-size: 2px;
 	color: #315eb4;
 	text-decoration: none;
 	display: inline;
