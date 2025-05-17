@@ -418,7 +418,11 @@ hr:after {
 }
 
 .project-list {
-	list-style-type: none;
+	margin: 0 auto;
+	padding-left: 0;
+	box-sizing: border-box;
+	text-align: left;
+	list-style-position: outside;
 }
 
 .project-list li {
@@ -426,11 +430,32 @@ hr:after {
 	margin-bottom: 5px;
 	padding-left: 20px;
 	font-size: 18px;
+	word-break: normal;
+	word-wrap: break-word;
+	overflow-wrap: break-word;
 }
 
 .project-list li a {
-	font-size: 2px;
+	font-size: inherit;
+	color: #315eb4;
+	text-decoration: none;
+	display: inline;
+	padding: 0;
+	margin: 0;
 	font-weight: normal;
+	background: none;
+	word-break: break-word;
+	overflow-wrap: break-word;
+	max-width: 100%;
+	border: none;
+	line-height: inherit;
+	vertical-align: baseline;
+	white-space: normal;
+	appearance: none !important;
+	-webkit-appearance: none !important;
+	box-sizing: content-box !important;
+	width: auto !important;
+	height: auto !important;
 }
 
 .project-list li::before {
@@ -473,6 +498,14 @@ hr:after {
 		.content-wrapper > * + * {
 			margin-left: 0;
 			margin-top: 20px;
+		}
+
+		.project-list li a {
+			word-break: break-word;
+		}
+
+		.project-list {
+			width: 90%;
 		}
 	}
 }
