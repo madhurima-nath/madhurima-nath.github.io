@@ -44,8 +44,105 @@
         </header>
     
         <p>
+        For a telecommunications client was facing escalating operational 
+        costs from their reactive service visits, a statistical method was developed
+        to improve their approach for network infrastructure maintenance. 
+        The traditional approach relied on registering a service visit to 
+        address to multiple customer complaints, 
+        which was not only expensive but also damaged 
+        customer satisfaction through prolonged service disruptions. 
+        Each service visit (cost1) and each support call (cost2) 
+        created significant operational expenses that could be 
+        reduced through proactive maintenance.
+
+        The solution centered on proactively identifying at-risk network 
+        infrastructure by analyzing radio frequency (RF) performance data.
+        The analyst engineered a comprehensive risk scoring algorithm 
+        that evaluated key RF metrics—signal-to-noise ratio (SNR), 
+        downstream receiving power, and upstream transmitting power
+        and correlated these with historical service visit patterns. 
+        The algorithm's strength came from its data-driven weighting 
+        system that quantified each metric's predictive power. 
+        Specifically, six months of historical data were analyzed 
+        to identify ranges where call rates showed monotonically 
+        increasing or decreasing relationships with RF metrics. By
+        focusing on the 5th to 95th percentile range and 
+        excluding the extreme values at both ends, the analysis 
+        established reliable minimum and maximum thresholds 
+        for each RF metric, creating a foundation for standardization.
+
+        The technical heart of the solution was a weighted scoring 
+        formula that transformed raw RF measurements into actionable risk scores. 
+        For each metric, a standardized value was calculated using the 
+        formula: $S_i = \frac{|x_i - x_{min}|}{x_{max} - x_{min}}$ where 
+        $x_i$ represented the hourly metric value from device data. 
+        The weight for each metric was determined by measuring the 
+        slope of linear regression between call rates and the normalized metric, 
+        represented as 
+        $w_i = \frac{\Delta\text{CallRate}}{\Delta\text{NormalizedMetric}_i}$. 
+        The final risk score was calculated as 
+        $\text{RiskScore} = \sum_{i=1}^3 w_i \times S_i$, 
+        effectively capturing each metric's relative contribution 
+        to service issues. By processing this scoring model through custom 
+        SQL stored procedures scheduled for daily execution, the system 
+        continuously updated risk profiles across the network. 
+        The most innovative aspect was implementing a DBSCAN 
+        clustering algorithm that identified geographical concentrations 
+        of high-risk customers, enabling targeted maintenance of 
+        problematic network nodes rather than addressing individual customer issues.
+
+
+        <!-- insert schematic plots -->
+
+        <!-- ### Suggested Visualization Placement:
+
+        After the third paragraph would be ideal for 
+        inserting a visualization showing the correlation between 
+        increasing risk scores and service metrics. A simple chart could display:
+        - X-axis: Risk score categories (Low, Medium, High, Critical)
+        - Y-axis: Two metrics on separate scales or as a dual-axis chart:
+        1. Average service visits per 100 customers (left axis)
+        2. Average customer calls per 100 customers (right axis) -->
+
         
-            
+        Initial validation in Region 1 demonstrated compelling results, 
+        identifying potential monthly reductions of approximately 4,500 
+        customer calls. The methodology successfully flagged known 
+        problematic nodes with high precision, confirming the approach's validity. 
+        Working closely with field technicians, feedback mechanisms were 
+        established to continuously refine the risk scoring model and improve
+        prediction accuracy. This collaborative validation process was crucial 
+        for gaining organizational buy-in and ensuring the solution addressed 
+        real-world network issues.
+
+        <!-- After proving the concept, the findings were cautiously extrapolated 
+        nationwide, accounting for regional variations in network density 
+        and configuration. Using a service visit rate of 0.1 (one service visit
+        per ten customer calls), potential reductions of approximately 
+        30K monthly customer calls and 6K service visits across the country 
+        were projected, translating to approximately $8M+ in annual cost avoidance. 
+        While this projection served as a directional estimate to secure executive 
+        sponsorship, a phased regional rollout plan was implemented that allowed 
+        for continuous refinement of the model for different geographical 
+        contexts and network architectures. -->
+
+        The final production solution enabled the transformation from 
+        reactive to proactive maintenance scheduling based on statistical risk indicators. 
+        Operations teams received daily reports highlighting emerging high-risk 
+        clusters requiring preventive intervention, dramatically shifting resource 
+        allocation from emergency response to planned maintenance. This not only 
+        reduced costs but improved network reliability metrics and customer 
+        satisfaction scores by addressing potential failures before they 
+        impacted service. The solution's ROI extended beyond direct cost 
+        savings to include improved customer retention and reduced churn 
+        in previously problematic service areas.
+
+
+        This would visually demonstrate how the risk scoring accurately 
+        predicted future service issues, showing the dramatic increase in 
+        both metrics as the risk score increased. Additionally, including a 
+        small mathematical notation box with the key formulas would elegantly 
+        communicate the technical sophistication of the approach.​​​​​​​​​​​​​​​​
             
         </p>
     </div>
