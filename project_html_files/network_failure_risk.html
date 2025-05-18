@@ -44,7 +44,7 @@
         </header>
     
         <p>
-        A statistical method based on radio frequency (RF) metrics was developed
+        A statistical method based on device radio frequency (RF) metrics was developed
         to improve the approach for network infrastructure maintenance,
         for a telecommunications client facing escalating operational 
         costs from their reactive service visits. 
@@ -56,10 +56,21 @@
         reduced through proactive maintenance.
 
         The solution centered on proactively identifying at-risk network 
-        infrastructure by analyzing radio frequency (RF) performance data.
-        The analyst engineered a comprehensive risk scoring algorithm 
-        that evaluated key RF metrics—signal-to-noise ratio (SNR), 
-        downstream receiving power, and upstream transmitting power
+        infrastructure in a smaller geo-location within a region 
+        by analyzing RF performance data from the customer devices.
+        A comprehensive risk scoring algorithm was engineered using
+        the hourly data available for the key RF metrics:
+        <li>
+            signal-to-noise ratio (SNR)
+        </li>
+        <li>
+            downstream receiving power
+        </li>
+        <li>
+            upstream transmitting power
+        </li>
+        
+       
         and correlated these with historical service visit patterns. 
         The algorithm's strength came from its data-driven weighting 
         system that quantified each metric's predictive power. 
