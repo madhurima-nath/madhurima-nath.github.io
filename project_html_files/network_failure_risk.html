@@ -93,6 +93,7 @@
         and call rates validated the correlation that a higher device-health score
         leads to more calls and subsequently more service visits.
         <br>
+        <h3>Device-health score calculation</h3>
         To identify a reliable minimum and maximum thresholds 
         for each RF metric, required for standardisation,
         the extreme values at both ends were excluded by 
@@ -101,18 +102,16 @@
         A weighted scoring formula transformed raw RF measurements 
         into actionable device-health scores. 
         The weight for each metric was determined by measuring the 
-        slope of linear regression between call rates and the normalized metric, 
+        slope of linear regression between call rates and the normalised metric, 
         represented as 
-        <p>
+        
         <div style="text-align: center; margin: 20px 0;">
-            $$w_i = \frac{\Delta\text{CallRate}}{\Delta\text{NormalizedMetric}_i}.$$
+            $$w_i = \frac{\Delta\text{call_rate}}{\Delta\text{normalised_metric}_i}.$$
         </div>
 
-        </p>
-        For each metric, a standardized value was calculated using the 
-        formula: $S_i = \frac{|x_i - x_{min}|}{x_{max} - x_{min}}$ where 
+        Each metric was standardised using the formula: 
+        $S_i = \frac{|x_i - x_{min}|}{x_{max} - x_{min}}$ where 
         $x_i$ represented the hourly metric value from device data. 
-        The 
          
         The final device-health score was calculated as 
         $\text{device-healthScore} = \sum_{i=1}^3 w_i \times S_i$, 
