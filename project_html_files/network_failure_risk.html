@@ -12,9 +12,11 @@
     <meta name="description" content="Personal homepage of Dr. Madhurima Nath">
     
     <title>Madhurima Nath</title>
-    <!--home icon-->
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
     <link rel="stylesheet" href="../style.css">
+    <!-- load mathjax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-nml-chtml.js">
+    </script>
 
 </head>
 
@@ -24,28 +26,28 @@
         <!--header with title and navigation-->
         <header class="site-header">
             <div class="site-title">
-                <a href="index.html"><h1>Madhurima Nath</h1></a>
+                <a href="../index.html"><h1>Madhurima Nath</h1></a>
             </div>
 
             <!--navigation tabs with dropdowns-->
             <ul class="nav-tabs">
-                <li><a href="experience.html">Bio</a></li>
+                <li><a href="../experience.html">Bio</a></li>
                 <li>
                     <a href="#" style="background-color: #a6cef1bb;">Projects</a>
                         <ul>
                             <li>
-                                <a href="research.html">Academic Research</a>
+                                <a href="../research.html">Academic Research</a>
                             </li>
                             <li>
-                                <a href="industry.html">Industry &amp; Consulting</a>
+                                <a href="../industry.html">Industry &amp; Consulting</a>
                             </li>
                         </ul>
                 </li>
-                <li><a href="teaching.html">Teaching</a></li>
-                <li><a href="outreach.html">Outreach</a></li>
+                <li><a href="../teaching.html">Teaching</a></li>
+                <li><a href="../outreach.html">Outreach</a></li>
             </ul>
         </header>
-        <h2>Network Infrastructure - something</h2>
+        <h2 style="font-size: 20px;"> infrastructure</h2>
         <p>
         A statistical method based on device radio frequency (RF) metrics was developed
         to improve the approach for network infrastructure maintenance,
@@ -61,9 +63,8 @@
         The proposed solution monitors the device health of customers
         and proactively identifies possible at-risk network 
         infrastructure in a smaller geo-location within a region.
-        A comprehensive risk scoring algorithm was engineered using
-        the hourly data available for the key RF performance metrics (indicators
-        of device health):
+        A comprehensive device health scoring algorithm was engineered using
+        the hourly data available for the key RF performance metrics:
         <li>
             signal-to-noise ratio (SNR)
         </li>
@@ -74,32 +75,36 @@
             upstream transmitting power
         </li>
 
-        The risk score plotted against six months of historical service visits
-        and call rates validate the correlation that a higher risk score
+        The device-health score plotted against six months of historical service visits
+        and call rates validated the correlation that a higher device-health score
         leads to more calls and subsequently more service visits.
-        Specifically, analyzed 
-        to identify ranges where call rates showed monotonically 
-        increasing or decreasing relationships with RF metrics. By
-        focusing on the 5th to 95th percentile range and 
-        excluding the extreme values at both ends, the analysis 
-        established reliable minimum and maximum thresholds 
-        for each RF metric, creating a foundation for standardization.
+        <br>
+        To identify a reliable minimum and maximum thresholds 
+        for each RF metric, required for standardisation,
+        the extreme values at both ends were excluded by 
+        focusing on the 5th to 95th percentile range.
 
-        The technical heart of the solution was a weighted scoring 
-        formula that transformed raw RF measurements into actionable risk scores. 
-        For each metric, a standardized value was calculated using the 
-        formula: $S_i = \frac{|x_i - x_{min}|}{x_{max} - x_{min}}$ where 
-        $x_i$ represented the hourly metric value from device data. 
+        A weighted scoring formula transformed raw RF measurements 
+        into actionable device-health scores. 
         The weight for each metric was determined by measuring the 
         slope of linear regression between call rates and the normalized metric, 
         represented as 
-        $w_i = \frac{\Delta\text{CallRate}}{\Delta\text{NormalizedMetric}_i}$. 
-        The final risk score was calculated as 
-        $\text{RiskScore} = \sum_{i=1}^3 w_i \times S_i$, 
+        <p>
+        \[
+        w_i = \frac{\Delta\text{CallRate}}{\Delta\text{NormalizedMetric}_i}
+        \].
+        </p>
+        For each metric, a standardized value was calculated using the 
+        formula: $S_i = \frac{|x_i - x_{min}|}{x_{max} - x_{min}}$ where 
+        $x_i$ represented the hourly metric value from device data. 
+        The 
+         
+        The final device-health score was calculated as 
+        $\text{device-healthScore} = \sum_{i=1}^3 w_i \times S_i$, 
         effectively capturing each metric's relative contribution 
         to service issues. By processing this scoring model through custom 
         SQL stored procedures scheduled for daily execution, the system 
-        continuously updated risk profiles across the network. 
+        continuously updated device-health profiles across the network. 
         The most innovative aspect was implementing a DBSCAN 
         clustering algorithm that identified geographical concentrations 
         of high-risk customers, enabling targeted maintenance of 
@@ -124,7 +129,7 @@
         customer calls. The methodology successfully flagged known 
         problematic nodes with high precision, confirming the approach's validity. 
         Working closely with field technicians, feedback mechanisms were 
-        established to continuously refine the risk scoring model and improve
+        established to continuously refine the device-health scoring model and improve
         prediction accuracy. This collaborative validation process was crucial 
         for gaining organizational buy-in and ensuring the solution addressed 
         real-world network issues.
@@ -141,8 +146,8 @@
         contexts and network architectures. -->
 
         The final production solution enabled the transformation from 
-        reactive to proactive maintenance scheduling based on statistical risk indicators. 
-        Operations teams received daily reports highlighting emerging high-risk 
+        reactive to proactive maintenance scheduling based on statistical device-health indicators. 
+        Operations teams received daily reports highlighting emerging high-device-health 
         clusters requiring preventive intervention, dramatically shifting resource 
         allocation from emergency response to planned maintenance. This not only 
         reduced costs but improved network reliability metrics and customer 
