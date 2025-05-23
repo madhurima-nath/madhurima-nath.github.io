@@ -14,8 +14,22 @@
     <title>Madhurima Nath</title>
     <link rel="stylesheet" href="../style.css">
     <!-- load mathjax -->
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-nml-chtml.js">
+    <script type="text/javascript">
+    window.MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            processEscapes: true
+        },
+        svg: {
+            fontCache: 'global'
+        }
+    };
+    </script>
+    <!-- <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> -->
+    <script type="text/javascript"
+    id="MathJax-script" async 
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
     </script>
 
 </head>
@@ -59,7 +73,7 @@
         A portion of operational expenses could be reduced if some
         repeated service visits and support calls could be decreased
         through proactive maintenance.
-        <br>
+        <br><br>
         The proposed solution monitors the device health of customers
         and proactively identifies possible at-risk network 
         infrastructure in a smaller geo-location within a region.
@@ -90,9 +104,10 @@
         slope of linear regression between call rates and the normalized metric, 
         represented as 
         <p>
-        \[
-        w_i = \frac{\Delta\text{CallRate}}{\Delta\text{NormalizedMetric}_i}
-        \].
+        <div style="text-align: center; margin: 20px 0;">
+            $$w_i = \frac{\Delta\text{CallRate}}{\Delta\text{NormalizedMetric}_i}.$$
+        </div>
+
         </p>
         For each metric, a standardized value was calculated using the 
         formula: $S_i = \frac{|x_i - x_{min}|}{x_{max} - x_{min}}$ where 
