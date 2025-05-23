@@ -53,15 +53,17 @@
         The traditional approach relied on registering a service visit to 
         address to multiple customer complaints. This was not only expensive 
         but also damaged customer satisfaction through prolonged service disruptions. 
-        The associated cost with each service visit and each support call
-        created significant operational expenses that could be 
-        reduced through proactive maintenance.
+        A portion of operational expenses could be reduced if some
+        repeated service visits and support calls could be decreased
+        through proactive maintenance.
         <br>
-        The solution centered on proactively identifying at-risk network 
-        infrastructure in a smaller geo-location within a region 
-        by analyzing RF performance data from the customer devices.
+        The proposed solution monitors the device health of customers
+        and proactively identifies possible at-risk network 
+        infrastructure in a smaller geo-location within a region.
         A comprehensive risk scoring algorithm was engineered using
-        the hourly data available for the key RF metrics:
+        the hourly data available for the key RF performance metrics (indicators
+        of device health):
+        <ul>
         <li>
             signal-to-noise ratio (SNR)
         </li>
@@ -71,8 +73,9 @@
         <li>
             upstream transmitting power
         </li>
+        </ul>
         
-       
+        The 
         and correlated these with historical service visit patterns. 
         The algorithm's strength came from its data-driven weighting 
         system that quantified each metric's predictive power. 
