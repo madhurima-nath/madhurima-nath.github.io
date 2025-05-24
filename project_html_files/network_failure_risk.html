@@ -94,7 +94,7 @@
         leads to more calls and subsequently more service visits.
         A schematic plot showing this relationship is shown below:
         <img src="../project_related_images/call_rate_score_schematic.jpeg"
-        style="max-width: 80%;">
+        style="max-width: 80%; align-items: center;">
 
         <br>
         <h3 style="font-style: italic;"><u>Device-health score calculation</u></h3>
@@ -104,6 +104,10 @@
         the extreme values at both ends were excluded by 
         focusing on the 5th to 95th percentile range.
 
+        Each metric was standardised using the formula: 
+        $S_i = \frac{|x_i - x_{min}|}{x_{max} - x_{min}}$ where 
+        $x_i$ represented the hourly metric value from device data. 
+
         A weighted scoring formula transformed raw RF measurements 
         into actionable device-health scores. 
         The weight for each metric was determined by measuring the 
@@ -111,17 +115,22 @@
         represented as 
         
         <div style="text-align: center; margin: 20px 0;">
-            $$w_i = \frac{\Delta\text{call_rate}}{\Delta\text{normalised_metric}_i}.$$
+            $$w_i = \frac{\Delta\text\italic{call_rate}}{\Delta\text{normalised_metric}_i}.$$
         </div>
 
-        Each metric was standardised using the formula: 
-        $S_i = \frac{|x_i - x_{min}|}{x_{max} - x_{min}}$ where 
-        $x_i$ represented the hourly metric value from device data. 
-         
-        The final device-health score was calculated as 
-        $\text{device-healthScore} = \sum_{i=1}^3 w_i \times S_i$, 
+        Finally, the device-health score was calculated as 
+        <div style="text-align: center; margin: 20px 0;">
+            $$\text{device_health_score} = \sum_{i=1}^3 w_i \times S_i$$, 
+        </div>
         effectively capturing each metric's relative contribution 
-        to service issues. By processing this scoring model through custom 
+        to service issues. 
+        
+        <h3 style="font-style: italic;"><u>Finding clusters of at-risk customers</u></h3>
+        <br>
+        To find faulty infrastructure within a smaller geo-location,
+        a DBSCAN algorithm was implemented with the following constraints.
+        
+        By processing this scoring model through custom 
         SQL stored procedures scheduled for daily execution, the system 
         continuously updated device-health profiles across the network. 
         The most innovative aspect was implementing a DBSCAN 
