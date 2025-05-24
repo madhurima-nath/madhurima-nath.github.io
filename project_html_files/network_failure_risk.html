@@ -91,47 +91,50 @@
         <li>
             upstream transmitting power
         </li>
-
-        The device-health score plotted against six months of historical service visits
-        and call rates validated the correlation that a higher device-health score
-        leads to more calls and subsequently more service visits.
+        <!-- <img src="../project_related_images/call_rate_score_schematic.jpeg"
+        style="max-width: 90%; align-items: center; margin: 10px;"> -->
 
         <br>
-        <h3 style="font-style: italic;"><u>Device-health score calculation</u></h3>
-        To identify a reliable minimum and maximum thresholds 
-        for each RF metric, required for standardisation,
-        the extreme values at both ends were excluded by 
-        focusing on the 5th to 95th percentile range.
-
-        Each metric was standardised using the formula: 
-        $S_i = \frac{|x_i - x_{min}|}{x_{max} - x_{min}}$ where 
-        $x_i$ represented the hourly metric value from device data. 
-
-        A weighted scoring formula transformed raw RF measurements 
-        into actionable device-health scores. 
-        The weight for each metric was determined by measuring the 
-        slope of linear regression between call rates and the normalised metric, 
-        represented as 
-
-        <div class="eqn-img-container">
-            <p>
-            A schematic plot showing this relationship is shown below:
-            </p>
-            <div class="eqn-container">
-                <div style="text-align: center; margin: 20px 0;">
-                $$w_i = \frac{\Delta\textit{call_rate}}{\Delta\textit{normalised_metric}_i}.$$
-                </div>
-            </div>
-            <div class="img-container">
+        <div class="content-wrapper">
+            <!--left side image-->
+            <div class="sidebar">
                 <img src="../project_related_images/call_rate_score_schematic.jpeg"
-                style="max-width: 90%; align-items: center; margin: 10px;" 
-                alt="call rate vs device-health score">
+                alt="call rate vs device-health score", class="side-image">
             </div>
-        </div>
-        Finally, to effectively capture each metric's relative contribution 
-        to service issues, the device-health score was calculated as 
-        <div style="text-align: center; margin: 20px 0;">
-            $$\textit{device_health_score} = \sum_{i=1}^3 w_i \times S_i.$$
+        
+            <!--section right-->
+            <section class="introduction">
+                <h3 style="font-style: italic;"><u>Device-health score calculation</u></h3>
+                The device-health score plotted against six months of historical service visits
+                and call rates validated the correlation that a higher device-health score
+                leads to more calls and subsequently more service visits.
+                A schematic plot showing this relationship is shown on the left.
+
+                To identify a reliable minimum and maximum thresholds 
+                for each RF metric, required for standardisation,
+                the extreme values at both ends were excluded by 
+                focusing on the 5th to 95th percentile range.
+
+                Each metric was standardised using the formula: 
+                $S_i = \frac{|x_i - x_{min}|}{x_{max} - x_{min}}$ where 
+                $x_i$ represented the hourly metric value from device data. 
+
+                A weighted scoring formula transformed raw RF measurements 
+                into actionable device-health scores. 
+                The weight for each metric was determined by measuring the 
+                slope of linear regression between call rates and the normalised metric, 
+                represented as 
+        
+                <div style="text-align: center; margin: 20px 0;">
+                    $$w_i = \frac{\Delta\textit{call_rate}}{\Delta\textit{normalised_metric}_i}.$$
+                </div>
+
+                Finally, to effectively capture each metric's relative contribution 
+                to service issues, the device-health score was calculated as 
+                <div style="text-align: center; margin: 20px 0;">
+                    $$\textit{device_health_score} = \sum_{i=1}^3 w_i \times S_i.$$
+                </div>
+            </section>
         </div>
          
         <br>
