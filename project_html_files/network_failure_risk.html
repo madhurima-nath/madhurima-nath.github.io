@@ -91,8 +91,6 @@
         <li>
             upstream transmitting power
         </li>
-        <!-- <img src="../project_related_images/call_rate_score_schematic.jpeg"
-        style="max-width: 90%; align-items: center; margin: 10px;"> -->
 
         <br><br>
         <h3 style="font-style: italic;"><u>Device-health score calculation</u></h3>
@@ -111,22 +109,26 @@
         $x_i$ represented the hourly metric value from device data. 
         A weighted scoring formula transformed raw RF measurements 
         into actionable device-health scores. 
+
+        The weight for each metric was determined by measuring the 
+        slope of linear regression between call rates and the normalised metric, 
+        represented as 
+
+        <div style="text-align: center; margin: 20px 0;">
+            $$w_i = \frac{\Delta\textit{call_rate}}{\Delta\textit{normalised_metric}_i}.$$
+        </div>
+
         <div class="content-wrapper">
             <!--left side image-->
             <div class="sidebar">
                 <img src="../project_related_images/call_rate_score_schematic.jpeg"
-                alt="call rate vs device-health score", class="side-image">
+                alt="call rate vs device-health score"
+                style="max-width: 60%; height: 80%; align-items: center; margin: 10px;">
             </div>
         
             <!--section right-->
             <section class="introduction">
-                The weight for each metric was determined by measuring the 
-                slope of linear regression between call rates and the normalised metric, 
-                represented as 
-        
-                <div style="text-align: center; margin: 20px 0;">
-                    $$w_i = \frac{\Delta\textit{call_rate}}{\Delta\textit{normalised_metric}_i}.$$
-                </div>
+
 
                 Finally, to effectively capture each metric's relative contribution 
                 to service issues, the device-health score was calculated as 
