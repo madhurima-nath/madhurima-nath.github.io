@@ -26,7 +26,6 @@
         }
     };
     </script>
-    <!-- <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> -->
     <script type="text/javascript"
     id="MathJax-script" async 
     src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
@@ -96,9 +95,6 @@
         The device-health score plotted against six months of historical service visits
         and call rates validated the correlation that a higher device-health score
         leads to more calls and subsequently more service visits.
-        A schematic plot showing this relationship is shown below:
-        <img src="../project_related_images/call_rate_score_schematic.jpeg"
-        style="max-width: 90%; align-items: center; margin: 10px;">
 
         <br>
         <h3 style="font-style: italic;"><u>Device-health score calculation</u></h3>
@@ -116,11 +112,22 @@
         The weight for each metric was determined by measuring the 
         slope of linear regression between call rates and the normalised metric, 
         represented as 
-        
-        <div style="text-align: center; margin: 20px 0;">
-            $$w_i = \frac{\Delta\textit{call_rate}}{\Delta\textit{normalised_metric}_i}.$$
-        </div>
 
+        <div class="eqn-img-container">
+            <p>
+            A schematic plot showing this relationship is shown below:
+            </p>
+            <div class="eqn-container">
+                <div style="text-align: center; margin: 20px 0;">
+                $$w_i = \frac{\Delta\textit{call_rate}}{\Delta\textit{normalised_metric}_i}.$$
+                </div>
+            </div>
+            <div class="img-container">
+                <img src="../project_related_images/call_rate_score_schematic.jpeg"
+                style="max-width: 90%; align-items: center; margin: 10px;" 
+                alt="call rate vs device-health score">
+            </div>
+        </div>
         Finally, to effectively capture each metric's relative contribution 
         to service issues, the device-health score was calculated as 
         <div style="text-align: center; margin: 20px 0;">

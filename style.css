@@ -473,7 +473,18 @@ hr:after {
 	font-weight: normal;
 }
 
+.eqn-img-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 50px;
+	margin: 20px 0;
+	flex-wrap: wrap;
+}
 
+.eqn-container {
+	min-width: 200px;
+}
 
 
 /* Responsive Media Queries */
