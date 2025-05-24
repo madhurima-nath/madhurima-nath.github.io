@@ -149,48 +149,40 @@
         </li>
         <b>Note</b>: 0.3 was chosen from the call rate vs device health score.
         
-        
-        By processing this scoring model through custom 
-        SQL stored procedures scheduled for daily execution, the system 
-        continuously updated device-health profiles across the network. 
-        The most innovative aspect was implementing a DBSCAN 
-        clustering algorithm that identified geographical concentrations 
-        of high-risk customers, enabling targeted maintenance of 
+        <br>
+        <h3 style="font-style: italic;"><u>Daily execution of clustering</u></h3>
+        <br>
+        Custom SQL stored procedures were scheduled for daily execution to
+        continuously provide updated device-health profiles and
+        geographical concentrations of potential at-risk (high risk)
+        customers across the entire region. 
+        Since the clusters of custoners with high device-health scores
+        covered a significant distance, it pointed to a faulty infrastructure
+        instead of individual device issues.
+        The continuous monitoring of such clusters enabled targeted maintenance of 
         problematic network nodes rather than addressing individual customer issues.
-
-
-        Initial validation in Region 1 demonstrated compelling results, 
-        identifying potential monthly reductions of approximately 4,500 
-        customer calls. The methodology successfully flagged known 
-        problematic nodes with high precision, confirming the approach's validity. 
-        Working closely with field technicians, feedback mechanisms were 
-        established to continuously refine the device-health scoring model and improve
-        prediction accuracy. This collaborative validation process was crucial 
-        for gaining organizational buy-in and ensuring the solution addressed 
-        real-world network issues.
-
-        <!-- After proving the concept, the findings were cautiously extrapolated 
-        nationwide, accounting for regional variations in network density 
-        and configuration. Using a service visit rate of 0.1 (one service visit
-        per ten customer calls), potential reductions of approximately 
-        30K monthly customer calls and 6K service visits across the country 
-        were projected, translating to approximately $8M+ in annual cost avoidance. 
-        While this projection served as a directional estimate to secure executive 
-        sponsorship, a phased regional rollout plan was implemented that allowed 
-        for continuous refinement of the model for different geographical 
-        contexts and network architectures. -->
+        <br>
+        <b>The methodology successfully flagged known 
+        problematic nodes with high precision in one region of the USA,
+        confirming the approach's validity. </b>
+        
+        <br>
+        <h3 style="font-style: italic;"><u>Extrapolation to the entire nation</u></h3>
+        After proving the concept, the findings were cautiously extrapolated 
+        nationwide, accounting for regional variations in population density, 
+        thereby changing the parameters of the clustering algorithm and the
+        thresholds for call rates.
 
         The final production solution enabled the transformation from 
         reactive to proactive maintenance scheduling based on statistical device-health indicators. 
-        Operations teams received daily reports highlighting emerging high-device-health 
-        clusters requiring preventive intervention, dramatically shifting resource 
-        allocation from emergency response to planned maintenance. This not only 
+        Field operations teams received daily reports highlighting emerging high-device-health 
+        clusters requiring preventive intervention, dramatically <u>shifting resource 
+        allocation from emergency response to planned maintenance</u>. This not only 
         reduced costs but improved network reliability metrics and customer 
         satisfaction scores by addressing potential failures before they 
         impacted service. The solution's ROI extended beyond direct cost 
         savings to include improved customer retention and reduced churn 
         in previously problematic service areas.
-
             
         </p>
         </section>
