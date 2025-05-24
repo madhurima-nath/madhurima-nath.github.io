@@ -124,11 +124,31 @@
         </div>
         effectively capturing each metric's relative contribution 
         to service issues. 
-        
+        <br>
         <h3 style="font-style: italic;"><u>Finding clusters of at-risk customers</u></h3>
         <br>
-        To find faulty infrastructure within a smaller geo-location,
-        a DBSCAN algorithm was implemented with the following constraints.
+        To find faulty infrastructure in a region, multiple clusters of
+        customers with high device-health score were identified
+        using the clustering algorithm,
+        DBSCAN or Density Based Spatial Clustering of Applications with Noise.
+        It groups data points based on how densely packed they are, 
+        and can identify
+        clusters of various shapes and handle data with varying densities.
+        <a href="https://postgis.net/docs/ST_ClusterDBSCAN.html">SQL DBSCAN code reference.</a>
+
+        DBSCAN was implemented to find clusters of a minimum of 10 customers 
+        with a device-health score of at least 0.3 after tuning the following
+        parameters:
+        <li style="padding: 20px 0; content: '\25AA';">
+            distance between the geometric points, e.g., distance between the 
+            latitudes and longitudes of customers set to 500 metres.
+        </li>
+        <li style="padding: 20px 0; content: '\25AA';">
+            minimum number of points in the cluster, e.g., a minimum
+            of 10 customers.
+        </li>
+        <b>Note</b>: 0.3 was chosen from the call rate vs device health score.
+        
         
         By processing this scoring model through custom 
         SQL stored procedures scheduled for daily execution, the system 
