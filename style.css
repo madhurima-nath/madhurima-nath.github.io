@@ -172,6 +172,15 @@ ul:after {
 	-ms-flex: 0 0 150px;
 }
 
+.sidebar img {
+	max-width: 320%; 
+	height: auto; 
+	align-items: center;
+	object-fit: contain;
+	flex: 1;
+	display: flex;
+}
+
 .side-image {
 	width: 100%;
 	display: block;
@@ -485,17 +494,31 @@ hr:after {
 	.content-wrapper {
 		/* Prevent content overflow issues in Safari */
 		width: auto !important;
+		flex-direction: column;
 	}
 
 	/* Fix Safari flexbox gap alternative (gap not fully supported in older Safari) */
 	.content-wrapper > * + * {
-		margin-left: 35px;
+		margin-left: 20px;
+		flex-direction: column;
 	}
 	
+	.sidebar img {
+		width: 100%;
+		max-width: 100%;
+		padding: 0 10px;
+	}
+
 	@media (max-width: 768px) {
 		.content-wrapper > * + * {
 			margin-left: 0;
 			margin-top: 20px;
+		}
+
+		.sidebar img {
+		width: 100%;
+		max-width: 100%;
+		padding: 0 10px;
 		}
 
 		.project-list li a {
@@ -562,6 +585,23 @@ body {
 @media screen and (max-width: 480px) {
 .site-title h1 {
 	font-size: 24px;
+}
+
+.content-wrapper {
+	flex-direction: column;
+	gap: 20px;
+}
+    
+.sidebar {
+	flex: 0 0 auto;
+	max-width: 200px;
+	margin: 0 auto;
+}
+
+.sidebar img {
+		width: 100%;
+		max-width: 100%;
+		padding: 0 10px;
 }
 
 ul li a {
