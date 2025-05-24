@@ -482,6 +482,18 @@ hr:after {
 	font-weight: normal;
 }
 
+.net-introduction {
+	flex: 1;
+	padding: 0;
+	background-color: transparent;
+	box-shadow: none;
+	max-width: calc(100% - 60px);
+	-webkit-box-flex: 1;
+	-webkit-flex: 1;
+	-ms-flex: 1;
+	-webkit-box-shadow: none;
+	font-size: 18px;
+}
 
 /* Responsive Media Queries */
 @supports (-webkit-touch-callout: none) {
@@ -565,6 +577,10 @@ body {
 	max-width: 100%;
 }
 
+.net-introduction {
+	max-width: 100%;
+}
+
 .exp-card {
 	max-width: 100%;
 }
@@ -602,6 +618,11 @@ body {
 		width: 100%;
 		max-width: 100%;
 		padding: 0 10px;
+}
+
+.net-introduction {
+	padding-left: 0;
+	display: flex;
 }
 
 ul li a {
