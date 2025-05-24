@@ -172,15 +172,6 @@ ul:after {
 	-ms-flex: 0 0 150px;
 }
 
-.sidebar img {
-	max-width: 320%; 
-	height: auto; 
-	align-items: center;
-	object-fit: contain;
-	flex: 1;
-	display: flex;
-}
-
 .side-image {
 	width: 100%;
 	display: block;
@@ -482,18 +473,6 @@ hr:after {
 	font-weight: normal;
 }
 
-.net-introduction {
-	flex: 1;
-	padding: 0;
-	background-color: transparent;
-	box-shadow: none;
-	max-width: calc(100% - 60px);
-	-webkit-box-flex: 1;
-	-webkit-flex: 1;
-	-ms-flex: 1;
-	-webkit-box-shadow: none;
-	font-size: 18px;
-}
 
 /* Responsive Media Queries */
 @supports (-webkit-touch-callout: none) {
@@ -506,20 +485,13 @@ hr:after {
 	.content-wrapper {
 		/* Prevent content overflow issues in Safari */
 		width: auto !important;
-		flex-direction: column;
 	}
 
 	/* Fix Safari flexbox gap alternative (gap not fully supported in older Safari) */
 	.content-wrapper > * + * {
 		margin-left: 20px;
-		flex-direction: column;
 	}
-	
-	.sidebar img {
-		width: 100%;
-		max-width: 100%;
-		padding: 0 10px;
-	}
+}
 
 	@media (max-width: 768px) {
 		.content-wrapper > * + * {
@@ -541,7 +513,6 @@ hr:after {
 			width: 90%;
 		}
 	}
-}
 
 
 /* Tablet and smaller desktop screens */
@@ -577,10 +548,6 @@ body {
 	max-width: 100%;
 }
 
-.net-introduction {
-	max-width: 100%;
-}
-
 .exp-card {
 	max-width: 100%;
 }
@@ -612,17 +579,6 @@ body {
 	flex: 0 0 auto;
 	max-width: 200px;
 	margin: 0 auto;
-}
-
-.sidebar img {
-		width: 100%;
-		max-width: 100%;
-		padding: 0 10px;
-}
-
-.net-introduction {
-	padding-left: 0;
-	display: flex;
 }
 
 ul li a {
