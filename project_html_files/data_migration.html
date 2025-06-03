@@ -43,9 +43,34 @@
             </ul>
         </header>
     
-        <h2 style="font-size: 20px; color: #076a77;">Data migration into delta lake 
+        <h2 style="font-size: 20px; color: #076a77;">Data migration into data lake 
         using data pipelines</h2>
         <p>
+            SQL stored procedures are powerful and resilient transformation
+            method which enables performant and reliable 
+            ELTL (Extract-Load-Transform-Load) or ETL/ELT operations.
+
+            Parameterised store procedures can be written to encapsulate
+            and secure sets of reusable code. 
+            The major pro is that the data stays within integration platform, with no
+            ingress or egress required from the database.
+            However, there are some cons of using stored procedures.
+            <li>
+            There is some duplicative code.
+            </li>
+            <li>
+            At times, the code is difficult to interpret.
+            </li>
+            <li>
+            Stored procedures are less secure when dynamic and 
+            transformastions are limited.
+            </li>
+            
+            ensuring comprehensive data 
+            integrity and seamless integration.
+    \item Implemented validation techniques that 
+    significantly reduced migration errors and 
+    enhanced overall data quality for enterprise-level data management. 
             Landing zone in ADLS storage.
             Azure SQL Hyperscale service tier for benefits:
             - designed to support a variety of workloads
@@ -83,30 +108,6 @@
             smaller, atomic, reusable pipelines through
             parameterisation.
 
-            Store procedures are powerful and resilient transformation
-            toll within Azure SQL database.
-            - enables performant and reliable ELT operations
-            allowing to pushdown the processing workload
-            towards the powerful compute power of the
-            database server and performs optimally with 
-            appropriate indexing and partitioning policies
-            adopted for larger tables.
-
-            parameterised store procedure can be written to encapsulate
-            and secure sets of reusable code. can be used to secure 
-            database by restricting the actions that can be performed
-            on a given database object.
-            pros:
-            - data stays within integration platform, with no
-            ingress or egress required from the database.
-            code is fully buildable and centralized in T-SQL 
-            invalud code will be idetified early.
-            easier to adopt and maintain for team.
-            cons-
-            - some duplicative code
-            - difficult to interpret.
-            - less secure when dynamic
-            - transformastions are limited
         </p>
     </div>
 
