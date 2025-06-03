@@ -473,7 +473,6 @@ hr:after {
 	font-weight: normal;
 }
 
-
 table {
   border-collapse: collapse;
   width: 100%;
@@ -486,7 +485,7 @@ td, th {
 }
 
 tr:nth-child(even) {
-  background-color: #71bbf8;
+  background-color: #c4ebf1;
 }
 
 
