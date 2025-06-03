@@ -45,40 +45,75 @@
         </header>
         
         <h2 style="color: #076a77; font-size:20px;">
-            Healthcare Q&A virtual assistant
+            Healthcare Q \&amp; A virtual assistant
         </h2> 
         <p>
         A healthcare technology start-up client wanted
         to improve their application interface by 
         incorporating GenAI to boost customer experience.
         At the current state, the interface performed
-        clustering on the biopharmaceutical and medtech datasets
+        clustering on the bio-pharmaceutical and medical technical datasets
         and generated plots representing the different groups.
-        The objective was to build a Q&A chatbot to
+        A Q \&amp; A chatbot using <code>Anthropic Claude LLM</code> 
+        was developed on AWS Bedrock to
         assist both experts and non-medical users 
         to easily gain insights from these plots.
-        A prototype chatbot powered by the 
-        <code>Anthropic Claude LLM</code> on AWS Bedrock
-        was 
+
         <br>
         Ingesting data as-is in the <code>LLM prompt</code>
         increased latency, token usage and thus cost.
         Pre-processing data to extract relevant information
-        and summarizing it helped to improve accuracy and reduce
-        latency.
+        and summarising it helped to improve accuracy,
+        optimise for latency, and return an answer 
+        in less in ~20 seconds on average.
         Implementing <code>LLM agent</code> with carefully
         designed prompt and the appropriate tools provided
         a flexible framework to answer various types questions,
         as well as the capability to expand the scope of
         questions in the future. 
         <br>
-        Note: We were not responsible for the front-end development.
+        Note: Collaborated with design team, who developed the front-end interface.
         <br><br>
         <b>
             Solution architecture
         </b>
         <img src="../project_related_images/SolutionArchChatbot.jpg"
         style="max-width: 100%;">
+
+        <table>
+            <tr>
+                <th>F</th>
+                <th>Trial 1</th>
+                <th>Trial 2</th>
+                <th>Trial 3</th>
+            </tr>
+            <tr>
+                <td>Raw data from <samp>json</samp></td>
+                <td>Pre-processed data</td>
+                <td>Pre-processed data</td>
+            </tr>
+            <tr>
+                <td>Entire descriptions</td>
+                <td>Summarised measure descriptions</td>
+                <td>Summarised measure descriptions</td>
+            </tr>
+            <tr>
+                <td>No early stopping model output</td>
+                <td>No early stopping model output</td>
+                <td>Stop answer generation as soon as function call is generated</td>
+            </tr>
+            <tr>
+                <td>Average number of tokens per request: ~35,000</td>
+                <td>Average number of tokens per request: ~2,500</td>
+                <td>Average number of tokens per request: ~2,000</td>
+            </tr>
+            <tr>
+                <td>Average response time: ~70 seconds</td>
+                <td>Average response time: ~40 seconds</td>
+                <td>Average response time: ~20 seconds</td>
+            </tr>
+        </table>
+
         <li>
             The numeric results from the clustering analysis
             were parsed to extract the relevant information
@@ -107,8 +142,8 @@
                 answers from the heatmaps.
             </li>
         </li>
-        At the end of the engagement we were able to deliver
-        a fully functioning chatbot that could be
+        At the end of the engagement,
+        a fully functioning chatbot was delivered that could be
         integrated with their existing application interface.
         </p>
         
