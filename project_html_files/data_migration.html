@@ -46,6 +46,41 @@
         <h2 style="font-size: 20px; color: #076a77;">Data migration into data lake 
         using data pipelines</h2>
         <p>
+            Data migration involves moving the data from a source
+            system to a new destination. It involves:
+            <li>
+                data profiling and assessment: identify 
+                source and destination, understand
+                the data structures, formats, and relationships, 
+                assess the data's volume, data types, missing values,
+                inconsistencies etc.
+            </li>  
+            <li>
+                data modelling/mapping: define rules to map elements of
+                the source data (fields, tables, columns) to destination 
+                data elements, including any data type conversions. 
+            </li>
+            <li>
+                migration approach: incremental vs batch, historical and
+                new data, based on requirements.
+            </li>
+
+            The data is extracted from the source, transformed to clean,
+            format/convert (aggregation, filtering etc.) 
+            to map to the destination requirements.
+            Load this into the destination system using data pipelines.
+            Finally, validation and testing ensure data integrity and
+            completeness of the migrated data. 
+            The speed and efficiency of these data pipelines are extremely
+            important as they not only incur huge costs, but are also 
+            time consuming for large datasets. Data governance, 
+            metadata management and data security are crucial to protect data
+            during all the steps of the data migration. 
+            Post-migration maintenance involves ongoing support and addressing
+            any post deployment updates and/or issues.
+
+            <br>
+
             SQL stored procedures are powerful and resilient transformation
             method which enables performant and reliable 
             ELTL (Extract-Load-Transform-Load) or ETL/ELT operations.
@@ -65,53 +100,35 @@
             Stored procedures are less secure when dynamic and 
             transformastions are limited.
             </li>
-            
-            ensuring comprehensive data 
-            integrity and seamless integration.
-    \item Implemented validation techniques that 
-    significantly reduced migration errors and 
-    enhanced overall data quality for enterprise-level data management. 
-            Landing zone in ADLS storage.
-            Azure SQL Hyperscale service tier for benefits:
-            - designed to support a variety of workloads
-            - supports dedicated read replicas
-            - most appropriate tool in Azure to handle 
-            transactional data at volume, with all benefits 
-            of Azure SQL server.
-            - much better support for concurrency and high
-            performance.
-            - supports autoscaling storage up to 100TB
-            (current state supports on 8 TB)
-            - most cost-effective storage and compute solution
-            compared to Synapse dedicated SQL pool.
 
+            <br><br>
+            <h3 style="font-style: italic;"><u>Data lake migration on Snowflake</u></h3>
+            Within Snowflake, define storage integration, i.e.,
+            connection between Snowflake and cloud storage option.
+            Define stages of how the data will be loaded, i.e., replace and load full data
+            or insert and append new data, or load only updated (new as well as changes
+            to historical) data.
+            Configure the necessary warehouses, databases and security settings.
+            Recreate database schemas and objects (tables and views) to mirror the data lake structure. To load the data, Snowflake's <code>COPY INTO</code>
+            command or third-party tools like Azure Data Factory could be used to transfer data.
 
-            Why not use Synapse dedicated SQL pool?
-            - not suited for small batch transactional workloads
-            - query concurrency is limited, meaning
-            queries are stuck waiting in a queue when
-            all slots are occupied.
-            - workload management and performance tuning requires
-            routine monitoring and maintenance.
-            
-            Changes:
-            - Adopt more reliable Azure Data Factory for pipeline design
-            and orchestration.
-            - Adopt ELTL instead of ETL for pipeline design.
-            - Remove complex, long running data flows from
-            data pipeline design to resolve limitations on
-            concurrent pipeline operations, adopt ADF copy 
-            activities (extract and load) and parameterized
-            SQL stored procedures (transform load) for
-            stable and robust performance.
-            - break down complex, larger pipelines into
-            smaller, atomic, reusable pipelines through
-            parameterisation.
+            <br>
+            In Snowflake, tasks are used to automate and schedule data processing tasks, including data migration. They are be used to execute SQL statements, call stored procedures, and manage data pipelines.
+            Tasks can be scheduled to run at regular intervals or triggered by events like the arrival of new data. 
+            These can be chained together to create complex data pipelines, to validate migrated data after it has been loaded into Snowflake and to handle errors and automatically suspend or resume execution based on their status. 
+
+            <br><br>
+            <h3 style="font-style: italic;"><u>Data lake migration on Databricks</u></h3>
 
         </p>
     </div>
 
-    <footer class="site-footer">
+
+    <!--footer-->
+    <footer style="position: relative; background-color: #e8f3f5;
+	    padding: 5px; margin-top: 15px; border-top: 1px solid #315eb4;
+	    color: #666; text-align: center; width: 100%; margin: 2px;
+	    bottom: 0;">
         <div class="container">
             <p>&COPY; 2025 Madhurima Nath. All rights reserved.</p>
         </div>
