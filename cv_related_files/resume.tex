@@ -1,0 +1,129 @@
+\documentclass[letter,10.99pt]{article}
+\usepackage[utf8]{inputenc}
+
+%====================
+% File:         resume.tex
+% Editor:       https://github.com/TimmyChan 
+%               https://www.linkedin.com/in/timmy-l-chan/
+% Last Updated: Jan 7th, 2022
+% Notes:        All formatting is done in TLCresume.sty
+%               No need to touch that file. 
+%               All actual content is in the sections/ folder.
+%====================
+
+\usepackage{TLCresume}
+
+%====================
+% CONTACT INFORMATION
+%====================
+\def\name{Madhurima Nath} % Name Here
+\def\phone{+1-540-235-2449}
+%\def\city{White Plains, NY}
+\def\email{madhurima.nath@icloud.com}
+\def \vtemail{mnath@vt.edu}
+\def\LinkedIn{madhurimanath} % linkedin.com/in/madhurimanath
+\def\gscholar{Google Scholar}
+\def\github{madhurima-nath} % github username
+%\def\role{Data Scientist} % JOB TITLE
+
+
+
+\input{_header}
+\begin{document}
+
+\vspace*{-0.9em}
+
+\input{sections/objective}
+
+\section{Positions}
+\input{sections/exp}
+
+\section{Education}
+\input{sections/education}
+
+\section{Data Engineering Projects}
+\input{sections/industry-de}
+
+\newpage
+\thispagestyle{plain}
+\newgeometry{margin=.62in, top=.75in}
+
+\section{Generative AI \& Large Language Model (LLM) Projects}
+\input{sections/industry-genai}
+
+\section{Data Science projects}
+\input{sections/industry-nlp}
+
+% \vspace{-0.1cm}
+% \rule[0.5ex]{10em}{0.5pt}
+% \\
+% \vspace{-0.2cm}
+% {\footnotesize 
+% $\textcolor{blue}{^1}$\textit{Llama:Large Language Model Meta AI},
+% $\textcolor{blue}{^2}$\textit{GPT: Generative pre-trained transformer},
+% $\textcolor{blue}{^3}$\textit{AWS: Amazon Web Services},
+% $\textcolor{blue}{^4}$\textit{NLP: Natural Language Processing},
+% $\textcolor{blue}{^5}$\textit{SVM: Support Vector Machines}
+% }
+
+
+\newpage
+\thispagestyle{plain}
+\newgeometry{margin=.62in, top=.75in}
+
+\section{Academic Research}
+\input{sections/research}
+
+
+\newpage
+\thispagestyle{plain}
+\newgeometry{margin=.62in, top=.75in}
+
+\section{Teaching Experience}
+\input{sections/teaching}
+
+\section{Summer Research Projects}
+\input{sections/summer_project}
+
+\section{Technical Expertise}
+\input{sections/skills}
+
+% \vspace{1.2cm}
+% \rule[0.5ex]{10em}{0.5pt}
+% \\
+% \vspace{-0.2cm}
+% {\footnotesize 
+% $\textcolor{blue}{^1}$\textit{Llama:Large Language Model Meta AI},
+% $\textcolor{blue}{^2}$\textit{GPT: Generative pre-trained transformer},
+% $\textcolor{blue}{^3}$\textit{AWS: Amazon Web Services},
+% $\textcolor{blue}{^4}$\textit{NLP: Natural Language Processing},
+% $\textcolor{blue}{^6}$\textit{ELTL: Extract, Load, Transform, Load},
+% $\textcolor{blue}{^{7}}$\textit{GCP: Google Cloud Platform},
+% $\textcolor{blue}{^{8}}$\textit{CI/CD: : Continuous Integration \& Continuous Development},
+% }
+
+\newpage
+\thispagestyle{plain}
+\newgeometry{margin=.75in, top=.75in}
+
+\section{Publications}
+\input{sections/papers}
+
+\section{Conference Presentations}
+\input{sections/conference}
+
+
+
+\newpage
+\thispagestyle{plain}
+\newgeometry{margin=.75in, top=.75in}
+
+\section{Professional \& Community Service}
+\input{sections/engagements}
+
+\section{References}
+\input{sections/references}
+
+
+
+\end{document}

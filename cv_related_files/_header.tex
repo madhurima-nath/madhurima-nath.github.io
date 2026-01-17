@@ -1,0 +1,52 @@
+%====================
+% Header: Contact
+%====================
+
+\RequirePackage{fancyhdr}
+\fancypagestyle{fancy}{%
+\fancyhf{}
+
+
+\lhead{
+    
+        \href{mailto:\email}{\email} % EMAIL     
+        $\|$
+        \href{mailto:\email}{\vtemail} % EMAIL 
+        $\|$
+        \phone % PHONE
+        }
+	    
+	\chead{%
+	    \centering {\LARGE \skills \name} \\ %
+	    %{\color{highlight} \Large{\role}}
+	    \vspace{2mm}
+	    }%
+	
+	\rhead{
+	
+	\href{https://scholar.google.com/citations?user=p_5Pdv0AAAAJ&hl=en}{\gscholar} 
+	$\|$
+	\href{https://github.com/\github}{GitHub} 
+    $\|$
+    \href{https://www.linkedin.com/in/\LinkedIn}{LinkedIn} % LinkedIn 
+	}
+
+
+%\usepackage{everypage}
+%\AddEverypageHook{%	    
+
+%  \ifthenelse{\value{page}=1}%
+    \renewcommand{\headrulewidth}{1pt}% 1pt header rule
+%
+   % {\renewcommand{\headrulewidth}{0.5pt}}%
+%}
+
+\renewcommand{\headrule}{\hbox to\headwidth{%
+  \color{highlight}\leaders\hrule height \headrulewidth\hfill}}
+}
+
+
+\pagestyle{fancy}
+
+\setlength{\headheight}{70pt}
+\setlength{\headsep}{1pt}

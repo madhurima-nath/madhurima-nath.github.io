@@ -1,0 +1,64 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{TLCresume}[11/19/21 resume package]
+% Author: Timmy Chan
+
+% Assuming using "article" document class and letter sized paper.
+% FONT STUFF
+
+%\RequirePackage[T1]{fontenc} %  Font encoding https://texfaq.org/FAQ-why-inp-font
+%\RequirePackage[default,semibold]{sourcesanspro}
+\RequirePackage[11pt]{moresize}
+%\usepackage{anyfontsize}
+\usepackage{times}
+\RequirePackage{csquotes}
+
+% MARGINS AND SPACING
+\RequirePackage[margin=.62in, top=.5in]{geometry} % Set Margins
+\raggedright % left align no indent
+\raggedbottom % top align no indent
+
+% COLOR
+\RequirePackage{xcolor}
+
+
+\definecolor{highlight}{RGB}{20, 90, 180} % CHANGE THIS TO YOUR FAV COLOR https://g.co/kgs/aoqdi7
+
+% LINKS
+\RequirePackage{hyperref}
+\hypersetup{colorlinks=true,urlcolor=highlight,linkcolor={blue},citecolor={blue}} 
+
+% BULLET POINTS
+\RequirePackage[inline]{enumitem}
+\setlength{\tabcolsep}{0.1in}
+
+% SECTION FORMATTING 
+\RequirePackage[nostruts]{titlesec}
+\titlespacing*{\section}{0em}{1em}{0em}
+\titleformat{\section}{\color{highlight} \scshape \raggedright \large}{}{0em}{}[\vspace{-0.65em}\hrulefill]
+% SUBSECTION FORMATTING
+\titlespacing*{\subsection}{0em}{0em}{0em}
+\titleformat{\subsection}{\bfseries}{}{0em}{}[]
+
+
+% SUBTEXT
+\newcommand{\subtext}[1]{\textit{#1}\par\vspace{-.75em}}
+
+% tighter spacing than itemize
+\setlist[itemize]{align=parleft,left=0pt..1em}
+\newenvironment{zitemize}{
+\begin{itemize} \itemsep 0.8pt \parskip 1pt \parsep 0.2pt}
+{\end{itemize}}
+
+% tighter spacing than enumerate
+\setlist[enumerate]{align=parleft,left=0pt..1em}
+
+% NO PAGE NUMBER
+
+\pagenumbering{gobble}
+
+% SUBFILES IMPORTING
+\RequirePackage{standalone}
+
+% FOR TEMPLATE FILLER
+%\RequirePackage[english]{babel}
+%\RequirePackage{blindtext}% Filler Text
