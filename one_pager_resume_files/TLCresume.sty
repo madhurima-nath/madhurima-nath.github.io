@@ -13,28 +13,26 @@
 \RequirePackage{csquotes}
 
 % MARGINS AND SPACING
-\RequirePackage[margin=.55in, top=.5in]{geometry} % Set Margins
+\RequirePackage[margin=.5in, top=.5in]{geometry} % Set Margins
 \raggedright % left align no indent
 \raggedbottom % top align no indent
 
 % COLOR
 \RequirePackage{xcolor}
-
-
 \definecolor{highlight}{RGB}{20, 90, 180} % CHANGE THIS TO YOUR FAV COLOR https://g.co/kgs/aoqdi7
 
 % LINKS
 \RequirePackage{hyperref}
-\hypersetup{colorlinks=true,urlcolor=highlight,linkcolor={blue},citecolor={blue}} 
+\hypersetup{colorlinks=true,urlcolor=highlight}
 
 % BULLET POINTS
 \RequirePackage[inline]{enumitem}
-\setlength{\tabcolsep}{0.1in}
+\setlength{\tabcolsep}{0in}
 
 % SECTION FORMATTING 
 \RequirePackage[nostruts]{titlesec}
-\titlespacing*{\section}{0em}{1em}{0em}
-\titleformat{\section}{\color{highlight} \scshape \raggedright \large}{}{0em}{}[\vspace{-0.65em}\hrulefill]
+\titlespacing*{\section}{0em}{0.5em}{0em}
+\titleformat{\section}{\color{highlight} \scshape \raggedright \large}{}{0em}{}[\vspace{-0.75em}\hrulefill]
 % SUBSECTION FORMATTING
 \titlespacing*{\subsection}{0em}{0em}{0em}
 \titleformat{\subsection}{\bfseries}{}{0em}{}[]
@@ -46,14 +44,10 @@
 % tighter spacing than itemize
 \setlist[itemize]{align=parleft,left=0pt..1em}
 \newenvironment{zitemize}{
-\begin{itemize} \itemsep 0.8pt \parskip 1pt \parsep 0.2pt}
+\begin{itemize} \itemsep 0.5pt \parskip 2pt \parsep 1pt}
 {\end{itemize}}
 
-% tighter spacing than enumerate
-\setlist[enumerate]{align=parleft,left=0pt..1em}
-
 % NO PAGE NUMBER
-
 \pagenumbering{gobble}
 
 % SUBFILES IMPORTING
