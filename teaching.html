@@ -79,20 +79,15 @@
             </li>
         </ul>
 
-        <h3>Industry Mentorship</h3>
-        <ul class="project-list">
-            <li>
-                Managed and mentored summer interns in advanced analytics and ML solutions at Slalom (2021-2024).
-            </li>
-        </ul>
-
         </div>
 
     <footer class="site-footer">
         <div class="container">
-            <p>&COPY; 2026 Madhurima Nath. All rights reserved.</p>
+            <p>&COPY; <span class="js-year"></span> Madhurima Nath. All rights reserved.</p>
         </div>
     </footer>
 
+<script>document.querySelectorAll(".js-year").forEach(function(el){el.textContent = new Date().getFullYear();});</script>
 </body>
 </html>
+
