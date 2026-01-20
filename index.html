@@ -18,7 +18,7 @@
 
 </head>
 
-<body>
+<body class="page-home">
     <!--main container for all content-->
     <div class="container">
         <!--header with title and navigation-->
@@ -45,8 +45,6 @@
                 <li><a href="outreach.html">Outreach</a></li>
             </ul>
         </header>
-
-        <br>
 
         <!--main content with image on left and introduction on right-->
         <div class="content-wrapper">
@@ -109,7 +107,12 @@
                     ||
                     <a href="cv_mnath.pdf" 
                     target="_blank">
-                    CV
+                    CV (Full)
+                    </a> 
+                    ||
+                    <a href="resume_mnath.pdf" 
+                    target="_blank">
+                    Resume (1 page)
                     </a> 
                 </p>
             </section>
@@ -119,10 +122,12 @@
     <!--footer-->
     <footer class="site-footer">
         <div class="container">
-            <p>&COPY; 2026 Madhurima Nath. All rights reserved.</p>
+            <p>&COPY; <span class="js-year"></span> Madhurima Nath. All rights reserved.</p>
         </div>
     </footer>
+<script>document.querySelectorAll(".js-year").forEach(function(el){el.textContent = new Date().getFullYear();});</script>
 </body>
 
 </html>
+
 

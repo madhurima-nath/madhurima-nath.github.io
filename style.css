@@ -69,7 +69,7 @@ h3 {
 .site-header {
 	display: flex;
 	justify-content: space-between;
-	align-items: flex-end;
+	align-items: center;
 	gap: 24px;
 	padding-bottom: 16px;
 	border-bottom: 1px solid var(--border);
@@ -93,6 +93,8 @@ h3 {
 	align-items: center;
 	gap: 14px;
 	font-family: var(--font-sans);
+	flex-wrap: wrap;
+	row-gap: 6px;
 }
 
 .nav-tabs > li {
@@ -107,6 +109,7 @@ h3 {
 	font-weight: 600;
 	color: var(--accent) !important;
 	transition: background 0.2s ease;
+	white-space: nowrap;
 }
 
 .nav-tabs > li > a:hover,
@@ -228,7 +231,7 @@ hr {
 .exp-container .content-wrapper {
 	flex-wrap: wrap;
 	gap: 18px;
-	align-items: center;
+	align-items: stretch;
 }
 
 .exp-card {
@@ -241,6 +244,7 @@ hr {
 	box-shadow: var(--shadow);
 	background-color: #ffffff;
 	padding: 14px 16px;
+	height: 100%;
 }
 
 .exp-card--lg {
@@ -266,6 +270,9 @@ hr {
 .exp-card-sidebar {
 	flex: 0 0 80px;
 	max-width: 90px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .exp-card-side-image {
@@ -274,6 +281,116 @@ hr {
 	border-radius: 8px;
 	border: 1px solid var(--border);
 	background-color: #ffffff;
+}
+
+/* bio minimal layout */
+.bio-section {
+	display: grid;
+	gap: 12px;
+	margin-top: 10px;
+}
+
+.bio-block {
+	border: 1px solid var(--border);
+	border-radius: 14px;
+	padding: 12px 14px;
+	background: #ffffff;
+	box-shadow: 0 6px 14px rgba(20, 40, 60, 0.05);
+}
+
+.bio-block-header {
+	display: flex;
+	gap: 14px;
+	align-items: center;
+}
+
+.bio-logo {
+	width: 48px;
+	height: 48px;
+	object-fit: contain;
+	border-radius: 10px;
+	border: 1px solid var(--border);
+	background: #ffffff;
+}
+
+.bio-meta {
+	font-size: 14px;
+	color: #5d6b77;
+	font-family: var(--font-sans);
+	margin-top: 2px;
+}
+
+.role-list {
+	list-style: none;
+	margin: 8px 0 0;
+	padding: 0;
+}
+
+.role-item {
+	display: flex;
+	justify-content: space-between;
+	gap: 16px;
+	padding: 8px 0;
+	border-top: 1px dashed var(--border);
+}
+
+.role-title {
+	font-family: var(--font-sans);
+	font-weight: 600;
+	font-size: 15px;
+	color: #1d2b35;
+}
+
+.role-dates {
+	font-size: 13px;
+	color: #5d6b77;
+	white-space: nowrap;
+}
+
+.bio-note {
+	font-size: 15px;
+	margin: 10px 0 4px;
+}
+
+.edu-list {
+	display: grid;
+	gap: 12px;
+	margin-top: 10px;
+}
+
+.edu-item {
+	display: grid;
+	grid-template-columns: 60px 1fr;
+	gap: 12px;
+	padding: 12px 14px;
+	border: 1px solid var(--border);
+	border-radius: 14px;
+	background: #ffffff;
+	box-shadow: 0 6px 14px rgba(20, 40, 60, 0.05);
+}
+
+.edu-logo {
+	width: 52px;
+	height: 52px;
+	object-fit: contain;
+	border-radius: 10px;
+	border: 1px solid var(--border);
+	background: #ffffff;
+}
+
+.edu-details h3 {
+	margin: 0 0 4px;
+	font-size: 15px;
+}
+
+.edu-details p {
+	margin: 3px 0;
+	font-size: 14px;
+}
+
+.edu-subdegree {
+	font-weight: 600;
+	font-family: var(--font-sans);
 }
 
 /* education cards */
@@ -328,18 +445,23 @@ hr {
 .project-list {
 	margin: 0 auto;
 	padding-left: 0;
+	margin-top: 8px;
+	margin-bottom: 16px;
 	box-sizing: border-box;
 	text-align: left;
 	list-style-position: outside;
+	list-style: none;
 }
 
 .project-list li {
 	position: relative;
-	margin-bottom: 5px;
-	padding-left: 20px;
+	margin-bottom: 10px;
+	padding-left: 12px;
 	font-size: 15px;
 	word-break: normal;
 	overflow-wrap: break-word;
+	border-left: 2px solid rgba(11, 109, 120, 0.5);
+	list-style: none;
 }
 
 .project-list li a {
@@ -349,11 +471,8 @@ hr {
 	font-weight: normal;
 }
 
-.project-list li::before {
-	content: "\25AA";
-	position: absolute;
-	left: 0;
-	color: var(--accent);
+.project-list li::marker {
+	content: "";
 }
 
 table {
@@ -376,11 +495,25 @@ tr:nth-child(even) {
 @media screen and (max-width: 900px) {
 	.site-header {
 		flex-direction: column;
-		align-items: flex-start;
+		align-items: center;
 	}
 
 	.nav-tabs {
-		flex-wrap: wrap;
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 8px;
+		justify-items: center;
+		width: 100%;
+	}
+
+	.nav-tabs > li {
+		width: 100%;
+	}
+
+	.nav-tabs > li > a {
+		font-size: 16px;
+		padding: 6px 8px;
+		text-align: center;
 	}
 }
 
@@ -395,11 +528,12 @@ tr:nth-child(even) {
 
 	.content-wrapper {
 		flex-direction: column;
+		align-items: stretch;
 	}
 
 	.sidebar {
 		max-width: 200px;
-		margin: 0;
+		margin: 0 auto;
 	}
 
 	.exp-card {
@@ -413,9 +547,36 @@ tr:nth-child(even) {
 		max-width: 100%;
 	}
 
+	.exp-card-sidebar {
+		justify-self: center;
+	}
+
+	.bio-block {
+		padding: 14px 14px;
+	}
+
+	.bio-block-header {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	.role-item {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 6px;
+	}
+
+	.role-dates {
+		white-space: normal;
+	}
+
+	.edu-item {
+		grid-template-columns: 1fr;
+	}
+
 	.nav-tabs {
 		width: 100%;
-		justify-content: flex-start;
+		justify-content: center;
 	}
 }
 
@@ -442,15 +603,96 @@ tr:nth-child(even) {
 		width: 100%;
 		box-shadow: none;
 	}
+
+	.nav-tabs {
+		grid-template-columns: 1fr;
+	}
+}
+
+@media screen and (min-width: 1000px) {
+	body.page-home .container,
+	body.page-bio .container {
+		padding-top: 12px;
+	}
+
+	body.page-home .introduction p {
+		font-size: clamp(14px, 1.2vw, 16px);
+		line-height: 1.5;
+		margin-bottom: 8px;
+	}
+
+	body.page-home .introduction h2 {
+		margin: 12px 0 8px;
+		font-size: 20px;
+	}
+
+	body.page-bio .exp-container .content-wrapper {
+		gap: 14px;
+	}
+
+	body.page-bio .exp-card {
+		padding: 12px 14px;
+	}
+
+	body.page-bio .edu-container .content-wrapper {
+		gap: 14px;
+	}
+
+	body.page-bio .edu-card {
+		padding: 12px;
+	}
+
+	body.page-bio .bio-section {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		align-items: start;
+	}
+
+	body.page-bio .edu-list {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media screen and (min-width: 1200px) {
+	body.page-home .container,
+	body.page-bio .container {
+		padding-top: 8px;
+	}
+
+	body.page-home .site-header {
+		padding-bottom: 10px;
+	}
+
+	body.page-home .content-wrapper {
+		gap: 24px;
+	}
+
+	body.page-home .sidebar {
+		flex: 0 0 150px;
+		max-width: 150px;
+	}
+
+	body.page-home .side-image {
+		max-height: 300px;
+		object-fit: cover;
+	}
+
+	body.page-home .site-footer,
+	body.page-bio .site-footer {
+		padding: 10px 0 14px;
+	}
+
+	body.page-bio .bio-block {
+		padding: 12px 14px;
+	}
+
+	body.page-bio .role-item {
+		padding: 7px 0;
+	}
 }
 
 /* Special handling for dropdown menus on touch devices */
 @media (hover: none) {
 	.nav-tabs li ul {
-		width: 100%;
-	}
-
-	.nav-tabs li:hover > ul {
-		position: static;
+		min-width: 220px;
 	}
 }
