@@ -9,6 +9,7 @@
 	--shadow: 0 10px 24px rgba(20, 40, 60, 0.08);
 	--font-serif: "Libre Baskerville", "Georgia", serif;
 	--font-sans: "Source Sans 3", "Arial", sans-serif;
+	--transition: 0.25s ease;
 }
 
 * {
@@ -36,6 +37,7 @@ body {
 a {
 	color: var(--ink);
 	text-decoration: none;
+	transition: color var(--transition);
 }
 
 a:hover {
@@ -65,7 +67,10 @@ h3 {
 	font-family: var(--font-sans);
 }
 
-/* header with title and navigation */
+/* ========================================
+   HEADER & NAVIGATION
+   ======================================== */
+
 .site-header {
 	display: flex;
 	justify-content: space-between;
@@ -73,6 +78,7 @@ h3 {
 	gap: 24px;
 	padding-bottom: 16px;
 	border-bottom: 1px solid var(--border);
+	position: relative;
 }
 
 .site-title h1 {
@@ -108,7 +114,7 @@ h3 {
 	font-size: 18px;
 	font-weight: 600;
 	color: var(--accent) !important;
-	transition: background 0.2s ease;
+	transition: background var(--transition), transform var(--transition);
 	white-space: nowrap;
 }
 
@@ -116,8 +122,10 @@ h3 {
 .nav-tabs > li > a:focus-visible {
 	background: var(--accent-soft);
 	text-decoration: none;
+	transform: translateY(-1px);
 }
 
+/* dropdown menus */
 .nav-tabs li ul {
 	display: none;
 	position: absolute;
@@ -143,6 +151,7 @@ h3 {
 	font-size: 15px;
 	font-weight: 500;
 	color: #1d2b35 !important;
+	transition: background var(--transition);
 }
 
 .nav-tabs li ul a:hover {
@@ -154,6 +163,57 @@ h3 {
 .nav-tabs li:focus-within > ul {
 	display: block;
 }
+
+/* ========================================
+   HAMBURGER MENU (mobile)
+   ======================================== */
+
+.hamburger {
+	display: none; /* hidden on desktop */
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 40px;
+	height: 40px;
+	cursor: pointer;
+	border: none;
+	background: transparent;
+	padding: 4px;
+	border-radius: 8px;
+	transition: background var(--transition);
+	z-index: 200;
+}
+
+.hamburger:hover,
+.hamburger:focus-visible {
+	background: var(--accent-soft);
+	outline: none;
+}
+
+.hamburger span {
+	display: block;
+	width: 22px;
+	height: 2px;
+	background: var(--accent);
+	border-radius: 2px;
+	transition: all 0.3s ease;
+	margin: 3px 0;
+}
+
+/* hamburger open state: X */
+.hamburger.active span:nth-child(1) {
+	transform: rotate(45deg) translate(4px, 4px);
+}
+.hamburger.active span:nth-child(2) {
+	opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+	transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* ========================================
+   CONTENT AREAS
+   ======================================== */
 
 /* content wrapper for side by side layout */
 .content-wrapper {
@@ -175,6 +235,12 @@ h3 {
 	border-radius: 10px;
 	box-shadow: var(--shadow);
 	border: 1px solid var(--border);
+	transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.side-image:hover {
+	transform: scale(1.02);
+	box-shadow: 0 14px 32px rgba(20, 40, 60, 0.12);
 }
 
 /* introduction styling */
@@ -207,7 +273,10 @@ hr {
 	margin: 22px 0;
 }
 
-/* footer */
+/* ========================================
+   FOOTER
+   ======================================== */
+
 .site-footer {
 	margin-top: auto;
 	background-color: #f3f7f9;
@@ -222,7 +291,10 @@ hr {
 	padding: 0 10px 0;
 }
 
-/* experience cards */
+/* ========================================
+   BIO: EXPERIENCE CARDS
+   ======================================== */
+
 .exp-container {
 	display: block;
 	width: 100%;
@@ -245,6 +317,12 @@ hr {
 	background-color: #ffffff;
 	padding: 14px 16px;
 	height: 100%;
+	transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.exp-card:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 14px 32px rgba(20, 40, 60, 0.12);
 }
 
 .exp-card--lg {
@@ -283,7 +361,10 @@ hr {
 	background-color: #ffffff;
 }
 
-/* bio minimal layout */
+/* ========================================
+   BIO: MINIMAL LAYOUT
+   ======================================== */
+
 .bio-section {
 	display: grid;
 	gap: 12px;
@@ -296,6 +377,12 @@ hr {
 	padding: 12px 14px;
 	background: #ffffff;
 	box-shadow: 0 6px 14px rgba(20, 40, 60, 0.05);
+	transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.bio-block:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 10px 20px rgba(20, 40, 60, 0.10);
 }
 
 .bio-block-header {
@@ -352,6 +439,10 @@ hr {
 	margin: 10px 0 4px;
 }
 
+/* ========================================
+   BIO: EDUCATION
+   ======================================== */
+
 .edu-list {
 	display: grid;
 	gap: 12px;
@@ -367,6 +458,12 @@ hr {
 	border-radius: 14px;
 	background: #ffffff;
 	box-shadow: 0 6px 14px rgba(20, 40, 60, 0.05);
+	transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.edu-item:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 10px 20px rgba(20, 40, 60, 0.10);
 }
 
 .edu-logo {
@@ -442,6 +539,10 @@ hr {
 	background-color: transparent;
 }
 
+/* ========================================
+   PROJECTS LIST
+   ======================================== */
+
 .project-list {
 	margin: 0 auto;
 	padding-left: 0;
@@ -462,6 +563,11 @@ hr {
 	overflow-wrap: break-word;
 	border-left: 2px solid rgba(11, 109, 120, 0.5);
 	list-style: none;
+	transition: border-color var(--transition);
+}
+
+.project-list li:hover {
+	border-left-color: var(--accent);
 }
 
 .project-list li a {
@@ -474,6 +580,10 @@ hr {
 .project-list li::marker {
 	content: "";
 }
+
+/* ========================================
+   TABLES
+   ======================================== */
 
 table {
 	border-collapse: collapse;
@@ -491,7 +601,11 @@ tr:nth-child(even) {
 	background-color: #eef5f7 !important;
 }
 
-/* Responsive Media Queries */
+/* ========================================
+   RESPONSIVE BREAKPOINTS
+   ======================================== */
+
+/* Tablet: 600px - 900px */
 @media screen and (max-width: 900px) {
 	.site-header {
 		flex-direction: column;
@@ -517,6 +631,7 @@ tr:nth-child(even) {
 	}
 }
 
+/* Mobile: <= 768px  — hamburger menu activated */
 @media screen and (max-width: 768px) {
 	body {
 		overflow-y: auto;
@@ -526,6 +641,78 @@ tr:nth-child(even) {
 		font-size: 28px;
 	}
 
+	/* show hamburger button */
+	.hamburger {
+		display: flex;
+	}
+
+	.site-header {
+		flex-direction: row;
+		align-items: center;
+		flex-wrap: nowrap;
+		justify-content: space-between;
+	}
+
+	/* mobile nav: hidden by default, shown when toggled */
+	.nav-tabs {
+		display: none;
+		position: absolute;
+		top: 100%;
+		left: 0;
+		right: 0;
+		background: #ffffff;
+		border: 1px solid var(--border);
+		border-top: none;
+		border-radius: 0 0 12px 12px;
+		box-shadow: 0 12px 32px rgba(20, 40, 60, 0.12);
+		padding: 12px 0;
+		z-index: 150;
+		flex-direction: column;
+		gap: 0;
+	}
+
+	.nav-tabs.open {
+		display: flex;
+	}
+
+	.nav-tabs > li {
+		width: 100%;
+	}
+
+	.nav-tabs > li > a {
+		font-size: 17px;
+		padding: 12px 20px;
+		text-align: left;
+		border-radius: 0;
+	}
+
+	.nav-tabs > li > a:hover,
+	.nav-tabs > li > a:focus-visible {
+		background: var(--accent-soft);
+	}
+
+	/* mobile dropdowns: always show nested items inline */
+	.nav-tabs li ul {
+		position: static;
+		display: none;
+		width: 100%;
+		box-shadow: none;
+		border: none;
+		border-radius: 0;
+		padding: 0;
+		background: #fafcfd;
+	}
+
+	.nav-tabs li.dropdown-open > ul {
+		display: block;
+	}
+
+	.nav-tabs li ul a {
+		padding: 10px 20px 10px 36px;
+		font-size: 16px;
+	}
+
+	/* layout fixes */
 	.content-wrapper {
 		flex-direction: column;
 		align-items: stretch;
@@ -580,6 +767,7 @@ tr:nth-child(even) {
 	}
 }
 
+/* Small mobile: <= 480px */
 @media screen and (max-width: 480px) {
 	.site-title h1 {
 		font-size: 24px;
@@ -587,7 +775,7 @@ tr:nth-child(even) {
 
 	.nav-tabs > li > a {
 		font-size: 16px;
-		padding: 8px 10px;
+		padding: 10px 16px;
 	}
 
 	.introduction h2 {
@@ -598,17 +786,12 @@ tr:nth-child(even) {
 		font-size: 16px;
 	}
 
-	.nav-tabs li ul {
-		position: static;
-		width: 100%;
-		box-shadow: none;
-	}
-
-	.nav-tabs {
-		grid-template-columns: 1fr;
+	.container {
+		padding: 20px 14px 0;
 	}
 }
 
+/* Large desktop: >= 1000px */
 @media screen and (min-width: 1000px) {
 	body.page-home .container,
 	body.page-bio .container {
@@ -652,6 +835,7 @@ tr:nth-child(even) {
 	}
 }
 
+/* Extra-large desktop: >= 1200px */
 @media screen and (min-width: 1200px) {
 	body.page-home .container,
 	body.page-bio .container {
@@ -690,7 +874,7 @@ tr:nth-child(even) {
 	}
 }
 
-/* Special handling for dropdown menus on touch devices */
+/* Touch device dropdown handling */
 @media (hover: none) {
 	.nav-tabs li ul {
 		min-width: 220px;

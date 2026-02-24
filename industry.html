@@ -10,33 +10,40 @@
     diffusive processes, graph dynamical systems, physics">
     <meta name="author" content="Madhurima Nath">
     <meta name="description" content="Personal homepage of Dr. Madhurima Nath">
-    
+
     <title>Madhurima Nath</title>
     <link rel="stylesheet" href="style.css">
 
 </head>
+
 <body>
     <!--main container for all content-->
     <div class="container">
         <!--header with title and navigation-->
         <header class="site-header">
             <div class="site-title">
-                <a href="index.html"><h1>Madhurima Nath</h1></a>
+                <a href="index.html">
+                    <h1>Madhurima Nath</h1>
+                </a>
             </div>
 
+            <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+
             <!--navigation tabs with dropdowns-->
-            <ul class="nav-tabs">
+            <ul class="nav-tabs" id="navMenu">
                 <li><a href="experience.html">Bio</a></li>
-                <li>
-                    <a href="#" style="background-color: #a6cef1bb;">Projects</a>
-                        <ul>
-                            <li>
-                                <a href="research.html">Academic Research</a>
-                            </li>
-                            <li>
-                                <a href="industry.html">Industry &amp; Consulting</a>
-                            </li>
-                        </ul>
+                <li class="has-dropdown">
+                    <a href="#" style="background-color: #a6cef1bb;" aria-haspopup="true">Projects</a>
+                    <ul>
+                        <li>
+                            <a href="research.html">Academic Research</a>
+                        </li>
+                        <li>
+                            <a href="industry.html">Industry &amp; Consulting</a>
+                        </li>
+                    </ul>
                 </li>
                 <li><a href="teaching.html">Teaching</a></li>
                 <li><a href="outreach.html">Outreach</a></li>
@@ -47,21 +54,28 @@
         <h3>Generative AI &amp; Chatbot Proof of Concepts (POCs)</h3>
         <ul class="project-list">
             <li>
-                <strong>Lead Data Scientist</strong> || Product Discovery Chatbot POC || Fortune 500 Financial Services Client.
-                Designed and developed a product discovery system on Databricks integrating Llama1 with the LangChain agent framework,
-                implementing MLflow pipelines. Coordinated with compliance teams to ensure adherence to financial industry guardrails
+                <strong>Lead Data Scientist</strong> || Product Discovery Chatbot POC || Fortune 500 Financial Services
+                Client.
+                Designed and developed a product discovery system on Databricks integrating Llama1 with the LangChain
+                agent framework,
+                implementing MLflow pipelines. Coordinated with compliance teams to ensure adherence to financial
+                industry guardrails
                 and regulatory requirements, demonstrating significant improvements in information retrieval.
             </li>
             <li>
                 <strong>Data Scientist</strong> || Interactive Q&amp;A Chatbot || Healthcare Tech Startup.
                 Developed a Q&amp;A system using the Anthropic Claude model on AWS Bedrock to extract insights from
-                bio-pharmaceutical and medical technology datasets. Partnered with design teams to enhance interface accessibility
+                bio-pharmaceutical and medical technology datasets. Partnered with design teams to enhance interface
+                accessibility
                 and user experience, delivering an upgraded product.
             </li>
             <li>
-                <strong>Data Scientist</strong> || Knowledge-Based Chatbot for Sales || Fortune 500 Equipment Rental Firm.
-                Engineered and deployed a knowledge-based chatbot using Retrieval Augmented Generation (RAG) with OpenAI GPT3 and
-                LangChain. Collaborated with sales teams to ensure alignment with business needs, improving document search efficiency
+                <strong>Data Scientist</strong> || Knowledge-Based Chatbot for Sales || Fortune 500 Equipment Rental
+                Firm.
+                Engineered and deployed a knowledge-based chatbot using Retrieval Augmented Generation (RAG) with OpenAI
+                GPT3 and
+                LangChain. Collaborated with sales teams to ensure alignment with business needs, improving document
+                search efficiency
                 and reducing inquiry response times by 22%.
             </li>
         </ul>
@@ -69,22 +83,32 @@
         <h3>Data Science Projects</h3>
         <ul class="project-list">
             <li>
-                <strong>Lead Data Scientist</strong> || NLP for Safety Analytics || Fortune 500 Energy &amp; Utility Client.
-                Developed and deployed NLP pipelines on Azure Databricks, using sentiment analysis and topic modeling to extract
-                safety insights from incident reports. Delivered an enterprise production solution with weekly automated reports and
+                <strong>Lead Data Scientist</strong> || NLP for Safety Analytics || Fortune 500 Energy &amp; Utility
+                Client.
+                Developed and deployed NLP pipelines on Azure Databricks, using sentiment analysis and topic modeling to
+                extract
+                safety insights from incident reports. Delivered an enterprise production solution with weekly automated
+                reports and
                 refreshed dashboards for executive safety review.
             </li>
             <li>
-                <strong>Lead Data Scientist</strong> || NLP for e-Discovery Document Evaluation || Legal Services Client.
-                Developed an e-discovery document classification system using Word2Vec document embeddings and SVM classifiers on
-                AWS SageMaker. Built an automated retraining pipeline for incremental model updates to reduce manual review hours and
+                <strong>Lead Data Scientist</strong> || NLP for e-Discovery Document Evaluation || Legal Services
+                Client.
+                Developed an e-discovery document classification system using Word2Vec document embeddings and SVM
+                classifiers on
+                AWS SageMaker. Built an automated retraining pipeline for incremental model updates to reduce manual
+                review hours and
                 associated costs.
             </li>
             <li>
-                <strong>Data Scientist</strong> || NLP for Global Procurement || Fortune 500 Consumer Packaged Goods Company.
-                Developed a text classification pipeline using a RandomForest classifier on Azure Machine Learning to standardize
-                procurement product data. Collaborated with engineering teams to incorporate MLOps best practices, accelerating the
-                client digital innovation timeline by about one year and improving data consistency across global operations.
+                <strong>Data Scientist</strong> || NLP for Global Procurement || Fortune 500 Consumer Packaged Goods
+                Company.
+                Developed a text classification pipeline using a RandomForest classifier on Azure Machine Learning to
+                standardize
+                procurement product data. Collaborated with engineering teams to incorporate MLOps best practices,
+                accelerating the
+                client digital innovation timeline by about one year and improving data consistency across global
+                operations.
             </li>
         </ul>
 
@@ -92,23 +116,30 @@
         <ul class="project-list">
             <li>
                 <strong>Network Predictive Maintenance Solution</strong> || Telecom Client.
-                Engineered a statistical radio frequency metrics analysis system with geographical clustering to proactively identify
-                faulty infrastructure before major service disruption. Implemented automated SQL procedures processing 90-day network
-                performance data, enabling targeted preventive maintenance. Projected $8M+ savings in annual operational costs through
+                Engineered a statistical radio frequency metrics analysis system with geographical clustering to
+                proactively identify
+                faulty infrastructure before major service disruption. Implemented automated SQL procedures processing
+                90-day network
+                performance data, enabling targeted preventive maintenance. Projected $8M+ savings in annual operational
+                costs through
                 reductions of about 30K customer support calls and about 6K service visits.
                 <a href="project_html_files/network_failure_risk.html">Project details.</a>
             </li>
             <li>
                 <strong>Data Migration to Salesforce</strong> || Nonprofit Organisation.
-                Successfully migrated 1TB of historical data to Salesforce through SQL stored procedures and optimized ELTL pipelines
-                in Azure Data Factory, ensuring data integrity and seamless integration. Implemented validation techniques that
+                Successfully migrated 1TB of historical data to Salesforce through SQL stored procedures and optimized
+                ELTL pipelines
+                in Azure Data Factory, ensuring data integrity and seamless integration. Implemented validation
+                techniques that
                 reduced migration errors and enhanced overall data quality.
                 <a href="project_html_files/data_migration.html">Read more here.</a>
             </li>
             <li>
                 <strong>Data Lake Implementation on Snowflake</strong> || Nonprofit Organisation.
-                Maintained and upgraded data pipelines to load patient health and healthcare-related data through parameterized SQL
-                stored procedures in Snowflake Data Lake. Validated large-scale data quality checks and data transformation rules
+                Maintained and upgraded data pipelines to load patient health and healthcare-related data through
+                parameterized SQL
+                stored procedures in Snowflake Data Lake. Validated large-scale data quality checks and data
+                transformation rules
                 across multiple data resources providing and sharing patient health information.
             </li>
         </ul>
@@ -118,12 +149,13 @@
             <li><strong>Programming:</strong> Python, SQL, PySpark, R, Bash.</li>
             <li><strong>Distributed Computing:</strong> Apache Spark, PySpark, Databricks.</li>
             <li><strong>Cloud Platforms:</strong> AWS, Azure, GCP.</li>
-            <li><strong>Version Control &amp; CI/CD:</strong> GitLab, GitHub, Azure DevOps, BitBucket, Docker (familiar).</li>
+            <li><strong>Version Control &amp; CI/CD:</strong> GitLab, GitHub, Azure DevOps, BitBucket, Docker
+                (familiar).</li>
             <li><strong>ML Frameworks:</strong> MLflow, LangChain, TensorFlow (familiar).</li>
             <li><strong>Data Tools:</strong> Delta Lake, Delta Lakehouse.</li>
             <li><strong>Areas:</strong> Statistical modeling, NLP, LLMs (Llama, Anthropic Claude, OpenAI GPT3).</li>
         </ul>
-    </div> 
+    </div>
 
     <footer class="site-footer">
         <div class="container">
@@ -131,7 +163,34 @@
         </div>
     </footer>
 
-<script>document.querySelectorAll(".js-year").forEach(function(el){el.textContent = new Date().getFullYear();});</script>
+    <script>
+        document.querySelectorAll(".js-year").forEach(function (el) { el.textContent = new Date().getFullYear(); });
+        (function () {
+            var btn = document.querySelector('.hamburger');
+            var nav = document.getElementById('navMenu');
+            if (!btn || !nav) return;
+            btn.addEventListener('click', function () {
+                var open = nav.classList.toggle('open');
+                btn.classList.toggle('active');
+                btn.setAttribute('aria-expanded', open);
+            });
+            nav.querySelectorAll('.has-dropdown > a').forEach(function (a) {
+                a.addEventListener('click', function (e) {
+                    if (window.innerWidth <= 768) {
+                        e.preventDefault();
+                        a.parentElement.classList.toggle('dropdown-open');
+                    }
+                });
+            });
+            document.addEventListener('click', function (e) {
+                if (!btn.contains(e.target) && !nav.contains(e.target)) {
+                    nav.classList.remove('open');
+                    btn.classList.remove('active');
+                    btn.setAttribute('aria-expanded', 'false');
+                }
+            });
+        })();
+    </script>
 </body>
-</html>
 
+</html>
