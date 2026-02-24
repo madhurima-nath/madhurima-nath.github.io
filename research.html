@@ -50,21 +50,67 @@
             </ul>
         </header>
 
+        <!-- =============== DISSERTATION =============== -->
         <h2>Dissertation &amp; Patent</h2>
-        <ul class="project-list">
-            <li>
-                Dissertation:
+
+        <div class="dissertation-overview">
+            <p class="diss-abstract">
                 <a href="https://vtechworks.lib.vt.edu/handle/10919/86841" target="_blank">
-                    Application of Network Reliability to Analyse Diffusive Processes on Graph Dynamical Systems
-                </a>
-            </li>
+                    <strong>Application of Network Reliability to Analyze Diffusive Processes on Graph Dynamical
+                        Systems</strong></a> &mdash;
+                Moore-Shannon network reliability serves as a global statistic to explore the behavior of diffusive
+                processes on networks. It depends on both network topology and the dynamics of the process, giving
+                the probability that the system reaches a desired configuration. The research demonstrates its
+                utility across three domains: epidemic outbreak modeling, invasive species tracking through
+                international food trade, and partition function estimation for the Ising model.
+            </p>
+
+            <div class="pillar-grid">
+                <div class="pillar-card">
+                    <img src="webpage_images/epidemic_reliability.png"
+                        alt="Network reliability curves for epidemic models on contact networks">
+                    <div class="pillar-body">
+                        <h4>Epidemic Modeling on Contact Networks</h4>
+                        <p>Used network reliability to study how network topology affects epidemic outbreak
+                            sensitivity. Applied SIR dynamics on real contact networks and statistical graph models,
+                            showing that network reliability captures structural effects beyond traditional measures
+                            like degree distribution.</p>
+                    </div>
+                </div>
+                <div class="pillar-card">
+                    <img src="webpage_images/food_trade_clusters.png"
+                        alt="Contagion clusters in international food trade networks">
+                    <div class="pillar-body">
+                        <h4>Contagion in Food Trade Networks</h4>
+                        <p>Applied network reliability to identify dynamics-induced contagion clusters in
+                            international food trade networks constructed from UN Comtrade data. Forecasted the
+                            impact of mitigating contagion conditions with approximately 96% precision.</p>
+                    </div>
+                </div>
+                <div class="pillar-card">
+                    <img src="webpage_images/ising_partition.png"
+                        alt="Partition function estimation using Bernstein polynomial interpolation">
+                    <div class="pillar-body">
+                        <h4>Ising Model &amp; Statistical Physics</h4>
+                        <p>Established that the network reliability polynomial is analogous to the Ising partition
+                            function. Used Bernstein polynomial interpolation to estimate partition functions from
+                            low- and high-temperature expansions, reducing time complexity from
+                            O(n<sup>2</sup>) to O(n).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <ul class="project-list">
             <li>
                 US Patent (US20210286859A1): System, method and computer readable medium for sensitivity of dynamical
                 systems to interaction network topology.
             </li>
         </ul>
 
+        <!-- =============== ACADEMIC RESEARCH =============== -->
         <h2>Academic Research Experience</h2>
+
         <h3>Post-doctoral Research Assistant, Virginia Tech (2019)</h3>
         <ul class="project-list">
             <li>
@@ -81,32 +127,81 @@
             </li>
         </ul>
 
-        <h3>Graduate Research Assistant, Virginia Tech (2014-2018)</h3>
-        <ul class="project-list">
-            <li>
-                Developed new approaches to evaluate Moore-Shannon network reliability using Bernstein basis functions,
-                Monte Carlo simulations, and statistical perturbative methods.
-            </li>
-            <li>
-                Applied Moore-Shannon network reliability to predict final global states of graph dynamical systems,
-                analyzing how interactions between node states and connections determine outcomes in practical
-                applications.
-            </li>
-            <li>
-                Simulated real-world epidemic outbreak and intervention scenarios on the National Longitudinal Study of
-                Adolescent to Adult Health dataset using network reliability, providing policymakers improved estimates.
-            </li>
-            <li>
-                Identified vulnerabilities within global food trade networks and forecasted the impact of mitigating
-                contagion conditions with approximately 96% precision.
-            </li>
-            <li>
-                Developed an algorithm using Moore-Shannon network reliability to estimate energy states of an
-                interacting
-                magnetic system, reducing time complexity from O(n2) to O(n).
-            </li>
-        </ul>
+        <h3>Graduate Research Assistant, Virginia Tech (2014&ndash;2018)</h3>
 
+        <div class="research-theme">
+            <h4>Network Reliability Estimation Methods</h4>
+            <p>
+                Developed new approaches to evaluate Moore-Shannon network reliability using Bernstein basis functions,
+                Monte Carlo simulations, and statistical perturbative methods. The reliability polynomial
+                R(x;&nbsp;G,&nbsp;D,&nbsp;P) gives the probability that a graph dynamical system satisfies a desired
+                property under given dynamics. Established an adaptive kernel density estimation method using Bernstein
+                polynomials to find optimal sampling strategies that maximise information gain while minimising
+                estimation error.
+            </p>
+            <ul class="associated-pubs">
+                <li>Nath, M. and Eubank, S. (2018). Model selection for sequential designs in discrete finite systems
+                    using Bernstein kernels. <em>arXiv:1807.06661.</em></li>
+                <li>Nath, M., Ren, Y., and Eubank, S. (2019). An approach to structural analysis using Moore-Shannon
+                    network reliability. <em>Complex Networks VII</em>, pp. 537&ndash;549.</li>
+                <li>Nath, M., et al. (2015). A two-parameter method to characterise the network reliability for
+                    diffusive processes. <em>CompleNet 2015</em>, pp. 139&ndash;148.</li>
+            </ul>
+        </div>
+
+        <div class="research-theme">
+            <h4>Epidemic Outbreak Modeling on Contact Networks</h4>
+            <p>
+                Simulated real-world epidemic outbreak and intervention scenarios on the National Longitudinal Study of
+                Adolescent to Adult Health (Add Health) dataset using network reliability. Compared SIR dynamics on
+                observed contact networks against four classes of exponential random graph models (ERGMs) to determine
+                whether standard network statistics suffice to characterise epidemic outcomes. The analysis revealed
+                that attack rate depends on a mixture of structural properties beyond degree distribution, clustering,
+                and centrality measures &mdash; providing policymakers with improved estimates.
+            </p>
+            <ul class="associated-pubs">
+                <li>Nath, M., Ren, Y., Khorramzadeh, Y., and Eubank, S. (2018). Determining whether a class of random
+                    graphs is consistent with an observed contact network. <em>J. Theoretical Biology</em>, 440,
+                    121&ndash;132.</li>
+                <li>Ren, Y., Eubank, S., and Nath, M. (2016). From network reliability to the Ising model: A parallel
+                    scheme for estimating the joint density of states. <em>Physical Review E</em>, 94(4), 042125.</li>
+            </ul>
+        </div>
+
+        <div class="research-theme">
+            <h4>Invasive Species &amp; International Food Trade Network Analysis</h4>
+            <p>
+                Identified vulnerabilities within global food trade networks using network reliability to track
+                contagion risk of invasive species (e.g., <em>Tuta absoluta</em>, the South American tomato leafminer).
+                Constructed directed weighted networks from UN Comtrade data for tomato, potato, eggplant, and
+                aggregate trade between 2005&ndash;2013. Developed the concept of <em>contagion clusters</em> &mdash;
+                strongly connected components where trade-driven spread is most likely &mdash; and forecasted the
+                impact of mitigating contagion conditions with approximately 96% precision.
+            </p>
+            <ul class="associated-pubs">
+                <li>Nath, M., et al. (2019). Using network reliability to understand international food trade dynamics.
+                    <em>Complex Networks VII</em>, pp. 524&ndash;535.
+                </li>
+            </ul>
+        </div>
+
+        <div class="research-theme">
+            <h4>Ising Model Partition Function Estimation</h4>
+            <p>
+                Developed an algorithm using Moore-Shannon network reliability to estimate energy states of an
+                interacting magnetic system modeled on 1D and 2D lattices. By treating spin flips as a diffusive
+                process on a graph dynamical system, established that the reliability polynomial is analogous to the
+                Ising partition function. Used Bernstein polynomial interpolation between low- and high-temperature
+                Taylor expansions to estimate the partition function, reducing time complexity from
+                O(n<sup>2</sup>) to O(n)&nbsp;&mdash; even in the presence of an external magnetic field.
+            </p>
+            <ul class="associated-pubs">
+                <li>Ren, Y., Eubank, S., and Nath, M. (2016). From network reliability to the Ising model: A parallel
+                    scheme for estimating the joint density of states. <em>Physical Review E</em>, 94(4), 042125.</li>
+            </ul>
+        </div>
+
+        <!-- =============== PUBLICATIONS =============== -->
         <h2>Publications</h2>
         <ul class="project-list">
             <li>
@@ -125,22 +220,24 @@
                 Networks and Their Applications VII: Volume 1 Proceedings (pp. 524-535). Springer.
             </li>
             <li>
-                Nath, M., Ren, Y., and Eubank, S. (2019). An approach to structural analysis using Moore-Shannon network
+                Nath, M., Ren, Y., and Eubank, S. (2019). An approach to structural analysis using Moore-Shannon
+                network
                 reliability. In Complex Networks and Their Applications VII: Volume 1 Proceedings (pp. 537-549).
                 Springer.
             </li>
             <li>
-                Nath, M., Ren, Y., Khorramzadeh, Y., and Eubank, S. (2018). Determining whether a class of random graphs
-                is
+                Nath, M., Ren, Y., Khorramzadeh, Y., and Eubank, S. (2018). Determining whether a class of random
+                graphs is
                 consistent with an observed contact network. Journal of Theoretical Biology, 440, 121-132.
             </li>
             <li>
-                Nath, M., and Eubank, S. (2018). Model selection for sequential designs in discrete finite systems using
+                Nath, M., and Eubank, S. (2018). Model selection for sequential designs in discrete finite systems
+                using
                 Bernstein kernels. arXiv preprint arXiv:1807.06661.
             </li>
             <li>
-                Ren, Y., Eubank, S., and Nath, M. (2016). From network reliability to the Ising model: A parallel scheme
-                for
+                Ren, Y., Eubank, S., and Nath, M. (2016). From network reliability to the Ising model: A parallel
+                scheme for
                 estimating the joint density of states. Physical Review E, 94(4), 042125.
             </li>
             <li>
@@ -159,6 +256,7 @@
             </li>
         </ul>
 
+        <!-- =============== CONFERENCE PRESENTATIONS =============== -->
         <h2>Conference Presentations</h2>
         <ul class="project-list">
             <li>
@@ -178,11 +276,13 @@
             </li>
             <li>
                 Determining whether a particular contact network is consistent with a network model. 1st North American
-                Social Networks Conference of the International Network for Social Network Analysis, Washington DC, USA,
+                Social Networks Conference of the International Network for Social Network Analysis, Washington DC,
+                USA,
                 26-30 Jul 2017.
             </li>
             <li>
-                Network reliability: A novel measure to study the effects of network topology on the diffusive dynamics.
+                Network reliability: A novel measure to study the effects of network topology on the diffusive
+                dynamics.
                 Symposium for the Society of Young Network Scientists, NetSci 2017, Indianapolis, IN, USA, 19-23 Jun
                 2017.
             </li>
@@ -216,7 +316,8 @@
                 New York City, NY, USA, 25-27 Mar 2015.
             </li>
             <li>
-                Four-parameter characterisation of network reliability and analysis of critical point phenomenology. APS
+                Four-parameter characterisation of network reliability and analysis of critical point phenomenology.
+                APS
                 March
                 Meeting 2015, San Antonio, TX, USA, 2-6 Mar 2015.
             </li>
