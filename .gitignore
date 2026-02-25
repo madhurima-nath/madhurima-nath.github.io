@@ -4,5 +4,10 @@
 *.log
 *.out
 
+
 # Thesis PDF - do not track
 Nath_M_D_2019.pdf
+
+# Postdoc papers - do not track
+978-3-031-21131-7.pdf
+2206.03550v1.pdf
