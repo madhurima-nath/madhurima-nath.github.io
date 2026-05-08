@@ -125,7 +125,7 @@ h3 {
 	display: block;
 	padding: 6px 10px;
 	border-radius: 8px;
-	font-size: 18px;
+	font-size: 21px;
 	font-family: var(--font-serif);
 	font-weight: 600;
 	color: var(--accent) !important;
@@ -969,7 +969,7 @@ tr:nth-child(even) {
 }
 
 .dissertation-promo a {
-	color: var(--accent) !important;
+	color: var(--ink) !important;
 	text-decoration: none;
 	border-bottom: 1px solid transparent;
 	transition: border-color var(--transition);
