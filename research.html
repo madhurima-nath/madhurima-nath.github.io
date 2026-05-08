@@ -65,13 +65,6 @@
             </a>
         </div>
 
-        <!-- =============== DISSERTATION PROMO =============== -->
-        <div class="dissertation-promo">
-            <p>
-                Learn more about <a href="https://vtechworks.lib.vt.edu/handle/10919/86841" target="_blank">PhD dissertation</a>
-            </p>
-        </div>
-
         <!-- =============== DISSERTATION DETAILS (Collapsible) =============== -->
         <details class="diss-details">
             <summary>Dissertation Overview</summary>
@@ -82,6 +75,7 @@
                     stochastic dynamics, this metric calculates the probability of a system attaining specific target configurations. 
                     This work applies the reliability formalism to three key areas: modelling epidemic outbreaks on contact 
                     networks, identifying vulnerabilities in global trade, and optimising partition function estimation in statistical physics.
+                    Learn more about <a href="https://vtechworks.lib.vt.edu/handle/10919/86841" target="_blank">PhD dissertation</a>
                 </p>
                 <div class="pillar-grid">
                     <div class="pillar-card">
@@ -99,8 +93,10 @@
                         <figcaption>&nbsp;</figcaption>
                         <div class="pillar-body">
                             <h4>Contagion Spread in Global Food Trade Networks</h4>
-                            <p>Utilised network reliability to identify dynamics-induced contagion clusters and vulnerabilities within 
+                            <p>Utilised network reliability to identify dynamics-induced contagion clusters and vulnerabilities within
                                 international food trade networks using United Nations (UN) Comtrade data. 
+                                This methodology incorporates Moore-Shannon Network Reliability – Community Detection (MSNR-CD) to identify
+                                strongly connected components critical for propagation.
                                 The impact of mitigation strategies was forecasted with approximately 96% precision.</p>
                         </div>
                     </div>
@@ -124,7 +120,7 @@
         <div class="research-theme" id="epidemiology">
             <div class="theme-content">
                 <div class="theme-text">
-                    <h4>Susceptible-Infected-Recovered dynamics on contact networks vs statistical graph models <span class="cite-pill">[6]</span></h4>
+                    <h4>Susceptible-Infected-Recovered dynamics on contact networks vs statistical graph models</h4>
                     <p>
                         Simulated real-world epidemic outbreak and intervention scenarios on the National Longitudinal
                         Study of Adolescent to Adult Health (Add Health) dataset using network reliability. Compared
@@ -156,22 +152,22 @@
         <div class="research-theme" id="trade">
             <div class="theme-content">
                 <div class="theme-text">
-                    <h4>International Food Trade &amp; Pestilence Distribution <span class="cite-pill">[1, 3]</span></h4>
+                    <h4>International Food Trade &amp; Pestilence Distribution</h4>
                     <p>
                         Vulnerabilities within international trade were identified by tracking the contagion risk 
-                        of invasive species across commodity-specific networks. Using Food and Agriculture Organization (FAO) 
-                        and United Nations (UN) Comtrade data, directed weighted networks were constructed for commodities 
-                        including tomatoes, corn, and cereals between 2005-2013 to map how pathogens, such as 
-                        <em>Tuta absoluta</em>, could cascade through international networks.
+                        of invasive species across commodity-specific networks. Using commodity-specific data from 
+                        the Food and Agriculture Organization (FAO) and United Nations (UN) Comtrade databases, 
+                        directed weighted networks were constructed for commodities such as tomatoes, potatoes, 
+                        and cereals between 2005-2013 to map how pathogens, such as <em>Tuta absoluta</em>, 
+                        could spread through international trade networks.
                     </p>
                     <p>
-                        Advanced statistical approaches for community detection (MSNR-CD) were developed to analyse 
-                        these large-scale systems. This work introduced the concept of <em>contagion clusters</em> 
-                        to identify strongly connected components (SCCs) that act as reservoirs for trade-driven spread. 
-                        By analysing network topology and stochastic dynamics, the framework revealed geographic 
-                        contiguity patterns and achieved approximately 96% precision in forecasting the efficacy 
-                        of targeted mitigation strategies. Identifying these critical trade links provides a 
-                        quantitative foundation for managing the risk of transnational pest expansion.
+                        Advanced statistical approaches for community detection (Moore-Shannon Network Reliability – Community Detection, MSNR-CD) 
+                        were developed to analyse these large-scale networks. This work introduced the concept of <em>contagion clusters</em> 
+                        to identify strongly connected components (SCCs) which are critical for the propagation of contagion 
+                        within the network. By analysing network topology and stochastic dynamics, the framework achieved 
+                        approximately 96% precision in forecasting impact of mitigation strategies under various contagion scenarios, 
+                        identifying crucial links for preventing transnational pest expansion.
                     </p>
                 </div>
                 <div class="theme-figure">
@@ -188,23 +184,21 @@
         <div class="research-theme" id="computational">
             <div class="theme-content">
                 <div class="theme-text">
-                    <h4>Computational Frameworks for Network Reliability <span class="cite-pill">[2, 4, 5, 8]</span></h4>
+                    <h4>Computational Frameworks for Network Reliability</h4>
                     <p>
-                        The Moore-Shannon network reliability formalism was extended to biological and social systems 
-                        to establish a theoretical framework for structural analysis. The reliability polynomial, 
-                        <i>R</i>(<i>x</i>), represents the probability that a graph dynamical system satisfies a 
-                        global property under specific stochastic dynamics.
+                        The Moore-Shannon network reliability formalism was extended to biological and social systems to 
+                        establish a theoretical framework for structural analysis. The reliability polynomial, <i>R</i>(<i>x</i>), 
+                        represents the probability that a graph dynamical system satisfies a desired global property 
+                        under specific stochastic dynamics.
                     </p>
                     <p>
-                        Novel computational approaches were developed using Bernstein basis functions as a polynomial 
-                        basis set. By treating the reliability polynomial as a kernel, convergence guarantees were 
-                        established for sequential experimental design and statistical model selection in discrete 
-                        finite systems. 
-                        The framework further extends weak- and strong-coupling perturbative methods from statistical 
-                        physics to address the NP-hard challenge of evaluating reliability on large graphs. 
-                        By integrating parallel Markov Chain Monte Carlo (MCMC) simulations with these expansions, 
-                        the methodology allows for the construction of tight upper and lower bounds on 
-                        approximation error for complex probabilistic systems.
+                        Novel computational approaches were developed using Bernstein basis functions as a polynomial basis set. 
+                        By treating the reliability polynomial as a kernel, convergence guarantees were established for 
+                        sequential design and statistical model selection in discrete finite systems. This framework 
+                        addresses NP-hard computational problems by combining Monte Carlo simulations with weak- and 
+                        strong-coupling perturbative expansions. The methodology enables the construction of tight 
+                        upper and lower bounds on approximation error for complex probabilistic satisfiability problems 
+                        on large graphs.
                     </p>
                 </div>
                 <div class="theme-figure">
@@ -221,7 +215,7 @@
         <div class="research-theme" id="ising">
             <div class="theme-content">
                 <div class="theme-text">
-                    <h4>Ising Model Partition Function Estimation <span class="cite-pill">[9]</span></h4>
+                    <h4>Ising Model Partition Function Estimation</h4>
                     <p>
                         An algorithm was developed using Moore-Shannon network reliability to estimate energy states of an
                         interacting magnetic system modeled on 1D and 2D lattices. By treating spin flips as a
