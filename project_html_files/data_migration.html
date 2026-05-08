@@ -10,56 +10,62 @@
     diffusive processes, graph dynamical systems, physics">
     <meta name="author" content="Madhurima Nath">
     <meta name="description" content="Personal homepage of Dr. Madhurima Nath">
-    
+
     <title>Madhurima Nath</title>
     <link rel="stylesheet" href="../style.css">
 
 </head>
 
-<body style="overflow-y: scroll; max-height: 120vh !important;">
+<body>
     <!--main container for all content-->
     <div class="container">
         <!--header with title and navigation-->
         <header class="site-header">
             <div class="site-title">
-                <a href="../index.html"><h1>Madhurima Nath</h1></a>
+                <a href="../index.html">
+                    <h1>Madhurima Nath</h1>
+                </a>
             </div>
 
+            <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+
             <!--navigation tabs with dropdowns-->
-            <ul class="nav-tabs">
+            <ul class="nav-tabs" id="navMenu">
                 <li><a href="../experience.html">Bio</a></li>
-                <li>
-                    <a href="#" style="background-color: #a6cef1bb;">Projects</a>
-                        <ul>
-                            <li>
-                                <a href="research.html">Academic Research</a>
-                            </li>
-                            <li>
-                                <a href="../industry.html">Industry &amp; Consulting</a>
-                            </li>
-                        </ul>
+                <li class="has-dropdown">
+                    <a href="#" style="background-color: #a6cef1bb;" aria-haspopup="true">Projects</a>
+                    <ul>
+                        <li>
+                            <a href="../research.html">Academic Research</a>
+                        </li>
+                        <li>
+                            <a href="../industry.html">Industry &amp; Consulting</a>
+                        </li>
+                    </ul>
                 </li>
                 <li><a href="../teaching.html">Teaching</a></li>
                 <li><a href="../outreach.html">Outreach</a></li>
             </ul>
         </header>
-    
-        <h2 style="font-size: 20px; color: #076a77;">Data migration into data lake 
-        using data pipelines</h2>
+
+        <h2>Data migration into data lake
+            using data pipelines</h2>
         <p>
             Data migration involves moving the data from a source
             system to a new destination. It involves:
             <li>
-                data profiling and assessment: identify 
+                data profiling and assessment: identify
                 source and destination, understand
-                the data structures, formats, and relationships, 
+                the data structures, formats, and relationships,
                 assess the data's volume, data types, missing values,
                 inconsistencies etc.
-            </li>  
+            </li>
             <li>
                 data modelling/mapping: define rules to map elements of
-                the source data (fields, tables, columns) to destination 
-                data elements, including any data type conversions. 
+                the source data (fields, tables, columns) to destination
+                data elements, including any data type conversions.
             </li>
             <li>
                 migration approach: incremental vs batch, historical and
@@ -67,74 +73,101 @@
             </li>
 
             The data is extracted from the source, transformed to clean,
-            format/convert (aggregation, filtering etc.) 
+            format/convert (aggregation, filtering etc.)
             to map to the destination requirements.
             Load this into the destination system using data pipelines.
             Finally, validation and testing ensure data integrity and
-            completeness of the migrated data. 
+            completeness of the migrated data.
             The speed and efficiency of these data pipelines are extremely
-            important as they not only incur huge costs, but are also 
-            time consuming for large datasets. Data governance, 
+            important as they not only incur huge costs, but are also
+            time consuming for large datasets. Data governance,
             metadata management and data security are crucial to protect data
-            during all the steps of the data migration. 
+            during all the steps of the data migration.
             Post-migration maintenance involves ongoing support and addressing
             any post deployment updates and/or issues.
 
             <br><br>
             SQL stored procedures are powerful and resilient transformation
-            method which enables performant and reliable 
+            method which enables performant and reliable
             ELTL (Extract-Load-Transform-Load) or ETL/ELT operations.
 
             Parameterised store procedures can be written to encapsulate
-            and secure sets of reusable code. 
+            and secure sets of reusable code.
             The major pro is that the data stays within integration platform, with no
             ingress or egress required from the database.
             However, there are some cons of using stored procedures.
             <li>
-            There is some duplicative code.
+                There is some duplicative code.
             </li>
             <li>
-            At times, the code is difficult to interpret.
+                At times, the code is difficult to interpret.
             </li>
             <li>
-            Stored procedures are less secure when dynamic and 
-            transformastions are limited.
+                Stored procedures are less secure when dynamic and
+                transformastions are limited.
             </li>
 
             <br>
-            <h3 style="font-style: italic;"><u>Data lake migration on Snowflake</u></h3>
-            Within Snowflake, define storage integration, i.e.,
-            connection between Snowflake and cloud storage option.
-            Define stages of how the data will be loaded, i.e., replace and load full data
-            or insert and append new data, or load only updated (new as well as changes
-            to historical) data.
-            Configure the necessary warehouses, databases and security settings.
-            Recreate database schemas and objects (tables and views) to mirror the data lake structure. To load the data, Snowflake's <code>COPY INTO</code>
-            command or third-party tools like Azure Data Factory could be used to transfer data.
+        <h3 style="font-style: italic;"><u>Data lake migration on Snowflake</u></h3>
+        Within Snowflake, define storage integration, i.e.,
+        connection between Snowflake and cloud storage option.
+        Define stages of how the data will be loaded, i.e., replace and load full data
+        or insert and append new data, or load only updated (new as well as changes
+        to historical) data.
+        Configure the necessary warehouses, databases and security settings.
+        Recreate database schemas and objects (tables and views) to mirror the data lake structure. To load the data,
+        Snowflake's <code>COPY INTO</code>
+        command or third-party tools like Azure Data Factory could be used to transfer data.
 
-            <br>
-            In Snowflake, tasks are used to automate and schedule data processing tasks, including data migration. They are be used to execute SQL statements, call stored procedures, and manage data pipelines.
-            Tasks can be scheduled to run at regular intervals or triggered by events like the arrival of new data. 
-            These can be chained together to create complex data pipelines, to validate migrated data after it has been loaded into Snowflake and to handle errors and automatically suspend or resume execution based on their status. 
+        <br>
+        In Snowflake, tasks are used to automate and schedule data processing tasks, including data migration. They are
+        be used to execute SQL statements, call stored procedures, and manage data pipelines.
+        Tasks can be scheduled to run at regular intervals or triggered by events like the arrival of new data.
+        These can be chained together to create complex data pipelines, to validate migrated data after it has been
+        loaded into Snowflake and to handle errors and automatically suspend or resume execution based on their status.
 
-            <br><br>
-            <h3 style="font-style: italic;"><u>Data lake migration on Databricks</u></h3>
+        <br><br>
+        <h3 style="font-style: italic;"><u>Data lake migration on Databricks</u></h3>
 
         </p>
     </div>
 
 
     <!--footer-->
-    <footer style="position: relative; background-color: #e8f3f5;
-	    padding: 5px; margin-top: 15px; border-top: 1px solid #315eb4;
-	    color: #666; text-align: center; width: 100%; margin: 2px;
-	    bottom: 0;">
+    <footer class="site-footer">
         <div class="container">
             <p>&COPY; <span class="js-year"></span> Madhurima Nath. All rights reserved.</p>
         </div>
     </footer>
 
-<script>document.querySelectorAll(".js-year").forEach(function(el){el.textContent = new Date().getFullYear();});</script>
+    <script>
+        document.querySelectorAll(".js-year").forEach(function (el) { el.textContent = new Date().getFullYear(); });
+        (function () {
+            var btn = document.querySelector('.hamburger');
+            var nav = document.getElementById('navMenu');
+            if (!btn || !nav) return;
+            btn.addEventListener('click', function () {
+                var open = nav.classList.toggle('open');
+                btn.classList.toggle('active');
+                btn.setAttribute('aria-expanded', open);
+            });
+            nav.querySelectorAll('.has-dropdown > a').forEach(function (a) {
+                a.addEventListener('click', function (e) {
+                    if (window.innerWidth <= 768) {
+                        e.preventDefault();
+                        a.parentElement.classList.toggle('dropdown-open');
+                    }
+                });
+            });
+            document.addEventListener('click', function (e) {
+                if (!btn.contains(e.target) && !nav.contains(e.target)) {
+                    nav.classList.remove('open');
+                    btn.classList.remove('active');
+                    btn.setAttribute('aria-expanded', 'false');
+                }
+            });
+        })();
+    </script>
 </body>
-</html>
 
+</html>
