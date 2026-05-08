@@ -45,28 +45,40 @@
             </ul>
         </header>
 
+        <!-- =============== RESEARCH SUMMARY TILES =============== -->
+        <div class="research-summary-grid">
+            <a href="#epidemiology" class="summary-card">
+                <strong>Epidemic Modelling</strong>
+                <p>SIR dynamics on contact networks vs statistical graph models.</p>
+            </a>
+            <a href="#trade" class="summary-card">
+                <strong>Global Trade &amp; Biosecurity</strong>
+                <p>Tracking invasive species via community detection in trade.</p>
+            </a>
+            <a href="#computational" class="summary-card">
+                <strong>Computational Frameworks</strong>
+                <p>Network reliability via Bernstein kernels and perturbative methods.</p>
+            </a>
+            <a href="#ising" class="summary-card">
+                <strong>Statistical Physics</strong>
+                <p>Estimating Ising partition functions through graph dynamics.</p>
+            </a>
+        </div>
+
         <!-- =============== DISSERTATION =============== -->
-        <h2>Dissertation &amp; Patent</h2>
-
-        <p>
-            <a href="https://vtechworks.lib.vt.edu/handle/10919/86841" target="_blank">
-                <strong>Application of Network Reliability to Analyze Diffusive Processes on Graph Dynamical
-                    Systems</strong></a> &mdash;
-            Ph.D. Dissertation, Virginia Tech, 2019.
-        </p>
-
         <details class="diss-details">
-            <summary>Learn more about the dissertation research</summary>
+            <summary>Learn more about <a href="https://vtechworks.lib.vt.edu/handle/10919/86841" target="_blank">
+                PhD dissertation research</a></summary>
 
             <div class="dissertation-overview">
                 <p class="diss-abstract">
-                    Moore-Shannon network reliability serves as a global statistic to explore the behavior of diffusive
+                    Moore-Shannon network reliability serves as a global statistic to explore the behaviour of diffusive
                     processes on networks. It depends on both network topology and the dynamics of the process, giving
                     the probability that the system reaches a desired configuration. The research demonstrates its
-                    utility across three domains: epidemic outbreak modeling, invasive species tracking through
+                    utility across three domains: epidemic outbreak modelling, invasive species tracking through
                     international food trade, and partition function estimation for the Ising model.
                 </p>
-
+                <!-- pillar-grid starts here -->
                 <div class="pillar-grid">
                     <div class="pillar-card">
                         <img src="webpage_images/epidemic_reliability.png"
@@ -74,7 +86,7 @@
                         <figcaption>R(x; α = 0.05) for all network models — shaded bands show confidence intervals.
                         </figcaption>
                         <div class="pillar-body">
-                            <h4>Epidemic Modeling on Contact Networks</h4>
+                            <h4>Epidemic Modelling on Contact Networks</h4>
                             <p>Used network reliability to study how network topology affects epidemic outbreak
                                 sensitivity. Applied SIR dynamics on real contact networks and statistical graph models,
                                 showing that network reliability captures structural effects beyond traditional measures
@@ -108,38 +120,11 @@
             </div>
         </details>
 
-        <ul class="project-list">
-            <li>
-                US Patent (US20210286859A1): System, method and computer readable medium for sensitivity of dynamical
-                systems to interaction network topology.
-            </li>
-        </ul>
-
-        <!-- =============== RESEARCH SUMMARY =============== -->
-        <div class="research-summary-grid">
-            <div class="summary-card">
-                <strong>Epidemiology</strong>
-                <p>SIR dynamics and ERGM comparisons on contact networks.</p>
-            </div>
-            <div class="summary-card">
-                <strong>Global Trade</strong>
-                <p>Tracking invasive species and community detection in trade.</p>
-            </div>
-            <div class="summary-card">
-                <strong>Computational Theory</strong>
-                <p>Network reliability via Bernstein kernels and perturbative methods.</p>
-            </div>
-            <div class="summary-card">
-                <strong>Statistical Physics</strong>
-                <p>Estimating Ising partition functions through graph dynamics.</p>
-            </div>
-        </div>
-
         <!-- =============== RESEARCH THEMES =============== -->
-        <h2>Research Focus Areas</h2>
+        <h2>Detailed Research Themes</h2>
 
         <!-- Pillar 1: Epidemic Modeling -->
-        <div class="research-theme">
+        <div class="research-theme" id="epidemiology">
             <div class="theme-content">
                 <div class="theme-text">
                     <h4>Epidemic Outbreak Modelling on Contact Networks <span class="cite-pill">Pub [5]</span></h4>
@@ -156,6 +141,11 @@
                         depends on a complex mixture of structural properties beyond degree distribution, clustering,
                         and centrality measures.
                     </p>
+                    <p>
+                        Furthermore, Birnbaum importance measures were applied to quantify individual edge contributions 
+                        to epidemic potential, enabling the identification of critical connections for targeted 
+                        mitigation strategies.
+                    </p>
                 </div>
                 <div class="theme-figure">
                     <img src="webpage_images/epidemic_epicurves.png"
@@ -166,18 +156,19 @@
         </div>
 
         <!-- Pillar 2: International Food Trade -->
-        <div class="research-theme">
+        <div class="research-theme" id="trade">
             <div class="theme-content">
                 <div class="theme-text">
                     <h4>International Food Trade &amp; Invasive Species Tracking <span class="cite-pill">Pub [1, 3]</span></h4>
                     <p>
                         Identified vulnerabilities within global food trade networks by tracking the contagion risk of
-                        invasive species (e.g., <em>Tuta absoluta</em>). Constructed directed weighted networks from UN
-                        Comtrade data for various commodities between 2005&ndash;2013 to identify where pest and pathogen
-                        contamination could cascade through global supply chains.
+                        invasive species (e.g., <em>Tuta absoluta</em>). Constructed directed weighted networks from 
+                        Food and Agriculture Organization (FAO) and United Nations (UN) Comtrade data for 
+                        various commodities between 2005&ndash;2013 to 
+                        identify where pest and pathogen contamination could cascade through global supply chains.
                     </p>
                     <p>
-                        Developed statistical approaches for community detection in large-scale weighted directed
+                        Statistical approaches were developed for community detection in large-scale weighted directed
                         networks using MSNR-CD (Moore-Shannon Network Reliability &ndash; Community Detection). This work
                         introduced the concept of <em>contagion clusters</em> to identify strongly connected components
                         where trade-driven spread is most likely, revealing unexpected geographic contiguity patterns.
@@ -195,20 +186,22 @@
         </div>
 
         <!-- Pillar 3: Computational Frameworks -->
-        <div class="research-theme">
+        <div class="research-theme" id="computational">
             <div class="theme-content">
                 <div class="theme-text">
                     <h4>Computational Frameworks for Network Reliability <span class="cite-pill">Pub [2, 4, 6, 8]</span></h4>
                     <p>
-                        Developed novel approaches to evaluate Moore-Shannon network reliability formalism using
-                        Bernstein basis functions as a polynomial basis set. This provides convergence guarantees for
-                        sequential design and model selection in discrete finite systems.
+                        Novel approaches were developed to evaluate Moore-Shannon network reliability formalism using
+                        Bernstein basis functions as a polynomial basis set. By treating the reliability polynomial 
+                        as a kernel, convergence guarantees were established for sequential design and model selection 
+                        in discrete finite systems.
                     </p>
                     <p>
-                        Extended weak- and strong-coupling perturbative methods from statistical physics to
-                        heterogeneous satisfiability problems. By combining Monte Carlo simulations with these
-                        perturbative expansions, I addressed NP-hard computational challenges and developed a framework
-                        for constructing tight upper and lower bounds on approximation error.
+                        Weak- and strong-coupling perturbative methods from statistical physics were extended to 
+                        address heterogeneous satisfiability problems. By combining Monte Carlo simulations with these 
+                        perturbative expansions, NP-hard computational challenges were addressed and a novel 
+                        approach for constructing tight upper and lower bounds on approximation error for 
+                        mostly monotonic probabilistic problems.
                     </p>
                 </div>
                 <div class="theme-figure">
@@ -222,20 +215,21 @@
         </div>
 
         <!-- Pillar 4: Ising Model -->
-        <div class="research-theme">
+        <div class="research-theme" id="ising">
             <div class="theme-content">
                 <div class="theme-text">
                     <h4>Ising Model Partition Function Estimation <span class="cite-pill">Pub [7]</span></h4>
                     <p>
-                        Developed an algorithm using Moore-Shannon network reliability to estimate energy states of an
+                        An algorithm was developed using Moore-Shannon network reliability to estimate energy states of an
                         interacting magnetic system modeled on 1D and 2D lattices. By treating spin flips as a
                         diffusive process on a graph dynamical system, established that the reliability polynomial is
                         analogous to the Ising partition function.
                     </p>
                     <p>
-                        Implemented a parallel Markov-chain Monte Carlo scheme for estimating the joint density of
-                        states, addressing fundamental limitations of naive sampling. By reformulating the problem, I
-                        reduced time complexity from O(<i>n</i><sup>2</sup>) to O(<i>n</i>) for estimating energy states.
+                        By reformulating the Ising model through the network reliability framework, an equivalence was 
+                        established that enabled the transfer of statistical physics computational methods to 
+                        network science. A parallel Markov-chain Monte Carlo scheme was implemented for estimating 
+                        the joint density of states, reducing time complexity from O(<i>n</i><sup>2</sup>) to O(<i>n</i>).
                     </p>
                 </div>
                 <div class="theme-figure">
@@ -346,6 +340,9 @@
 
     </div>
 
+    <!-- Back to top button -->
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">↑</button>
+
     <!--footer-->
     <footer class="site-footer">
         <div class="container">
@@ -403,6 +400,24 @@
 
             document.addEventListener('keydown', function (e) {
                 if (e.key === 'Escape') overlay.classList.remove('active');
+            });
+        })();
+
+        // Back to Top button logic
+        (function () {
+            var backToTopBtn = document.getElementById('backToTop');
+            if (!backToTopBtn) return;
+
+            window.addEventListener('scroll', function () {
+                if (window.pageYOffset > 500) {
+                    backToTopBtn.classList.add('show');
+                } else {
+                    backToTopBtn.classList.remove('show');
+                }
+            });
+
+            backToTopBtn.addEventListener('click', function () {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             });
         })();
     </script>
