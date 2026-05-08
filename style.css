@@ -692,9 +692,9 @@ hr {
 }
 
 .back-to-top .top-text {
-	font-size: 9px; /* Reduced font size for 'TOP' */
-	margin-top: 0;
-	display: block;
+	font-size: 9px; /* Smaller font for 'TOP' */
+	margin-top: 1px;
+	display: block; /* Ensures it's on its own line */
 	font-weight: 700;
 }
 
@@ -1198,7 +1198,7 @@ tr:nth-child(even) {
 	padding: 16px;
 	border-radius: 10px;
 	border: 1px solid var(--border);
-	text-align: left; /* Aligned left to avoid centered look */
+	text-align: left;
 	transition: transform var(--transition), box-shadow var(--transition);
 	text-decoration: none !important;
 }
