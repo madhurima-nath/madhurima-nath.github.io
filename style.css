@@ -65,6 +65,7 @@ a:hover {
 	max-width: 1000px;
 	margin: 0 auto;
 	padding: 28px 18px 0;
+	padding-bottom: 40px;
 }
 
 .container h2 {
@@ -72,6 +73,7 @@ a:hover {
 	letter-spacing: 0.04em;
 	color: var(--accent);
 	font-family: var(--font-sans);
+	margin-top: 40px;
 }
 
 h3 {
@@ -112,7 +114,7 @@ h3 {
 	display: flex;
 	align-items: center;
 	gap: 14px;
-	font-family: var(--font-sans);
+	font-family: var(--font-serif);
 	flex-wrap: wrap;
 	row-gap: 6px;
 }
@@ -126,7 +128,6 @@ h3 {
 	padding: 6px 10px;
 	border-radius: 8px;
 	font-size: 21px;
-	font-family: var(--font-serif);
 	font-weight: 600;
 	color: var(--accent) !important;
 	transition: background var(--transition), transform var(--transition);
@@ -667,30 +668,34 @@ hr {
 .back-to-top {
 	position: fixed;
 	bottom: 30px;
-	left: 50%;
-	transform: translateX(-50%);
+	right: 30px;
 	width: auto;
-	padding: 0 20px;
-	height: 40px;
+	padding: 0 16px;
+	height: 45px;
 	background-color: var(--accent);
 	color: #fff; /* Ensure text color is white */
 	border: none;
-	border-radius: 20px;
+	border-radius: 25px;
 	cursor: pointer;
 	display: none;
 	justify-content: center;
 	align-items: center;
-	font-size: 13px;
-	font-weight: 700;
+	font-size: 16px;
+	font-weight: 600;
 	font-family: var(--font-sans);
 	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 	z-index: 1000;
 	transition: opacity 0.3s, transform 0.3s, background-color 0.3s;
 }
 
+.back-to-top .top-text {
+	font-size: 10px;
+	margin-left: 3px;
+}
+
 .back-to-top:hover {
 	background-color: var(--ink); /* Darker on hover */
-	transform: translateX(-50%) scale(1.05);
+	transform: scale(1.1);
 }
 
 .back-to-top.show {
@@ -969,14 +974,13 @@ tr:nth-child(even) {
 }
 
 .dissertation-promo a {
-	color: var(--ink) !important;
+	color: inherit !important;
 	text-decoration: none;
 	border-bottom: 1px solid transparent;
 	transition: border-color var(--transition);
 }
 
 .dissertation-promo a:hover {
-	color: var(--ink) !important;
 	border-bottom-color: var(--ink);
 }
 
@@ -1024,10 +1028,9 @@ tr:nth-child(even) {
 
 .dissertation-overview .diss-abstract {
 	font-size: .97rem;
-	line-height: 1.8;
+	line-height: 1.7;
 	color: var(--text);
 	margin-bottom: 24px;
-	text-align: justify;
 }
 
 .pillar-grid {
@@ -1060,7 +1063,7 @@ tr:nth-child(even) {
 }
 
 .pillar-card figcaption {
-	font-size: .75rem;
+	font-size: 0.7rem;
 	color: #5a6d7e;
 	text-align: center;
 	padding: 4px 12px 2px;
@@ -1071,7 +1074,7 @@ tr:nth-child(even) {
 }
 
 .theme-figure figcaption {
-	font-size: .75rem;
+	font-size: 0.7rem;
 	color: #5a6d7e;
 	text-align: center;
 	padding: 4px 0 0;
@@ -1190,7 +1193,7 @@ tr:nth-child(even) {
 	padding: 16px;
 	border-radius: 10px;
 	border: 1px solid var(--border);
-	text-align: left;
+	text-align: center;
 	transition: transform var(--transition), box-shadow var(--transition);
 	text-decoration: none !important;
 }
@@ -1198,16 +1201,24 @@ tr:nth-child(even) {
 .summary-card strong {
 	display: block;
 	color: var(--ink);
-	margin-bottom: 4px;
+	margin-bottom: 6px;
 	font-family: var(--font-sans);
-	font-size: 16px;
+}
+
+/* Unified Alignment for Lists */
+.harvard-refs, .presentation-list {
+	padding-left: 32px;
+	margin: 20px 0;
+}
+
+.presentation-list li {
+	padding-left: 4px;
 }
 
 .summary-card p {
-	font-size: 14px;
+	font-size: 0.85rem;
 	margin: 0 !important;
 	line-height: 1.4;
-	font-weight: 400;
 	color: var(--text-main);
 }
 
@@ -1219,8 +1230,6 @@ tr:nth-child(even) {
 /* ===== Conference/Presentation List (Non-CV style) ===== */
 .presentation-list {
 	list-style: none;
-	padding: 0;
-	margin: 20px 0;
 }
 
 .presentation-list li {
