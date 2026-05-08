@@ -670,19 +670,20 @@ hr {
 	bottom: 30px;
 	left: 50%;
 	transform: translateX(-50%);
-	width: auto;
-	padding: 0 20px;
-	height: 40px;
+	width: 52px;
+	height: 52px;
+	padding: 0;
 	background-color: var(--accent);
 	color: #fff; /* Ensure text color is white */
 	border: none;
-	border-radius: 20px;
+	border-radius: 50%; /* Perfect circle */
 	cursor: pointer;
 	display: none;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	font-size: 16px;
-	line-height: 1;
+	font-size: 18px;
+	line-height: 1.1;
 	font-weight: 600;
 	font-family: var(--font-sans);
 	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
@@ -691,8 +692,9 @@ hr {
 }
 
 .back-to-top .top-text {
-	font-size: 10px;
-	margin-left: 4px;
+	font-size: 9px; /* Reduced font size for 'TOP' */
+	margin-top: 0;
+	display: block;
 	font-weight: 700;
 }
 
@@ -962,27 +964,29 @@ tr:nth-child(even) {
 
 /* ===== Research page: Dissertation Promo ===== */
 .dissertation-promo {
-	margin: 24px 0 32px;
+	margin: 40px 0 32px;
 	padding: 0;
 	text-align: center;
 }
 
 .dissertation-promo p {
-	font-size: 1.2rem;
-	font-family: var(--font-serif);
+	font-size: 1.25rem;
+	font-family: var(--font-sans);
 	line-height: 1.6;
 	margin: 0;
 	color: var(--ink);
+	font-weight: 700;
 }
 
 .dissertation-promo a {
 	color: var(--ink) !important;
 	text-decoration: none;
-	transition: color var(--transition);
+	border-bottom: 2px solid transparent;
+	transition: border-color var(--transition);
 }
 
 .dissertation-promo a:hover {
-	text-decoration: underline;
+	border-bottom-color: var(--accent);
 }
 
 
@@ -1029,7 +1033,7 @@ tr:nth-child(even) {
 
 .dissertation-overview .diss-abstract {
 	font-size: .97rem;
-	line-height: 1.7;
+	line-height: 1.8;
 	color: var(--text);
 	margin-bottom: 24px;
 }
@@ -1055,7 +1059,7 @@ tr:nth-child(even) {
 
 .pillar-card img {
 	width: 100%; /* Ensure image fills its container */
-	height: 220px; /* Increased height for better visibility */
+	height: 240px; /* Increased height for better visibility */
 	object-fit: contain;
 	background: #fafbfc;
 	padding: 6px;
@@ -1153,12 +1157,8 @@ tr:nth-child(even) {
 }
 
 .theme-figure {
-	flex: 0 0 280px; /* Increased flex-basis for larger figures */
+	flex: 0 0 350px; /* Increased flex-basis for larger figures */
 	align-self: center;
-}
-
-.theme-figure.multi-plot {
-	flex: 0 0 300px; /* Adjusted for themes with multiple figures */
 }
 
 .theme-figure img {
@@ -1198,7 +1198,7 @@ tr:nth-child(even) {
 	padding: 16px;
 	border-radius: 10px;
 	border: 1px solid var(--border);
-	text-align: left; /* Explicitly left-aligned as requested */
+	text-align: left; /* Aligned left to avoid centered look */
 	transition: transform var(--transition), box-shadow var(--transition);
 	text-decoration: none !important;
 }
