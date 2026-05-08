@@ -115,157 +115,133 @@
             </li>
         </ul>
 
-        <!-- =============== ACADEMIC RESEARCH =============== -->
-        <h2>Academic Research Experience</h2>
-
-        <h3>Post-doctoral Research Assistant, Virginia Tech (2019)</h3>
-
-        <div class="research-theme">
-            <div class="theme-content">
-                <div class="theme-text">
-                    <h4>Perturbative Methods for Network Reliability Estimation</h4>
-                    <p>
-                        Improved the time complexity to estimate Moore-Shannon network reliability on a
-                        graph by combining Monte Carlo simulations with weak- and strong-coupling
-                        perturbative methods. Extended these techniques to heterogeneous satisfiability
-                        problems with event-specific probabilities, introducing novel lower and upper
-                        bounds on approximation error for monotonic problems.
-                    </p>
-                    <p class="theme-refs">
-                        <strong>Related:</strong> [2]
-                    </p>
-                </div>
-                <div class="theme-figure">
-                    <img src="webpage_images/perturbative_bounds.png"
-                        alt="Satisfiability bounds using perturbative methods for heterogeneous systems">
-                    <figcaption>Perturbative bounds and interpolation for heterogeneous satisfiability
-                        (polynomial &amp; logarithmic decomposition).</figcaption>
-                </div>
+        <!-- =============== RESEARCH SUMMARY =============== -->
+        <div class="research-summary-grid">
+            <div class="summary-card">
+                <strong>Epidemiology</strong>
+                <p>SIR dynamics and ERGM comparisons on contact networks.</p>
+            </div>
+            <div class="summary-card">
+                <strong>Global Trade</strong>
+                <p>Tracking invasive species and community detection in trade.</p>
+            </div>
+            <div class="summary-card">
+                <strong>Computational Theory</strong>
+                <p>Network reliability via Bernstein kernels and perturbative methods.</p>
+            </div>
+            <div class="summary-card">
+                <strong>Statistical Physics</strong>
+                <p>Estimating Ising partition functions through graph dynamics.</p>
             </div>
         </div>
 
+        <!-- =============== RESEARCH THEMES =============== -->
+        <h2>Research Focus Areas</h2>
+
+        <!-- Pillar 1: Epidemic Modeling -->
         <div class="research-theme">
             <div class="theme-content">
                 <div class="theme-text">
-                    <h4>Community Detection in International Trade Networks</h4>
-                    <p>
-                        Implemented statistical approaches for community detection in large-scale weighted
-                        directed networks using MSNR-CD (Moore-Shannon Network Reliability &ndash;
-                        Community Detection). Applied computational methods to analyze international
-                        trade network dynamics from FAO and UN Comtrade data to identify crucial
-                        communities for preventing global pestilence distribution, revealing geographic
-                        contiguity patterns in food trade.
-                    </p>
-                    <p class="theme-refs">
-                        <strong>Related:</strong> [1]
-                    </p>
-                </div>
-                <div class="theme-figure">
-                    <img src="webpage_images/community_detection_maps.png"
-                        alt="Geographic community structure in food trade networks for tomato, corn, cereal, and other-ag-prod">
-                    <figcaption>Geographic community structure: top 8 communities for tomato, corn,
-                        cereal, and other-ag-prod trade (x = 0.5, n<sub>SCC</sub> = 20).</figcaption>
-                </div>
-            </div>
-        </div>
-
-        <h3>Graduate Research Assistant, Virginia Tech (2014&ndash;2018)</h3>
-
-        <div class="research-theme">
-            <div class="theme-content">
-                <div class="theme-text">
-                    <h4>Network Reliability Estimation Methods</h4>
-                    <p>
-                        Developed new approaches to evaluate Moore-Shannon network reliability using Bernstein basis
-                        functions, Monte Carlo simulations, and statistical perturbative methods. The reliability
-                        polynomial R(x;&nbsp;G,&nbsp;D,&nbsp;P) gives the probability that a graph dynamical system
-                        satisfies a desired property under given dynamics. Established an adaptive kernel density
-                        estimation method using Bernstein polynomials to find optimal sampling strategies that maximise
-                        information gain while minimising estimation error.
-                    </p>
-                    <p class="theme-refs">
-                        <strong>Related:</strong> [1], [3], [6]
-                    </p>
-                </div>
-                <div class="theme-figure">
-                    <img src="webpage_images/bernstein_estimation.png"
-                        alt="Bernstein polynomial interpolation of network reliability">
-                    <figcaption>Estimated R(x) using Bernstein polynomial interpolation vs. exact reliability and Taylor
-                        bound approximations.</figcaption>
-                </div>
-            </div>
-        </div>
-
-        <div class="research-theme">
-            <div class="theme-content">
-                <div class="theme-text">
-                    <h4>Epidemic Outbreak Modeling on Contact Networks</h4>
+                    <h4>Epidemic Outbreak Modelling on Contact Networks <span class="cite-pill">Pub [5]</span></h4>
                     <p>
                         Simulated real-world epidemic outbreak and intervention scenarios on the National Longitudinal
                         Study of Adolescent to Adult Health (Add Health) dataset using network reliability. Compared
                         SIR dynamics on observed contact networks against four classes of exponential random graph
                         models (ERGMs) to determine whether standard network statistics suffice to characterise
-                        epidemic outcomes. The analysis revealed that attack rate depends on a mixture of structural
-                        properties beyond degree distribution, clustering, and centrality measures.
+                        epidemic outcomes.
                     </p>
-                    <p class="theme-refs">
-                        <strong>Related:</strong> [4], [5]
+                    <p>
+                        The analysis demonstrated that models matching local network statistics can significantly
+                        overestimate infection numbers—sometimes by as much as 50%. This revealed that the attack rate
+                        depends on a complex mixture of structural properties beyond degree distribution, clustering,
+                        and centrality measures.
                     </p>
                 </div>
                 <div class="theme-figure">
                     <img src="webpage_images/epidemic_epicurves.png"
                         alt="Mean epicurves for epidemic models on different contact networks">
-                    <figcaption>Mean epicurves for networks with probability of transmission x = 0.85.</figcaption>
+                    <figcaption>Mean epicurves for networks with transmission probability <i>x</i> = 0.85.</figcaption>
                 </div>
             </div>
         </div>
 
+        <!-- Pillar 2: International Food Trade -->
         <div class="research-theme">
             <div class="theme-content">
                 <div class="theme-text">
-                    <h4>Invasive Species &amp; International Food Trade Network Analysis</h4>
+                    <h4>International Food Trade &amp; Invasive Species Tracking <span class="cite-pill">Pub [1, 3]</span></h4>
                     <p>
-                        Identified vulnerabilities within global food trade networks using network reliability to track
-                        contagion risk of invasive species (e.g., <em>Tuta absoluta</em>). Constructed directed
-                        weighted networks from UN Comtrade data for tomato, potato, eggplant, and aggregate trade
-                        between 2005&ndash;2013. Developed the concept of <em>contagion clusters</em> &mdash;
-                        strongly connected components where trade-driven spread is most likely &mdash; and forecasted
-                        the impact of mitigating contagion conditions with approximately 96% precision.
+                        Identified vulnerabilities within global food trade networks by tracking the contagion risk of
+                        invasive species (e.g., <em>Tuta absoluta</em>). Constructed directed weighted networks from UN
+                        Comtrade data for various commodities between 2005&ndash;2013 to identify where pest and pathogen
+                        contamination could cascade through global supply chains.
                     </p>
-                    <p class="theme-refs">
-                        <strong>Related:</strong> [2]
+                    <p>
+                        Developed statistical approaches for community detection in large-scale weighted directed
+                        networks using MSNR-CD (Moore-Shannon Network Reliability &ndash; Community Detection). This work
+                        introduced the concept of <em>contagion clusters</em> to identify strongly connected components
+                        where trade-driven spread is most likely, revealing unexpected geographic contiguity patterns.
+                        Achieved approximately 96% precision in forecasting the impact of mitigation strategies.
                     </p>
                 </div>
                 <div class="theme-figure">
+                    <img src="webpage_images/community_detection_maps.png" alt="Geographic community structure">
+                    <figcaption>Top 8 communities for tomato, corn, cereal, and other-ag-prod trade (<i>x</i> = 0.5, <i>n</i><sub>SCC</sub> = 20).</figcaption>
                     <img src="webpage_images/food_trade_temporal.png"
                         alt="Temporal evolution of contagion clusters in food trade networks">
-                    <figcaption>Tomato trade contagion clusters for years 2005, 2009, and 2013 (Δ = 500, n = 10).
-                    </figcaption>
+                    <figcaption>Tomato trade contagion clusters for 2005, 2009, and 2013 (&Delta; = 500, <i>n</i> = 10).</figcaption>
                 </div>
             </div>
         </div>
 
+        <!-- Pillar 3: Computational Frameworks -->
         <div class="research-theme">
             <div class="theme-content">
                 <div class="theme-text">
-                    <h4>Ising Model Partition Function Estimation</h4>
+                    <h4>Computational Frameworks for Network Reliability <span class="cite-pill">Pub [2, 4, 6, 8]</span></h4>
+                    <p>
+                        Developed novel approaches to evaluate Moore-Shannon network reliability formalism using
+                        Bernstein basis functions as a polynomial basis set. This provides convergence guarantees for
+                        sequential design and model selection in discrete finite systems.
+                    </p>
+                    <p>
+                        Extended weak- and strong-coupling perturbative methods from statistical physics to
+                        heterogeneous satisfiability problems. By combining Monte Carlo simulations with these
+                        perturbative expansions, I addressed NP-hard computational challenges and developed a framework
+                        for constructing tight upper and lower bounds on approximation error.
+                    </p>
+                </div>
+                <div class="theme-figure">
+                    <img src="webpage_images/perturbative_bounds.png" alt="Satisfiability bounds">
+                    <figcaption>Perturbative bounds and interpolation for heterogeneous satisfiability.</figcaption>
+                    <img src="webpage_images/bernstein_estimation.png"
+                        alt="Bernstein polynomial interpolation of network reliability">
+                    <figcaption>Estimated <i>R(x)</i> using Bernstein polynomial interpolation vs. exact reliability.</figcaption>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pillar 4: Ising Model -->
+        <div class="research-theme">
+            <div class="theme-content">
+                <div class="theme-text">
+                    <h4>Ising Model Partition Function Estimation <span class="cite-pill">Pub [7]</span></h4>
                     <p>
                         Developed an algorithm using Moore-Shannon network reliability to estimate energy states of an
                         interacting magnetic system modeled on 1D and 2D lattices. By treating spin flips as a
                         diffusive process on a graph dynamical system, established that the reliability polynomial is
-                        analogous to the Ising partition function. Used Bernstein polynomial interpolation between
-                        low- and high-temperature Taylor expansions to reduce time complexity from
-                        O(n<sup>2</sup>) to O(n).
+                        analogous to the Ising partition function.
                     </p>
-                    <p class="theme-refs">
-                        <strong>Related:</strong> [5]
+                    <p>
+                        Implemented a parallel Markov-chain Monte Carlo scheme for estimating the joint density of
+                        states, addressing fundamental limitations of naive sampling. By reformulating the problem, I
+                        reduced time complexity from O(<i>n</i><sup>2</sup>) to O(<i>n</i>) for estimating energy states.
                     </p>
                 </div>
                 <div class="theme-figure">
                     <img src="webpage_images/ising_polynomial.png"
                         alt="Exact vs estimated partition function using Bernstein interpolation">
-                    <figcaption>Finite-degree polynomials and Bernstein interpolation for the Ising partition function
-                        (N = 6, γ = 1).</figcaption>
+                    <figcaption>Bernstein interpolation for the Ising partition function.</figcaption>
                 </div>
             </div>
         </div>
@@ -317,57 +293,54 @@
 
         <!-- =============== CONFERENCE PRESENTATIONS =============== -->
         <h2>Conference Presentations</h2>
-        <ul class="project-list">
+        <ul class="presentation-list">
             <li>
-                Network reliability: a generic tool to explore diffusive processes on interacting systems. NASA
-                Prebiotic Chemistry and Early Earth Environments (PCE3) Virtual Workshop 2022, University of Wisconsin
-                Madison, Madison, WI, USA, 20 Oct 2022.
+                Network reliability: a generic tool to explore diffusive processes on interacting systems.
+                <span class="presentation-meta">NASA Prebiotic Chemistry and Early Earth Environments (PCE3) Virtual Workshop 2022, University of Wisconsin Madison, WI, USA, Oct 2022.</span>
             </li>
             <li>
-                Perturbative methods for estimating relative contributions to network reliability. SIAM Workshop on
-                Network Science, Virtual Workshop, 13&ndash;15 Sep 2022.
+                Perturbative methods for estimating relative contributions to network reliability.
+                <span class="presentation-meta">SIAM Workshop on Network Science, Virtual Workshop, Sep 2022.</span>
             </li>
             <li>
-                Statistical mechanical applications of graph dynamical systems. Condensed Matter Seminar, Department
-                of Physics, Virginia Tech, Blacksburg, VA, USA, 30 Oct 2017.
+                Statistical mechanical applications of graph dynamical systems.
+                <span class="presentation-meta">Condensed Matter Seminar, Department of Physics, Virginia Tech, Blacksburg, VA, USA, Oct 2017.</span>
             </li>
             <li>
-                Determining whether a particular contact network is consistent with a network model. 1st North
-                American Social Networks Conference of the International Network for Social Network Analysis,
-                Washington DC, USA, 26&ndash;30 Jul 2017.
+                Determining whether a particular contact network is consistent with a network model.
+                <span class="presentation-meta">1st North American Social Networks Conference, Washington DC, USA, Jul 2017.</span>
             </li>
             <li>
-                Network reliability: A novel measure to study the effects of network topology on the diffusive
-                dynamics. Symposium for the Society of Young Network Scientists, NetSci 2017, Indianapolis, IN, USA,
-                19&ndash;23 Jun 2017.
+                Network reliability: A novel measure to study the effects of network topology on the diffusive dynamics.
+                <span class="presentation-meta">Symposium for the Society of Young Network Scientists, NetSci 2017, Indianapolis, IN, USA, Jun 2017.</span>
             </li>
             <li>
-                Network reliability: A measure to study diffusive dynamics on networks. Center for Soft Matter and
-                Biological Physics Symposium 2017, Virginia Tech, Blacksburg, VA, USA, 17&ndash;18 May 2017.
+                Network reliability: A measure to study diffusive dynamics on networks.
+                <span class="presentation-meta">Center for Soft Matter and Biological Physics Symposium 2017, Virginia Tech, Blacksburg, VA, USA, May 2017.</span>
             </li>
             <li>
-                Effects of network structure on propagation of infectious diseases. 33rd Annual Graduate Student
-                Assembly Symposium and Exposition, Virginia Tech, Blacksburg, VA, USA, 29 Mar 2017.
+                Effects of network structure on propagation of infectious diseases.
+                <span class="presentation-meta">33rd Annual Graduate Student Assembly Symposium, Virginia Tech, Blacksburg, VA, USA, Mar 2017.</span>
             </li>
             <li>
-                Renormalisation group approaches for dynamics on irregular networks. American Physical Society (APS)
-                March Meeting 2017, New Orleans, LA, USA, 13&ndash;17 Mar 2017.
+                Renormalisation group approaches for dynamics on irregular networks.
+                <span class="presentation-meta">American Physical Society (APS) March Meeting 2017, New Orleans, LA, USA, Mar 2017.</span>
             </li>
             <li>
-                Diffusive dynamics on a network. Southeastern Section of the American Physical Society (SESAPS)
-                Conference 2016, Charlottesville, VA, USA, 9&ndash;12 Nov 2016.
+                Diffusive dynamics on a network.
+                <span class="presentation-meta">Southeastern Section of the American Physical Society (SESAPS) Conference, Charlottesville, VA, USA, Nov 2016.</span>
             </li>
             <li>
-                Effects of network structure on epidemic modeling. Biocomplexity Institute Symposium 2016, Virginia
-                Tech, Blacksburg, VA, USA, 1 Nov 2016.
+                Effects of network structure on epidemic modelling.
+                <span class="presentation-meta">Biocomplexity Institute Symposium 2016, Virginia Tech, Blacksburg, VA, USA, Nov 2016.</span>
             </li>
             <li>
-                A two-parameter method to characterise the network reliability for diffusive processes. CompleNet
-                2015, New York City, NY, USA, 25&ndash;27 Mar 2015.
+                A two-parameter method to characterise the network reliability for diffusive processes.
+                <span class="presentation-meta">CompleNet 2015, New York City, NY, USA, Mar 2015.</span>
             </li>
             <li>
                 Four-parameter characterisation of network reliability and analysis of critical point phenomenology.
-                APS March Meeting 2015, San Antonio, TX, USA, 2&ndash;6 Mar 2015.
+                <span class="presentation-meta">APS March Meeting 2015, San Antonio, TX, USA, Mar 2015.</span>
             </li>
         </ul>
 

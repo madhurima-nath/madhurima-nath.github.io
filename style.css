@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Source+Sans+3:wght@400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Source+Sans+3:wght@400;600;700&display=swap");
 
 :root {
 	--ink: #173a6b;
@@ -7,9 +7,10 @@
 	--bg: #f7fafb;
 	--border: #d8e4ea;
 	--shadow: 0 10px 24px rgba(20, 40, 60, 0.08);
-	--font-serif: "Libre Baskerville", "Georgia", serif;
-	--font-sans: "Source Sans 3", "Arial", sans-serif;
+	--font-serif: "Times New Roman", Times, Baskerville, Georgia, serif;
+	--font-sans: "Inter", "Source Sans 3", "Helvetica Neue", Arial, sans-serif;
 	--transition: 0.25s ease;
+	--text-main: #1d2b35;
 }
 
 * {
@@ -26,13 +27,24 @@ body {
 
 body {
 	font-family: var(--font-serif);
-	line-height: 1.7;
-	color: #1d2b35;
+	line-height: 1.6;
+	color: var(--text-main);
+	text-rendering: optimizeLegibility;
 	background: radial-gradient(circle at top left, #f1f7fb 0%, #ffffff 45%, var(--bg) 100%);
 	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
 	overflow-x: hidden;
+}
+
+/* Vertical centering for home page */
+body.page-home {
+	justify-content: center;
+}
+
+body.page-home .container {
+	margin-top: auto;
+	margin-bottom: auto;
 }
 
 a {
@@ -55,7 +67,7 @@ a:hover {
 }
 
 .container h2 {
-	font-size: 20px;
+	font-size: clamp(18px, 4vw, 20px);
 	letter-spacing: 0.04em;
 	color: var(--accent);
 	font-family: var(--font-sans);
@@ -83,7 +95,7 @@ h3 {
 }
 
 .site-title h1 {
-	font-size: 34px;
+	font-size: clamp(26px, 5vw, 34px);
 	color: var(--ink);
 	font-weight: 700;
 	letter-spacing: 0.3px;
@@ -263,7 +275,7 @@ h3 {
 
 .introduction p {
 	margin-bottom: 14px;
-	font-size: 18px;
+	font-size: clamp(16px, 2vw, 18px);
 }
 
 .introduction a {
@@ -558,6 +570,12 @@ hr {
 	list-style: none;
 }
 
+/* Performance: skip rendering of off-screen components */
+.project-list, .bio-section, .edu-list, .ieee-refs, .exp-container {
+	content-visibility: auto;
+	contain-intrinsic-size: 1px 500px;
+}
+
 .project-list li {
 	position: relative;
 	margin-bottom: 10px;
@@ -799,14 +817,7 @@ tr:nth-child(even) {
 /* Large desktop: >= 1000px */
 @media screen and (min-width: 1000px) {
 
-	body.page-home .container,
-	body.page-bio .container {
-		padding-top: 12px;
-	}
-
 	body.page-home .introduction p {
-		font-size: clamp(14px, 1.2vw, 16px);
-		line-height: 1.5;
 		margin-bottom: 8px;
 	}
 
@@ -843,11 +854,6 @@ tr:nth-child(even) {
 
 /* Extra-large desktop: >= 1200px */
 @media screen and (min-width: 1200px) {
-
-	body.page-home .container,
-	body.page-bio .container {
-		padding-top: 8px;
-	}
 
 	body.page-home .site-header {
 		padding-bottom: 10px;
@@ -1074,6 +1080,61 @@ tr:nth-child(even) {
 	font-size: .87rem !important;
 	color: #777;
 	margin: 4px 0 0 !important;
+}
+
+/* ===== Research Summary Grid ===== */
+.research-summary-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	gap: 16px;
+	margin: 20px 0 30px;
+}
+
+.summary-card {
+	background: var(--accent-soft);
+	padding: 16px;
+	border-radius: 10px;
+	border: 1px solid var(--border);
+	text-align: center;
+	transition: transform var(--transition);
+}
+
+.summary-card:hover {
+	transform: translateY(-3px);
+}
+
+.summary-card strong {
+	display: block;
+	color: var(--ink);
+	margin-bottom: 6px;
+	font-family: var(--font-sans);
+}
+
+.summary-card p {
+	font-size: 0.85rem;
+	margin: 0;
+	line-height: 1.4;
+}
+
+/* ===== Conference/Presentation List (Non-CV style) ===== */
+.presentation-list {
+	list-style: none;
+	padding: 0;
+	margin: 20px 0;
+}
+
+.presentation-list li {
+	margin-bottom: 18px;
+	font-size: 0.95rem;
+	line-height: 1.6;
+	color: var(--text-main);
+}
+
+.presentation-meta {
+	display: block;
+	color: #5d6b77;
+	font-size: 0.88rem;
+	margin-top: 3px;
 }
 
 /* ===== IEEE-style numbered publications ===== */
