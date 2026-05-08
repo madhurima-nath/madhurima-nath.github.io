@@ -125,9 +125,9 @@ h3 {
 	display: block;
 	padding: 6px 10px;
 	border-radius: 8px;
-	font-size: 17px;
-	font-weight: 700;
-	letter-spacing: 0.02em;
+	font-size: 18px;
+	font-family: var(--font-serif);
+	font-weight: 600;
 	color: var(--accent) !important;
 	transition: background var(--transition), transform var(--transition);
 	white-space: nowrap;
@@ -970,13 +970,14 @@ tr:nth-child(even) {
 
 .dissertation-promo a {
 	color: var(--accent) !important;
-	text-decoration: underline;
-	text-underline-offset: 4px;
+	text-decoration: none;
+	border-bottom: 1px solid transparent;
+	transition: border-color var(--transition);
 }
 
 .dissertation-promo a:hover {
 	color: var(--ink) !important;
-	text-decoration: none;
+	border-bottom-color: var(--ink);
 }
 
 
