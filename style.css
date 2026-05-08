@@ -1157,6 +1157,10 @@ tr:nth-child(even) {
 	align-self: center;
 }
 
+.theme-figure.multi-plot {
+	flex: 0 0 300px; /* Adjusted for themes with multiple figures */
+}
+
 .theme-figure img {
 	width: 100%;
 	border-radius: 6px;

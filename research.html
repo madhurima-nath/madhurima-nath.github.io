@@ -13,6 +13,22 @@
 
     <title>Madhurima Nath</title>
     <link rel="stylesheet" href="style.css">
+    <!-- load mathjax -->
+    <script type="text/javascript">
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
+    </script>
+    <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+    </script>
 </head>
 
 <body>
@@ -90,7 +106,7 @@
                     </div>
                     <div class="pillar-card">
                         <img src="webpage_images/food_trade_clusters.png" alt="Contagion clusters in international food trade networks">
-                        <figcaption>&nbsp;</figcaption>
+                        <figcaption>Contagion clusters for (a) tomato trade and (b) potato trade (&Delta; = 1000, <i>n</i> = 20).</figcaption>
                         <div class="pillar-body">
                             <h4>Contagion Spread in Global Food Trade Networks</h4>
                             <p>Utilised network reliability to identify dynamics-induced contagion clusters 
@@ -169,9 +185,9 @@
                         under various contagion scenarios.
                     </p>
                 </div>
-                <div class="theme-figure">
+                <div class="theme-figure multi-plot">
                     <img src="webpage_images/community_detection_maps.png" alt="Geographic community structure">
-                    <figcaption>Top 8 communities for tomato, potato, and eggplant trade (<i>x</i> = 0.5, <i>n</i><sub>SCC</sub> = 20).</figcaption>
+                    <figcaption>Top 8 communities for tomato, potato, and eggplant trade (<i>x</i> = 0.5, <i>n</i><sub>SCC</sub> = 20, bins = 16).</figcaption>
                     <img src="webpage_images/food_trade_temporal.png"
                         alt="Temporal evolution of contagion clusters in food trade networks">
                     <figcaption>Tomato trade contagion clusters for 2005, 2009, and 2013 (&Delta; = 500, <i>n</i> = 10).</figcaption>
@@ -188,7 +204,7 @@
                         Applied the Moore-Shannon network reliability formalism (traditionally used for electronic circuit 
                         analysis) to biological and social network systems. This established a theoretical framework 
                         connecting electrical engineering concepts to network epidemiology and complex systems analysis. 
-                        The reliability polynomial R(x; G, D, P) calculates the probability that a graph 
+                        The reliability polynomial $R(x; G, D, P)$ calculates the probability that a graph 
                         dynamical system satisfies a desired property under specific stochastic dynamics.
                     </p>
                     <p>
@@ -201,7 +217,7 @@
                         on large graphs.
                     </p>
                 </div>
-                <div class="theme-figure">
+                <div class="theme-figure multi-plot">
                     <img src="webpage_images/perturbative_bounds.png" alt="Satisfiability bounds">
                     <figcaption>Perturbative bounds and interpolation for heterogeneous satisfiability.</figcaption>
                     <img src="webpage_images/bernstein_estimation.png"
