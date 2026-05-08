@@ -668,7 +668,8 @@ hr {
 .back-to-top {
 	position: fixed;
 	bottom: 30px;
-	right: 30px;
+	left: 50%;
+	transform: translateX(-50%);
 	width: auto;
 	padding: 0 16px;
 	height: 45px;
@@ -695,7 +696,7 @@ hr {
 
 .back-to-top:hover {
 	background-color: var(--ink); /* Darker on hover */
-	transform: scale(1.1);
+	transform: translateX(-50%) scale(1.1);
 }
 
 .back-to-top.show {
