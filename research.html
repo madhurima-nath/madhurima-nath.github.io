@@ -45,31 +45,36 @@
             </ul>
         </header>
 
-        <!-- =============== RESEARCH SUMMARY TILES =============== -->
+        <!-- =============== RESEARCH SUMMARY TILES (Navigation) =============== -->
         <div class="research-summary-grid">
             <a href="#epidemiology" class="summary-card">
                 <strong>Epidemic Modelling</strong>
                 <p>SIR dynamics on contact networks vs statistical graph models.</p>
             </a>
             <a href="#trade" class="summary-card">
-                <strong>Global Trade &amp; Biosecurity</strong>
-                <p>Tracking invasive species via community detection in trade.</p>
+                <strong>International Food Trade &amp; Invasive Species Tracking</strong>
+                <p>Tracking contagion risk and community structure in trade networks.</p>
             </a>
             <a href="#computational" class="summary-card">
-                <strong>Computational Frameworks</strong>
-                <p>Network reliability via Bernstein kernels and perturbative methods.</p>
+                <strong>Computational Frameworks for Network Reliability</strong>
+                <p>Bernstein kernels and perturbative methods for discrete systems.</p>
             </a>
             <a href="#ising" class="summary-card">
-                <strong>Statistical Physics</strong>
+                <strong>Statistical Physics &amp; Network Theory</strong>
                 <p>Estimating Ising partition functions through graph dynamics.</p>
             </a>
         </div>
 
-        <!-- =============== DISSERTATION =============== -->
-        <details class="diss-details">
-            <summary>Learn more about <a href="https://vtechworks.lib.vt.edu/handle/10919/86841" target="_blank">
-                PhD dissertation research</a></summary>
+        <!-- =============== DISSERTATION PROMO =============== -->
+        <div class="dissertation-promo">
+            <p>
+                Learn more about <a href="https://vtechworks.lib.vt.edu/handle/10919/86841" target="_blank">PhD dissertation research</a>
+            </p>
+        </div>
 
+        <!-- =============== DISSERTATION DETAILS (Collapsible) =============== -->
+        <details class="diss-details">
+            <summary>Dissertation Overview</summary>
             <div class="dissertation-overview">
                 <p class="diss-abstract">
                     Moore-Shannon network reliability serves as a global statistic to explore the behaviour of diffusive
@@ -78,42 +83,28 @@
                     utility across three domains: epidemic outbreak modelling, invasive species tracking through
                     international food trade, and partition function estimation for the Ising model.
                 </p>
-                <!-- pillar-grid starts here -->
                 <div class="pillar-grid">
                     <div class="pillar-card">
-                        <img src="webpage_images/epidemic_reliability.png"
-                            alt="Network reliability curves for epidemic models on contact networks">
-                        <figcaption>R(x; α = 0.05) for all network models — shaded bands show confidence intervals.
-                        </figcaption>
+                        <img src="webpage_images/epidemic_reliability.png" alt="Network reliability curves for epidemic models on contact networks">
+                        <figcaption>R(x; α = 0.05) for all network models — shaded bands show confidence intervals.</figcaption>
                         <div class="pillar-body">
                             <h4>Epidemic Modelling on Contact Networks</h4>
-                            <p>Used network reliability to study how network topology affects epidemic outbreak
-                                sensitivity. Applied SIR dynamics on real contact networks and statistical graph models,
-                                showing that network reliability captures structural effects beyond traditional measures
-                                like degree distribution.</p>
+                            <p>Used network reliability to study how network topology affects epidemic outbreak sensitivity. Applied SIR dynamics on real contact networks and statistical graph models, showing that network reliability captures structural effects beyond traditional measures like degree distribution.</p>
                         </div>
                     </div>
                     <div class="pillar-card">
-                        <img src="webpage_images/food_trade_clusters.png"
-                            alt="Contagion clusters in international food trade networks">
+                        <img src="webpage_images/food_trade_clusters.png" alt="Contagion clusters in international food trade networks">
                         <div class="pillar-body">
                             <h4>Contagion in Food Trade Networks</h4>
-                            <p>Applied network reliability to identify dynamics-induced contagion clusters in
-                                international food trade networks constructed from UN Comtrade data. Forecasted the
-                                impact of mitigating contagion conditions with approximately 96% precision.</p>
+                            <p>Applied network reliability to identify dynamics-induced contagion clusters in international food trade networks constructed from UN Comtrade data. Forecasted the impact of mitigating contagion conditions with approximately 96% precision.</p>
                         </div>
                     </div>
                     <div class="pillar-card">
-                        <img src="webpage_images/ising_partition.png"
-                            alt="Partition function estimation using Bernstein polynomial interpolation">
-                        <figcaption>Exact vs. interpolated Ising partition function Z₁₆,₂D for a 2D lattice.
-                        </figcaption>
+                        <img src="webpage_images/ising_partition.png" alt="Partition function estimation using Bernstein polynomial interpolation">
+                        <figcaption>Exact vs. interpolated Ising partition function Z₁₆,₂D for a 2D lattice.</figcaption>
                         <div class="pillar-body">
                             <h4>Ising Model &amp; Statistical Physics</h4>
-                            <p>Established that the network reliability polynomial is analogous to the Ising partition
-                                function. Used Bernstein polynomial interpolation to estimate partition functions from
-                                low- and high-temperature expansions, reducing time complexity from
-                                O(n<sup>2</sup>) to O(n).</p>
+                            <p>Established that the network reliability polynomial is analogous to the Ising partition function. Used Bernstein polynomial interpolation to estimate partition functions from low- and high-temperature expansions, reducing time complexity from O(n<sup>2</sup>) to O(n).</p>
                         </div>
                     </div>
                 </div>
@@ -127,7 +118,7 @@
         <div class="research-theme" id="epidemiology">
             <div class="theme-content">
                 <div class="theme-text">
-                    <h4>Epidemic Outbreak Modelling on Contact Networks <span class="cite-pill">Pub [5]</span></h4>
+                    <h4>Epidemic Outbreak Modelling on Contact Networks <span class="cite-pill">[5]</span></h4>
                     <p>
                         Simulated real-world epidemic outbreak and intervention scenarios on the National Longitudinal
                         Study of Adolescent to Adult Health (Add Health) dataset using network reliability. Compared
@@ -159,7 +150,7 @@
         <div class="research-theme" id="trade">
             <div class="theme-content">
                 <div class="theme-text">
-                    <h4>International Food Trade &amp; Invasive Species Tracking <span class="cite-pill">Pub [1, 3]</span></h4>
+                    <h4>International Food Trade &amp; Invasive Species Tracking <span class="cite-pill">[1, 3]</span></h4>
                     <p>
                         Identified vulnerabilities within global food trade networks by tracking the contagion risk of
                         invasive species (e.g., <em>Tuta absoluta</em>). Constructed directed weighted networks from 
@@ -189,7 +180,7 @@
         <div class="research-theme" id="computational">
             <div class="theme-content">
                 <div class="theme-text">
-                    <h4>Computational Frameworks for Network Reliability <span class="cite-pill">Pub [2, 4, 6, 8]</span></h4>
+                    <h4>Computational Frameworks for Network Reliability <span class="cite-pill">[2, 4, 6, 8]</span></h4>
                     <p>
                         Novel approaches were developed to evaluate Moore-Shannon network reliability formalism using
                         Bernstein basis functions as a polynomial basis set. By treating the reliability polynomial 
@@ -218,7 +209,7 @@
         <div class="research-theme" id="ising">
             <div class="theme-content">
                 <div class="theme-text">
-                    <h4>Ising Model Partition Function Estimation <span class="cite-pill">Pub [7]</span></h4>
+                    <h4>Ising Model Partition Function Estimation <span class="cite-pill">[7]</span></h4>
                     <p>
                         An algorithm was developed using Moore-Shannon network reliability to estimate energy states of an
                         interacting magnetic system modeled on 1D and 2D lattices. By treating spin flips as a
@@ -341,7 +332,7 @@
     </div>
 
     <!-- Back to top button -->
-    <button id="backToTop" class="back-to-top" aria-label="Back to top">↑</button>
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">↑ Top</button>
 
     <!--footer-->
     <footer class="site-footer">

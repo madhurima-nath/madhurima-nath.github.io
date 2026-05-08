@@ -189,6 +189,9 @@
 
     </div>
 
+    <!-- Back to top button -->
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">↑ Top</button>
+
 
     <footer class="site-footer">
         <div class="container">
@@ -221,6 +224,24 @@
                     btn.classList.remove('active');
                     btn.setAttribute('aria-expanded', 'false');
                 }
+            });
+        })();
+
+        // Back to Top button logic
+        (function () {
+            var backToTopBtn = document.getElementById('backToTop');
+            if (!backToTopBtn) return;
+
+            window.addEventListener('scroll', function () {
+                if (window.pageYOffset > 500) {
+                    backToTopBtn.classList.add('show');
+                } else {
+                    backToTopBtn.classList.remove('show');
+                }
+            });
+
+            backToTopBtn.addEventListener('click', function () {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             });
         })();
     </script>

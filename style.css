@@ -667,24 +667,27 @@ hr {
 	position: fixed;
 	bottom: 30px;
 	right: 30px;
-	width: 45px;
+	width: auto;
+	padding: 0 16px;
 	height: 45px;
 	background-color: var(--accent);
-	color: #fff;
+	color: #fff; /* Ensure text color is white */
 	border: none;
-	border-radius: 50%;
+	border-radius: 25px;
 	cursor: pointer;
 	display: none;
 	justify-content: center;
 	align-items: center;
-	font-size: 20px;
+	font-size: 15px;
+	font-weight: 600;
+	font-family: var(--font-sans);
 	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 	z-index: 1000;
 	transition: opacity 0.3s, transform 0.3s, background-color 0.3s;
 }
 
 .back-to-top:hover {
-	background-color: var(--ink);
+	background-color: var(--ink); /* Darker on hover */
 	transform: scale(1.1);
 }
 
@@ -947,6 +950,33 @@ tr:nth-child(even) {
 	}
 }
 
+/* ===== Research page: Dissertation Promo ===== */
+.dissertation-promo {
+	margin: 32px 0;
+	padding: 0;
+	text-align: center;
+}
+
+.dissertation-promo p {
+	font-size: 1.15rem;
+	line-height: 1.6;
+	margin: 0;
+	color: var(--ink);
+	font-weight: 600;
+}
+
+.dissertation-promo a {
+	color: var(--accent) !important;
+	text-decoration: underline;
+	text-underline-offset: 4px;
+}
+
+.dissertation-promo a:hover {
+	color: var(--ink) !important;
+	text-decoration: none;
+}
+
+
 /* ===== Research page: collapsible dissertation ===== */
 .diss-details {
 	margin: 12px 0 20px;
@@ -1103,9 +1133,9 @@ tr:nth-child(even) {
 }
 
 .theme-content {
-	display: flex;
+	display: flex; /* Changed to flex for better alignment control */
 	gap: 20px;
-	align-items: flex-start;
+	align-items: flex-start; /* Aligned to top to prevent misalignment with multiple figures */
 }
 
 .theme-text {
