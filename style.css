@@ -125,8 +125,9 @@ h3 {
 	display: block;
 	padding: 6px 10px;
 	border-radius: 8px;
-	font-size: 18px;
-	font-weight: 600;
+	font-size: 17px;
+	font-weight: 700;
+	letter-spacing: 0.02em;
 	color: var(--accent) !important;
 	transition: background var(--transition), transform var(--transition);
 	white-space: nowrap;
@@ -666,20 +667,21 @@ hr {
 .back-to-top {
 	position: fixed;
 	bottom: 30px;
-	right: 30px;
+	left: 50%;
+	transform: translateX(-50%);
 	width: auto;
-	padding: 0 16px;
-	height: 45px;
+	padding: 0 20px;
+	height: 40px;
 	background-color: var(--accent);
 	color: #fff; /* Ensure text color is white */
 	border: none;
-	border-radius: 25px;
+	border-radius: 20px;
 	cursor: pointer;
 	display: none;
 	justify-content: center;
 	align-items: center;
-	font-size: 15px;
-	font-weight: 600;
+	font-size: 13px;
+	font-weight: 700;
 	font-family: var(--font-sans);
 	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 	z-index: 1000;
@@ -688,7 +690,7 @@ hr {
 
 .back-to-top:hover {
 	background-color: var(--ink); /* Darker on hover */
-	transform: scale(1.1);
+	transform: translateX(-50%) scale(1.05);
 }
 
 .back-to-top.show {
@@ -958,11 +960,12 @@ tr:nth-child(even) {
 }
 
 .dissertation-promo p {
-	font-size: 1.15rem;
+	font-size: 1.2rem;
+	font-family: var(--font-sans);
 	line-height: 1.6;
 	margin: 0;
 	color: var(--ink);
-	font-weight: 600;
+	font-weight: 700;
 }
 
 .dissertation-promo a {
@@ -1020,9 +1023,10 @@ tr:nth-child(even) {
 
 .dissertation-overview .diss-abstract {
 	font-size: .97rem;
-	line-height: 1.7;
+	line-height: 1.8;
 	color: var(--text);
 	margin-bottom: 24px;
+	text-align: justify;
 }
 
 .pillar-grid {
@@ -1193,14 +1197,16 @@ tr:nth-child(even) {
 .summary-card strong {
 	display: block;
 	color: var(--ink);
-	margin-bottom: 6px;
+	margin-bottom: 4px;
 	font-family: var(--font-sans);
+	font-size: 16px;
 }
 
 .summary-card p {
-	font-size: 0.85rem;
+	font-size: 14px;
 	margin: 0 !important;
 	line-height: 1.4;
+	font-weight: 400;
 	color: var(--text-main);
 }
 
