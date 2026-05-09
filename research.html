@@ -137,23 +137,33 @@
                 <div class="theme-text">
                     <h4>Susceptible-Infected-Recovered dynamics on contact networks vs statistical graph models</h4>
                     <p>
-                        Simulated real-world epidemic outbreak and intervention scenarios on the National Longitudinal
-                        Study of Adolescent to Adult Health (Add Health) dataset using network reliability. Compared
-                        Susceptible-Infected-Recovered (SIR) dynamics on observed contact networks against four classes of exponential random graph
-                        models (ERGMs) to determine whether standard network statistics suffice to characterise
-                        epidemic outcomes.
+                        Contact networks shape how diseases spread through populations. 
+                        Network models and simulations enable researchers to explore disease dynamics
+                        under different scenarios and conditions without requiring exact real-world data. 
+                        Disease outcomes on observed contact networks from the Add Health dataset were
+                        compared with those on exponential random graph models (ERGMs) designed to 
+                        match the same network statistics, using Moore-Shannon network reliability to 
+                        measure epidemic potential.
                     </p>
                     <p>
-                        The analysis demonstrated that models matching local network statistics can significantly
-                        overestimate infection numbers - sometimes by as much as 50%. This revealed that the attack rate
-                        depends on a complex mixture of structural properties beyond degree distribution, clustering,
-                        and centrality measures.
+                        Networks generated from ERGMs overestimated infection numbers by up to 50% 
+                        compared to observed networks, despite matching degree distribution and clustering
+                        coefficients. Moore-Shannon network reliability analysis revealed that temporal 
+                        patterns of disease spread also differed systematically between real and modelled
+                        networks, with variations in the timing and magnitude of peak infections and 
+                        in how long outbreaks persisted. Across multiple Monte Carlo simulation
+                        runs, these differences persisted consistently. The findings indicate that 
+                        network models fail to capture structural features critical to epidemic dynamics.
                     </p>
                     <p>
-                        Furthermore, Birnbaum importance measures were applied to quantify individual edge contributions 
-                        to epidemic potential, enabling the identification of critical connections for targeted 
-                        mitigation strategies.
+                        Attack rates depend on complex structural properties beyond the statistics 
+                        typically used to specify network models. Estimates of intervention effectiveness 
+                        derived from approximate networks cannot reliably generalise to real contact networks. 
+                        Using observed network data remains essential when evaluating epidemic control strategies.
+                        Moore-Shannon network reliability serves as a tool for identifying dynamically important 
+                        differences between networks that standard statistical measures miss.
                     </p>
+
                 </div>
                 <div class="theme-figure">
                     <img src="webpage_images/epidemic_epicurves.png"
@@ -169,21 +179,27 @@
                 <div class="theme-text">
                     <h4>International Food Trade &amp; Pestilence Distribution</h4>
                     <p>
-                        Vulnerabilities within international food trade networks were identified using commodity-specific data 
-                        from the UN Comtrade database, analysing where pest and pathogen contamination could cascade 
-                        through international trade networks. Directed weighted networks were constructed for commodities 
-                        including tomato, potato, eggplant, and aggregate trade between 2005 - 2013 to map 
-                        how pathogens could spread.
+                        Global food systems are increasingly interconnected through long-distance trade, 
+                        creating vulnerability to disruptions such as climate events, pests, and contamination. 
+                        This research applies Moore-Shannon network reliability community detection to international
+                        food trade networks to identify clusters of countries whose trade patterns create 
+                        mutual dependencies in how disruptions propagate.
                     </p>
                     <p>
-                        This work introduced the concept of <em>contagion clusters</em> to identify strongly connected 
-                        components (SCCs) which are critical for the propagation of contagion within the network. 
-                        This method employs the Moore-Shannon Network Reliability – Community Detection (MSNR-CD) 
-                        algorithm in large-scale weighted directed networks and analyses the interplay between 
-                        network topology and stochastic dynamics. The framework 
-                        achieved approximately 96% precision in forecasting the impact of mitigation strategies 
-                        under various contagion scenarios.
+                        Analysis of international trade networks for Solanaceae crops shows that clusters
+                        form primarily between geographically adjacent countries with strong bilateral trade r
+                        elationships. Domestic US food networks &dash; cereal and mixed agricultural freight 
+                        flows &dash; reveal even more pronounced geographic clustering, with communities concentrated
+                        in specific regions. The hierarchical structure of communities shows that as 
+                        thresholds change, larger communities break into progressively smaller, more cohesive groups.
                     </p>
+                    <p>
+                        As global trade intensifies over time, clusters grow larger and fewer countries 
+                        remain isolated from network effects. This trend has direct implications for food 
+                        security policy: identifying vulnerable clusters enables targeted surveillance 
+                        priorities, highlights critical trade routes requiring monitoring, and 
+                        indicates where supply chain diversification or biosecurity measures would 
+                        be most effective in reducing systemic vulnerability.
                 </div>
                 <div class="theme-figure multi-plot">
                     <img src="webpage_images/community_detection_maps.png" alt="Geographic community structure">
