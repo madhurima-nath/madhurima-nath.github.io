@@ -117,7 +117,7 @@
                     </div>
                     <div class="pillar-card">
                         <img src="webpage_images/ising_partition.png" alt="Partition function estimation using Bernstein polynomial interpolation">
-                        <figcaption>Exact vs. interpolated Ising partition function $Z_{16, 2D}$ for a 2D lattice.</figcaption>
+                        <figcaption>Exact vs. interpolated Ising partition function $Z_{N=16, 2D}$ for a 2D lattice.</figcaption>
                         <div class="pillar-body">
                             <h4>Network Reliability on Ising Model</h4>
                             <p>Established that the network reliability polynomial is analogous to the Ising partition function. 
@@ -263,22 +263,44 @@
                 <div class="theme-text">
                     <h4>Ising Model Partition Function Estimation</h4>
                     <p>
-                        An algorithm was developed using Moore-Shannon network reliability to estimate energy states of an
-                        interacting magnetic system modeled on 1D and 2D lattices. By treating spin flips as a
-                        diffusive process on a graph dynamical system, established that the reliability polynomial is
-                        analogous to the Ising partition function.
+                        The Ising model partition function-central to understanding phase transitions
+                        and critical phenomena in magnetic systems—is computationally intractable in 
+                        the general case, particularly in the presence of an external magnetic field. 
+                        Standard Monte Carlo methods suffer from poor convergence near critical points, 
+                        whilst Wang-Landau approaches estimate only the univariate density of states 
+                        and do not readily extend to systems with external fields. 
+                        This partition function is equivalent to Moore-Shannon network reliability 
+                        polynomial based on a specific joint density of states, $g(k, v)$.
+                        This formulation separates 
+                        structural factors (joint density of states) from dynamical factors 
+                        (temperature and field dependence), enabling perturbative analysis.
                     </p>
                     <p>
-                        By reformulating the Ising model through the network reliability framework, an equivalence was 
-                        established that enabled the transfer of statistical physics computational methods to 
-                        network science. A parallel Markov-chain Monte Carlo scheme was implemented for estimating 
-                        the joint density of states, reducing time complexity from O (<i>n</i><sup>2</sup>) to O (<i>n</i>).
+                        The computational approach combines three elements: 
+                        <li>weak-coupling and strong-coupling
+                        perturbative expansions that generate Taylor series at the low- and high-temperature 
+                        limits; </li>
+                        <li>Bernstein polynomial basis functions to merge these expansions while 
+                        respecting physical constraints (unitarity and monotonicity); </li>
+                        <li>a parallel 
+                        spin-exchange Markov chain Monte Carlo scheme to estimate 
+                        the joint density of states. </li>
+                        The Bernstein representation converts the infinite-series expansions
+                        into finite-degree polynomials that can be evaluated stably using 
+                        de Casteljau's algorithm. The parallel scheme requires no inter-processor 
+                        communication, making it suitable for cluster computing, and addresses 
+                        the challenge of sampling the joint density of states $g(k,v)$ necessary 
+                        to compute thermodynamic quantities in the presence of external fields.
+                        This enables practical simulation of Ising-like dynamics on large, irregular networks
+                        and the study of phenomena such as field-dependent phase 
+                        transitions in systems too irregular for closed-form analytical solutions.
                     </p>
                 </div>
-                <div class="theme-figure">
-                    <img src="webpage_images/ising_polynomial.png"
-                        alt="Exact vs estimated partition function using Bernstein interpolation">
-                    <figcaption>Bernstein interpolation for the Ising partition function.</figcaption>
+                <div class="theme-figure multi-plot">
+                    <img src="webpage_images/ising_feasible.png" alt="Geographic community structure">
+                    <img src="webpage_images/ising_1D_N6B0.png"
+                        alt="Temporal evolution of contagion clusters in food trade networks">
+                    <figcaption>Exact vs. interpolated Ising partition function $Z_{N=6, 1D}$ for a 1D lattice.</figcaption>
                 </div>
             </div>
         </div>
