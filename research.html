@@ -63,6 +63,10 @@
 
         <!-- =============== RESEARCH SUMMARY TILES (Navigation) =============== -->
         <div class="research-summary-grid">
+            <a href="#computational" class="summary-card">
+                <strong>Network Reliability Polynomials</strong>
+                <p>Bernstein kernels and perturbative methods for discrete systems.</p>
+            </a>
             <a href="#epidemiology" class="summary-card">
                 <strong>Epidemic Modelling as Diffusive Processes</strong>
                 <p>Susceptible-Infected-Recovered (SIR) dynamics on contact networks vs statistical graph models.</p>
@@ -70,10 +74,6 @@
             <a href="#trade" class="summary-card">
                 <strong>Pestilence through Global Trade Networks</strong>
                 <p>Spread of invasive species and vulnerable community structures in trade networks.</p>
-            </a>
-            <a href="#computational" class="summary-card">
-                <strong>Network Reliability Polynomials</strong>
-                <p>Bernstein kernels and perturbative methods for discrete systems.</p>
             </a>
             <a href="#ising" class="summary-card">
                 <strong>Statistical Physics &amp; Graph Theory</strong>
@@ -131,7 +131,39 @@
         <!-- =============== RESEARCH THEMES =============== -->
         <h2>Research Themes</h2>
 
-        <!-- Pillar 1: Epidemic Modeling -->
+        <!-- Pillar 1: Computational Frameworks -->
+        <div class="research-theme" id="computational">
+            <div class="theme-content">
+                <div class="theme-text">
+                    <h4>Computational Frameworks for Network Reliability</h4>
+                    <p>
+                        Applied the Moore-Shannon network reliability formalism (traditionally used for electronic circuit 
+                        analysis) to biological and social network systems. This established a theoretical framework 
+                        connecting electrical engineering concepts to network epidemiology and complex systems analysis. 
+                        The reliability polynomial $R(x; G, D, P)$ calculates the probability that a graph 
+                        dynamical system satisfies a desired property under specific stochastic dynamics.
+                    </p>
+                    <p>
+                        Computational approaches were developed to evaluate the formalism using Bernstein basis 
+                        functions as a polynomial basis set, providing convergence guarantees for sequential design 
+                        and model selection in discrete finite systems. This framework addresses NP-hard 
+                        computational problems by combining Monte Carlo simulations with weak- and 
+                        strong-coupling perturbative expansions. The methodology enables the construction of tight 
+                        upper and lower bounds on approximation error for complex probabilistic satisfiability problems 
+                        on large graphs.
+                    </p>
+                </div>
+                <div class="theme-figure multi-plot">
+                    <img src="webpage_images/perturbative_bounds.png" alt="Satisfiability bounds">
+                    <figcaption>Perturbative bounds and interpolation for heterogeneous satisfiability.</figcaption>
+                    <img src="webpage_images/bernstein_estimation.png"
+                        alt="Bernstein polynomial interpolation of network reliability">
+                    <figcaption>Estimated $R(x)$ using Bernstein polynomial interpolation vs. exact reliability.</figcaption>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pillar 2: Epidemic Modeling -->
         <div class="research-theme" id="epidemiology">
             <div class="theme-content">
                 <div class="theme-text">
@@ -174,7 +206,7 @@
             </div>
         </div>
 
-        <!-- Pillar 2: International Food Trade -->
+        <!-- Pillar 3: International Food Trade -->
         <div class="research-theme" id="trade">
             <div class="theme-content">
                 <div class="theme-text">
@@ -208,38 +240,6 @@
                     <img src="webpage_images/food_trade_temporal.png"
                         alt="Temporal evolution of contagion clusters in food trade networks">
                     <figcaption>Tomato trade contagion clusters for 2005, 2009, and 2013.</figcaption>
-                </div>
-            </div>
-        </div>
-
-        <!-- Pillar 3: Computational Frameworks -->
-        <div class="research-theme" id="computational">
-            <div class="theme-content">
-                <div class="theme-text">
-                    <h4>Computational Frameworks for Network Reliability</h4>
-                    <p>
-                        Applied the Moore-Shannon network reliability formalism (traditionally used for electronic circuit 
-                        analysis) to biological and social network systems. This established a theoretical framework 
-                        connecting electrical engineering concepts to network epidemiology and complex systems analysis. 
-                        The reliability polynomial $R(x; G, D, P)$ calculates the probability that a graph 
-                        dynamical system satisfies a desired property under specific stochastic dynamics.
-                    </p>
-                    <p>
-                        Computational approaches were developed to evaluate the formalism using Bernstein basis 
-                        functions as a polynomial basis set, providing convergence guarantees for sequential design 
-                        and model selection in discrete finite systems. This framework addresses NP-hard 
-                        computational problems by combining Monte Carlo simulations with weak- and 
-                        strong-coupling perturbative expansions. The methodology enables the construction of tight 
-                        upper and lower bounds on approximation error for complex probabilistic satisfiability problems 
-                        on large graphs.
-                    </p>
-                </div>
-                <div class="theme-figure multi-plot">
-                    <img src="webpage_images/perturbative_bounds.png" alt="Satisfiability bounds">
-                    <figcaption>Perturbative bounds and interpolation for heterogeneous satisfiability.</figcaption>
-                    <img src="webpage_images/bernstein_estimation.png"
-                        alt="Bernstein polynomial interpolation of network reliability">
-                    <figcaption>Estimated $R(x)$ using Bernstein polynomial interpolation vs. exact reliability.</figcaption>
                 </div>
             </div>
         </div>
