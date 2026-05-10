@@ -74,15 +74,12 @@ body {
 	}
 
 	body.page-home .affiliations {
-		margin: 14px 0 12px;
+		margin: 12px 0 16px;
 	}
 
-	body.page-home .affil-row {
-		padding: 6px 2px;
-	}
-
-	body.page-home h2 {
-		margin-top: 18px;
+	body.page-home .affil-item {
+		line-height: 1.7;
+		font-size: 13px;
 	}
 }
 
@@ -166,16 +163,18 @@ h3 {
 	padding: 5px 10px;
 	border-radius: 6px;
 	font-size: 15px;
-	font-weight: 600;
-	color: var(--accent) !important;
-	transition: background var(--transition), transform var(--transition);
+	font-weight: 400;
+	font-family: var(--font-serif);
+	color: var(--text-main) !important;
+	transition: background var(--transition), color var(--transition), transform var(--transition);
 	white-space: nowrap;
-	letter-spacing: 0.02em;
+	letter-spacing: 0.04em;
 }
 
 .nav-tabs>li>a:hover,
 .nav-tabs>li>a:focus-visible {
 	background: var(--accent-soft);
+	color: var(--accent) !important;
 	text-decoration: none;
 	transform: translateY(-1px);
 }
@@ -337,17 +336,18 @@ hr {
 
 .site-footer {
 	margin-top: auto;
-	background-color: #ede8df;
-	padding: 16px 0 22px;
+	background-color: transparent;
+	padding: 6px 0 8px;
 	border-top: 1px solid var(--border);
 	color: var(--text-meta);
 	text-align: center;
-	font-size: 14px;
+	font-size: 12px;
 	font-family: var(--font-sans);
 }
 
 .site-footer .container {
-	padding: 0 10px 0;
+	padding: 0 18px;
+	max-width: 600px;
 }
 
 /* ===== Active nav indicator ===== */
@@ -360,29 +360,45 @@ hr {
    ======================================== */
 
 .affiliations {
-	margin: 28px 0 24px;
-	border-top: 1px solid var(--border);
+	margin: 20px 0 28px;
 }
 
-.affil-row {
-	display: flex;
-	justify-content: space-between;
-	align-items: baseline;
-	padding: 9px 2px;
-	border-bottom: 1px solid var(--border);
+.affil-item {
 	font-family: var(--font-sans);
-	font-size: 15px;
-}
-
-.affil-org {
-	color: var(--text-main);
-	font-weight: 600;
-}
-
-.affil-dates {
+	font-size: 14px;
 	color: var(--text-meta);
+	line-height: 1.9;
+}
+
+/* ========================================
+   HOME: CONNECT LINKS
+   ======================================== */
+
+.connect-links {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	margin: 0;
+	padding: 0;
+}
+
+.connect-links a {
+	display: inline-block;
+	font-family: var(--font-sans);
 	font-size: 13px;
-	white-space: nowrap;
+	color: var(--text-meta);
+	text-decoration: none;
+	padding: 4px 13px;
+	border: 1px solid var(--border);
+	border-radius: 99px;
+	transition: background var(--transition), color var(--transition), border-color var(--transition);
+}
+
+.connect-links a:hover {
+	background: var(--accent-soft);
+	color: var(--accent);
+	border-color: var(--accent);
+	text-decoration: none;
 }
 
 /* ========================================
