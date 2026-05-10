@@ -140,7 +140,7 @@ h3 {
 .site-title h1 {
 	font-size: clamp(30px, 5.5vw, 42px);
 	color: var(--ink);
-	font-weight: 700;
+	font-weight: 400;
 	font-family: "Times New Roman", Georgia, serif;
 	letter-spacing: 0.2px;
 }
@@ -361,7 +361,7 @@ hr {
 	border-top: 1px solid var(--border);
 	color: var(--text-meta);
 	text-align: center;
-	font-size: 12px;
+	font-size: 14px;
 	font-family: var(--font-sans);
 }
 
@@ -395,11 +395,11 @@ hr {
 	margin: 6px 0 24px;
 	font-family: var(--font-serif);
 	font-size: clamp(16px, 2vw, 18px);
-	color: var(--text-meta);
+	color: var(--ink);
 }
 
 .docs-line a {
-	color: var(--text-meta);
+	color: var(--ink);
 	text-decoration: none;
 	transition: color var(--transition);
 }
