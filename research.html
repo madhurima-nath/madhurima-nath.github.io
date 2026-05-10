@@ -137,20 +137,34 @@
                 <div class="theme-text">
                     <h4>Computational Frameworks for Network Reliability</h4>
                     <p>
-                        Applied the Moore-Shannon network reliability formalism (traditionally used for electronic circuit 
-                        analysis) to biological and social network systems. This established a theoretical framework 
-                        connecting electrical engineering concepts to network epidemiology and complex systems analysis. 
-                        The reliability polynomial $R(x; G, D, P)$ calculates the probability that a graph 
-                        dynamical system satisfies a desired property under specific stochastic dynamics.
+                        Moore-Shannon network reliability, originally developed for circuit analysis, 
+                        addresses the following problem: given a graph dynamical system, what is the 
+                        probability that it satisfies a desired property? This is equivalent to probabilistic
+                        satisfiability (PSAT), which is #P-complete. The reliability polynomial 
+                        expresses this probability, but calculating it is computationally intractable 
+                        for large networks. The framework is generic and applies to diverse discrete 
+                        dynamical systems including disease transmission, network 
+                        failures, physical models, and trade dynamics.
                     </p>
                     <p>
-                        Computational approaches were developed to evaluate the formalism using Bernstein basis 
-                        functions as a polynomial basis set, providing convergence guarantees for sequential design 
-                        and model selection in discrete finite systems. This framework addresses NP-hard 
-                        computational problems by combining Monte Carlo simulations with weak- and 
-                        strong-coupling perturbative expansions. The methodology enables the construction of tight 
-                        upper and lower bounds on approximation error for complex probabilistic satisfiability problems 
-                        on large graphs.
+                        The method combines three components: Monte Carlo sampling to identify 
+                        minimal structural elements (minimal struts and cuts) when not given explicitly; 
+                        weak-coupling and strong-coupling perturbative expansions that generate Taylor
+                        series at limiting cases; and Bernstein basis functions to merge the 
+                        two expansions whilst respecting unitarity (probabilities remain in $[0,1]$) 
+                        and monotonicity. It works for both homogeneous systems where all events are 
+                        equally probable and heterogeneous systems with different event probabilities. 
+                        Two parameters - $S$ (number of samples) and $D$ (expansion depth) - 
+                        control the approximation quality, and as $S$ and $D$ increase, the method becomes exact.
+                    </p>
+                    <p>
+                        Unlike heuristics, the approach provides provable upper and lower bounds 
+                        on approximation error. These bounds are tight in the sense that there exist 
+                        problems matching the truncated expansions that saturate both bounds. 
+                        The error can be systematically reduced by tuning $S$ and $D$, offering 
+                        controlled trade-offs between computational cost and accuracy. The framework applies
+                        to directed, weighted, multiplexed, and time-dependent networks, providing 
+                        a general approach to probabilistic satisfiability problems on complex networks.
                     </p>
                 </div>
                 <div class="theme-figure multi-plot">
