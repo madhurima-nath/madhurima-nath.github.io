@@ -1,16 +1,17 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Source+Sans+3:wght@400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=Source+Sans+3:wght@400;600;700&display=swap");
 
 :root {
 	--ink: #173a6b;
 	--accent: #0b6d78;
-	--accent-soft: #e6f2f5;
-	--bg: #f7fafb;
-	--border: #d8e4ea;
-	--shadow: 0 10px 24px rgba(20, 40, 60, 0.08);
-	--font-serif: "Times New Roman", Times, Baskerville, Georgia, serif;
-	--font-sans: "Inter", "Source Sans 3", "Helvetica Neue", Arial, sans-serif;
+	--accent-soft: #dceef1;
+	--bg: #f7f4ef;
+	--border: #ddd8cc;
+	--shadow: 0 10px 24px rgba(20, 40, 60, 0.07);
+	--font-serif: "Source Serif 4", "Times New Roman", Georgia, serif;
+	--font-sans: "Source Sans 3", "Helvetica Neue", Arial, sans-serif;
 	--transition: 0.25s ease;
-	--text-main: #1d2b35;
+	--text-main: #1a2d45;
+	--text-meta: #5a7090;
 }
 
 * {
@@ -28,10 +29,10 @@ body {
 
 body {
 	font-family: var(--font-serif);
-	line-height: 1.6;
+	line-height: 1.7;
 	color: var(--text-main);
 	text-rendering: optimizeLegibility;
-	background: radial-gradient(circle at top left, #f1f7fb 0%, #ffffff 45%, var(--bg) 100%);
+	background-color: var(--bg);
 	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
@@ -113,8 +114,8 @@ h3 {
 	list-style: none;
 	display: flex;
 	align-items: center;
-	gap: 14px;
-	font-family: var(--font-serif);
+	gap: 10px;
+	font-family: var(--font-sans);
 	flex-wrap: wrap;
 	row-gap: 6px;
 }
@@ -125,13 +126,14 @@ h3 {
 
 .nav-tabs>li>a {
 	display: block;
-	padding: 6px 10px;
-	border-radius: 8px;
-	font-size: 21px;
+	padding: 5px 10px;
+	border-radius: 6px;
+	font-size: 15px;
 	font-weight: 600;
 	color: var(--accent) !important;
 	transition: background var(--transition), transform var(--transition);
 	white-space: nowrap;
+	letter-spacing: 0.02em;
 }
 
 .nav-tabs>li>a:hover,
@@ -298,16 +300,52 @@ hr {
 
 .site-footer {
 	margin-top: auto;
-	background-color: #f3f7f9;
+	background-color: #ede8df;
 	padding: 16px 0 22px;
 	border-top: 1px solid var(--border);
-	color: #5d6b77;
+	color: var(--text-meta);
 	text-align: center;
 	font-size: 14px;
+	font-family: var(--font-sans);
 }
 
 .site-footer .container {
 	padding: 0 10px 0;
+}
+
+/* ===== Active nav indicator ===== */
+.nav-tabs > li > a.nav-current {
+	background: var(--accent-soft);
+}
+
+/* ========================================
+   HOME+BIO: AFFILIATIONS STRIP
+   ======================================== */
+
+.affiliations {
+	margin: 28px 0 24px;
+	border-top: 1px solid var(--border);
+}
+
+.affil-row {
+	display: flex;
+	justify-content: space-between;
+	align-items: baseline;
+	padding: 9px 2px;
+	border-bottom: 1px solid var(--border);
+	font-family: var(--font-sans);
+	font-size: 15px;
+}
+
+.affil-org {
+	color: var(--text-main);
+	font-weight: 600;
+}
+
+.affil-dates {
+	color: var(--text-meta);
+	font-size: 13px;
+	white-space: nowrap;
 }
 
 /* ========================================
@@ -425,7 +463,7 @@ hr {
 
 .bio-meta {
 	font-size: 14px;
-	color: #5d6b77;
+	color: var(--text-meta);
 	font-family: var(--font-sans);
 	margin-top: 1px;
 }
@@ -465,7 +503,7 @@ hr {
 .bio-note {
 	font-size: 15px;
 	margin: 20px 0;
-	color: #5d6b77;
+	color: var(--text-meta);
 }
 
 /* ========================================
@@ -725,7 +763,7 @@ th {
 }
 
 tr:nth-child(even) {
-	background-color: #eef5f7 !important;
+	background-color: #e9e4da !important;
 }
 
 /* ========================================
@@ -740,21 +778,16 @@ tr:nth-child(even) {
 	}
 
 	.nav-tabs {
-		display: grid;
-		grid-template-columns: repeat(2, minmax(0, 1fr));
-		gap: 8px;
-		justify-items: center;
-		width: 100%;
-	}
-
-	.nav-tabs>li {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 6px;
+		justify-content: center;
 		width: 100%;
 	}
 
 	.nav-tabs>li>a {
-		font-size: 16px;
-		padding: 6px 8px;
-		text-align: center;
+		font-size: 14px;
+		padding: 4px 8px;
 	}
 }
 
@@ -807,8 +840,8 @@ tr:nth-child(even) {
 	}
 
 	.nav-tabs>li>a {
-		font-size: 17px;
-		padding: 12px 20px;
+		font-size: 15px;
+		padding: 11px 20px;
 		text-align: left;
 		border-radius: 0;
 	}
