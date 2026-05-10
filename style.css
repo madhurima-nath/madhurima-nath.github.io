@@ -1179,18 +1179,6 @@ tr:nth-child(even) {
 	margin: 0 0 10px;
 }
 
-/* Lists within research themes for internal alignment */
-.research-theme ul {
-	padding-left: 24px;
-	margin-bottom: 12px;
-}
-
-.research-theme li {
-	font-size: .93rem;
-	line-height: 1.6;
-	margin-bottom: 8px;
-}
-
 .theme-refs {
 	font-size: .87rem !important;
 	color: #777;
