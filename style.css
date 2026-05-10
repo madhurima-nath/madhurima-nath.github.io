@@ -69,18 +69,22 @@ body {
 	}
 
 	body.page-home .introduction p {
-		font-size: clamp(14px, 1.5vw, 16px);
+		font-size: clamp(15px, 1.6vw, 17px);
 		margin-bottom: 9px;
 		line-height: 1.6;
 	}
 
 	body.page-home .affiliations {
-		margin: 12px 0 16px;
+		margin: 12px 0 10px;
 	}
 
 	body.page-home .affil-item {
-		line-height: 1.75;
-		font-size: 14px;
+		line-height: 1.8;
+		font-size: 15px;
+	}
+
+	body.page-home .docs-line {
+		margin-bottom: 18px;
 	}
 }
 
@@ -361,14 +365,39 @@ hr {
    ======================================== */
 
 .affiliations {
-	margin: 20px 0 28px;
+	margin: 20px 0 16px;
 }
 
 .affil-item {
 	font-family: var(--font-sans);
+	font-size: 16px;
+	color: var(--text-meta);
+	line-height: 1.85;
+}
+
+/* CV / Résumé document links, placed below affiliations */
+.docs-line {
+	margin: 0 0 24px;
+	font-family: var(--font-sans);
 	font-size: 14px;
 	color: var(--text-meta);
-	line-height: 1.9;
+}
+
+.docs-line a {
+	color: var(--text-meta);
+	text-decoration: none;
+	transition: color var(--transition);
+}
+
+.docs-line a:hover {
+	color: var(--accent);
+	text-decoration: underline;
+	text-underline-offset: 3px;
+}
+
+.docs-line .doc-sep {
+	margin: 0 8px;
+	opacity: 0.45;
 }
 
 /* ========================================
@@ -402,6 +431,7 @@ hr {
 
 .connect-links svg {
 	flex-shrink: 0;
+	display: block;
 	opacity: 0.75;
 	transition: opacity var(--transition);
 }
