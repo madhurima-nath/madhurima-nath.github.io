@@ -868,34 +868,36 @@ hr {
 	width: 52px;
 	height: 52px;
 	padding: 0;
-	background-color: var(--accent);
-	color: #fff; /* Ensure text color is white */
-	border: none;
-	border-radius: 50%; /* Perfect circle */
+	background-color: var(--bg);
+	color: var(--ink);
+	border: 1.5px solid var(--ink);
+	border-radius: 50%;
 	cursor: pointer;
 	display: none;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	font-size: 18px;
+	font-size: 16px;
 	line-height: 1.1;
-	font-weight: 600;
-	font-family: var(--font-sans);
-	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+	font-weight: 400;
+	font-family: var(--font-mono);
+	box-shadow: 0 2px 8px rgba(23, 58, 107, 0.12);
 	z-index: 1000;
-	transition: opacity 0.3s, transform 0.3s, background-color 0.3s;
+	transition: background-color 0.2s, color 0.2s, transform 0.2s;
 }
 
 .back-to-top .top-text {
-	font-size: 9px; /* Smaller font for 'TOP' */
+	font-size: 9px;
 	margin-top: 1px;
-	display: block; /* Ensures it's on its own line */
-	font-weight: 700;
+	display: block;
+	font-weight: 600;
+	letter-spacing: 0.05em;
 }
 
 .back-to-top:hover {
-	background-color: var(--ink); /* Darker on hover */
-	transform: translateX(-50%) scale(1.1);
+	background-color: var(--ink);
+	color: var(--bg);
+	transform: translateX(-50%) scale(1.05);
 }
 
 .back-to-top.show {
