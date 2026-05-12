@@ -51,7 +51,7 @@ body {
 	}
 
 	body.page-home .container {
-		max-width: 1120px;
+		max-width: 1200px;
 		margin-top: auto;
 		margin-bottom: auto;
 		padding-top: 18px;
@@ -104,9 +104,9 @@ a:hover {
 /* container for consistent width */
 .container {
 	width: 100%;
-	max-width: min(1500px, 92vw);
+	max-width: min(1500px, 90vw);
 	margin: 0 auto;
-	padding: 28px 20px 40px;
+	padding: 28px 0 40px;
 }
 
 .container h2 {
@@ -1108,7 +1108,7 @@ tr:nth-child(even) {
 	}
 
 	.container {
-		padding: 20px 14px 0;
+		padding: 20px 0 0;
 	}
 }
 
