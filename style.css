@@ -51,6 +51,7 @@ body {
 	}
 
 	body.page-home .container {
+		max-width: 1050px;
 		margin-top: auto;
 		margin-bottom: auto;
 		padding-top: 18px;
@@ -103,10 +104,9 @@ a:hover {
 /* container for consistent width */
 .container {
 	width: 100%;
-	max-width: 1100px;
+	max-width: min(1500px, 92vw);
 	margin: 0 auto;
-	padding: 28px 24px 0;
-	padding-bottom: 40px;
+	padding: 28px 20px 40px;
 }
 
 .container h2 {
