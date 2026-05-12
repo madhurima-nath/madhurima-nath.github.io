@@ -1641,3 +1641,210 @@ tr:nth-child(even) {
 		min-width: 220px;
 	}
 }
+
+/* ========================================
+   PROJECT CARDS GRID (projects.html)
+   ======================================== */
+
+.proj-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(285px, 1fr));
+	gap: 24px;
+	margin: 32px 0 40px;
+}
+
+.proj-card {
+	display: flex;
+	flex-direction: column;
+	border: 1px solid var(--border);
+	border-top: 3px solid var(--accent);
+	border-radius: 0;
+	background: #ffffff;
+	text-decoration: none !important;
+	color: inherit;
+	overflow: hidden;
+	transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.proj-card:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 14px 36px rgba(20, 40, 60, 0.14);
+	text-decoration: none !important;
+}
+
+.proj-card-img {
+	width: 100%;
+	aspect-ratio: 16 / 9;
+	background: #ffffff;
+	border-bottom: 1px solid var(--border);
+	overflow: hidden;
+	flex-shrink: 0;
+}
+
+.proj-card-img img {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+	display: block;
+	padding: 12px;
+	transition: transform 0.4s ease;
+}
+
+.proj-card:hover .proj-card-img img {
+	transform: scale(1.04);
+}
+
+.proj-card-img--placeholder {
+	width: 100%;
+	aspect-ratio: 16 / 9;
+	background: linear-gradient(135deg, #142038 0%, #0b3a42 100%);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-family: var(--font-mono);
+	font-size: 11px;
+	color: rgba(255, 255, 255, 0.18);
+	letter-spacing: 0.08em;
+	flex-shrink: 0;
+}
+
+.proj-card-body {
+	padding: 18px 20px 20px;
+	display: flex;
+	flex-direction: column;
+	gap: 9px;
+	flex: 1;
+}
+
+.proj-card-title {
+	font-family: var(--font-sans);
+	font-size: 15px;
+	font-weight: 700;
+	color: var(--ink);
+	line-height: 1.35;
+	margin: 0;
+}
+
+.proj-card-desc {
+	font-family: var(--font-mono-body);
+	font-size: 13.5px;
+	color: var(--text-meta);
+	line-height: 1.65;
+	margin: 0;
+	flex: 1;
+}
+
+.proj-tags {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 5px;
+	margin-top: 6px;
+}
+
+.proj-tag {
+	font-family: var(--font-mono);
+	font-size: 9.5px;
+	font-weight: 600;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	color: #1d5c8a;
+	background: #dceef9;
+	border: 1px solid #b5d5ea;
+	padding: 3px 8px;
+	border-radius: 0;
+	white-space: nowrap;
+}
+
+/* Back link on project detail pages */
+.proj-back {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	font-family: var(--font-mono);
+	font-size: 12.5px;
+	color: var(--text-meta);
+	text-decoration: none;
+	margin: 18px 0 4px;
+	transition: color var(--transition);
+	letter-spacing: 0.02em;
+}
+
+.proj-back::before {
+	content: '←';
+}
+
+.proj-back:hover {
+	color: var(--accent);
+	text-decoration: none;
+}
+
+/* Body text on project detail pages */
+.proj-text {
+	font-family: var(--font-mono-body);
+	font-size: clamp(15px, 1.8vw, 17px);
+	line-height: 1.75;
+	color: var(--text-main);
+	margin-bottom: 14px;
+}
+
+.proj-text a {
+	color: #2d5fae !important;
+}
+
+/* ========================================
+   TERMINAL EQUATION BLOCKS (research_theory.html)
+   ======================================== */
+
+.terminal-block {
+	background: #0d1117;
+	border: 1px solid #30363d;
+	border-left: 3px solid var(--accent);
+	border-radius: 0 4px 4px 0;
+	padding: 20px 26px 22px;
+	margin: 24px 0;
+	overflow-x: auto;
+}
+
+.terminal-label {
+	display: block;
+	font-family: var(--font-mono);
+	font-size: 10px;
+	color: #4a6388;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	margin-bottom: 14px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #21262d;
+}
+
+.terminal-block p {
+	font-family: var(--font-mono-body);
+	font-size: 14px;
+	line-height: 1.8;
+	color: #8ba5c8;
+	margin: 10px 0 0;
+}
+
+/* Equations stay near-white (Terminal A color) */
+.terminal-block mjx-container {
+	color: #e6edf3 !important;
+}
+
+.terminal-block mjx-container svg {
+	color: #e6edf3;
+}
+
+.eq-note {
+	font-family: var(--font-mono-body);
+	font-size: 13px;
+	color: var(--text-meta);
+	font-style: italic;
+	margin: 6px 0 20px;
+}
+
+@media screen and (max-width: 768px) {
+	.proj-grid {
+		grid-template-columns: 1fr;
+		gap: 18px;
+	}
+}

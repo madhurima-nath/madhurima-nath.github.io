@@ -31,20 +31,9 @@
                 <span></span><span></span><span></span>
             </button>
 
-            <!--navigation tabs with dropdowns-->
             <ul class="nav-tabs" id="navMenu">
                 <li><a href="index.html">Bio</a></li>
-                <li class="has-dropdown">
-                    <a href="#" aria-haspopup="true">Projects</a>
-                    <ul>
-                        <li>
-                            <a href="research.html">Academic Research</a>
-                        </li>
-                        <li>
-                            <a href="industry.html">Industry &amp; Consulting</a>
-                        </li>
-                    </ul>
-                </li>
+                <li><a href="projects.html">Projects</a></li>
                 <li><a href="teaching.html">Teaching</a></li>
                 <li><a href="outreach.html" class="nav-current">Outreach</a></li>
             </ul>
@@ -113,14 +102,6 @@
                 var open = nav.classList.toggle('open');
                 btn.classList.toggle('active');
                 btn.setAttribute('aria-expanded', open);
-            });
-            nav.querySelectorAll('.has-dropdown > a').forEach(function (a) {
-                a.addEventListener('click', function (e) {
-                    if (window.innerWidth <= 768) {
-                        e.preventDefault();
-                        a.parentElement.classList.toggle('dropdown-open');
-                    }
-                });
             });
             document.addEventListener('click', function (e) {
                 if (!btn.contains(e.target) && !nav.contains(e.target)) {
