@@ -353,7 +353,6 @@ body.page-home .content-wrapper {
 .introduction {
 	flex: 1;
 	background-color: transparent;
-	max-width: 760px;
 }
 
 .introduction h2 {
@@ -367,6 +366,9 @@ body.page-home .content-wrapper {
 	margin-bottom: 14px;
 	font-size: clamp(16px, 2vw, 18px);
 	font-family: var(--font-mono-body);
+	text-align: justify;
+	hyphens: auto;
+	-webkit-hyphens: auto;
 }
 
 .introduction a {
@@ -1168,6 +1170,9 @@ tr:nth-child(even) {
 	color: #1d40af;
 	line-height: 1.8;
 	margin: 8px 0 20px;
+	text-align: justify;
+	hyphens: auto;
+	-webkit-hyphens: auto;
 }
 
 .module-grid {
@@ -1648,7 +1653,7 @@ tr:nth-child(even) {
 
 .proj-grid {
 	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(285px, 1fr));
+	grid-template-columns: repeat(2, 1fr);
 	gap: 24px;
 	margin: 32px 0 40px;
 }
@@ -1785,6 +1790,9 @@ tr:nth-child(even) {
 	line-height: 1.75;
 	color: var(--text-main);
 	margin-bottom: 14px;
+	text-align: justify;
+	hyphens: auto;
+	-webkit-hyphens: auto;
 }
 
 .proj-text a {
@@ -1842,7 +1850,7 @@ tr:nth-child(even) {
 	margin: 6px 0 20px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 640px) {
 	.proj-grid {
 		grid-template-columns: 1fr;
 		gap: 18px;
