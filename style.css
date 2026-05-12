@@ -1653,7 +1653,7 @@ tr:nth-child(even) {
 
 .proj-grid {
 	display: grid;
-	grid-template-columns: repeat(2, 1fr);
+	grid-template-columns: repeat(3, 1fr);
 	gap: 24px;
 	margin: 32px 0 40px;
 }
@@ -1848,6 +1848,12 @@ tr:nth-child(even) {
 	color: var(--text-meta);
 	font-style: italic;
 	margin: 6px 0 20px;
+}
+
+@media screen and (max-width: 900px) {
+	.proj-grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
 }
 
 @media screen and (max-width: 640px) {
