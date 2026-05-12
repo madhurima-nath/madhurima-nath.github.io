@@ -4,59 +4,43 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="keywords" content="madhurima nath, machine learning, 
+    <meta name="keywords" content="madhurima nath, machine learning,
     data science, computational physics,
-    epidemic modelling, network reliability, AI/ML, genai, 
+    epidemic modelling, network reliability, AI/ML, genai,
     diffusive processes, graph dynamical systems, physics">
     <meta name="author" content="Madhurima Nath">
     <meta name="description" content="Personal homepage of Dr. Madhurima Nath">
-    
+
     <title>Dr. Madhurima Nath</title>
     <link rel="stylesheet" href="style.css">
-
 </head>
 
 <body class="page-home">
-    <!--main container for all content-->
     <div class="container">
-        <!--header with title and navigation-->
+
         <header class="site-header">
             <div class="site-title">
                 <a href="index.html"><h1>Dr. Madhurima Nath</h1></a>
             </div>
 
-            <!--hamburger button for mobile-->
             <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false">
                 <span></span><span></span><span></span>
             </button>
 
-            <!--navigation tabs with dropdowns-->
             <ul class="nav-tabs" id="navMenu">
-                <li><a href="experience.html">Bio</a></li>
-                <li class="has-dropdown">
-                    <a href="#" aria-haspopup="true">Projects</a>
-                        <ul>
-                            <li>
-                                <a href="research.html">Academic Research</a>
-                            </li>
-                            <li>
-                                <a href="industry.html">Industry &amp; Consulting</a>
-                            </li>
-                        </ul>
-                </li>
+                <li><a href="index.html" class="nav-current">Bio</a></li>
+                <li><a href="projects.html">Projects</a></li>
                 <li><a href="teaching.html">Teaching</a></li>
                 <li><a href="outreach.html">Outreach</a></li>
             </ul>
         </header>
 
-        <!--main content with image on left and introduction on right-->
+        <!--hero: photo left, introduction right-->
         <div class="content-wrapper">
-            <!--left side image-->
             <div class="sidebar">
-                <img src="webpage_images/madhurima_nath.jpg" alt="Portrait", class="side-image">
+                <img src="webpage_images/madhurima_nath.jpg" alt="Portrait of Madhurima Nath" class="side-image">
             </div>
-        
-            <!--introduction section right-->
+
             <section class="introduction">
                 <p>
                     I have always been fascinated by how local interactions shape global behaviour,
@@ -64,75 +48,77 @@
                     This curiosity drives my work applying physics concepts to real-world challenges.
                 </p>
                 <p>
-                    My academic journey progressed from master's work in cold atomic physics,
-                    to a PhD in an interdisciplinary environment. I applied computational physics and
-                    graph theory to practical challenges like epidemic outbreaks as well as to Ising models.
-                    This experience with population dynamics provided solid foundations in data science and
-                    machine learning (ML).
+                    My doctoral and postdoctoral work at Virginia Tech, with Prof. Stephen Eubank,
+                    used statistical physics and graph theory to study dynamics on complex
+                    networks — from epidemic outbreak through populations, vulnerabilities in
+                    global food trade, to phase behaviour in magnetic systems.
+                    My master's thesis explored characteristics of quantum many-body physics in cold atomic systems.
                 </p>
                 <p>
-                    Currently, at Slalom, I design and implement data and AI/ML solutions across industries.
-                    I enjoy working both independently and collaboratively on enterprise-wide technical implementations.
+                    At Slalom, I design and implement data and AI/ML solutions across industries,
+                    from early-stage prototyping through to production deployment, 
+                    working independently and collaboratively on enterprise-wide technical implementations.
                 </p>
                 <p>
-                    I maintain active connections with scientific communities through peer review and support
-                    initiatives bridging academia with industry. This reflects my commitment to knowledge exchange
-                    and cross-disciplinary collaboration.
-                </p>
-                
-                <h2>Ways to Connect</h2>
-
-                <p>
-                    <b>LinkedIn:</b> 
-                    <a href="https://www.linkedin.com/in/madhurimanath/" 
-                    target="_blank">
-                    Madhurima Nath</a>
-                    ||
-                    <b>Email:</b> 
-                    <a href="mailto:madhurima.nath@icloud.com">
-                        madhurima [dot] nath [at] icloud [dot] com
-                    </a>
-                </p>
-                <p>
-                    <b>Profiles:</b>
-                    <a href="https://scholar.google.com/citations?user=p_5Pdv0AAAAJ&hl=en" 
-                        target="_blank">
-                    Google Scholar 
-                    </a>
-                    ||
-                    <a href="https://github.com/madhurima-nath" target="_blank">
-                    GitHub
-                    </a>
-                    ||
-                    <a href="https://medium.com/@m.nath" target="_blank">
-                    Medium
-                    </a> 
-                    ||
-                    <a href="cv_mnath.pdf" 
-                    target="_blank">
-                    CV (Full)
-                    </a> 
-                    ||
-                    <a href="resume_mnath.pdf" 
-                    target="_blank">
-                    Resume (1 page)
-                    </a> 
+                    I stay connected to scientific communities through peer review and outreach.
                 </p>
             </section>
         </div>
+
+        <br>
+        <!--brief affiliations: not a CV, just context-->
+        <section class="affiliations">
+            <p class="affil-item">Slalom &middot; Data &amp; AI Consulting</p>
+            <p class="affil-item">Virginia Tech &middot; Postdoctoral Researcher, Physics</p>
+        </section>
+
+        <!-- CV & Résumé document links -->
+        <p class="docs-line">
+            <a href="cv_mnath.pdf" target="_blank">CV</a><span class="doc-sep">&middot;</span><a href="resume_mnath.pdf" target="_blank">R&eacute;sum&eacute;</a>
+        </p>
+
+        <!--connect links-->
+        <nav class="connect-links" aria-label="Contact and profiles">
+            <!-- LinkedIn -->
+            <a href="https://www.linkedin.com/in/madhurimanath/" target="_blank" aria-label="LinkedIn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0H5C2.239 0 0 2.239 0 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5V5c0-2.761-2.238-5-5-5zM8 19H5V8h3v11zM6.5 6.732c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zM20 19h-3v-5.604c0-3.368-4-3.113-4 0V19h-3V8h3v1.765c1.396-2.586 7-2.777 7 2.476V19z"/></svg>
+                <span>LinkedIn</span>
+            </a>
+            <!-- GitHub -->
+            <a href="https://github.com/madhurima-nath" target="_blank" aria-label="GitHub">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+                <span>GitHub</span>
+            </a>
+            <!-- Email -->
+            <a href="mailto:madhurima.nath@icloud.com" aria-label="Email">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+                <span>Email</span>
+            </a>
+            <!-- Google Scholar -->
+            <a href="https://scholar.google.com/citations?user=p_5Pdv0AAAAJ&hl=en" target="_blank" aria-label="Google Scholar">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg>
+                <span>Google Scholar</span>
+            </a>
+            <!-- Medium -->
+            <a href="https://medium.com/@m.nath" target="_blank" aria-label="Medium">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>
+                <span>Medium</span>
+            </a>
+        </nav>
+
     </div>
 
-    <!--footer-->
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">&#8593; <span class="top-text">TOP</span></button>
+
     <footer class="site-footer">
         <div class="container">
-            <p>&COPY; <span class="js-year"></span> Madhurima Nath. All rights reserved.</p>
+            <p>&copy; <span class="js-year"></span> Madhurima Nath. All rights reserved.</p>
         </div>
     </footer>
 
 <script>
-document.querySelectorAll(".js-year").forEach(function(el){el.textContent = new Date().getFullYear();});
+document.querySelectorAll(".js-year").forEach(function(el){ el.textContent = new Date().getFullYear(); });
 
-// Hamburger menu toggle
 (function(){
     var btn = document.querySelector('.hamburger');
     var nav = document.getElementById('navMenu');
@@ -142,22 +128,27 @@ document.querySelectorAll(".js-year").forEach(function(el){el.textContent = new 
         btn.classList.toggle('active');
         btn.setAttribute('aria-expanded', open);
     });
-    // Toggle dropdown on mobile
-    nav.querySelectorAll('.has-dropdown > a').forEach(function(a){
-        a.addEventListener('click', function(e){
-            if(window.innerWidth <= 768){
-                e.preventDefault();
-                a.parentElement.classList.toggle('dropdown-open');
-            }
-        });
-    });
-    // Close menu when clicking outside
     document.addEventListener('click', function(e){
         if(!btn.contains(e.target) && !nav.contains(e.target)){
             nav.classList.remove('open');
             btn.classList.remove('active');
             btn.setAttribute('aria-expanded', 'false');
         }
+    });
+})();
+
+(function(){
+    var backToTopBtn = document.getElementById('backToTop');
+    if(!backToTopBtn) return;
+    window.addEventListener('scroll', function(){
+        if(window.pageYOffset > 300){
+            backToTopBtn.classList.add('show');
+        } else {
+            backToTopBtn.classList.remove('show');
+        }
+    });
+    backToTopBtn.addEventListener('click', function(){
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 })();
 </script>
