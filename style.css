@@ -937,9 +937,15 @@ tr:nth-child(even) {
 
 /* Tablet: 600px - 900px */
 @media screen and (max-width: 900px) {
+	.container {
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+
 	.site-header {
 		flex-direction: column;
 		align-items: center;
+		gap: 14px;
 	}
 
 	.nav-tabs {
@@ -952,7 +958,19 @@ tr:nth-child(even) {
 
 	.nav-tabs>li>a {
 		font-size: 14px;
-		padding: 4px 8px;
+		padding: 4px 10px;
+	}
+
+	.proj-grid {
+		gap: 16px;
+	}
+
+	.teaching-role {
+		margin: 20px 0 28px;
+	}
+
+	.eval-note {
+		margin-top: 16px;
 	}
 }
 
@@ -1094,6 +1112,10 @@ tr:nth-child(even) {
 
 /* Small mobile: <= 480px */
 @media screen and (max-width: 480px) {
+	.container {
+		padding: 20px 16px 28px;
+	}
+
 	.site-title h1 {
 		font-size: 24px;
 	}
@@ -1108,11 +1130,25 @@ tr:nth-child(even) {
 	}
 
 	.introduction p {
-		font-size: 16px;
+		font-size: 15px;
+		text-align: left;
 	}
 
-	.container {
-		padding: 20px 0 0;
+	.teaching-intro {
+		text-align: left;
+		font-size: 14px;
+	}
+
+	.connect-links > a span {
+		font-size: 12.5px;
+	}
+
+	.eval-quotes {
+		padding: 10px 12px;
+	}
+
+	.proj-card-body {
+		padding: 14px 16px 16px;
 	}
 }
 
