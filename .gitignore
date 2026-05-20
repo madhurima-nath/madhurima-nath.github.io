@@ -1,4 +1,12 @@
 
+# Python virtual environment
+.venv/
+__pycache__/
+*.pyc
+
+# macOS metadata
+.DS_Store
+
 # LaTeX build artifacts
 *.aux
 *.log
