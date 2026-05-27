@@ -1392,6 +1392,212 @@ tr:nth-child(even) {
 	letter-spacing: 0.03em;
 }
 
+/* Pull quote — standalone (no heading above, used in outreach) */
+.pull-quote {
+	padding: 10px 14px;
+	margin: 16px 0 20px;
+	background: #f9f6ef;
+	border-radius: 6px;
+	border: 1px solid var(--border);
+}
+
+.pull-quote p {
+	font-family: var(--font-mono-body);
+	font-size: clamp(13.5px, 1.5vw, 15px);
+	color: #3d4f6a;
+	line-height: 1.75;
+	padding-left: 10px;
+	border-left: 2px solid #c8d8e8;
+	text-align: left;
+	hyphens: none;
+	margin-bottom: 0;
+}
+
+/* Outreach photos */
+.outreach-photo {
+	margin: 20px 0 6px;
+}
+.outreach-photo img {
+	width: 100%;
+	border-radius: 6px;
+	display: block;
+}
+.outreach-diagram-pair {
+	display: grid;
+	grid-template-columns: 220px 220px;
+	gap: 16px;
+	margin-top: 16px;
+}
+.outreach-diagram-pair figure {
+	margin: 0;
+}
+.outreach-diagram-pair img {
+	width: 100%;
+	display: block;
+	border-radius: 4px;
+	border: 1px solid var(--border);
+	background: #fff;
+	padding: 8px;
+}
+.outreach-diagram-pair figcaption {
+	font-family: var(--font-mono-body);
+	font-size: 11.5px;
+	color: var(--text-meta);
+	margin-top: 6px;
+	text-align: center;
+	font-style: italic;
+}
+@media (max-width: 500px) {
+	.outreach-diagram-pair { grid-template-columns: 1fr; }
+}
+
+.outreach-photo-pair {
+	display: grid;
+	grid-template-columns: 200px 200px;
+	gap: 10px;
+	margin: 20px 0 6px;
+}
+.outreach-photo-pair img {
+	width: 100%;
+	border-radius: 6px;
+	display: block;
+	object-fit: cover;
+	aspect-ratio: 4 / 3;
+}
+.outreach-photo-caption {
+	font-family: var(--font-mono-body);
+	font-size: 11.5px;
+	color: var(--text-meta);
+	margin-top: 6px;
+	text-align: center;
+	font-style: italic;
+}
+@media (max-width: 480px) {
+	.outreach-photo-pair {
+		grid-template-columns: 1fr;
+	}
+}
+
+/* ===== Outreach page ===== */
+.outreach-epigraph {
+	text-align: center;
+	margin: 32px auto 44px;
+	max-width: 480px;
+}
+.outreach-epigraph p {
+	font-family: 'IM Fell English', serif;
+	font-style: italic;
+	font-size: clamp(15px, 1.8vw, 17px);
+	line-height: 1.88;
+	color: #2d3f55;
+}
+.outreach-epigraph .epigraph-attrib {
+	display: block;
+	margin-top: 14px;
+	font-family: var(--font-mono-body);
+	font-style: normal;
+	font-size: 12px;
+	color: var(--text-meta);
+	text-align: right;
+}
+
+.outreach-entry {
+	margin: 0 0 32px;
+}
+.outreach-entry h3 {
+	font-size: 13px;
+	color: var(--accent);
+	font-family: var(--font-sans);
+	font-weight: 700;
+	margin: 0 0 12px;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	padding-bottom: 8px;
+	border-bottom: 1px solid var(--border);
+	hyphens: none;
+	-webkit-hyphens: none;
+}
+.outreach-entry p,
+.outreach-entry ul {
+	font-family: var(--font-mono-body);
+	font-size: clamp(13.5px, 1.6vw, 15.5px);
+	color: #1d40af;
+	line-height: 1.8;
+	text-align: justify;
+	hyphens: none;
+	-webkit-hyphens: none;
+	margin-bottom: 8px;
+}
+.outreach-entry p:last-child {
+	margin-bottom: 0;
+}
+.outreach-entry .pull-quote p {
+	font-size: clamp(13.5px, 1.5vw, 15px);
+	color: #3d4f6a;
+	text-align: left;
+	hyphens: none;
+	-webkit-hyphens: none;
+}
+.outreach-entry ul {
+	list-style: disc;
+	padding-left: 20px;
+	text-align: left;
+}
+.outreach-entry ul li {
+	margin-bottom: 4px;
+}
+.cluster-rule {
+	border: none;
+	border-top: 1px solid var(--border);
+	margin: 28px 0;
+}
+.entry-with-photo {
+	display: grid;
+	grid-template-columns: 1fr 270px;
+	gap: 20px;
+	align-items: start;
+	margin-bottom: 12px;
+}
+.entry-with-photo--wide {
+	grid-template-columns: 1fr 310px;
+}
+.entry-photo img {
+	width: 100%;
+	border-radius: 5px;
+	display: block;
+}
+.entry-photo .outreach-photo-caption {
+	text-align: center;
+}
+.entry-photo .pull-quote {
+	margin: 10px 0 0;
+}
+.diwali-photo-strip {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	gap: 10px;
+	margin-top: 14px;
+}
+.diwali-photo-strip img {
+	width: 100%;
+	border-radius: 5px;
+	display: block;
+	object-fit: cover;
+	aspect-ratio: 4 / 3;
+}
+@media (max-width: 600px) {
+	.entry-with-photo,
+	.entry-with-photo--wide {
+		grid-template-columns: 1fr;
+	}
+	.entry-photo {
+		order: -1;
+	}
+	.diwali-photo-strip {
+		grid-template-columns: 1fr;
+	}
+}
+
 /* ===== Research page: Dissertation Promo ===== */
 .dissertation-promo {
 	margin: 40px 0 32px;
