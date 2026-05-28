@@ -1550,6 +1550,10 @@ tr:nth-child(even) {
 	list-style: none;
 	padding-left: 0;
 }
+.outreach-entry ul.eval-quotes li {
+	border-left: none;
+	padding-left: 0;
+}
 .cluster-rule {
 	border: none;
 	border-top: 1px solid var(--border);
@@ -1564,6 +1568,15 @@ tr:nth-child(even) {
 }
 .entry-with-photo--wide {
 	grid-template-columns: 1fr 310px;
+}
+.entry-with-photo--physics {
+	grid-template-columns: 1fr 520px;
+}
+.entry-with-photo--physics .physics-diagrams {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 16px;
+	align-items: start;
 }
 .entry-photo img {
 	width: 100%;
@@ -1591,11 +1604,15 @@ tr:nth-child(even) {
 }
 @media (max-width: 600px) {
 	.entry-with-photo,
-	.entry-with-photo--wide {
+	.entry-with-photo--wide,
+	.entry-with-photo--physics {
 		grid-template-columns: 1fr;
 	}
 	.entry-photo {
 		order: -1;
+	}
+	.entry-with-photo--physics .physics-diagrams {
+		grid-template-columns: 1fr 1fr;
 	}
 	.diwali-photo-strip {
 		grid-template-columns: 1fr;
