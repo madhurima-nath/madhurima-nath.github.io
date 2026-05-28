@@ -293,6 +293,8 @@
 
     </div>
 
+    <div class="figure-lightbox" id="imgLightbox"><img src="" alt=""></div>
+
     <button id="backToTop" class="back-to-top" aria-label="Back to top">&#8593; <span class="top-text">TOP</span></button>
 
     <footer class="site-footer">
@@ -320,6 +322,21 @@
                 }
             });
         })();
+        (function(){
+            var lb = document.getElementById('imgLightbox');
+            var lbImg = lb.querySelector('img');
+            document.querySelectorAll('.entry-photo img, .physics-diagrams img').forEach(function(img){
+                img.style.cursor = 'zoom-in';
+                img.addEventListener('click', function(){
+                    lbImg.src = img.src;
+                    lbImg.alt = img.alt;
+                    lb.classList.add('active');
+                });
+            });
+            lb.addEventListener('click', function(){ lb.classList.remove('active'); });
+            document.addEventListener('keydown', function(e){ if(e.key === 'Escape') lb.classList.remove('active'); });
+        })();
+
         (function(){
             var backToTopBtn = document.getElementById('backToTop');
             if(!backToTopBtn) return;

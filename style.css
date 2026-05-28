@@ -1572,7 +1572,7 @@ tr:nth-child(even) {
 	margin-bottom: 12px;
 }
 .entry-with-photo--wide {
-	grid-template-columns: 1fr 380px;
+	grid-template-columns: 1fr 420px;
 }
 .physics-diagrams {
 	display: grid;
