@@ -1554,6 +1554,11 @@ tr:nth-child(even) {
 	border-left: none;
 	padding-left: 10px;
 }
+.outreach-entry ul li strong {
+	font-family: var(--font-sans);
+	font-weight: 600;
+	color: #1d2b35;
+}
 .cluster-rule {
 	border: none;
 	border-top: 1px solid var(--border);
