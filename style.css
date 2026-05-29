@@ -1381,6 +1381,22 @@ tr:nth-child(even) {
 	margin-top: 3px;
 }
 
+.ta-assessment {
+	font-family: var(--font-mono-body);
+	font-size: clamp(14px, 1.7vw, 16px);
+	color: var(--text-main);
+	line-height: 1.8;
+	margin: 10px 0 0;
+}
+
+.ta-assessment strong {
+	display: inline;
+	font-family: inherit;
+	font-size: inherit;
+	color: inherit;
+	text-decoration: underline;
+}
+
 /* ===== Teaching: pedagogy list ===== */
 .pedagogy-list {
 	list-style: none;
@@ -1620,6 +1636,14 @@ tr:nth-child(even) {
 	color: var(--text-meta);
 	margin: 2px 0 10px;
 	letter-spacing: 0.04em;
+}
+
+.eval-intro {
+	font-family: var(--font-mono-body);
+	font-size: clamp(13px, 1.6vw, 15px);
+	color: var(--text-main);
+	line-height: 1.7;
+	margin: 0 0 14px;
 }
 
 .eval-note .diss-details {
