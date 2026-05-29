@@ -1374,12 +1374,16 @@ tr:nth-child(even) {
 	line-height: 1.8;
 }
 
+.ta-timeline > li:first-child {
+	border-top: none;
+}
+
 .ta-timeline > li strong {
 	display: block;
 	font-family: var(--font-sans);
 	font-size: 15px;
 	font-weight: 600;
-	color: #1d2b35;
+	color: var(--accent);
 	margin-bottom: 4px;
 }
 
