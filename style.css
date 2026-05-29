@@ -429,7 +429,7 @@ hr {
 .affil-item {
 	font-family: var(--font-mono-body);
 	font-size: clamp(16px, 2vw, 18px);
-	color: #1d40af;
+	color: var(--text-main);
 	line-height: 1.85;
 }
 
@@ -438,11 +438,11 @@ hr {
 	margin: 6px 0 24px;
 	font-family: var(--font-mono-body);
 	font-size: clamp(16px, 2vw, 18px);
-	color: #1d40af;
+	color: var(--text-main);
 }
 
 .docs-line a {
-	color: #1d40af;
+	color: var(--text-main);
 	text-decoration: none;
 	transition: color var(--transition);
 }
@@ -1207,7 +1207,7 @@ tr:nth-child(even) {
 .teaching-intro {
 	font-family: var(--font-mono-body);
 	font-size: clamp(14px, 1.7vw, 16px);
-	color: #1d40af;
+	color: var(--text-main);
 	line-height: 1.8;
 	margin: 8px 0 12px;
 	text-align: justify;
@@ -1823,7 +1823,7 @@ tr:nth-child(even) {
 .outreach-entry ul {
 	font-family: var(--font-mono-body);
 	font-size: clamp(13.5px, 1.6vw, 15.5px);
-	color: #1d40af;
+	color: var(--text-main);
 	line-height: 1.8;
 	text-align: justify;
 	hyphens: none;
