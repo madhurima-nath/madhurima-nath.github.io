@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 110" width="260" height="110">
+
+  <!-- Beam axis (dashed guide) -->
+  <line x1="10" y1="50" x2="250" y2="50" stroke="#ccc" stroke-width="1" stroke-dasharray="3,3"/>
+  <polygon points="242,46 252,50 242,54" fill="#aaa"/>
+
+  <!-- ── Unpolarized spokes at x=45 ── -->
+  <!-- horizontal -->
+  <line x1="30" y1="50" x2="60" y2="50" stroke="#0b6d78" stroke-width="1.6"/>
+  <!-- vertical -->
+  <line x1="45" y1="35" x2="45" y2="65" stroke="#0b6d78" stroke-width="1.6"/>
+  <!-- +45° -->
+  <line x1="34" y1="61" x2="56" y2="39" stroke="#0b6d78" stroke-width="1.6"/>
+  <!-- -45° -->
+  <line x1="34" y1="39" x2="56" y2="61" stroke="#0b6d78" stroke-width="1.6"/>
+
+  <!-- ── Unpolarized spokes at x=80 ── -->
+  <line x1="65" y1="50" x2="95" y2="50" stroke="#0b6d78" stroke-width="1.6"/>
+  <line x1="80" y1="35" x2="80" y2="65" stroke="#0b6d78" stroke-width="1.6"/>
+  <line x1="69" y1="61" x2="91" y2="39" stroke="#0b6d78" stroke-width="1.6"/>
+  <line x1="69" y1="39" x2="91" y2="61" stroke="#0b6d78" stroke-width="1.6"/>
+
+  <!-- ── Polaroid filter ── -->
+  <rect x="108" y="12" width="22" height="76" fill="#d4ecf0" stroke="#0b6d78" stroke-width="1.8" rx="2"/>
+  <!-- horizontal lines inside (aligned molecules) -->
+  <line x1="110" y1="22" x2="128" y2="22" stroke="#0b6d78" stroke-width="0.9" opacity="0.55"/>
+  <line x1="110" y1="30" x2="128" y2="30" stroke="#0b6d78" stroke-width="0.9" opacity="0.55"/>
+  <line x1="110" y1="38" x2="128" y2="38" stroke="#0b6d78" stroke-width="0.9" opacity="0.55"/>
+  <line x1="110" y1="46" x2="128" y2="46" stroke="#0b6d78" stroke-width="0.9" opacity="0.55"/>
+  <line x1="110" y1="54" x2="128" y2="54" stroke="#0b6d78" stroke-width="0.9" opacity="0.55"/>
+  <line x1="110" y1="62" x2="128" y2="62" stroke="#0b6d78" stroke-width="0.9" opacity="0.55"/>
+  <line x1="110" y1="70" x2="128" y2="70" stroke="#0b6d78" stroke-width="0.9" opacity="0.55"/>
+  <line x1="110" y1="78" x2="128" y2="78" stroke="#0b6d78" stroke-width="0.9" opacity="0.55"/>
+
+  <!-- ── Polarized spokes at x=170 (vertical only) ── -->
+  <line x1="170" y1="35" x2="170" y2="65" stroke="#0b6d78" stroke-width="1.6"/>
+  <!-- arrowheads on vertical spokes -->
+  <polygon points="166,37 170,28 174,37" fill="#0b6d78"/>
+  <polygon points="166,63 170,72 174,63" fill="#0b6d78"/>
+
+  <!-- ── Polarized spokes at x=205 ── -->
+  <line x1="205" y1="35" x2="205" y2="65" stroke="#0b6d78" stroke-width="1.6"/>
+  <polygon points="201,37 205,28 209,37" fill="#0b6d78"/>
+  <polygon points="201,63 205,72 209,63" fill="#0b6d78"/>
+
+  <!-- Labels -->
+  <text x="60"  y="96" text-anchor="middle" font-family="Georgia,serif" font-size="10" fill="#555">Unpolarized</text>
+  <text x="119" y="102" text-anchor="middle" font-family="Georgia,serif" font-size="10" fill="#0b6d78">Polaroid</text>
+  <text x="188" y="96" text-anchor="middle" font-family="Georgia,serif" font-size="10" fill="#555">Polarized</text>
+</svg>
