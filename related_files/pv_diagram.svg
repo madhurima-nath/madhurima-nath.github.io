@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="14 1 194 157" width="194" height="157">
+  <!-- Shaded area = work done -->
+  <rect x="50" y="52" width="110" height="82" fill="#d4ecf0" opacity="0.8"/>
+
+  <!-- Y axis -->
+  <line x1="50" y1="18" x2="50" y2="140" stroke="#333" stroke-width="1.5"/>
+  <!-- X axis -->
+  <line x1="50" y1="134" x2="185" y2="134" stroke="#333" stroke-width="1.5"/>
+
+  <!-- Arrow heads -->
+  <polygon points="46,20 50,12 54,20" fill="#333"/>
+  <polygon points="177,130 185,134 177,138" fill="#333"/>
+
+  <!-- Constant pressure process (horizontal line) -->
+  <line x1="50" y1="52" x2="160" y2="52" stroke="#0b6d78" stroke-width="2.2"/>
+
+  <!-- Vertical dashed drop lines -->
+  <line x1="50"  y1="52" x2="50"  y2="134" stroke="#aaa" stroke-width="1" stroke-dasharray="4,3"/>
+  <line x1="160" y1="52" x2="160" y2="134" stroke="#aaa" stroke-width="1" stroke-dasharray="4,3"/>
+
+  <!-- End-point dots -->
+  <circle cx="50"  cy="52" r="3.5" fill="#0b6d78"/>
+  <circle cx="160" cy="52" r="3.5" fill="#0b6d78"/>
+
+  <!-- Axis labels -->
+  <text x="192" y="138" font-family="Georgia,serif" font-size="14" font-style="italic" fill="#222">V</text>
+  <text x="37"  y="15"  font-family="Georgia,serif" font-size="14" font-style="italic" fill="#222">P</text>
+
+  <!-- Tick labels on x-axis -->
+  <text x="43"  y="150" font-family="Georgia,serif" font-size="11" font-style="italic" fill="#555">V&#x2081;</text>
+  <text x="153" y="150" font-family="Georgia,serif" font-size="11" font-style="italic" fill="#555">V&#x2082;</text>
+
+  <!-- Pressure label -->
+  <text x="22" y="57" font-family="Georgia,serif" font-size="11" font-style="italic" fill="#555">P&#x2080;</text>
+
+  <!-- W = P ΔV label inside shaded region -->
+  <text x="72" y="102" font-family="Georgia,serif" font-size="13" font-style="italic" fill="#0b6d78">W&#160;=&#160;P&#160;&#916;V</text>
+</svg>

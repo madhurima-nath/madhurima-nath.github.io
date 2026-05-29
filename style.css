@@ -1209,10 +1209,29 @@ tr:nth-child(even) {
 	font-size: clamp(14px, 1.7vw, 16px);
 	color: #1d40af;
 	line-height: 1.8;
-	margin: 8px 0 20px;
+	margin: 8px 0 12px;
 	text-align: justify;
 	hyphens: auto;
 	-webkit-hyphens: auto;
+}
+
+.pedagogy-link-note {
+	font-family: var(--font-mono-body);
+	font-size: clamp(14px, 1.7vw, 16px);
+	color: var(--accent);
+	line-height: 1.7;
+	font-weight: 600;
+	border-left: 3px solid var(--accent);
+	padding-left: 12px;
+	margin: 0 0 8px;
+}
+
+.pedagogy-github-note {
+	font-family: var(--font-mono-body);
+	font-size: clamp(12px, 1.5vw, 13px);
+	color: var(--text-meta);
+	line-height: 1.6;
+	margin: 0 0 20px;
 }
 
 .module-grid {
@@ -1329,6 +1348,257 @@ tr:nth-child(even) {
 	content: '';
 }
 
+/* ===== Teaching: TA semester timeline ===== */
+.ta-timeline {
+	list-style: none;
+	margin: 20px 0 0;
+	padding: 0;
+}
+
+.ta-timeline > li {
+	padding: 16px 0;
+	border-top: 1px solid var(--border);
+	font-family: var(--font-mono-body);
+	font-size: clamp(14px, 1.7vw, 16px);
+	color: var(--text-main);
+	line-height: 1.8;
+}
+
+.ta-timeline > li strong {
+	display: block;
+	font-family: var(--font-sans);
+	font-size: 15px;
+	font-weight: 600;
+	color: #1d2b35;
+	margin-bottom: 4px;
+}
+
+.ta-timeline > li p {
+	margin: 0;
+}
+
+.ta-timeline > li p + p {
+	margin-top: 3px;
+}
+
+/* ===== Teaching: pedagogy list ===== */
+.pedagogy-list {
+	list-style: none;
+	margin: 20px 0 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+.pedagogy-list li {
+	overflow: hidden;
+}
+
+.pedagogy-list li strong {
+	display: block;
+	margin-bottom: 5px;
+	font-family: var(--font-sans);
+	font-size: 16px;
+	font-weight: 600;
+	color: #1d2b35;
+}
+
+.pedagogy-list li p {
+	margin: 6px 0 0;
+	font-family: var(--font-mono-body);
+	font-size: clamp(14px, 1.7vw, 16px);
+	color: var(--text-main);
+	line-height: 1.8;
+}
+
+.pedagogy-figure {
+	float: right;
+	width: 180px;
+	margin: 0 0 12px 20px;
+}
+
+.pedagogy-figure img {
+	width: 180px;
+	height: auto;
+	max-height: 220px;
+	object-fit: contain;
+	display: block;
+	border-radius: 4px;
+	opacity: 0.92;
+	cursor: zoom-in;
+}
+
+.pedagogy-figure figcaption {
+	font-family: var(--font-mono-body);
+	font-size: 12px;
+	color: var(--text-meta);
+	margin-top: 5px;
+	text-align: center;
+	font-style: italic;
+}
+
+/* Two-column grid layout for li items that have a floated figure */
+.pedagogy-list li.has-figure {
+	display: grid;
+	grid-template-columns: 1fr 165px;
+	column-gap: 20px;
+}
+
+.pedagogy-list li.has-figure strong {
+	grid-column: 1 / -1;
+}
+
+.pedagogy-list li.has-figure .pedagogy-figure {
+	grid-column: 2;
+	grid-row: 2;
+	float: none;
+	width: 100%;
+	margin: 0;
+	align-self: start;
+}
+
+.pedagogy-list li.has-figure .pedagogy-figure img {
+	width: 100%;
+	height: auto;
+	max-height: none;
+}
+
+.pedagogy-list li.has-figure > p {
+	grid-column: 1;
+	grid-row: 2;
+	margin-top: 0;
+	min-width: 0;
+	overflow-x: auto;
+}
+
+/* Assessment paragraph: same typography as content, separate line */
+.pedagogy-list li p.pedagogy-assessment {
+	margin-top: 12px;
+}
+
+.pedagogy-list li p.pedagogy-assessment strong {
+	display: inline;
+	font-family: inherit;
+	font-size: inherit;
+	color: inherit;
+	margin-bottom: 0;
+	text-decoration: underline;
+}
+
+.pedagogy-list li.has-figure > p.pedagogy-assessment {
+	grid-column: 1;
+	grid-row: 3;
+	margin-top: 0;
+	min-width: 0;
+	overflow-x: auto;
+}
+
+.wave-optics-figures {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	gap: 16px;
+	margin-top: 20px;
+	clear: both;
+}
+
+.wave-optics-figures figure {
+	margin: 0;
+	text-align: center;
+}
+
+.wave-optics-figures img {
+	width: 100%;
+	max-height: 150px;
+	object-fit: contain;
+	display: block;
+	margin: 0 auto;
+	cursor: zoom-in;
+}
+
+.wave-optics-figures figcaption {
+	font-family: var(--font-mono-body);
+	font-size: 12.5px;
+	color: var(--text-meta);
+	font-style: italic;
+	margin-top: 6px;
+}
+
+.pedagogy-attribution {
+	font-family: var(--font-mono-body);
+	font-size: 10.5px;
+	color: var(--text-meta);
+	margin: 4px 0 0;
+	font-style: italic;
+	text-align: right;
+	clear: both;
+}
+
+.wave-optics-figures .pedagogy-attribution {
+	grid-column: 1 / -1;
+	margin: 0;
+}
+
+.wave-optics-figures + p {
+	margin-top: 18px;
+}
+
+.explore-link {
+	display: block;
+	margin-top: 5px;
+}
+
+/* Extra breathing room between consecutive paragraphs in pedagogy items */
+.pedagogy-list li p + p {
+	margin-top: 10px;
+}
+
+/* Wave Optics sub-topic bullet list */
+.wave-optics-topics {
+	list-style: disc inside;
+	margin: 14px 0 0;
+	padding-left: 4px;
+}
+
+.wave-optics-topics > li {
+	font-family: var(--font-mono-body);
+	font-size: clamp(14px, 1.7vw, 16px);
+	color: var(--text-main);
+	line-height: 1.8;
+	overflow-x: auto;
+	overflow-y: visible;
+	margin-bottom: 12px;
+}
+
+.wave-optics-topics > li:last-child {
+	margin-bottom: 0;
+}
+
+/* Wave Optics sub-topic labels: bold sans, not italic, so they read as mini-headings */
+.pedagogy-list li p > em:first-child,
+.wave-optics-topics > li > em:first-child {
+	font-style: normal;
+	font-weight: 600;
+	font-family: var(--font-sans);
+	font-size: 15px;
+	color: #1d2b35;
+}
+
+.pedagogy-tag {
+	display: inline-block;
+	margin-left: 8px;
+	font-family: var(--font-mono);
+	font-size: 11px;
+	color: var(--text-meta);
+	background: var(--accent-soft);
+	padding: 1px 7px;
+	border-radius: 4px;
+	border: 1px solid var(--border);
+	vertical-align: middle;
+	text-transform: uppercase;
+	letter-spacing: 0.06em;
+}
+
 /* ===== Teaching: evaluation note ===== */
 .eval-note {
 	margin-top: 24px;
@@ -1342,6 +1612,14 @@ tr:nth-child(even) {
 	color: var(--text-meta);
 	margin: 0 0 10px;
 	font-style: italic;
+}
+
+.eval-context {
+	font-family: var(--font-mono);
+	font-size: 11.5px;
+	color: var(--text-meta);
+	margin: 2px 0 10px;
+	letter-spacing: 0.04em;
 }
 
 .eval-note .diss-details {
@@ -1375,9 +1653,9 @@ tr:nth-child(even) {
 
 .eval-quotes li {
 	font-family: var(--font-mono-body);
-	font-size: 13px;
+	font-size: clamp(13.5px, 1.5vw, 15px);
 	color: #3d4f6a;
-	line-height: 1.65;
+	line-height: 1.75;
 	padding-left: 10px;
 	border-left: 2px solid #c8d8e8;
 }
@@ -1780,13 +2058,13 @@ tr:nth-child(even) {
 }
 
 .figure-lightbox img {
-	max-width: 90vw;
-	max-height: 88vh;
+	width: 85vw;
+	height: 80vh;
 	border-radius: 8px;
 	box-shadow: 0 12px 40px rgba(0, 0, 0, .5);
 	object-fit: contain;
 	background: #fff;
-	padding: 12px;
+	padding: 4px;
 }
 
 .pillar-card .pillar-body {
