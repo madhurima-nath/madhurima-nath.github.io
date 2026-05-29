@@ -1204,6 +1204,18 @@ tr:nth-child(even) {
 	margin: 28px 0 40px;
 }
 
+.teaching-role h3 {
+	font-size: 13px;
+	color: var(--accent);
+	font-family: var(--font-sans);
+	font-weight: 700;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	padding-bottom: 8px;
+	border-bottom: 1px solid var(--border);
+	margin: 0 0 12px;
+}
+
 .teaching-intro {
 	font-family: var(--font-mono-body);
 	font-size: clamp(14px, 1.7vw, 16px);
