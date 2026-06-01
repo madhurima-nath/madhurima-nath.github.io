@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="madhurima nath, epidemic modelling, network reliability, SIR model, food trade networks, contact networks, network science, Moore-Shannon, ERGM">
+    <meta name="author" content="Madhurima Nath">
+    <meta name="description" content="Epidemic & Trade Network Applications — Madhurima Nath">
+    <title>Epidemic &amp; Trade Networks · Madhurima Nath</title>
+    <link rel="icon" type="image/png" href="../tools/favicon-32.png?v=1">
+    <link rel="icon" type="image/svg+xml" href="../tools/favicon.svg?v=3">
+    <link rel="stylesheet" href="../style.css?v=41">
+    <script>MathJax = { tex: { inlineMath: [['\\(','\\)']] } };</script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+</head>
+
+<body>
+    <div class="container">
+
+        <header class="site-header">
+            <div class="site-title">
+                <a href="../index.html" aria-label="Go to homepage"><h1><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.1em"><path d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"/></svg></h1></a>
+            </div>
+
+            <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+
+            <ul class="nav-tabs" id="navMenu">
+                <li><a href="../index.html">Bio</a></li>
+                <li><a href="../projects.html" class="nav-current">Projects</a></li>
+                <li><a href="../teaching.html">Teaching</a></li>
+                <li><a href="../outreach.html">Outreach</a></li>
+            </ul>
+        </header>
+
+        <a href="../projects.html" class="proj-back">Back to Projects</a>
+
+        <h2 style="margin-top: 10px;">Epidemic &amp; Trade Network Applications</h2>
+
+        <p class="proj-text">Doctoral research, Virginia Tech, 2013&ndash;2019, supervised by Prof. Stephen Eubank. Moore-Shannon network reliability is applied here to two classes of networked systems: human contact networks, where it measures epidemic potential and reveals structural limitations of graph models; and international food trade networks, where it identifies contagion clusters and vulnerability to crop-specific disruptions. The <a href="https://vtechworks.lib.vt.edu/handle/10919/86841" target="_blank" rel="noopener">full dissertation</a> is available through VTechWorks.</p>
+
+        <!-- Section 1: Epidemic Modelling -->
+        <div class="research-theme" id="epidemiology">
+            <h3 style="margin-top: 0;">SIR Dynamics on Contact Networks</h3>
+            <div class="theme-content">
+                <div class="theme-text">
+                    <p class="proj-text">Contact networks shape how diseases spread through populations. Network models and simulations allow researchers to explore disease dynamics under different assumptions without requiring complete real-world data. This work compares SIR epidemic outcomes on observed contact networks from the Add Health dataset with outcomes on exponential random graph models (ERGMs) constructed to match the same summary statistics, using Moore-Shannon network reliability to measure epidemic potential across the full range of transmission probability.</p>
+
+                    <div class="terminal-block">
+                        <span class="terminal-label">SIR model</span>
+                        <p>The SIR model divides a population of \(N\) into susceptible \(S\), infected \(I\), and recovered \(R\) compartments, with transmission rate \(\beta\) and recovery rate \(\gamma\):</p>
+                        \[\frac{dS}{dt} = -\frac{\beta}{N}\,SI, \qquad \frac{dI}{dt} = \frac{\beta}{N}\,SI - \gamma I, \qquad \frac{dR}{dt} = \gamma I\]
+                        <p>An outbreak grows when the basic reproduction number \(\mathcal{R}_0 = \beta/\gamma > 1\). On a contact network, however, epidemic dynamics depend on structure as well as parameters &mdash; a dependence that aggregate statistics such as degree distribution and clustering coefficients fail to fully capture. Network reliability summarises this directly, giving the probability \(R_\alpha(p)\) that at least \(\alpha N\) individuals are infected when each contact transmits with probability \(p = \beta/(\beta + \gamma)\).</p>
+                    </div>
+
+                    <p class="proj-text">Networks generated from ERGMs overestimated infection numbers by up to 50% compared to observed networks, despite matching degree distribution and clustering coefficients. Reliability analysis revealed that temporal patterns also differed systematically: peak infection timing, outbreak magnitude, and duration all varied between real and modelled networks. Across multiple Monte Carlo runs, these differences persisted. Standard network statistics fail to capture structural features critical to epidemic dynamics, and observed contact network data remains essential when evaluating control strategies.</p>
+                </div>
+                <div class="theme-figure">
+                    <img src="../related_files/epidemic_epicurves.png" alt="Mean epidemic curves showing infection counts over time for SIR dynamics on observed contact networks versus ERGM models, with ERGMs systematically overestimating peak infection" style="cursor:zoom-in;">
+                    <img src="../related_files/epidemic_calibration.png" alt="Network reliability curves R(x) for observed contact networks and ERGM models, showing structural differences not captured by standard statistics" style="margin-top: 18px; cursor:zoom-in;">
+                    <figcaption>Epidemic curves and reliability \(R(x)\) for observed vs. modelled networks.</figcaption>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 2: Food Trade -->
+        <div class="research-theme" id="trade">
+            <h3 style="margin-top: 0;">Food Trade Networks &amp; Pestilence Distribution</h3>
+            <div class="theme-content">
+                <div class="theme-text">
+                    <p class="proj-text">Global food systems are increasingly interconnected through long-distance trade, creating vulnerability to disruptions from climate events, pests, and contamination. This research applies Moore-Shannon network reliability community detection to international food trade networks to identify clusters of countries whose trade patterns create mutual dependencies in how disruptions propagate.</p>
+                    <p class="proj-text">Analysis of UN Comtrade data for Solanaceae crops (potato, tomato) shows that contagion clusters form primarily between geographically adjacent countries with strong bilateral trade relationships. Domestic US food freight networks &mdash; cereal and mixed agricultural flows &mdash; reveal even more pronounced geographic clustering, with communities concentrated in specific regions. The hierarchical structure of communities shifts with the reliability threshold: larger clusters break into progressively smaller, more cohesive subgroups as the threshold increases. Forecasting the propagation of contagion conditions across identified clusters achieved approximately 96% precision.</p>
+                    <p class="proj-text">As global trade intensifies, clusters grow larger and fewer countries remain outside network effects. Identifying vulnerable clusters enables targeted surveillance, highlights critical trade routes requiring monitoring, and indicates where supply chain diversification or biosecurity measures would be most effective in reducing systemic vulnerability.</p>
+                </div>
+                <div class="theme-figure">
+                    <img src="../related_files/food_trade_map.png" alt="World map showing geographic contagion clusters in the international tomato trade network, with colours indicating cluster membership" style="cursor:zoom-in;">
+                    <figcaption>Geographic contagion clusters in the international tomato trade network.</figcaption>
+                    <img src="../related_files/food_trade_temporal.png" alt="Temporal evolution of tomato trade contagion clusters across three years: 2005, 2007, and 2009, showing cluster growth over time" style="margin-top: 18px; cursor:zoom-in;">
+                    <figcaption>Temporal evolution of tomato trade clusters: 2005, 2007, and 2009.</figcaption>
+                </div>
+            </div>
+        </div>
+
+        <!-- Publications -->
+        <h2>Publications</h2>
+        <ol class="harvard-refs">
+            <li>
+                <a href="https://www.sciencedirect.com/science/article/pii/S002251931730560X" target="_blank" rel="noopener">
+                Nath, M., Ren, Y., Khorramzadeh, Y. and Eubank, S. (2018) Determining whether a class of random graphs is consistent with an observed contact network, <em>Journal of Theoretical Biology</em>, 440, pp. 121&ndash;132.
+                </a>
+            </li>
+            <li>
+                <a href="https://link.springer.com/chapter/10.1007/978-3-030-05411-3_43" target="_blank" rel="noopener">
+                Nath, M. <em>et al.</em> (2019) Using network reliability to understand international food trade dynamics, in <em>Complex Networks VII</em>, Cham: Springer, pp. 524&ndash;535.
+                </a>
+            </li>
+            <li>
+                <a href="https://link.springer.com/chapter/10.1007/978-3-031-21131-7_21" target="_blank" rel="noopener">
+                Mishra, R., Eubank, S., Nath, M., Amundsen, M. and Adiga, A. (2022) Community detection using Moore-Shannon network reliability: application to food networks, in <em>International Conference on Complex Networks and Their Applications</em>, Cham: Springer, pp. 271&ndash;282.
+                </a>
+            </li>
+        </ol>
+
+    </div>
+
+    <div class="figure-lightbox" id="imgLightbox"><img src="" alt=""></div>
+
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">&#8593; <span class="top-text">TOP</span></button>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; <span class="js-year"></span> Madhurima Nath. All rights reserved.</p>
+        </div>
+    </footer>
+
+<script>
+document.querySelectorAll(".js-year").forEach(function(el){ el.textContent = new Date().getFullYear(); });
+
+(function(){
+    var lb = document.getElementById('imgLightbox');
+    var lbImg = lb.querySelector('img');
+    document.querySelectorAll('.theme-figure img').forEach(function(img){
+        img.addEventListener('click', function(){
+            lbImg.src = img.src;
+            lbImg.alt = img.alt;
+            lb.classList.add('active');
+        });
+    });
+    lb.addEventListener('click', function(){ lb.classList.remove('active'); });
+    document.addEventListener('keydown', function(e){ if(e.key === 'Escape') lb.classList.remove('active'); });
+})();
+
+(function(){
+    var btn = document.querySelector('.hamburger');
+    var nav = document.getElementById('navMenu');
+    if(!btn || !nav) return;
+    btn.addEventListener('click', function(){
+        var open = nav.classList.toggle('open');
+        btn.classList.toggle('active');
+        btn.setAttribute('aria-expanded', open);
+    });
+    document.addEventListener('click', function(e){
+        if(!btn.contains(e.target) && !nav.contains(e.target)){
+            nav.classList.remove('open');
+            btn.classList.remove('active');
+            btn.setAttribute('aria-expanded', 'false');
+        }
+    });
+})();
+
+(function(){
+    var backToTopBtn = document.getElementById('backToTop');
+    if(!backToTopBtn) return;
+    window.addEventListener('scroll', function(){
+        backToTopBtn.classList.toggle('show', window.pageYOffset > 300);
+    });
+    backToTopBtn.addEventListener('click', function(){
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+})();
+</script>
+</body>
+</html>

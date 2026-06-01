@@ -2607,3 +2607,32 @@ tr:nth-child(even) {
 		gap: 18px;
 	}
 }
+
+/* ========================================
+   PROJECT DETAIL PAGES
+   ======================================== */
+
+/* Override .research-theme p specificity for detail page body text */
+.research-theme .proj-text {
+	font-size: clamp(15px, 1.8vw, 17px);
+	line-height: 1.75;
+	margin-bottom: 14px;
+}
+
+/* Publication list items on detail pages (outside .selected-pubs context) */
+.harvard-refs li {
+	font-size: clamp(14px, 1.6vw, 15px);
+	line-height: 1.75;
+	margin-bottom: 14px;
+}
+
+.harvard-refs li a {
+	color: var(--text-main);
+	text-decoration: none;
+}
+
+.harvard-refs li a:hover {
+	color: var(--accent);
+	text-decoration: underline;
+	text-underline-offset: 3px;
+}

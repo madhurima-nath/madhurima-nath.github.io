@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="madhurima nath, network reliability, graph theory, Bernstein polynomial, Ising model, perturbation theory, computational physics, Moore-Shannon, PSAT">
+    <meta name="author" content="Madhurima Nath">
+    <meta name="description" content="Network Reliability: Theory & Computation — Madhurima Nath">
+    <title>Network Reliability · Madhurima Nath</title>
+    <link rel="icon" type="image/png" href="../tools/favicon-32.png?v=1">
+    <link rel="icon" type="image/svg+xml" href="../tools/favicon.svg?v=3">
+    <link rel="stylesheet" href="../style.css?v=41">
+    <script>MathJax = { tex: { inlineMath: [['\\(','\\)']] } };</script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+</head>
+
+<body>
+    <div class="container">
+
+        <header class="site-header">
+            <div class="site-title">
+                <a href="../index.html" aria-label="Go to homepage"><h1><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.1em"><path d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"/></svg></h1></a>
+            </div>
+
+            <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+
+            <ul class="nav-tabs" id="navMenu">
+                <li><a href="../index.html">Bio</a></li>
+                <li><a href="../projects.html" class="nav-current">Projects</a></li>
+                <li><a href="../teaching.html">Teaching</a></li>
+                <li><a href="../outreach.html">Outreach</a></li>
+            </ul>
+        </header>
+
+        <a href="../projects.html" class="proj-back">Back to Projects</a>
+
+        <h2 style="margin-top: 10px;">Network Reliability: Theory &amp; Computation</h2>
+
+        <p class="proj-text">Doctoral research, Virginia Tech, 2013&ndash;2019, supervised by Prof. Stephen Eubank. The central object is the Moore-Shannon network reliability polynomial &mdash; a framework, originally developed for circuit analysis, for computing the probability that a graph dynamical system satisfies a desired property. These two sections cover the computational foundations and the extension to Ising model partition function estimation. The <a href="https://vtechworks.lib.vt.edu/handle/10919/86841" target="_blank" rel="noopener">full dissertation</a> is available through VTechWorks.</p>
+
+        <!-- Section 1: Computational Frameworks -->
+        <div class="research-theme" id="computational">
+            <h3 style="margin-top: 0;">Computational Frameworks for Network Reliability</h3>
+            <div class="theme-content">
+                <div class="theme-text">
+                    <p class="proj-text">Moore-Shannon network reliability addresses the following question: given a graph dynamical system, what is the probability that it satisfies a desired property? This is equivalent to probabilistic satisfiability (PSAT), which is #P-complete &mdash; meaning no efficient exact algorithm is known for the general case. The reliability polynomial expresses this probability as a function of the per-edge success probability \(p\), but direct evaluation requires summing over an exponentially large collection of subgraphs.</p>
+
+                    <div class="terminal-block">
+                        <span class="terminal-label">the reliability polynomial</span>
+                        <p>For a graph \(G = (V, E)\), the reliability polynomial is the probability that the active edges satisfy a target property (e.g., connectivity), when each edge is active independently with probability \(p\):</p>
+                        \[R(p) \;=\; \sum_{\substack{A \subseteq E \\ A\;\text{satisfies target}}} p^{|A|}(1-p)^{|E \setminus A|}\]
+                        <p>Two Taylor series bypass exhaustive enumeration &mdash; one from the low-\(p\) limit (built from minimal struts, the smallest edge-sets that satisfy the target) and one from the high-\(p\) limit (built from minimal cuts, the smallest edge-sets whose removal makes the target fail):</p>
+                        \[R_{\mathrm{low}}(p) = \sum_{k=m_+}^{D} a_k\, p^k \qquad\qquad R_{\mathrm{high}}(p) = 1 - \sum_{k=m_-}^{D} b_k\,(1-p)^k\]
+                        <p>The two expansions are merged by Bernstein polynomial interpolation. With degree \(n = D_+ + D_-\):</p>
+                        \[R(p) \;\approx\; \sum_{k=0}^{n} c_k \binom{n}{k} p^k(1-p)^{n-k}\]
+                        <p>The coefficients \(c_k \in [0,1]\) are constrained to be non-decreasing, enforcing unitarity and monotonicity. As the expansion depths \(D_+\) and \(D_-\) increase, the approximation converges to the exact polynomial.</p>
+                    </div>
+
+                    <p class="proj-text">When minimal struts and cuts are not known in advance, Monte Carlo sampling identifies them from the graph structure. Two parameters &mdash; \(S\) (number of samples) and \(D\) (expansion depth) &mdash; control approximation quality. The method provides provable upper and lower bounds on the error: these bounds are tight, meaning problems exist that saturate each one, but they can be systematically narrowed by increasing \(S\) and \(D\). The framework applies to directed, weighted, multiplexed, and time-dependent networks, and handles both homogeneous systems (uniform \(p\) across edges) and heterogeneous ones (distinct probability per edge).</p>
+                </div>
+                <div class="theme-figure">
+                    <img src="../related_files/perturbative_bounds.png" alt="Upper and lower perturbative bounds on network reliability for a heterogeneous system, showing the Bernstein interpolant lying within the bounds" style="cursor:zoom-in;">
+                    <figcaption>Perturbative bounds and Bernstein interpolation for a heterogeneous satisfiability problem.</figcaption>
+                    <img src="../related_files/bernstein_estimation.png" alt="Estimated reliability curve using Bernstein polynomial interpolation plotted against the exact reliability polynomial" style="margin-top: 18px; cursor:zoom-in;">
+                    <figcaption>Estimated \(R(p)\) from Bernstein interpolation versus exact reliability.</figcaption>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 2: Ising Model -->
+        <div class="research-theme" id="ising">
+            <h3 style="margin-top: 0;">Ising Model Partition Function Estimation</h3>
+            <div class="theme-content">
+                <div class="theme-text">
+                    <p class="proj-text">The Ising model partition function &mdash; central to understanding phase transitions and critical phenomena in magnetic systems &mdash; is computationally intractable in general, particularly when an external magnetic field is present. Standard Monte Carlo methods converge poorly near critical points, and Wang-Landau approaches estimate only the univariate density of states, which does not extend to field-dependent systems. The key insight is that the Ising partition function is exactly a bivariate Moore-Shannon reliability polynomial, once spin configurations are counted through the joint density of states \(g(k,v)\). This separates structural factors from dynamical ones and opens the Bernstein interpolation machinery to the problem.</p>
+
+                    <div class="terminal-block">
+                        <span class="terminal-label">Ising Hamiltonian and partition function</span>
+                        <p>The Ising model on a graph \(G = (V,E)\) with exchange coupling \(J\) and external field \(B\):</p>
+                        \[\mathcal{H} = -J \sum_{\langle i,j \rangle \in E} \sigma_i \sigma_j \;-\; B \sum_{i \in V} \sigma_i, \qquad \sigma_i \in \{-1,+1\}\]
+                        <p>The partition function factors through \(g(k,v)\) &mdash; the number of spin configurations with exactly \(k\) anti-aligned bonds and total magnetization \(v\):</p>
+                        \[Z(\beta) \;=\; \sum_{\{\sigma\}} e^{-\beta\mathcal{H}} \;=\; e^{\beta J|E|} \sum_{k,v} g(k,v)\, e^{-2\beta Jk}\, e^{\beta Bv}\]
+                        <p>Setting \(x = e^{-2\beta J}\) and \(y = e^{\beta B}\), this is the bivariate reliability polynomial \(R(x,y)\):</p>
+                        \[Z(\beta) \;=\; e^{\beta J|E|} \cdot R(x,y), \qquad R(x,y) = \sum_{k,v} g(k,v)\, x^k y^v\]
+                        <p>Low- and high-temperature expansions of \(Z\) serve as the two Taylor series for the Bernstein interpolation. The joint density \(g(k,v)\) is estimated using a parallel spin-exchange Markov chain Monte Carlo scheme that requires no inter-processor communication.</p>
+                    </div>
+
+                    <p class="proj-text">The Bernstein representation converts the infinite-series expansions into finite-degree polynomials evaluable via de Casteljau's algorithm, reducing time complexity and enabling stable evaluation across the full temperature range &mdash; including near critical points where standard Monte Carlo methods stall. The parallel scheme is suited to cluster computing and applies to large, irregular graphs where no closed-form analytical solution exists. This enables practical study of field-dependent phase transitions in systems too structurally complex for exact methods.</p>
+                </div>
+                <div class="theme-figure">
+                    <img src="../related_files/ising_feasible.png" alt="Feasible region for Bernstein coefficient constraints under unitarity and monotonicity for the Ising partition function" style="cursor:zoom-in;">
+                    <figcaption>Feasible region for Bernstein coefficients under unitarity and monotonicity constraints.</figcaption>
+                    <img src="../related_files/ising_1D_N6B0.png" alt="Exact versus Bernstein-interpolated Ising partition function for a 1D lattice with N=6 sites and zero external field" style="margin-top: 18px; cursor:zoom-in;">
+                    <figcaption>Exact vs. interpolated partition function \(Z\) for a 1D Ising lattice (\(N=6,\; B=0\)).</figcaption>
+                </div>
+            </div>
+        </div>
+
+        <!-- Publications -->
+        <h2>Publications</h2>
+        <ol class="harvard-refs">
+            <li>
+                <a href="https://link.springer.com/chapter/10.1007/978-3-319-16112-9_14" target="_blank" rel="noopener">
+                Nath, M. <em>et al.</em> (2015) A two-parameter method to characterise the network reliability for diffusive processes, in <em>CompleNet 2015</em>, Cham: Springer, pp. 139&ndash;148.
+                </a>
+            </li>
+            <li>
+                <a href="https://journals.aps.org/pre/abstract/10.1103/PhysRevE.94.042125" target="_blank" rel="noopener">
+                Ren, Y., Eubank, S. and Nath, M. (2016) From network reliability to the Ising model: a parallel scheme for estimating the joint density of states, <em>Physical Review E</em>, 94(4), 042125.
+                </a>
+            </li>
+            <li>
+                <a href="https://arxiv.org/abs/1807.06661" target="_blank" rel="noopener">
+                Nath, M. and Eubank, S. (2018) Model selection for sequential designs in discrete finite systems using Bernstein kernels, <em>arXiv:1807.06661</em>.
+                </a>
+            </li>
+            <li>
+                <a href="https://link.springer.com/chapter/10.1007/978-3-030-05411-3_44" target="_blank" rel="noopener">
+                Nath, M., Ren, Y. and Eubank, S. (2019) An approach to structural analysis using Moore-Shannon network reliability, in <em>Complex Networks VII</em>, Cham: Springer, pp. 537&ndash;549.
+                </a>
+            </li>
+            <li>
+                <a href="https://arxiv.org/abs/2206.03550" target="_blank" rel="noopener">
+                Eubank, S., Nath, M., Ren, Y. and Adiga, A. (2022) Perturbative methods for mostly monotonic probabilistic satisfiability problems, <em>arXiv:2206.03550</em>.
+                </a>
+            </li>
+        </ol>
+
+    </div>
+
+    <div class="figure-lightbox" id="imgLightbox"><img src="" alt=""></div>
+
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">&#8593; <span class="top-text">TOP</span></button>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; <span class="js-year"></span> Madhurima Nath. All rights reserved.</p>
+        </div>
+    </footer>
+
+<script>
+document.querySelectorAll(".js-year").forEach(function(el){ el.textContent = new Date().getFullYear(); });
+
+(function(){
+    var lb = document.getElementById('imgLightbox');
+    var lbImg = lb.querySelector('img');
+    document.querySelectorAll('.theme-figure img').forEach(function(img){
+        img.addEventListener('click', function(){
+            lbImg.src = img.src;
+            lbImg.alt = img.alt;
+            lb.classList.add('active');
+        });
+    });
+    lb.addEventListener('click', function(){ lb.classList.remove('active'); });
+    document.addEventListener('keydown', function(e){ if(e.key === 'Escape') lb.classList.remove('active'); });
+})();
+
+(function(){
+    var btn = document.querySelector('.hamburger');
+    var nav = document.getElementById('navMenu');
+    if(!btn || !nav) return;
+    btn.addEventListener('click', function(){
+        var open = nav.classList.toggle('open');
+        btn.classList.toggle('active');
+        btn.setAttribute('aria-expanded', open);
+    });
+    document.addEventListener('click', function(e){
+        if(!btn.contains(e.target) && !nav.contains(e.target)){
+            nav.classList.remove('open');
+            btn.classList.remove('active');
+            btn.setAttribute('aria-expanded', 'false');
+        }
+    });
+})();
+
+(function(){
+    var backToTopBtn = document.getElementById('backToTop');
+    if(!backToTopBtn) return;
+    window.addEventListener('scroll', function(){
+        backToTopBtn.classList.toggle('show', window.pageYOffset > 300);
+    });
+    backToTopBtn.addEventListener('click', function(){
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+})();
+</script>
+</body>
+</html>
