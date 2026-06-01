@@ -96,10 +96,6 @@ body {
 	body.page-home .selected-pubs h2 {
 		margin-top: 0;
 	}
-	body.page-home .selected-pubs .harvard-refs li {
-		margin-bottom: 6px;
-		line-height: 1.5;
-	}
 
 	.connect-label {
 		margin-top: 20px;
