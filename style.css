@@ -50,7 +50,7 @@ body {
 		justify-content: center;
 	}
 
-	body.page-home .container {
+	body.page-home > .container {
 		max-width: 1200px;
 		margin-top: auto;
 		margin-bottom: auto;
@@ -87,6 +87,22 @@ body {
 
 	body.page-home .docs-line {
 		margin-bottom: 18px;
+	}
+
+	body.page-home .selected-pubs {
+		margin-top: 35px;
+		margin-bottom: 22px;
+	}
+	body.page-home .selected-pubs h2 {
+		margin-top: 0;
+	}
+	body.page-home .selected-pubs .harvard-refs li {
+		margin-bottom: 6px;
+		line-height: 1.5;
+	}
+
+	.connect-label {
+		margin-top: 20px;
 	}
 }
 
@@ -328,7 +344,12 @@ body.page-home .site-title h1::before {
 }
 
 body.page-home .content-wrapper {
-	align-items: center;
+	align-items: flex-start;
+}
+
+.bio-column {
+	flex: 1;
+	min-width: 0;
 }
 
 /* sidebar with image - aligned with header */
@@ -463,8 +484,10 @@ hr {
 
 .connect-links {
 	display: flex;
-	flex-direction: column;
-	gap: 10px;
+	flex-direction: row;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 20px;
 	margin: 0;
 	padding: 0;
 }
@@ -1136,6 +1159,11 @@ tr:nth-child(even) {
 	.teaching-intro {
 		text-align: left;
 		font-size: 15px;
+	}
+
+	.connect-links {
+		flex-direction: column;
+		gap: 10px;
 	}
 
 	.connect-links > a span {
@@ -2209,6 +2237,86 @@ tr:nth-child(even) {
 .harvard-refs, .presentation-list {
 	padding-left: 32px;
 	margin: 20px 0;
+}
+
+/* Selected Publications on Bio page */
+.selected-pubs {
+	margin-top: 16px;
+	margin-bottom: 16px;
+}
+.pub-cv-link {
+	margin-top: 22px;
+	font-family: var(--font-sans);
+	font-size: clamp(14px, 1.6vw, 15px);
+	font-weight: 600;
+}
+.pub-cv-link a {
+	color: var(--accent);
+	text-decoration: none;
+}
+.pub-cv-link a:hover {
+	text-decoration: underline;
+	text-underline-offset: 3px;
+}
+.selected-pubs-label {
+	font-family: var(--font-sans);
+	font-size: 14px;
+	font-weight: 700;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	color: var(--accent);
+	margin-bottom: 8px;
+}
+.connect-location {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	font-family: var(--font-sans);
+	font-size: 14px;
+	color: var(--text-meta);
+	flex: 0 0 100%;
+}
+.connect-location svg {
+	flex-shrink: 0;
+	display: block;
+	opacity: 0.6;
+}
+.connect-label {
+	font-family: var(--font-sans);
+	font-size: 14px;
+	font-weight: 700;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	color: var(--accent);
+	margin-top: 28px;
+	margin-bottom: 10px;
+}
+.selected-pubs .harvard-refs li a:visited {
+	color: var(--text-main);
+	text-decoration: none;
+}
+.selected-pubs .harvard-refs {
+	padding-left: 0;
+	margin: 6px 0;
+	list-style-position: inside;
+}
+.selected-pubs .harvard-refs li {
+	font-family: var(--font-sans);
+	font-size: clamp(14px, 1.6vw, 15px);
+	color: var(--text-main);
+	line-height: 1.55;
+	margin-bottom: 10px;
+	padding-left: 1.8em;
+	text-indent: -1.8em;
+}
+.selected-pubs .harvard-refs li a {
+	color: var(--text-main);
+	text-decoration: none;
+}
+.selected-pubs .harvard-refs li a:hover {
+	color: var(--accent);
+	text-decoration: underline;
+	text-underline-offset: 3px;
 }
 
 .presentation-list li {
