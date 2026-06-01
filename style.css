@@ -2297,8 +2297,8 @@ tr:nth-child(even) {
 	font-family: var(--font-serif);
 	font-size: clamp(14px, 1.6vw, 15px);
 	color: var(--text-main);
-	line-height: 2.0;
-	margin-bottom: 24px;
+	line-height: 1.7;
+	margin-bottom: 16px;
 	padding-left: 1.8em;
 	text-indent: -1.8em;
 }
