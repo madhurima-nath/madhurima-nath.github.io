@@ -2096,11 +2096,13 @@ tr:nth-child(even) {
 	border-bottom: 1px solid var(--border);
 }
 
-.theme-figure figcaption {
-	font-size: 0.7rem;
-	color: #5a6d7e;
+.theme-figure figcaption,
+.proj-section figcaption {
+	font-family: var(--font-mono-body);
+	font-size: 13px;
+	color: var(--text-meta);
 	text-align: center;
-	padding: 4px 0 0;
+	padding: 4px 0 8px;
 	font-style: italic;
 	line-height: 1.4;
 }

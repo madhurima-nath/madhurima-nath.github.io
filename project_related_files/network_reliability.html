@@ -10,7 +10,7 @@
     <title>Network Reliability · Madhurima Nath</title>
     <link rel="icon" type="image/png" href="../tools/favicon-32.png?v=1">
     <link rel="icon" type="image/svg+xml" href="../tools/favicon.svg?v=3">
-    <link rel="stylesheet" href="../style.css?v=42">
+    <link rel="stylesheet" href="../style.css?v=43">
     <script>MathJax = { tex: { inlineMath: [['\\(','\\)']] } };</script>
     <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
 </head>
@@ -44,41 +44,54 @@
         <!-- Section 1: Computational Frameworks -->
         <section class="proj-section" id="computational">
             <h3>Computational Frameworks for Network Reliability</h3>
-            <div class="theme-content">
-                <div class="theme-text">
-                    <p class="proj-text">A graph dynamical system (GDS) \(\mathcal{G}\) consists of a finite graph with a vertex set \(V\) and an edge set \(E\), together with a vertex function and an update scheme. The vertices represent the components of a system and the edges represent interactions between them. \(\mathcal{G}\) may be directed, weighted, multiplexed, time-dependent, or composed of inhomogeneous nodes. The state of each vertex changes at each time step according to the states of its neighbours. Moore-Shannon network reliability \(R(x;\,\mathcal{G},D,P)\) gives the probability that \(\mathcal{G}\) satisfies a property \(P\) under dynamics \(D\), where \(x\) is the per-edge probability of activation and \(E = |E|\) is the number of edges. If \(P_k\) denotes the fraction of size-\(k\) subgraphs satisfying \(P\), then the probability of selecting a particular subgraph of size \(k\) from all \(E\) edges and having it satisfy \(P\) is \(P_k x^k(1-x)^{E-k}\), and summing over all subgraph sizes gives</p>
 
-                    \[R(x;\,\mathcal{G},D,P) \;=\; \sum_{k=0}^{E} P_k \binom{E}{k} x^k(1-x)^{E-k}.\]
+            <p class="proj-text">A graph dynamical system (GDS) \(\mathcal{G}\) consists of a finite graph with vertex set \(V\) and \(E\) edges, together with a vertex function and an update scheme. The vertices represent the components of a system and the edges represent interactions between them. \(\mathcal{G}\) may be directed, weighted, multiplexed, time-dependent, or composed of inhomogeneous nodes. The state of each vertex changes at each time step according to the states of its neighbours. Moore-Shannon network reliability \(R(x;\,\mathcal{G},D,P)\) gives the probability that \(\mathcal{G}\) satisfies a property \(P\) under dynamics \(D\), where \(x\) is the per-edge probability of activation. If \(P_k\) denotes the fraction of size-\(k\) subgraphs satisfying \(P\), then the probability of selecting a particular subgraph of size \(k\) from all \(E\) edges and having it satisfy \(P\) is \(P_k x^k(1-x)^{E-k}\), and summing over all subgraph sizes gives</p>
 
-                    <p class="proj-text">Evaluating this sum exactly is \(\#P\)-hard in general. \(R\) is a monotonically non-decreasing polynomial of degree \(E\) with \(R(0) = 0\) and \(R(1) = 1\). These properties — monotonicity and the boundary conditions — allow it to be written in the Bernstein basis.</p>
+            \[R(x;\,\mathcal{G},D,P) \;=\; \sum_{k=0}^{E} P_k \binom{E}{k} x^k(1-x)^{E-k}.\]
 
-                    <div class="eq-block">
-                        <p>Any degree-\(E\) polynomial can be written in the Bernstein basis with control points \(\{(k/E,\,\beta_k)\}\):</p>
-                        \[R(x) \;=\; \sum_{k=0}^{E} \beta_k\, B(E,k,x), \qquad B(E,k,x) = \binom{E}{k} x^k(1-x)^{E-k}.\]
-                        <p>The Bernstein coefficients \(\beta_k\) are obtained from the Taylor coefficients \(\alpha_l\) of the expansion around \(x=0\) via</p>
-                        \[\beta_k \;=\; \sum_{l=0}^{k} \alpha_l \binom{E-l}{E-k} \Bigg/ \binom{E}{k}.\]
-                        <p>An analogous transformation applies to the expansion around \(x = 1\). The two Taylor series are combined in the Bernstein basis, which is evaluated stably using de Casteljau's algorithm. As more Taylor coefficients become known, the approximation converges to the exact polynomial.</p>
-                    </div>
+            <p class="proj-text">Evaluating this sum exactly is \(\#P\)-hard in general. \(R\) is a monotonically non-decreasing polynomial of degree \(E\) with \(R(0) = 0\) and \(R(1) = 1\). These properties — monotonicity and the boundary conditions — allow it to be written in the Bernstein basis:</p>
 
-                    <p class="proj-text">For a large class of problems, \(R(x;\,\mathcal{G},D,P)\) can be constructed from the probabilities of certain subgraphs called <em>cruxes</em>. A <em>strut</em> is a subgraph \(g\) of \(\mathcal{G}\) for which \(R(g) > 0\); a <em>cut</em> is a subgraph for which \(R(\mathcal{G} \setminus g) = 0\). A minimal strut (resp. cut) is a strut (resp. cut) with no proper sub-strut (resp. sub-cut). Collectively, minimal struts and cuts are called cruxes. The Taylor series around \(x = 0\) is built from minimal struts; the series around \(x = 1\) from minimal cuts. When cruxes are not known analytically, Monte Carlo sampling identifies them. Two parameters control approximation quality: \(S\) (Monte Carlo samples) and \(D\) (expansion depth). The resulting bounds are provably tight and narrow as \(S\) and \(D\) increase.</p>
+            \[R(x) \;=\; \sum_{k=0}^{E} \beta_k\, B(E,k,x), \qquad B(E,k,x) = \binom{E}{k} x^k(1-x)^{E-k}.\]
 
-                    <p class="proj-text">The figures alongside show a small example graph where \(R(x)\) is known exactly. The dashed red curve is the Bernstein interpolation using Taylor coefficients from both ends — (a) using the first three coefficients from each end and (b) using the first four. In both cases the Bernstein estimate is closer to the exact polynomial than either Taylor series alone.</p>
+            <p class="proj-text">The Bernstein coefficients \(\beta_k\) are obtained from the Taylor coefficients \(\alpha_l\) of the expansion around \(x=0\) via</p>
 
-                    <p class="proj-text">On the Zachary Karate Club network — a social network with 34 vertices and 78 edges — adding a single Bernstein coefficient at \(k = (k_{\min} + k_{\max})/2 = k_{\min} + 9\) to the boundary-only estimate already improves it substantially. Measuring 7 additional \(\beta_k\) values — rather than all 17 unknown ones — gives a good estimate of \(R(x)\), as long as the right 7 values are chosen.</p>
+            \[\beta_k \;=\; \sum_{l=0}^{k} \alpha_l \binom{E-l}{E-k} \Bigg/ \binom{E}{k}.\]
 
-                    <p class="proj-text">Moore-Shannon network reliability is a global statistic which depends on both the dynamics and the structure of a GDS, and is a degree \(N\) polynomial where \(N\) is the system size. The Bernstein basis is a natural basis for the reliability polynomials and is more useful and superior to Taylor expansions for estimating such high-degree polynomials. The Bernstein coefficients \(\beta_k\) can either be evaluated by a simple transformation from the Taylor coefficients or estimated using Monte Carlo simulations. The Bernstein polynomials are not only excellent estimators but also provide tight, provable bounds, and the coefficients are related to the dynamics of the network.</p>
-                </div>
-                <div class="theme-figure">
-                    <img src="../related_files/toy_network.png" alt="Toy network with 6 vertices and 7 edges used to illustrate network reliability" style="cursor:zoom-in;">
-                    <figcaption>Toy network with \(V = 6\) and \(E = 7\).</figcaption>
-                    <img src="../related_files/bernstein_a.png" alt="Estimated R(x) using first three Taylor coefficients from both x=0 and x=1 ends, showing Bernstein interpolation (dashed red) against exact polynomial (black) and Taylor bounds" style="margin-top: 18px; cursor:zoom-in;">
-                    <figcaption>(a) Three Taylor coefficients from each end.</figcaption>
-                    <img src="../related_files/bernstein_b.png" alt="Estimated R(x) using first four Taylor coefficients from both x=0 and x=1 ends, showing closer Bernstein interpolation (dashed red) to the exact polynomial (black)" style="margin-top: 18px; cursor:zoom-in;">
-                    <figcaption>(b) Four Taylor coefficients from each end.</figcaption>
-                    <img src="../related_files/bernstein_karate.png" alt="Plots of beta_k and R(x) as a function of x for the Karate Club network, showing the exact R(x) (black), estimated R(x) (red dashed), and the improvement from adding one additional Bernstein coefficient at the midpoint" style="margin-top: 18px; cursor:zoom-in;">
-                    <figcaption>Plots of \(\beta_k\) and \(R(x)\) as a function of \(x\). The black solid line is the exact \(R(x)\). The red curve is estimated \(R(x)\) using just 1 additional \((k,\beta_k)\) at \(k = (k_{\min}+k_{\max})/2 = k_{\min}+9\).</figcaption>
-                </div>
+            <p class="proj-text">An analogous transformation applies around \(x = 1\). The strut/cut duality is built into the Bernstein basis through</p>
+
+            \[B(E,k,x) \;=\; B(E,\,E-k,\,1-x),\]
+
+            <p class="proj-text">which means the coefficients from the \(x = 0\) expansion are exactly the reverse of those from \(x = 1\). The two Taylor series are combined in the Bernstein basis and evaluated stably using de Casteljau's algorithm. As more coefficients become known, the approximation converges to the exact polynomial.</p>
+
+            <p class="proj-text">The reliability polynomial can often be built from the probabilities of two special types of subgraphs. A <em>strut</em> is a subgraph for which the property \(P\) holds; a <em>cut</em> is a subgraph whose removal makes \(P\) impossible. The smallest struts and cuts — those with no redundant edges — are called <em>cruxes</em>. Expanding \(R(x)\) around \(x = 0\) uses struts; expanding around \(x = 1\) uses cuts. When cruxes are not known analytically, Monte Carlo sampling identifies them, and the resulting bounds are provably tight.</p>
+
+            <figure style="margin:20px auto; max-width:480px; text-align:center;">
+                <img src="../related_files/toy_network.png" alt="Toy network with 6 vertices and 7 edges used to illustrate network reliability" style="width:100%; border-radius:6px; cursor:zoom-in;" class="inline-zoomable">
+                <figcaption>Toy network with \(V = 6\) and \(E = 7\).</figcaption>
+            </figure>
+
+            <p class="proj-text">The figures below show \(R(x)\) for the toy network above, where the exact polynomial is known. The dashed red curve is the Bernstein estimate using Taylor coefficients from both ends — (a) three coefficients from each boundary, (b) four. In both cases the Bernstein estimate is closer to the exact polynomial than either Taylor series alone.</p>
+
+            <div style="display:flex; gap:12px; margin:16px 0 4px; align-items:stretch;">
+                <figure style="flex:1; margin:0; display:flex; flex-direction:column;">
+                    <img src="../related_files/bernstein_a.png" alt="Bernstein estimate of R(x) using three Taylor coefficients from each boundary" style="width:100%; border-radius:6px; cursor:zoom-in; flex:1; object-fit:contain;" class="inline-zoomable">
+                    <figcaption>(a) Three coefficients from each boundary.</figcaption>
+                </figure>
+                <figure style="flex:1; margin:0; display:flex; flex-direction:column;">
+                    <img src="../related_files/bernstein_b.png" alt="Bernstein estimate of R(x) using four Taylor coefficients from each boundary" style="width:100%; border-radius:6px; cursor:zoom-in; flex:1; object-fit:contain;" class="inline-zoomable">
+                    <figcaption>(b) Four coefficients from each boundary.</figcaption>
+                </figure>
             </div>
+
+            <p class="proj-text">On the Zachary Karate Club network — 34 vertices, 78 edges — adding a single additional \(\beta_k\) at the midpoint already improves the boundary-only estimate substantially. Measuring 7 additional \(\beta_k\) values — rather than all 17 unknown ones — gives a good estimate of \(R(x)\), as long as the right 7 values are chosen.</p>
+
+            <div style="display:flex; gap:12px; margin:16px 0 4px;">
+                <img src="../related_files/bernstein_karate_1.png" alt="Bernstein bounds and R(x) for the Karate Club network" style="flex:1; width:0; min-width:0; border-radius:6px; cursor:zoom-in;" class="inline-zoomable">
+                <img src="../related_files/bernstein_karate_2.png" alt="Bernstein bounds and R(x) for the Karate Club network after adding one additional pair (k, beta_k)" style="flex:1; width:0; min-width:0; border-radius:6px; cursor:zoom-in;" class="inline-zoomable">
+            </div>
+            <figcaption>Both bounds and \(R(x)\) improve with the knowledge of one additional pair \((k,\beta_k)\).</figcaption>
+
+            <p class="proj-text">Moore-Shannon network reliability is a global statistic which depends on both the dynamics and the structure of a GDS, and is a degree-\(E\) polynomial. The Bernstein basis is a natural basis for the reliability polynomials and is more useful and superior to Taylor expansions for estimating such high-degree polynomials. The Bernstein coefficients \(\beta_k\) can either be evaluated by a simple transformation from the Taylor coefficients or estimated using Monte Carlo simulations. The Bernstein polynomials are not only excellent estimators but also provide tight, provable bounds, and the coefficients are related to the dynamics of the network.</p>
         </section>
 
         <!-- Section 2: Ising Model -->
@@ -98,7 +111,7 @@
 
                     \[\lambda_{1,2} = e^{\beta J}\cosh(\beta\mu B) \pm \bigl\{e^{-2\beta J} + e^{2\beta J}\sinh^2(\beta\mu B)\bigr\}^{1/2}.\]
 
-                    <p class="proj-text">Standard Monte Carlo methods converge poorly near critical points, and existing approaches to the density of states do not extend naturally to systems with an external field. The connection to network reliability comes from reparametrising the Hamiltonian in terms of two integer-valued quantities: \(s\), the number of spin-up sites, and \(f\), the number of frustrated edges (edges between sites with opposite spins). Then \(H_N = Jf - J(N-f) - \mu Bs + \mu B(N-s)\) and the partition function becomes</p>
+                    <p class="proj-text">Existing series expansion and density-of-states methods do not extend naturally to systems with an external field — in the presence of a field, the series requires two expansion parameters instead of one. The connection to network reliability comes from reparametrising the Hamiltonian in terms of two integer-valued quantities: \(s\), the number of spin-up sites, and \(f\), the number of frustrated edges (edges between sites with opposite spins). Then \(H_N = Jf - J(N-f) - \mu Bs + \mu B(N-s)\) and the partition function becomes</p>
 
                     \[Z_N^{\mathrm{rel}} = \sum_{s,f} n_N(s,f)\exp\bigl[-\beta\{Jf - J(N-f) - \mu Bs + \mu B(N-s)\}\bigr],\]
 
@@ -108,7 +121,7 @@
 
                     \[Z_N^{\mathrm{rel}} = x^{-\eta}\sum_{k=0}^{M}\beta_k\,B(M,k,x),\]
 
-                    <p class="proj-text">where \(x\to 0\) as \(T\to 0\) (low temperature) and \(x\to 1\) as \(T\to\infty\) (high temperature). The Bernstein framework then interpolates between the low- and high-temperature series expansions of \(Z_N\).</p>
+                    <p class="proj-text">where \(x\to 0\) as \(T\to 0\) (low temperature) and \(x\to 1\) as \(T\to\infty\) (high temperature). The Bernstein framework then interpolates between the low- and high-temperature series expansions of \(Z_N\). The same approach extends beyond 1D: for a 4×4 square lattice (\(N=16\)), the Bernstein estimate closely matches the exact partition function using only a small number of Taylor coefficients from each end.</p>
                 </div>
                 <div class="theme-figure">
                     <img src="../related_files/ising_feasible.png" alt="Two grid diagrams showing Ising-feasible and not Ising-feasible spin configurations, with spin-up sites as filled circles and frustrated edges in red" style="cursor:zoom-in;">
@@ -159,7 +172,7 @@ document.querySelectorAll(".js-year").forEach(function(el){ el.textContent = new
 (function(){
     var lb = document.getElementById('imgLightbox');
     var lbImg = lb.querySelector('img');
-    document.querySelectorAll('.theme-figure img').forEach(function(img){
+    document.querySelectorAll('.theme-figure img, .inline-zoomable, .proj-section figure img').forEach(function(img){
         img.addEventListener('click', function(){
             lbImg.src = img.src;
             lbImg.alt = img.alt;
