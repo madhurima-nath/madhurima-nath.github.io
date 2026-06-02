@@ -2619,6 +2619,47 @@ tr:nth-child(even) {
 	margin-bottom: 14px;
 }
 
+/* Section without card background */
+.proj-section {
+	margin: 36px 0 44px;
+	padding-top: 18px;
+	border-top: 1px solid var(--border);
+}
+
+.proj-section h3 {
+	margin-top: 0;
+}
+
+/* Light equation block (replaces dark terminal-block for detail pages) */
+.eq-block {
+	background: #f5f1e8;
+	border-left: 3px solid var(--accent);
+	border-radius: 0 4px 4px 0;
+	padding: 16px 22px 18px;
+	margin: 20px 0;
+	overflow-x: auto;
+}
+
+.eq-block .eq-label {
+	display: block;
+	font-family: var(--font-mono);
+	font-size: 10.5px;
+	color: var(--text-meta);
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	margin-bottom: 10px;
+	padding-bottom: 8px;
+	border-bottom: 1px solid var(--border);
+}
+
+.eq-block p {
+	font-family: var(--font-mono-body);
+	font-size: clamp(14px, 1.6vw, 15px);
+	color: var(--text-main);
+	line-height: 1.75;
+	margin: 8px 0 0;
+}
+
 /* Publication list items on detail pages (outside .selected-pubs context) */
 .harvard-refs li {
 	font-size: clamp(14px, 1.6vw, 15px);

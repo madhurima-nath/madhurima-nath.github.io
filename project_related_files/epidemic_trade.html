@@ -10,7 +10,7 @@
     <title>Epidemic &amp; Trade Networks · Madhurima Nath</title>
     <link rel="icon" type="image/png" href="../tools/favicon-32.png?v=1">
     <link rel="icon" type="image/svg+xml" href="../tools/favicon.svg?v=3">
-    <link rel="stylesheet" href="../style.css?v=41">
+    <link rel="stylesheet" href="../style.css?v=42">
     <script>MathJax = { tex: { inlineMath: [['\\(','\\)']] } };</script>
     <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
 </head>
@@ -39,56 +39,54 @@
 
         <h2 style="margin-top: 10px;">Epidemic &amp; Trade Network Applications</h2>
 
-        <p class="proj-text">Doctoral research, Virginia Tech, 2013&ndash;2019, supervised by Prof. Stephen Eubank. Moore-Shannon network reliability is applied here to two classes of networked systems: human contact networks, where it measures epidemic potential and reveals structural limitations of graph models; and international food trade networks, where it identifies contagion clusters and vulnerability to crop-specific disruptions. The <a href="https://vtechworks.lib.vt.edu/handle/10919/86841" target="_blank" rel="noopener">full dissertation</a> is available through VTechWorks.</p>
+        <p class="proj-text">Doctoral research, Virginia Tech, 2013&ndash;2018, supervised by Prof. Stephen Eubank. Moore-Shannon network reliability is applied here to two classes of networked systems: human contact networks, where it measures epidemic potential and reveals structural limitations of graph models; and international food trade networks, where it identifies contagion clusters and vulnerability to crop-specific disruptions. The <a href="https://vtechworks.lib.vt.edu/handle/10919/86841" target="_blank" rel="noopener">full dissertation</a> is available online.</p>
 
         <!-- Section 1: Epidemic Modelling -->
-        <div class="research-theme" id="epidemiology">
-            <h3 style="margin-top: 0;">SIR Dynamics on Contact Networks</h3>
+        <section class="proj-section" id="epidemiology">
+            <h3>SIR Dynamics on Contact Networks</h3>
             <div class="theme-content">
                 <div class="theme-text">
-                    <p class="proj-text">Contact networks shape how diseases spread through populations. Network models and simulations allow researchers to explore disease dynamics under different assumptions without requiring complete real-world data. This work compares SIR epidemic outcomes on observed contact networks from the Add Health dataset with outcomes on exponential random graph models (ERGMs) constructed to match the same summary statistics, using Moore-Shannon network reliability to measure epidemic potential across the full range of transmission probability.</p>
+                    <p class="proj-text">Contact networks shape how diseases spread through populations. The transmission of an infectious disease through a contact network can be modelled as a diffusive process on a graph, where each edge carries a probability of transmitting infection. This work compares SIR epidemic outcomes on observed contact networks from the Add Health dataset with outcomes on exponential random graph models (ERGMs) constructed to match the same summary statistics, using Moore-Shannon network reliability to measure epidemic potential.</p>
 
-                    <div class="terminal-block">
-                        <span class="terminal-label">SIR model</span>
-                        <p>The SIR model divides a population of \(N\) into susceptible \(S\), infected \(I\), and recovered \(R\) compartments, with transmission rate \(\beta\) and recovery rate \(\gamma\):</p>
-                        \[\frac{dS}{dt} = -\frac{\beta}{N}\,SI, \qquad \frac{dI}{dt} = \frac{\beta}{N}\,SI - \gamma I, \qquad \frac{dR}{dt} = \gamma I\]
-                        <p>An outbreak grows when the basic reproduction number \(\mathcal{R}_0 = \beta/\gamma > 1\). On a contact network, however, epidemic dynamics depend on structure as well as parameters &mdash; a dependence that aggregate statistics such as degree distribution and clustering coefficients fail to fully capture. Network reliability summarises this directly, giving the probability \(R_\alpha(p)\) that at least \(\alpha N\) individuals are infected when each contact transmits with probability \(p = \beta/(\beta + \gamma)\).</p>
+                    <div class="eq-block">
+                        <span class="eq-label">SIR dynamics and network reliability</span>
+                        <p>Under SIR dynamics, each node is susceptible \((S)\), infectious \((I)\), or removed \((R)\). A node in state \(I\) transmits infection to each susceptible neighbour independently with probability \(x\). For "N-Terminal" reliability, \(R(x;\,\mathcal{G},D_\text{SIR},P_N)\) gives the probability that infecting a single randomly chosen node leads to an outbreak involving at least \(N\) people. This is a finite-degree polynomial in \(x\) that captures both the network structure and the transmission dynamics in a single quantity.</p>
                     </div>
 
-                    <p class="proj-text">Networks generated from ERGMs overestimated infection numbers by up to 50% compared to observed networks, despite matching degree distribution and clustering coefficients. Reliability analysis revealed that temporal patterns also differed systematically: peak infection timing, outbreak magnitude, and duration all varied between real and modelled networks. Across multiple Monte Carlo runs, these differences persisted. Standard network statistics fail to capture structural features critical to epidemic dynamics, and observed contact network data remains essential when evaluating control strategies.</p>
+                    <p class="proj-text">Networks generated from ERGMs overestimated infection numbers by up to 50% compared to observed networks, despite matching degree distribution and clustering coefficients. Network reliability analysis revealed that temporal patterns also differed systematically &mdash; peak infection timing, outbreak magnitude, and duration all varied between real and modelled networks. Across multiple Monte Carlo runs, these differences persisted consistently. Standard network statistics fail to capture structural features critical to epidemic dynamics, and observed contact network data remains essential when evaluating control strategies.</p>
                 </div>
                 <div class="theme-figure">
-                    <img src="../related_files/epidemic_epicurves.png" alt="Mean epidemic curves showing infection counts over time for SIR dynamics on observed contact networks versus ERGM models, with ERGMs systematically overestimating peak infection" style="cursor:zoom-in;">
-                    <img src="../related_files/epidemic_calibration.png" alt="Network reliability curves R(x) for observed contact networks and ERGM models, showing structural differences not captured by standard statistics" style="margin-top: 18px; cursor:zoom-in;">
-                    <figcaption>Epidemic curves and reliability \(R(x)\) for observed vs. modelled networks.</figcaption>
+                    <img src="../related_files/epidemic_epicurves.png" alt="Mean epidemic curves showing infection counts over time for SIR dynamics on observed contact networks versus ERGM models, with ERGMs overestimating peak infection" style="cursor:zoom-in;">
+                    <img src="../related_files/epidemic_calibration.png" alt="Network reliability curves R(x) for observed contact networks and ERGM models at matched network statistics, showing structural differences not captured by degree distribution or clustering" style="margin-top: 18px; cursor:zoom-in;">
+                    <figcaption>Mean epicurves and reliability \(R(x;\alpha)\) for observed vs. modelled networks.</figcaption>
                 </div>
             </div>
-        </div>
+        </section>
 
         <!-- Section 2: Food Trade -->
-        <div class="research-theme" id="trade">
-            <h3 style="margin-top: 0;">Food Trade Networks &amp; Pestilence Distribution</h3>
+        <section class="proj-section" id="trade">
+            <h3>Food Trade Networks &amp; Pestilence Distribution</h3>
             <div class="theme-content">
                 <div class="theme-text">
                     <p class="proj-text">Global food systems are increasingly interconnected through long-distance trade, creating vulnerability to disruptions from climate events, pests, and contamination. This research applies Moore-Shannon network reliability community detection to international food trade networks to identify clusters of countries whose trade patterns create mutual dependencies in how disruptions propagate.</p>
-                    <p class="proj-text">Analysis of UN Comtrade data for Solanaceae crops (potato, tomato) shows that contagion clusters form primarily between geographically adjacent countries with strong bilateral trade relationships. Domestic US food freight networks &mdash; cereal and mixed agricultural flows &mdash; reveal even more pronounced geographic clustering, with communities concentrated in specific regions. The hierarchical structure of communities shifts with the reliability threshold: larger clusters break into progressively smaller, more cohesive subgroups as the threshold increases. Forecasting the propagation of contagion conditions across identified clusters achieved approximately 96% precision.</p>
-                    <p class="proj-text">As global trade intensifies, clusters grow larger and fewer countries remain outside network effects. Identifying vulnerable clusters enables targeted surveillance, highlights critical trade routes requiring monitoring, and indicates where supply chain diversification or biosecurity measures would be most effective in reducing systemic vulnerability.</p>
+                    <p class="proj-text">The spread of the South American tomato leafminer (<em>Tuta absoluta</em>) through the Solanaceae trade &mdash; tomato, potato, eggplant, and pepper &mdash; is modelled as an independent cascade process on networks constructed from FAO trade matrix data. Contagion clusters are well-connected maximal subsets of nodes such that if infection enters a cluster, it spreads rapidly within it. Analysis of the resulting clusters shows they form primarily between geographically adjacent countries with strong bilateral trade relationships. The hierarchical structure of communities shifts with the reliability threshold: larger clusters break into progressively smaller, more cohesive subgroups. Forecasting the propagation of contagion conditions across identified clusters achieved approximately 96% precision.</p>
+                    <p class="proj-text">As global trade intensifies over time, clusters grow larger and fewer countries remain outside network effects. Identifying vulnerable clusters enables targeted surveillance, highlights critical trade routes requiring monitoring, and indicates where supply chain diversification or biosecurity measures would be most effective in reducing systemic vulnerability.</p>
                 </div>
                 <div class="theme-figure">
                     <img src="../related_files/food_trade_map.png" alt="World map showing geographic contagion clusters in the international tomato trade network, with colours indicating cluster membership" style="cursor:zoom-in;">
                     <figcaption>Geographic contagion clusters in the international tomato trade network.</figcaption>
-                    <img src="../related_files/food_trade_temporal.png" alt="Temporal evolution of tomato trade contagion clusters across three years: 2005, 2007, and 2009, showing cluster growth over time" style="margin-top: 18px; cursor:zoom-in;">
+                    <img src="../related_files/food_trade_temporal.png" alt="Temporal evolution of tomato trade contagion clusters for 2005, 2007, and 2009, showing cluster growth as global trade intensifies" style="margin-top: 18px; cursor:zoom-in;">
                     <figcaption>Temporal evolution of tomato trade clusters: 2005, 2007, and 2009.</figcaption>
                 </div>
             </div>
-        </div>
+        </section>
 
         <!-- Publications -->
         <h2>Publications</h2>
         <ol class="harvard-refs">
             <li>
-                <a href="https://www.sciencedirect.com/science/article/pii/S002251931730560X" target="_blank" rel="noopener">
-                Nath, M., Ren, Y., Khorramzadeh, Y. and Eubank, S. (2018) Determining whether a class of random graphs is consistent with an observed contact network, <em>Journal of Theoretical Biology</em>, 440, pp. 121&ndash;132.
+                <a href="https://link.springer.com/chapter/10.1007/978-3-031-21131-7_21" target="_blank" rel="noopener">
+                Mishra, R., Eubank, S., Nath, M., Amundsen, M. and Adiga, A. (2022) Community detection using Moore-Shannon network reliability: application to food networks, in <em>International Conference on Complex Networks and Their Applications</em>, Cham: Springer, pp. 271&ndash;282.
                 </a>
             </li>
             <li>
@@ -97,8 +95,8 @@
                 </a>
             </li>
             <li>
-                <a href="https://link.springer.com/chapter/10.1007/978-3-031-21131-7_21" target="_blank" rel="noopener">
-                Mishra, R., Eubank, S., Nath, M., Amundsen, M. and Adiga, A. (2022) Community detection using Moore-Shannon network reliability: application to food networks, in <em>International Conference on Complex Networks and Their Applications</em>, Cham: Springer, pp. 271&ndash;282.
+                <a href="https://www.sciencedirect.com/science/article/pii/S002251931730560X" target="_blank" rel="noopener">
+                Nath, M., Ren, Y., Khorramzadeh, Y. and Eubank, S. (2018) Determining whether a class of random graphs is consistent with an observed contact network, <em>Journal of Theoretical Biology</em>, 440, pp. 121&ndash;132.
                 </a>
             </li>
         </ol>
