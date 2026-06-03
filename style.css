@@ -2045,6 +2045,29 @@ tr:nth-child(even) {
 	background: #e2effa;
 }
 
+.proj-talk summary {
+	cursor: pointer;
+	font-family: var(--font-mono-body);
+	font-size: clamp(15px, 1.8vw, 17px);
+	font-weight: normal;
+	color: var(--accent);
+	list-style: none;
+}
+
+.proj-talk summary::-webkit-details-marker {
+	display: none;
+}
+
+.proj-talk summary::before {
+	content: "\25B8  ";
+	font-size: .85em;
+	display: inline-block;
+}
+
+.proj-talk[open] summary::before {
+	content: "\25BE  ";
+}
+
 .dissertation-overview {
 	margin: 20px 0 8px;
 }
@@ -2096,11 +2119,13 @@ tr:nth-child(even) {
 	border-bottom: 1px solid var(--border);
 }
 
-.theme-figure figcaption {
-	font-size: 0.7rem;
-	color: #5a6d7e;
+.theme-figure figcaption,
+.proj-section figcaption {
+	font-family: var(--font-mono-body);
+	font-size: 13px;
+	color: var(--text-meta);
 	text-align: center;
-	padding: 4px 0 0;
+	padding: 4px 0 8px;
 	font-style: italic;
 	line-height: 1.4;
 }
@@ -2606,4 +2631,74 @@ tr:nth-child(even) {
 		grid-template-columns: 1fr;
 		gap: 18px;
 	}
+}
+
+/* ========================================
+   PROJECT DETAIL PAGES
+   ======================================== */
+
+/* Override .research-theme p specificity for detail page body text */
+.research-theme .proj-text {
+	font-size: clamp(15px, 1.8vw, 17px);
+	line-height: 1.75;
+	margin-bottom: 14px;
+}
+
+/* Section without card background */
+.proj-section {
+	margin: 36px 0 44px;
+	padding-top: 18px;
+	border-top: 1px solid var(--border);
+}
+
+.proj-section h3 {
+	margin-top: 0;
+}
+
+/* Light equation block (replaces dark terminal-block for detail pages) */
+.eq-block {
+	background: #f5f1e8;
+	border-left: 3px solid var(--accent);
+	border-radius: 0 4px 4px 0;
+	padding: 16px 22px 18px;
+	margin: 20px 0;
+	overflow-x: auto;
+}
+
+.eq-block .eq-label {
+	display: block;
+	font-family: var(--font-mono);
+	font-size: 10.5px;
+	color: var(--text-meta);
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	margin-bottom: 10px;
+	padding-bottom: 8px;
+	border-bottom: 1px solid var(--border);
+}
+
+.eq-block p {
+	font-family: var(--font-mono-body);
+	font-size: clamp(14px, 1.6vw, 15px);
+	color: var(--text-main);
+	line-height: 1.75;
+	margin: 8px 0 0;
+}
+
+/* Publication list items on detail pages (outside .selected-pubs context) */
+.harvard-refs li {
+	font-size: clamp(14px, 1.6vw, 15px);
+	line-height: 1.75;
+	margin-bottom: 14px;
+}
+
+.harvard-refs li a {
+	color: var(--text-main);
+	text-decoration: none;
+}
+
+.harvard-refs li a:hover {
+	color: var(--accent);
+	text-decoration: underline;
+	text-underline-offset: 3px;
 }

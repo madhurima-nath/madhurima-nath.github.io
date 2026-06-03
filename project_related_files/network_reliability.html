@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="madhurima nath, network reliability, graph theory, Bernstein polynomial, perturbation theory, computational physics, Moore-Shannon, PSAT">
+    <meta name="author" content="Madhurima Nath">
+    <meta name="description" content="Network Reliability: Theory & Computation — Madhurima Nath">
+    <title>Network Reliability · Madhurima Nath</title>
+    <link rel="icon" type="image/png" href="../tools/favicon-32.png?v=1">
+    <link rel="icon" type="image/svg+xml" href="../tools/favicon.svg?v=3">
+    <link rel="stylesheet" href="../style.css?v=44">
+    <script>MathJax = { tex: { inlineMath: [['\\(','\\)']] } };</script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+</head>
+
+<body>
+    <div class="container">
+
+        <header class="site-header">
+            <div class="site-title">
+                <a href="../index.html" aria-label="Go to homepage"><h1><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.1em"><path d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"/></svg></h1></a>
+            </div>
+
+            <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+
+            <ul class="nav-tabs" id="navMenu">
+                <li><a href="../index.html">Bio</a></li>
+                <li><a href="../projects.html" class="nav-current">Projects</a></li>
+                <li><a href="../teaching.html">Teaching</a></li>
+                <li><a href="../outreach.html">Outreach</a></li>
+            </ul>
+        </header>
+
+        <a href="../projects.html" class="proj-back">Back to Projects</a>
+
+        <h2 style="margin-top: 10px;">Network Reliability: Theory &amp; Computation</h2>
+
+        <p class="proj-text">Moore-Shannon network reliability asks: what is the probability that a network satisfies a given property when each edge operates independently at random? Computing it exactly is a \(\#P\)-hard problem — provably hard even to approximate for general networks. This work extends the strong- and weak-coupling perturbative methods of statistical physics to network reliability: the two Taylor series, one from each end of the probability range, combine naturally in the Bernstein polynomial basis. <strong>Although exact computation is provably hard, perturbative methods can estimate reliability — and its derivatives — with sufficiently good precision for all practical purposes.</strong></p>
+
+        <p class="proj-text">The method yields new results in epidemic modelling on contact networks, contagion analysis in international food trade, and Ising model partition functions — domains where standard series methods fail or are inapplicable. This page covers the mathematical foundations. <a href="https://vtechworks.lib.vt.edu/handle/10919/86841" target="_blank" rel="noopener">Download full dissertation.</a></p>
+
+        <details class="proj-talk" style="margin: 8px 0 24px;">
+            <summary>Invited talk &mdash; NASA PCE3 Workshop, University of Wisconsin&ndash;Madison, USA &middot; Oct 2022</summary>
+            <div class="proj-text" style="margin-top:8px; padding-left:1.2em; border-left:2px solid var(--accent);">
+                <em>Network Reliability: A Generic Tool to Explore Diffusive Processes on Interacting Systems</em><br>
+                NASA Prebiotic Chemistry and Early Earth Environments (PCE3) Virtual Workshop, University of Wisconsin&ndash;Madison, USA, 20 Oct 2022.<br>
+                <a href="https://www.youtube.com/watch?v=WOJ9B7eVxRU&amp;t=6150s" target="_blank" rel="noopener">Watch on YouTube (from 1:42:30)</a> &middot; Slides coming soon.
+            </div>
+        </details>
+
+        <!-- Section 1: Computational Frameworks -->
+        <section class="proj-section" id="computational">
+            <h3>Computational Frameworks for Network Reliability</h3>
+
+            <p class="proj-text">Consider a graph \(\mathcal{G}\) with vertex set \(V\) and \(E\) edges, where vertices represent the components of a system and edges represent interactions. \(\mathcal{G}\) may be directed, weighted, multiplexed, time-dependent, or composed of inhomogeneous nodes. Moore-Shannon network reliability \(R(x;\,\mathcal{G},D,P)\) gives the probability that \(\mathcal{G}\) satisfies a property \(P\) under dynamics \(D\), where \(x\) is the probability that each edge operates. If \(P_k\) denotes the fraction of size-\(k\) subgraphs satisfying \(P\), then the probability of selecting a particular subgraph of size \(k\) from all \(E\) edges and having it satisfy \(P\) is \(P_k x^k(1-x)^{E-k}\), and summing over all subgraph sizes gives</p>
+
+            \[R(x;\,\mathcal{G},D,P) \;=\; \sum_{k=0}^{E} P_k \binom{E}{k} x^k(1-x)^{E-k}.\]
+
+            <p class="proj-text">Evaluating this sum exactly is \(\#P\)-hard in general. \(R\) is a monotonically non-decreasing polynomial of degree \(E\) with \(R(0) = 0\) and \(R(1) = 1\). These properties — monotonicity and the boundary conditions — allow it to be written in the Bernstein basis:</p>
+
+            \[R(x) \;=\; \sum_{k=0}^{E} \beta_k\, B(E,k,x), \qquad B(E,k,x) = \binom{E}{k} x^k(1-x)^{E-k}.\]
+
+            <p class="proj-text">The Bernstein coefficients \(\beta_k\) are obtained from the Taylor coefficients \(\alpha_l\) of the expansion around \(x=0\) via</p>
+
+            \[\beta_k \;=\; \sum_{l=0}^{k} \alpha_l \binom{E-l}{E-k} \Bigg/ \binom{E}{k}.\]
+
+            <p class="proj-text">The strut/cut duality is built into the Bernstein basis through</p>
+
+            \[B(E,k,x) \;=\; B(E,\,E-k,\,1-x),\]
+
+            <p class="proj-text">which means the coefficients from the \(x = 0\) expansion are exactly the reverse of those from \(x = 1\), and the two Taylor series can be combined and evaluated stably using de Casteljau's algorithm. Neither expansion alone covers the full probability range: each Taylor series has a radius of convergence that may not extend to the other boundary, leaving the transition region poorly estimated from either end. Combining both in the Bernstein basis resolves this, providing reliable estimates throughout. As more boundary coefficients become known, the bounds tighten toward the exact polynomial.</p>
+
+            <p class="proj-text">The reliability polynomial can often be built from the probabilities of two special types of subgraphs. A <em>strut</em> is a subgraph for which the property \(P\) holds; a <em>cut</em> is a subgraph whose removal makes \(P\) impossible. The smallest struts and cuts — those with no redundant edges — are called <em>cruxes</em>. Expanding \(R(x)\) around \(x = 0\) uses struts; expanding around \(x = 1\) uses cuts. When cruxes are not known analytically, Monte Carlo sampling identifies them, and the resulting bounds are provably tight.</p>
+
+            <p class="proj-text">For the toy network below, the property \(P\) is the existence of a path from \(S\) to \(T\). The property can be expressed as a Boolean satisfiability (SAT) problem: the network is reliable if there exists at least one active path from \(S\) to \(T\). The three minimal struts — the minimum edge subsets that each form an \(S\)–\(T\) path — give \(\mathcal{E} = (e_1 \wedge e_2 \wedge e_3) \vee (e_1 \wedge e_4 \wedge e_5) \vee (e_6 \wedge e_7)\), where \(\wedge\) requires all edges in a path to operate and \(\vee\) requires at least one such path to exist. For this degree-7 polynomial, the Taylor coefficients from \(x=0\) are \(\alpha = (0,\, 0,\, 1,\, 2,\, 0,\, {-3},\, 0,\, 1)\) and from \(x=1\) are \(\tilde{\alpha} = (1,\, 0,\, {-2},\, {-7},\, 20,\, {-18},\, 7,\, {-1})\). Combining both via the Bernstein transformation gives</p>
+
+            \[\beta \;=\; \Bigl(0,\;\; 0,\;\; \tfrac{1}{21},\;\; \tfrac{1}{5},\;\; \tfrac{18}{35},\;\; \tfrac{19}{21},\;\; 1,\;\; 1\Bigr),\]
+
+            <p class="proj-text">with \(\beta_0 = 0\) and \(\beta_7 = 1\) enforcing the boundary conditions \(R(0)=0\) and \(R(1)=1\) exactly. Each truncated Taylor series (purple) is accurate near its own boundary but diverges where the other is needed. The Bézier/Bernstein interpolation (green) combines both expansions and tracks the exact polynomial (dashed) throughout the transition region.</p>
+
+            <figure style="margin:20px auto; text-align:center;">
+                <img src="../related_files/toy_network_plot.jpeg" alt="Toy network with 6 vertices and 7 edges showing min-cut/max-flow duality (left), strut-cut path decomposition (middle), and comparison of truncated Taylor series, Bernstein interpolation, and exact R(x) (right)" style="width:100%; border-radius:6px; cursor:zoom-in;" class="inline-zoomable">
+                <figcaption>Toy network (\(V=6\), \(E=7\)) with min-cut (teal) and min-strut (red) highlighted (left); strut-cut decomposition from S to T (middle); truncated Taylor series (purple), Bézier/Bernstein interpolation (green), and exact \(R(x)\) (dashed) using third-order expansions at each boundary (right).</figcaption>
+            </figure>
+
+            <p class="proj-text">On the Zachary Karate Club network — 34 vertices, 78 edges — adding a single additional \(\beta_k\) at the midpoint already improves the boundary-only estimate substantially. Measuring 7 additional \(\beta_k\) values — rather than all 17 unknown ones — gives a good estimate of \(R(x)\), as long as the right 7 values are measured.</p>
+
+            <figure style="margin:16px 0 4px;">
+                <div style="display:flex; gap:12px;">
+                    <img src="../related_files/bernstein_karate_1.png" alt="Bernstein bounds and R(x) for the Zachary Karate Club network using boundary coefficients only" style="flex:1; width:0; min-width:0; border-radius:6px; cursor:zoom-in;" class="inline-zoomable">
+                    <img src="../related_files/bernstein_karate_2.png" alt="Bernstein bounds and R(x) for the Zachary Karate Club network after adding one additional interior coefficient" style="flex:1; width:0; min-width:0; border-radius:6px; cursor:zoom-in;" class="inline-zoomable">
+                </div>
+                <figcaption>Zachary Karate Club network (\(V=34\), \(E=78\)): boundary coefficients only (left); both bounds and \(R(x)\) improve with one additional interior pair \((k,\beta_k)\) (right).</figcaption>
+            </figure>
+
+        </section>
+
+        <!-- Applications -->
+        <h2>Applications</h2>
+        <ul class="proj-text" style="padding-left:1.4em; margin-top:0; margin-bottom:0;">
+            <li style="margin-bottom:12px;"><strong>Epidemic modelling on contact networks.</strong> Applied to observed contact networks from the Add Health dataset, reliability analysis showed that standard network models (ERGMs) overestimate infection by up to 50% when matched on degree distribution and clustering — revealing structural features critical to epidemic dynamics that summary statistics fail to capture.</li>
+            <li style="margin-bottom:12px;"><strong>Contagion in international food trade.</strong> Applied to the spread of <em>Tuta absoluta</em> through global Solanaceae trade networks, reliability-based community detection identified contagion clusters with approximately 96% forecasting precision.</li>
+            <li><strong>Ising model partition functions.</strong> The partition function of the Ising model is equivalent to a reliability polynomial. Reformulating the problem through the network reliability framework reduced the time complexity for estimating energy states from \(O(n^2)\) to \(O(n)\).</li>
+        </ul>
+        <p class="proj-text" style="margin-top:12px;">The epidemic and food trade applications are covered in full on the <a href="epidemic_trade.html">Epidemic &amp; Trade Networks</a> project page.</p>
+
+        <!-- Publications -->
+        <h2>Related Publications</h2>
+        <ol class="harvard-refs">
+            <li>
+                <a href="https://arxiv.org/abs/2206.03550" target="_blank" rel="noopener">
+                Eubank, S., Nath, M., Ren, Y. and Adiga, A. (2022) Perturbative methods for mostly monotonic probabilistic satisfiability problems, <em>arXiv:2206.03550</em>.
+                </a>
+            </li>
+            <li>
+                <a href="https://link.springer.com/chapter/10.1007/978-3-030-05411-3_44" target="_blank" rel="noopener">
+                Nath, M., Ren, Y. and Eubank, S. (2019) An approach to structural analysis using Moore-Shannon network reliability, in <em>Complex Networks VII</em>, Cham: Springer, <span style="white-space:nowrap">pp. 537&ndash;549.</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://journals.aps.org/pre/abstract/10.1103/PhysRevE.94.042125" target="_blank" rel="noopener">
+                Ren, Y., Eubank, S. and Nath, M. (2016) From network reliability to the Ising model: a parallel scheme for estimating the joint density of states, <em>Physical Review E</em>, <span style="white-space:nowrap">94(4), 042125.</span>
+                </a>
+            </li>
+        </ol>
+
+    </div>
+
+    <div class="figure-lightbox" id="imgLightbox"><img src="" alt=""></div>
+
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">&#8593; <span class="top-text">TOP</span></button>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; <span class="js-year"></span> Madhurima Nath. All rights reserved.</p>
+        </div>
+    </footer>
+
+<script>
+document.querySelectorAll(".js-year").forEach(function(el){ el.textContent = new Date().getFullYear(); });
+
+(function(){
+    var lb = document.getElementById('imgLightbox');
+    var lbImg = lb.querySelector('img');
+    document.querySelectorAll('.inline-zoomable, .proj-section figure img').forEach(function(img){
+        img.addEventListener('click', function(){
+            lbImg.src = img.src;
+            lbImg.alt = img.alt;
+            lb.classList.add('active');
+        });
+    });
+    lb.addEventListener('click', function(){ lb.classList.remove('active'); });
+    document.addEventListener('keydown', function(e){ if(e.key === 'Escape') lb.classList.remove('active'); });
+})();
+
+(function(){
+    var btn = document.querySelector('.hamburger');
+    var nav = document.getElementById('navMenu');
+    if(!btn || !nav) return;
+    btn.addEventListener('click', function(){
+        var open = nav.classList.toggle('open');
+        btn.classList.toggle('active');
+        btn.setAttribute('aria-expanded', open);
+    });
+    document.addEventListener('click', function(e){
+        if(!btn.contains(e.target) && !nav.contains(e.target)){
+            nav.classList.remove('open');
+            btn.classList.remove('active');
+            btn.setAttribute('aria-expanded', 'false');
+        }
+    });
+})();
+
+(function(){
+    var backToTopBtn = document.getElementById('backToTop');
+    if(!backToTopBtn) return;
+    window.addEventListener('scroll', function(){
+        backToTopBtn.classList.toggle('show', window.pageYOffset > 300);
+    });
+    backToTopBtn.addEventListener('click', function(){
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+})();
+</script>
+</body>
+</html>
