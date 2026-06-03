@@ -41,27 +41,27 @@
 
         <figure style="margin:20px auto; text-align:center;">
             <img src="../related_files/nlp_schematic.png" alt="Two-panel NLP pipeline schematic: text classification (Raw Text → Preprocess → Vectorise → Classifier → Category Label) and sentiment and topic modelling (Raw Text → Preprocess → Sentiment Score → Topic Model → Themes and Insights)" style="width:100%; border-radius:6px; mix-blend-mode:multiply;">
-            <figcaption>Left: text classification pipeline used for product taxonomy and legal document review. Right: sentiment and topic modelling pipeline used for safety incident analysis.</figcaption>
+            <figcaption style="font-family:var(--font-mono-body); font-size:13px; color:var(--text-meta); text-align:center; padding:4px 0 8px; font-style:italic; line-height:1.4;">Left: text classification pipeline used for product taxonomy and legal document review. Right: sentiment and topic modelling pipeline used for safety incident analysis.</figcaption>
         </figure>
 
         <!-- Section 1: CPG -->
         <section class="proj-section" id="cpg">
-            <h3>Global Procurement &mdash; Consumer Goods</h3>
+            <h3>Global Procurement</h3>
             <p class="proj-text">One of the world's largest consumer goods companies managed a $34B spend portfolio across multiple ERP systems with no shared taxonomy for products, spend categories, or suppliers. Consolidating the data required weeks of manual work; even modest automation would translate to material savings.</p>
             <p class="proj-text">An end-to-end solution was designed and built on Azure Databricks: metadata-driven ingestion pipelines, a RandomForest text classifier to harmonise product categories across systems, and spend dashboards. MLflow tracked experiments and model versions; a CI/CD framework managed deployment across teams. The solution accelerated the client's data foundation roadmap by approximately one year.</p>
         </section>
 
         <!-- Section 2: Energy -->
         <section class="proj-section" id="energy">
-            <h3>Safety Analysis &mdash; Energy Utility</h3>
-            <p class="proj-text">A large Midwest energy utility needed to extract safety-related themes from incident reports to support policy decisions by its executive safety committee. The volume and variety of reports made manual review impractical.</p>
+            <h3>Safety Analysis</h3>
+            <p class="proj-text">A large US energy utility needed to extract safety-related themes from incident reports to support policy decisions by its executive safety committee. The volume and variety of reports made manual review impractical.</p>
             <p class="proj-text">NLP pipelines were built on Azure Databricks using sentiment analysis and topic modelling to surface recurring themes and patterns across incident data. The output fed into automated weekly reports and refreshed dashboards delivered directly to the safety committee, enabling the team to identify trends, refine policies, and track the effect of interventions on incident frequency and severity.</p>
             <p class="proj-text">Related writing: <a href="https://medium.com/@m.nath/topic-modeling-algorithms-b7f97cec6005" target="_blank" rel="noopener">topic modelling algorithms</a> and <a href="https://medium.com/@m.nath/advantages-of-sparknlp-and-application-to-perform-topic-modeling-94712141e02" target="_blank" rel="noopener">SparkNLP for topic modelling</a> on Medium; <a href="https://github.com/madhurima-nath/topicModeling" target="_blank" rel="noopener">code on GitHub</a>.</p>
         </section>
 
         <!-- Section 3: Legal -->
         <section class="proj-section" id="legal">
-            <h3>Document Review &mdash; Legal Services</h3>
+            <h3>Document Review</h3>
             <p class="proj-text">In e-discovery, legal teams must classify large document collections for relevance to a case — a process that is slow and expensive when done manually at scale.</p>
             <p class="proj-text">A document classification system was built on AWS SageMaker using Word2Vec embeddings and an SVM classifier. Rather than retraining from scratch as new labelled data arrived, an incremental retraining pipeline kept the model current with minimal overhead. The system cut manual review hours and the associated costs.</p>
         </section>
