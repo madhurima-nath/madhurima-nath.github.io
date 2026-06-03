@@ -48,6 +48,8 @@ body {
 @media (min-width: 1000px) {
 	body.page-home {
 		justify-content: center;
+		overflow: hidden;
+		height: 100vh;
 	}
 
 	body.page-home > .container {
