@@ -37,7 +37,7 @@
 
         <h2 style="margin-top: 10px;">Data Engineering on Databricks</h2>
 
-        <p class="proj-text">This project builds an end-to-end financial data pipeline on Databricks using a Medallion Architecture (Bronze → Silver → Gold). It ingests US equity and macroeconomic data — S&amp;P 500 daily prices, Federal Funds Rate, and the VIX volatility index — to analyse how equity markets respond to changes in monetary policy. Development used GitHub Copilot and Databricks Assistant throughout, following an engineer-as-architect approach: pipeline logic is designed by hand, code is synthesised with AI tools.</p>
+        <p class="proj-text">An end-to-end financial data pipeline on Databricks, built in three layers: raw ingestion, cleaning and joining, and analysis-ready aggregates. It takes in US equity and macroeconomic data — S&amp;P 500 daily prices, Federal Funds Rate, and the VIX volatility index — to examine how equity markets respond to changes in monetary policy. GitHub Copilot and Databricks Assistant were used throughout: pipeline architecture and join logic were designed by hand; code was written with AI tools.</p>
 
         <p class="proj-text">The project is built on Databricks Community Edition, with the code structured to be Unity Catalog ready — minimal changes required to run on a premium workspace.</p>
 
@@ -97,7 +97,7 @@ FROM filled;</pre>
                 <li><strong>Databricks Assistant</strong> was used for SQL optimisation and to scaffold the Streamlit dashboard — iterating on chart layout and connection logic against the Unity Catalog schema.</li>
             </ul>
 
-            <p class="proj-text" style="margin-top:14px;">The workflow separates design from implementation: pipeline architecture, join strategy, and data quality rules are specified by hand; code synthesis is delegated to the AI tools. This makes the reasoning behind each step explicit and verifiable.</p>
+            <p class="proj-text" style="margin-top:14px;">The pipeline architecture, join strategy, and data quality rules were specified by hand; code generation was delegated to the AI tools. This keeps the reasoning behind each design decision explicit and easy to verify.</p>
 
         </section>
 
