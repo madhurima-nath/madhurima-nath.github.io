@@ -2045,6 +2045,29 @@ tr:nth-child(even) {
 	background: #e2effa;
 }
 
+.proj-talk summary {
+	cursor: pointer;
+	font-family: var(--font-mono-body);
+	font-size: clamp(15px, 1.8vw, 17px);
+	font-weight: normal;
+	color: var(--accent);
+	list-style: none;
+}
+
+.proj-talk summary::-webkit-details-marker {
+	display: none;
+}
+
+.proj-talk summary::before {
+	content: "\25B8  ";
+	font-size: .85em;
+	display: inline-block;
+}
+
+.proj-talk[open] summary::before {
+	content: "\25BE  ";
+}
+
 .dissertation-overview {
 	margin: 20px 0 8px;
 }
