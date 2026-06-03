@@ -37,13 +37,18 @@
 
         <h2 style="margin-top: 10px;">NLP Pipelines</h2>
 
-        <p class="proj-text">Three NLP engagements applying text classification, sentiment analysis, and topic modelling to domain-specific document collections. Each addressed a different operational problem — product taxonomy harmonisation, safety insight extraction, and legal document review — using model architectures suited to the data volume and task.</p>
+        <p class="proj-text">Three engagements applying text classification, sentiment analysis, and topic modelling to domain-specific text — each tackling a different operational problem: product taxonomy harmonisation, safety theme extraction from incident reports, and legal document classification for e-discovery.</p>
+
+        <figure style="margin:20px auto; text-align:center;">
+            <img src="../related_files/nlp_schematic.png" alt="Two-panel NLP pipeline schematic: text classification (Raw Text → Preprocess → Vectorise → Classifier → Category Label) and sentiment and topic modelling (Raw Text → Preprocess → Sentiment Score → Topic Model → Themes and Insights)" style="width:100%; border-radius:6px; mix-blend-mode:multiply;">
+            <figcaption>Left: text classification pipeline used for product taxonomy and legal document review. Right: sentiment and topic modelling pipeline used for safety incident analysis.</figcaption>
+        </figure>
 
         <!-- Section 1: CPG -->
         <section class="proj-section" id="cpg">
             <h3>Global Procurement &mdash; Consumer Goods</h3>
-            <p class="proj-text">One of the world's largest consumer goods companies managed a $34B spend portfolio spread across multiple ERP systems with no common taxonomy for products, spend categories, or supplier data. Consolidating this data required weeks of manual effort; even small efficiency improvements would translate to millions of dollars in savings.</p>
-            <p class="proj-text">The engagement designed and built an end-to-end solution on Azure Databricks: metadata-driven ingestion and processing pipelines, a text classification model using RandomForest to harmonise product taxonomy across systems, and dashboards for key spend metrics. MLflow-integrated pipelines and a CI/CD framework handled deployment. The solution delivered improved visibility and consistency across global operations, and accelerated the client's data foundation roadmap by approximately one year.</p>
+            <p class="proj-text">One of the world's largest consumer goods companies managed a $34B spend portfolio across multiple ERP systems with no shared taxonomy for products, spend categories, or suppliers. Consolidating the data required weeks of manual work; even modest automation would translate to material savings.</p>
+            <p class="proj-text">An end-to-end solution was designed and built on Azure Databricks: metadata-driven ingestion pipelines, a RandomForest text classifier to harmonise product categories across systems, and spend dashboards. MLflow tracked experiments and model versions; a CI/CD framework managed deployment across teams. The solution accelerated the client's data foundation roadmap by approximately one year.</p>
         </section>
 
         <!-- Section 2: Energy -->
@@ -51,16 +56,19 @@
             <h3>Safety Analysis &mdash; Energy Utility</h3>
             <p class="proj-text">A large Midwest energy utility needed to extract safety-related themes from incident reports to support policy decisions by its executive safety committee. The volume and variety of reports made manual review impractical.</p>
             <p class="proj-text">NLP pipelines were built on Azure Databricks using sentiment analysis and topic modelling to surface recurring themes and patterns across incident data. The output fed into automated weekly reports and refreshed dashboards delivered directly to the safety committee, enabling the team to identify trends, refine policies, and track the effect of interventions on incident frequency and severity.</p>
+            <p class="proj-text">Related writing: <a href="https://medium.com/@m.nath/topic-modeling-algorithms-b7f97cec6005" target="_blank" rel="noopener">topic modelling algorithms</a> and <a href="https://medium.com/@m.nath/advantages-of-sparknlp-and-application-to-perform-topic-modeling-94712141e02" target="_blank" rel="noopener">SparkNLP for topic modelling</a> on Medium; <a href="https://github.com/madhurima-nath/topicModeling" target="_blank" rel="noopener">code on GitHub</a>.</p>
         </section>
 
         <!-- Section 3: Legal -->
         <section class="proj-section" id="legal">
             <h3>Document Review &mdash; Legal Services</h3>
-            <p class="proj-text">A legal services client needed to reduce the volume of manual document review in e-discovery workflows, where large collections of documents must be classified for relevance to a case.</p>
-            <p class="proj-text">A document classification system was built using Word2Vec embeddings and SVM classifiers on AWS SageMaker. An automated retraining pipeline enabled incremental model updates as new labelled data became available, keeping the classifier current without full retraining. The system reduced manual review hours and the associated costs.</p>
+            <p class="proj-text">In e-discovery, legal teams must classify large document collections for relevance to a case — a process that is slow and expensive when done manually at scale.</p>
+            <p class="proj-text">A document classification system was built on AWS SageMaker using Word2Vec embeddings and an SVM classifier. Rather than retraining from scratch as new labelled data arrived, an incremental retraining pipeline kept the model current with minimal overhead. The system cut manual review hours and the associated costs.</p>
         </section>
 
     </div>
+
+    <div class="figure-lightbox" id="imgLightbox"><img src="" alt=""></div>
 
     <button id="backToTop" class="back-to-top" aria-label="Back to top">&#8593; <span class="top-text">TOP</span></button>
 
@@ -72,6 +80,20 @@
 
 <script>
 document.querySelectorAll(".js-year").forEach(function(el){ el.textContent = new Date().getFullYear(); });
+(function(){
+    var lb = document.getElementById('imgLightbox');
+    var lbImg = lb.querySelector('img');
+    document.querySelectorAll('.inline-zoomable, .proj-section figure img, figure img').forEach(function(img){
+        img.style.cursor = 'zoom-in';
+        img.addEventListener('click', function(){
+            lbImg.src = img.src;
+            lbImg.alt = img.alt;
+            lb.classList.add('active');
+        });
+    });
+    lb.addEventListener('click', function(){ lb.classList.remove('active'); });
+    document.addEventListener('keydown', function(e){ if(e.key === 'Escape') lb.classList.remove('active'); });
+})();
 (function(){
     var btn = document.querySelector('.hamburger');
     var nav = document.getElementById('navMenu');
