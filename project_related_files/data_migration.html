@@ -113,20 +113,32 @@ filled = (
             <p class="proj-text">A standalone tool that takes legacy SAS code and outputs PySpark DataFrame API, Databricks SQL, or dbt YAML. Common SAS patterns — <code>PROC SORT</code>, <code>PROC MEANS</code>, <code>PROC SQL</code>, <code>DATA</code> steps with <code>KEEP</code>, <code>DROP</code>, <code>RENAME</code>, <code>WHERE</code>, <code>IF-THEN-ELSE</code>, and date functions — are handled by a deterministic rule engine. Code that falls outside the rule set is passed to Claude AI, which returns a conversion with a review note flagging anything that needs human verification.</p>
 
             <p class="proj-text">The converter is tested with 23 pytest cases covering every supported pattern. It is accessible from the dashboard without any local setup.</p>
+
+            <figure style="margin:24px auto; text-align:center;">
+                <img src="../related_files/dashboard_sas_converter.png" alt="SAS to PySpark Converter page showing a PROC SORT example converted to PySpark DataFrame orderBy" style="width:100%; border-radius:6px; cursor:zoom-in;" class="inline-zoomable">
+                <figcaption>The SAS &rarr; PySpark Converter: a PROC SORT pattern converted to PySpark automatically by the rule engine.</figcaption>
+            </figure>
         </section>
 
         <!-- Section 5: Dashboard -->
         <section class="proj-section" id="dashboard">
             <h3>Dashboard</h3>
 
-            <p class="proj-text">A live Streamlit app at <a href="https://financial-analytics-databricks.streamlit.app" target="_blank" rel="noopener">financial-analytics-databricks.streamlit.app</a>, connected directly to the Gold Delta table on Databricks — no local data files needed. It has two pages:</p>
+            <p class="proj-text">A live Streamlit app at <a href="https://financial-analytics-databricks.streamlit.app" target="_blank" rel="noopener">financial-analytics-databricks.streamlit.app</a>, connected directly to the Gold Delta table on Databricks — no local data files needed.</p>
 
-            <ul class="proj-text" style="padding-left:1.4em; margin-top:0; margin-bottom:0;">
-                <li style="margin-bottom:10px;"><strong>Analytics Dashboard.</strong> Interactive charts showing equity indices, central bank rates, realised volatility, US&ndash;EU equity correlation, S&amp;P 500 drawdown, and current regime classifications across 15 years of daily data. Each chart has a dynamic insight drawn from the selected date range. Date range is filterable.</li>
-                <li><strong>SAS&nbsp;&rarr;&nbsp;PySpark Converter.</strong> Paste legacy SAS code, select PySpark, Databricks SQL, or dbt YAML as the target, and get converted output with notes and warnings. Three worked examples are built in.</li>
-            </ul>
+            <figure style="margin:24px auto; text-align:center;">
+                <img src="../related_files/dashboard_home.png" alt="Dashboard home page showing two sections: The Pipeline and The Migration Tool" style="width:100%; border-radius:6px; cursor:zoom-in;" class="inline-zoomable">
+                <figcaption>Dashboard home page — the two components of the project side by side.</figcaption>
+            </figure>
 
-            <p class="proj-text" style="margin-top:16px;">Taken together, the pipeline and the converter address both sides of a migration from legacy financial analytics to a modern lakehouse: building the new infrastructure, and moving the existing code to it.</p>
+            <p class="proj-text">The Analytics Dashboard page opens with the key patterns surfaced from 15 years of data, followed by current market metrics directly from the Gold table. Interactive charts for equity indices, central bank rates, realised volatility, US&ndash;EU equity correlation, S&amp;P 500 drawdown, and regime classifications let the reader explore any period — date range is filterable.</p>
+
+            <figure style="margin:24px auto; text-align:center;">
+                <img src="../related_files/dashboard_analytics.png" alt="Analytics Dashboard showing key patterns in market data and current market state metrics" style="width:100%; border-radius:6px; cursor:zoom-in;" class="inline-zoomable">
+                <figcaption>Analytics Dashboard: key patterns from the data, followed by current market state and interactive charts.</figcaption>
+            </figure>
+
+            <p class="proj-text">Taken together, the pipeline and the converter address both sides of a migration from legacy financial analytics to a modern lakehouse: building the new infrastructure, and moving the existing code to it.</p>
         </section>
 
     </div>
