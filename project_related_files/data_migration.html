@@ -121,8 +121,8 @@ filled = (
             <p class="proj-text">The converter is tested with 23 pytest cases covering every supported pattern. It is accessible from the dashboard without any local setup.</p>
 
             <figure style="margin:24px auto; text-align:center;">
-                <img src="../related_files/dashboard_sas_converter.png" alt="SAS to PySpark Converter page showing a PROC SORT example converted to PySpark DataFrame orderBy" style="width:100%; border-radius:6px; cursor:zoom-in;" class="inline-zoomable">
-                <figcaption>The SAS &rarr; PySpark Converter: a PROC SORT pattern converted to PySpark automatically by the rule engine.</figcaption>
+                <img src="../related_files/streamlit_converter.png" alt="SAS to PySpark Converter page with a PROC SORT example loaded and pyspark selected as the target format" style="width:100%; border-radius:6px; cursor:zoom-in;" class="inline-zoomable">
+                <figcaption>The SAS &rarr; PySpark Converter: paste SAS code, choose a target format, and get working PySpark or Databricks SQL back.</figcaption>
             </figure>
         </section>
 
@@ -133,15 +133,15 @@ filled = (
             <p class="proj-text">The dashboard is the end-to-end proof that the migration works. Rolling volatility, cross-market correlations, and drawdown &mdash; the analytics a financial risk team runs in SAS today &mdash; are shown here running correctly in PySpark, reading live from the Gold Delta table on Databricks. No local data files. No intermediate exports. The same query that would run against a SAS dataset now runs against a Delta table.</p>
 
             <figure style="margin:24px auto; text-align:center;">
-                <img src="../related_files/dashboard_home.png" alt="Dashboard home page showing two sections: The Pipeline and The Migration Tool" style="width:100%; border-radius:6px; cursor:zoom-in;" class="inline-zoomable">
+                <img src="../related_files/streamlit_home.png" alt="Dashboard home page showing two sections: The Pipeline and The Migration Tool" style="width:100%; border-radius:6px; cursor:zoom-in;" class="inline-zoomable">
                 <figcaption>Dashboard home page — the pipeline and the migration tool side by side.</figcaption>
             </figure>
 
             <p class="proj-text">The Analytics Dashboard opens with what the pipeline found: US and EU markets fall together in crises; the ECB held rates below zero for eight years while the US did not; 2022 saw the fastest rate rises in four decades; COVID markets recovered their pre-crash highs within 12 months. These are the outputs of the Bronze &rarr; Silver &rarr; Gold pipeline on 15 years of real data &mdash; not inputs, not assumptions. Interactive charts let the reader filter to any period and see the same patterns in the underlying data.</p>
 
             <figure style="margin:24px auto; text-align:center;">
-                <img src="../related_files/dashboard_analytics.png" alt="Analytics Dashboard showing key patterns in market data and current market state metrics" style="width:100%; border-radius:6px; cursor:zoom-in;" class="inline-zoomable">
-                <figcaption>Analytics Dashboard: key patterns from the data, followed by current market state and interactive charts.</figcaption>
+                <img src="../related_files/streamlit_plots.png" alt="Analytics Dashboard showing key patterns found in 15 years of US and European market data" style="width:100%; border-radius:6px; cursor:zoom-in;" class="inline-zoomable">
+                <figcaption>Analytics Dashboard: key patterns from 15 years of US and European market data, drawn from the Gold layer output.</figcaption>
             </figure>
 
             <p class="proj-text">Taken together, the pipeline and the converter address both sides of a migration from legacy financial analytics to a modern lakehouse: building the new infrastructure, and moving the existing code to it.</p>
