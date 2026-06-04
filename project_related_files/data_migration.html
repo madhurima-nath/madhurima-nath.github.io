@@ -130,14 +130,14 @@ filled = (
         <section class="proj-section" id="dashboard">
             <h3>Dashboard</h3>
 
-            <p class="proj-text">A live Streamlit app at <a href="https://financial-analytics-databricks.streamlit.app" target="_blank" rel="noopener">financial-analytics-databricks.streamlit.app</a>, connected directly to the Gold Delta table on Databricks — no local data files needed.</p>
+            <p class="proj-text">The dashboard is the end-to-end proof that the migration works. Rolling volatility, cross-market correlations, and drawdown &mdash; the analytics a financial risk team runs in SAS today &mdash; are shown here running correctly in PySpark, reading live from the Gold Delta table on Databricks. No local data files. No intermediate exports. The same query that would run against a SAS dataset now runs against a Delta table.</p>
 
             <figure style="margin:24px auto; text-align:center;">
                 <img src="../related_files/dashboard_home.png" alt="Dashboard home page showing two sections: The Pipeline and The Migration Tool" style="width:100%; border-radius:6px; cursor:zoom-in;" class="inline-zoomable">
-                <figcaption>Dashboard home page — the two components of the project side by side.</figcaption>
+                <figcaption>Dashboard home page — the pipeline and the migration tool side by side.</figcaption>
             </figure>
 
-            <p class="proj-text">The Analytics Dashboard opens with four patterns the pipeline surfaces from 15 years of data: that US and EU markets fall together in crises (correlation spikes toward 1); that the ECB held rates below zero for eight years while the US did not; that 2022 saw the fastest rate rises in four decades, and both markets fell over 20%; and that COVID markets recovered their pre-crash highs within 12 months. These are not inputs &mdash; they are what the pipeline computed. Interactive charts for equity indices, central bank rates, realised volatility, US&ndash;EU equity correlation, and S&amp;P 500 drawdown let the reader explore any period across the full 15-year dataset.</p>
+            <p class="proj-text">The Analytics Dashboard opens with what the pipeline found: US and EU markets fall together in crises; the ECB held rates below zero for eight years while the US did not; 2022 saw the fastest rate rises in four decades; COVID markets recovered their pre-crash highs within 12 months. These are the outputs of the Bronze &rarr; Silver &rarr; Gold pipeline on 15 years of real data &mdash; not inputs, not assumptions. Interactive charts let the reader filter to any period and see the same patterns in the underlying data.</p>
 
             <figure style="margin:24px auto; text-align:center;">
                 <img src="../related_files/dashboard_analytics.png" alt="Analytics Dashboard showing key patterns in market data and current market state metrics" style="width:100%; border-radius:6px; cursor:zoom-in;" class="inline-zoomable">
