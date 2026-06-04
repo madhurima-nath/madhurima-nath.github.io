@@ -37,9 +37,9 @@
 
         <h2 style="margin-top: 10px;">Financial Analytics Pipeline on Databricks</h2>
 
-        <p class="proj-text">Financial institutions have been running market analytics in SAS for decades. Moving to a modern data platform requires two things: a pipeline to replace the old infrastructure, and a tool to migrate the legacy code. This project builds both, using 15 years of real US and European market data.</p>
+        <p class="proj-text">Financial institutions have been running market analytics in SAS for decades. Moving to a modern data platform means replacing both the infrastructure and the legacy code. This project builds both: a Databricks medallion pipeline on 15 years of real US and European market data, and a tool that converts legacy SAS analytics code to PySpark automatically.</p>
 
-        <p class="proj-text">The pipeline ingests five data series — S&amp;P 500, Euro Stoxx 50, VIX (a measure of market uncertainty), US Federal Funds Rate, and ECB Deposit Facility Rate — processes them through a three-layer Databricks medallion architecture (Bronze, Silver, Gold), and serves the results through an interactive dashboard. A companion tool takes legacy SAS analytics code and converts it to PySpark or Databricks SQL automatically.</p>
+        <p class="proj-text">The pipeline covers five data series — S&amp;P 500, Euro Stoxx 50, VIX (a measure of market uncertainty), US Federal Funds Rate, and ECB Deposit Facility Rate — across three Delta Lake layers (Bronze, Silver, Gold), and serves the results through an interactive Streamlit dashboard. The converter handles the code side: paste legacy SAS, get working PySpark or Databricks SQL back.</p>
 
         <p class="proj-text"><a href="https://financial-analytics-databricks.streamlit.app" target="_blank" rel="noopener">Live dashboard ↗</a> &nbsp;·&nbsp; <a href="https://github.com/madhurima-nath/databricks-ai-automated-pipeline" target="_blank" rel="noopener">GitHub ↗</a> &nbsp;·&nbsp; <a href="#" target="_blank" rel="noopener">Medium writeup</a> (coming soon)</p>
 
@@ -51,7 +51,7 @@
 
             <ul class="proj-text" style="padding-left:1.4em; margin-top:0; margin-bottom:0;">
                 <li style="margin-bottom:10px;"><strong>Bronze.</strong> Raw ingestion from two sources: Yahoo Finance (daily price and volume data for S&amp;P 500, Euro Stoxx 50, and VIX) and FRED (Federal Reserve Economic Data — monthly US Federal Funds Rate and ECB Deposit Facility Rate). Five Delta tables written without any transformation — source data is preserved exactly as received.</li>
-                <li style="margin-bottom:10px;"><strong>Silver.</strong> Quality checks, cleaning, and a mixed-frequency join that aligns monthly central bank rates onto the daily equity date spine. Log returns and the US&ndash;EU rate differential are computed here. A reusable quality check module runs at every layer transition and halts the pipeline on any failure.</li>
+                <li style="margin-bottom:10px;"><strong>Silver.</strong> Quality checks, cleaning, and a mixed-frequency join that aligns monthly central bank rates onto the daily trading day sequence. Log returns and the US&ndash;EU rate differential are computed here. A reusable quality check module runs at every layer transition and halts the pipeline on any failure.</li>
                 <li><strong>Gold.</strong> Analysis-ready aggregates: rolling realised volatility (20-day and 60-day, annualised) for both indices, 60-day rolling correlation between US and EU equity returns, S&amp;P 500 drawdown from its 52-week high, VIX stress regime, US and EU rate regimes, and a policy divergence classification.</li>
             </ul>
 
@@ -98,7 +98,7 @@ filled = (
         <section class="proj-section" id="gold">
             <h3>Gold Layer</h3>
 
-            <p class="proj-text">The Gold layer computes all metrics needed by the dashboard in a single PySpark pass over the Silver table. Rolling statistics use explicit window sizes (20 and 60 trading days) rather than calendar periods, which gives consistent behaviour across holiday gaps. Regime classifications use threshold rules calibrated to the 2010&ndash;present rate environment — the ECB rate turned negative in 2014, so the EU regime labels include a &ldquo;negative&rdquo; band not present in the US classification.</p>
+            <p class="proj-text">The Gold layer computes all metrics needed by the dashboard over the Silver table. Rolling statistics use explicit window sizes (20 and 60 trading days) rather than calendar periods, which gives consistent behaviour across holiday gaps. Regime classifications use threshold rules calibrated to the 2010&ndash;present rate environment. The ECB rate turned negative in 2014 and stayed there until 2022 — a regime the US never entered — so the EU labels include a &ldquo;negative&rdquo; band that has no equivalent on the US side.</p>
 
             <figure style="margin:24px auto; text-align:center;">
                 <img src="../related_files/gold_notebook.png" alt="Gold notebook summary output showing row counts, regime distribution table, and most recent rows from gold_analytics Delta table" style="width:100%; border-radius:6px; cursor:zoom-in;" class="inline-zoomable">
@@ -110,7 +110,7 @@ filled = (
         <section class="proj-section" id="converter">
             <h3>SAS &rarr; PySpark Converter</h3>
 
-            <p class="proj-text">A standalone tool that takes legacy SAS code and outputs PySpark DataFrame API, Databricks SQL, or dbt YAML. Common SAS patterns — <code>PROC SORT</code>, <code>PROC MEANS</code>, <code>PROC SQL</code>, <code>DATA</code> steps with <code>KEEP</code>, <code>DROP</code>, <code>RENAME</code>, <code>WHERE</code>, <code>IF-THEN-ELSE</code>, and date functions — are handled by a deterministic rule engine. Code that falls outside the rule set is passed to Claude AI, which returns a conversion with a review note flagging anything that needs human verification.</p>
+            <p class="proj-text">A tool that takes legacy SAS code and outputs PySpark DataFrame API, Databricks SQL, or dbt YAML. Common SAS patterns — <code>PROC SORT</code>, <code>PROC MEANS</code>, <code>PROC SQL</code>, <code>DATA</code> steps with <code>KEEP</code>, <code>DROP</code>, <code>RENAME</code>, <code>WHERE</code>, <code>IF-THEN-ELSE</code>, and date functions — are handled by a deterministic rule engine: the same input always produces the same output, no API key required, and every conversion is auditable. Code that falls outside the rule set is passed to Claude AI, which returns a conversion with a review note flagging anything that needs human verification.</p>
 
             <p class="proj-text">The converter is tested with 23 pytest cases covering every supported pattern. It is accessible from the dashboard without any local setup.</p>
 
