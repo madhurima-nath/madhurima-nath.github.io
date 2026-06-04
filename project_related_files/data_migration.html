@@ -39,7 +39,7 @@
 
         <p class="proj-text">An end-to-end data engineering project built on Databricks. It ingests US and European market data — S&amp;P 500, Euro Stoxx 50, VIX, US Federal Funds Rate, and ECB Deposit Facility Rate — processes it through a three-layer medallion pipeline (Bronze, Silver, Gold), and serves the results through a Streamlit dashboard. A second component is a SAS&nbsp;→&nbsp;PySpark converter that translates legacy financial analytics code into PySpark or Databricks SQL using a rule engine with a Claude (Haiku) fallback for complex patterns.</p>
 
-        <p class="proj-text">Code is on <a href="https://github.com/madhurima-nath/databricks-ai-automated-pipeline" target="_blank" rel="noopener">GitHub</a>. The dashboard is live at <a href="https://financial-analytics-databricks.streamlit.app" target="_blank" rel="noopener">financial-analytics-databricks.streamlit.app</a>.</p>
+        <p class="proj-text">Code is on <a href="https://github.com/madhurima-nath/databricks-ai-automated-pipeline" target="_blank" rel="noopener">GitHub</a>. The dashboard is live at <a href="https://financial-analytics-databricks.streamlit.app" target="_blank" rel="noopener">financial-analytics-databricks.streamlit.app</a>. A detailed writeup is on <a href="#" target="_blank" rel="noopener">Medium</a> (coming soon).</p>
 
         <!-- Section 1: Architecture -->
         <section class="proj-section" id="architecture">
@@ -48,7 +48,7 @@
             <p class="proj-text">Data flows through three Delta Lake layers, each with a distinct role:</p>
 
             <ul class="proj-text" style="padding-left:1.4em; margin-top:0; margin-bottom:0;">
-                <li style="margin-bottom:10px;"><strong>Bronze.</strong> Raw ingestion from two sources: Yahoo Finance (daily OHLCV for S&amp;P 500, Euro Stoxx 50, and VIX) and FRED (monthly US Federal Funds Rate and ECB Deposit Facility Rate). Five Delta tables written without any transformation — source data is preserved exactly as received.</li>
+                <li style="margin-bottom:10px;"><strong>Bronze.</strong> Raw ingestion from two sources: Yahoo Finance (daily OHLCV for S&amp;P 500, Euro Stoxx 50, and VIX) and FRED (Federal Reserve Economic Data — monthly US Federal Funds Rate and ECB Deposit Facility Rate). Five Delta tables written without any transformation — source data is preserved exactly as received.</li>
                 <li style="margin-bottom:10px;"><strong>Silver.</strong> Quality checks, cleaning, and a mixed-frequency join that aligns monthly central bank rates onto the daily equity date spine. Log returns and the US&ndash;EU rate differential are computed here. A reusable quality check module runs at every layer transition and halts the pipeline on any failure.</li>
                 <li><strong>Gold.</strong> Analysis-ready aggregates: rolling realised volatility (20-day and 60-day, annualised) for both indices, 60-day rolling correlation between US and EU equity returns, S&amp;P 500 drawdown from its 52-week high, VIX stress regime, US and EU rate regimes, and a policy divergence classification.</li>
             </ul>
@@ -63,7 +63,7 @@
         <section class="proj-section" id="join">
             <h3>Mixed-Frequency Join</h3>
 
-            <p class="proj-text">The Fed Funds Rate and ECB rate are published monthly; equity data is daily. A standard date join leaves most rows null because the rate observation dates rarely fall on trading days. The Silver layer resolves this with a two-pass window function: first a forward-fill to carry each rate reading forward through subsequent trading days, then a backward-fill to handle the leading days at the start of the series before the first rate observation date.</p>
+            <p class="proj-text">The Fed Funds Rate and ECB rate are published monthly; equity data is daily. A standard date join leaves most rows null because the rate observation dates rarely fall on trading days. The Silver layer resolves this with a two-pass window function: first a forward-fill to carry each rate reading forward through subsequent trading days, then a backward-fill to handle the initial days at the start of the series before the first rate observation date.</p>
 
             <div class="eq-block">
                 <span class="eq-label">Forward- and backward-fill — Silver layer (PySpark)</span>
@@ -117,12 +117,11 @@ filled = (
         <section class="proj-section" id="dashboard">
             <h3>Dashboard</h3>
 
-            <p class="proj-text">A Streamlit app with three pages, deployed at <a href="https://financial-analytics-databricks.streamlit.app" target="_blank" rel="noopener">financial-analytics-databricks.streamlit.app</a>. It connects to the Gold Delta table on Databricks via the SQL connector — no local data files needed.</p>
+            <p class="proj-text">A Streamlit app deployed at <a href="https://financial-analytics-databricks.streamlit.app" target="_blank" rel="noopener">financial-analytics-databricks.streamlit.app</a>. It connects directly to the Gold Delta table on Databricks — no local data files needed.</p>
 
             <ul class="proj-text" style="padding-left:1.4em; margin-top:0; margin-bottom:0;">
-                <li style="margin-bottom:10px;"><strong>Analytics Dashboard.</strong> Interactive charts for equity indices, central bank rates, realised volatility, US&ndash;EU equity correlation, S&amp;P 500 drawdown, and current regime classifications. Date range is filterable.</li>
-                <li style="margin-bottom:10px;"><strong>Pipeline Control.</strong> Trigger and monitor Bronze&nbsp;&rarr;&nbsp;Silver&nbsp;&rarr;&nbsp;Gold runs from a browser. Shows task-level status and links directly to the Databricks run view.</li>
-                <li><strong>SAS&nbsp;&rarr;&nbsp;PySpark Converter.</strong> Paste SAS code, select the target format, and get the converted output with notes and any warnings.</li>
+                <li style="margin-bottom:10px;"><strong>Analytics Dashboard.</strong> The output of the pipeline — interactive charts covering equity indices, central bank rates, realised volatility, US&ndash;EU equity correlation, S&amp;P 500 drawdown, and current regime classifications across 15 years of daily data. Date range is filterable.</li>
+                <li><strong>SAS&nbsp;&rarr;&nbsp;PySpark Converter.</strong> The migration tool — paste legacy SAS code, select the target format (PySpark, Databricks SQL, or dbt YAML), and get the converted output with notes and any warnings.</li>
             </ul>
         </section>
 
