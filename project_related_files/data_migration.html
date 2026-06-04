@@ -37,9 +37,11 @@
 
         <h2 style="margin-top: 10px;">Financial Analytics Pipeline on Databricks</h2>
 
-        <p class="proj-text">An end-to-end data engineering project built on Databricks. It ingests US and European market data — S&amp;P 500, Euro Stoxx 50, VIX, US Federal Funds Rate, and ECB Deposit Facility Rate — processes it through a three-layer medallion pipeline (Bronze, Silver, Gold), and serves the results through a Streamlit dashboard. A second component is a SAS&nbsp;→&nbsp;PySpark converter that translates legacy financial analytics code into PySpark or Databricks SQL using a rule engine with a Claude (Haiku) fallback for complex patterns.</p>
+        <p class="proj-text">Financial institutions have been running market analytics in SAS for decades. Moving to a modern data platform requires two things: a pipeline to replace the old infrastructure, and a tool to migrate the legacy code. This project builds both, using 15 years of real US and European market data.</p>
 
-        <p class="proj-text">Code is on <a href="https://github.com/madhurima-nath/databricks-ai-automated-pipeline" target="_blank" rel="noopener">GitHub</a>. The dashboard is live at <a href="https://financial-analytics-databricks.streamlit.app" target="_blank" rel="noopener">financial-analytics-databricks.streamlit.app</a>. A detailed writeup is on <a href="#" target="_blank" rel="noopener">Medium</a> (coming soon).</p>
+        <p class="proj-text">The pipeline ingests five data series — S&amp;P 500, Euro Stoxx 50, VIX (a measure of market uncertainty), US Federal Funds Rate, and ECB Deposit Facility Rate — processes them through a three-layer Databricks medallion architecture (Bronze, Silver, Gold), and serves the results through an interactive dashboard. A companion tool takes legacy SAS analytics code and converts it to PySpark or Databricks SQL automatically.</p>
+
+        <p class="proj-text"><a href="https://financial-analytics-databricks.streamlit.app" target="_blank" rel="noopener">Live dashboard ↗</a> &nbsp;·&nbsp; <a href="https://github.com/madhurima-nath/databricks-ai-automated-pipeline" target="_blank" rel="noopener">GitHub ↗</a> &nbsp;·&nbsp; <a href="#" target="_blank" rel="noopener">Medium writeup</a> (coming soon)</p>
 
         <!-- Section 1: Architecture -->
         <section class="proj-section" id="architecture">
@@ -48,7 +50,7 @@
             <p class="proj-text">Data flows through three Delta Lake layers, each with a distinct role:</p>
 
             <ul class="proj-text" style="padding-left:1.4em; margin-top:0; margin-bottom:0;">
-                <li style="margin-bottom:10px;"><strong>Bronze.</strong> Raw ingestion from two sources: Yahoo Finance (daily OHLCV for S&amp;P 500, Euro Stoxx 50, and VIX) and FRED (Federal Reserve Economic Data — monthly US Federal Funds Rate and ECB Deposit Facility Rate). Five Delta tables written without any transformation — source data is preserved exactly as received.</li>
+                <li style="margin-bottom:10px;"><strong>Bronze.</strong> Raw ingestion from two sources: Yahoo Finance (daily price and volume data for S&amp;P 500, Euro Stoxx 50, and VIX) and FRED (Federal Reserve Economic Data — monthly US Federal Funds Rate and ECB Deposit Facility Rate). Five Delta tables written without any transformation — source data is preserved exactly as received.</li>
                 <li style="margin-bottom:10px;"><strong>Silver.</strong> Quality checks, cleaning, and a mixed-frequency join that aligns monthly central bank rates onto the daily equity date spine. Log returns and the US&ndash;EU rate differential are computed here. A reusable quality check module runs at every layer transition and halts the pipeline on any failure.</li>
                 <li><strong>Gold.</strong> Analysis-ready aggregates: rolling realised volatility (20-day and 60-day, annualised) for both indices, 60-day rolling correlation between US and EU equity returns, S&amp;P 500 drawdown from its 52-week high, VIX stress regime, US and EU rate regimes, and a policy divergence classification.</li>
             </ul>
@@ -108,7 +110,7 @@ filled = (
         <section class="proj-section" id="converter">
             <h3>SAS &rarr; PySpark Converter</h3>
 
-            <p class="proj-text">A standalone tool that takes legacy SAS code and outputs PySpark DataFrame API, Databricks SQL, or dbt YAML. Common SAS patterns — <code>PROC SORT</code>, <code>PROC MEANS</code>, <code>PROC SQL</code>, <code>DATA</code> steps with <code>KEEP</code>, <code>DROP</code>, <code>RENAME</code>, <code>WHERE</code>, <code>IF-THEN-ELSE</code>, and date functions — are handled by a deterministic rule engine. Code that falls outside the rule set is passed to Claude (claude-haiku-4-5) via the Anthropic API, which returns a conversion with a review note flagging anything that needs human verification.</p>
+            <p class="proj-text">A standalone tool that takes legacy SAS code and outputs PySpark DataFrame API, Databricks SQL, or dbt YAML. Common SAS patterns — <code>PROC SORT</code>, <code>PROC MEANS</code>, <code>PROC SQL</code>, <code>DATA</code> steps with <code>KEEP</code>, <code>DROP</code>, <code>RENAME</code>, <code>WHERE</code>, <code>IF-THEN-ELSE</code>, and date functions — are handled by a deterministic rule engine. Code that falls outside the rule set is passed to an AI model via the Anthropic API, which returns a conversion with a review note flagging anything that needs human verification.</p>
 
             <p class="proj-text">The converter is tested with 23 pytest cases covering every supported pattern. It is accessible from the dashboard without any local setup.</p>
         </section>
