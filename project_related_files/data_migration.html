@@ -4,10 +4,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="keywords" content="madhurima nath, databricks, medallion architecture, PySpark, data engineering, S&P 500, Federal Funds Rate, financial data pipeline, AI-augmented">
+    <meta name="keywords" content="madhurima nath, databricks, medallion architecture, PySpark, delta lake, data engineering, S&P 500, Euro Stoxx 50, Federal Funds Rate, ECB, financial data pipeline, SAS, PySpark converter">
     <meta name="author" content="Madhurima Nath">
-    <meta name="description" content="Data Engineering on Databricks — Madhurima Nath">
-    <title>Data Engineering on Databricks · Madhurima Nath</title>
+    <meta name="description" content="Financial Analytics Pipeline on Databricks — Madhurima Nath">
+    <title>Financial Analytics Pipeline on Databricks · Madhurima Nath</title>
     <link rel="icon" type="image/png" href="../tools/favicon-32.png?v=1">
     <link rel="icon" type="image/svg+xml" href="../tools/favicon.svg?v=3">
     <link rel="stylesheet" href="../style.css?v=44">
@@ -18,7 +18,7 @@
 
         <header class="site-header">
             <div class="site-title">
-                <a href="../index.html" aria-label="Go to homepage"><h1><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.1em"><path d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"/></svg></h1></a>
+                <a href="../index.html" aria-label="Go to homepage"><h1><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.1em"><path d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"/></svg></h1></a>
             </div>
 
             <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false">
@@ -35,87 +35,115 @@
 
         <a href="../projects.html" class="proj-back">Back to Projects</a>
 
-        <h2 style="margin-top: 10px;">Data Engineering on Databricks</h2>
+        <h2 style="margin-top: 10px;">Financial Analytics Pipeline on Databricks</h2>
 
-        <p class="proj-text">An end-to-end financial data pipeline on Databricks, built in three layers: raw ingestion, cleaning and joining, and analysis-ready aggregates. It takes in US equity and macroeconomic data — S&amp;P 500 daily prices, Federal Funds Rate, and the VIX volatility index — to examine how equity markets respond to changes in monetary policy. GitHub Copilot and Databricks Assistant were used throughout: pipeline architecture and join logic were designed by hand; code was written with AI tools.</p>
+        <p class="proj-text">Financial institutions have been running market analytics in SAS for decades. Moving to a modern data platform means replacing both the infrastructure and the legacy code. This project builds both: a Databricks medallion pipeline on 15 years of real US and European market data, and a tool that converts legacy SAS analytics code to PySpark automatically.</p>
 
-        <p class="proj-text">The project is built on Databricks Community Edition, with the code structured to be Unity Catalog ready — minimal changes required to run on a premium workspace.</p>
+        <p class="proj-text">The pipeline covers five data series — S&amp;P 500, Euro Stoxx 50, VIX (a measure of market uncertainty), US Federal Funds Rate, and ECB Deposit Facility Rate — across three Delta Lake layers (Bronze, Silver, Gold), and serves the results through an interactive Streamlit dashboard. The converter handles the code side: paste legacy SAS, get working PySpark or Databricks SQL back.</p>
+
+        <p class="proj-text"><a href="https://financial-analytics-databricks.streamlit.app" target="_blank" rel="noopener">Live dashboard ↗</a> &nbsp;·&nbsp; <a href="https://github.com/madhurima-nath/databricks-ai-automated-pipeline" target="_blank" rel="noopener">GitHub ↗</a> &nbsp;·&nbsp; <a href="#" target="_blank" rel="noopener">Medium writeup</a> (coming soon)</p>
 
         <!-- Section 1: Architecture -->
         <section class="proj-section" id="architecture">
             <h3>Medallion Architecture</h3>
 
-            <p class="proj-text">Data flows through three layers, each with a distinct responsibility:</p>
+            <p class="proj-text">Data flows through three Delta Lake layers, each with a distinct role:</p>
 
             <ul class="proj-text" style="padding-left:1.4em; margin-top:0; margin-bottom:0;">
-                <li style="margin-bottom:10px;"><strong>Bronze.</strong> Raw ingestion from source files — S&amp;P 500 OHLCV from Yahoo Finance, monthly Federal Funds Rate from FRED, and VIX from CBOE. No transformations; source fidelity is preserved.</li>
-                <li style="margin-bottom:10px;"><strong>Silver.</strong> Cleaning, type casting, and the core join logic. The main technical challenge here is aligning data of different frequencies: the Fed Rate is published monthly, the S&amp;P 500 is daily. A point-in-time join using a SQL window function carries the most recent known rate forward into every daily row.</li>
-                <li><strong>Gold.</strong> Strategy-ready aggregates: 30-day rolling volatility of S&amp;P 500 returns, correlation between daily returns and the current rate, and rate regime classification (rising, falling, or stable).</li>
+                <li style="margin-bottom:10px;"><strong>Bronze.</strong> Raw ingestion from two sources: Yahoo Finance (daily price and volume data for S&amp;P 500, Euro Stoxx 50, and VIX) and FRED (Federal Reserve Economic Data — monthly US Federal Funds Rate and ECB Deposit Facility Rate). Five Delta tables written without any transformation — source data is preserved exactly as received.</li>
+                <li style="margin-bottom:10px;"><strong>Silver.</strong> Quality checks, cleaning, and a mixed-frequency join that aligns monthly central bank rates onto the daily trading day sequence. Log returns and the US&ndash;EU rate differential are computed here. A reusable quality check module runs at every layer transition and halts the pipeline on any failure.</li>
+                <li><strong>Gold.</strong> Analysis-ready aggregates: rolling realised volatility (20-day and 60-day, annualised) for both indices, 60-day rolling correlation between US and EU equity returns, S&amp;P 500 drawdown from its 52-week high, VIX stress regime, US and EU rate regimes, and a policy divergence classification.</li>
             </ul>
 
+            <figure style="margin:24px auto; text-align:center;">
+                <img src="../related_files/catalog_tables.png" alt="Databricks Catalog showing all seven Delta tables: five Bronze tables, silver_market, and gold_analytics" style="width:100%; border-radius:6px; cursor:zoom-in;" class="inline-zoomable">
+                <figcaption>All seven Delta tables in the Databricks Catalog after a full pipeline run.</figcaption>
+            </figure>
         </section>
 
-        <!-- Section 2: Point-in-Time Join -->
+        <!-- Section 2: Mixed-Frequency Join -->
         <section class="proj-section" id="join">
-            <h3>Point-in-Time Join</h3>
+            <h3>Mixed-Frequency Join</h3>
 
-            <p class="proj-text">Joining a monthly time series (Fed Rate) into a daily one (S&amp;P 500) requires carrying the most recent known value forward — standard equi-joins produce nulls on most rows. The Silver layer solves this with a SQL window function:</p>
+            <p class="proj-text">The Fed Funds Rate and ECB rate are published monthly; equity data is daily. A standard date join leaves most rows null because the rate observation dates rarely fall on trading days. The Silver layer resolves this with a two-pass window function: first a forward-fill to carry each rate reading forward through subsequent trading days, then a backward-fill to handle the initial days at the start of the series before the first rate observation date.</p>
 
             <div class="eq-block">
-                <span class="eq-label">Forward-fill — Silver layer</span>
-                <pre style="margin:0; font-family:var(--font-mono); font-size:13px; line-height:1.6; overflow-x:auto;">WITH combined AS (
-  SELECT p.date, p.close AS sp500_close, r.fed_rate
-  FROM bronze.sp500_prices p
-  LEFT JOIN bronze.fed_rates r ON p.date = r.date
-),
-filled AS (
-  SELECT date, sp500_close,
-    LAST_VALUE(fed_rate, true) OVER (
-      ORDER BY date
-      ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW
-    ) AS current_fed_rate
-  FROM combined
+                <span class="eq-label">Forward- and backward-fill — Silver layer (PySpark)</span>
+                <pre style="margin:0; font-family:var(--font-mono); font-size:13px; line-height:1.6; overflow-x:auto;">fill_window = Window.orderBy("date").rowsBetween(
+    Window.unboundedPreceding, Window.currentRow
 )
-SELECT *,
-  (sp500_close - LAG(sp500_close) OVER (ORDER BY date))
-    / LAG(sp500_close) OVER (ORDER BY date) AS daily_return
-FROM filled;</pre>
+back_window = Window.orderBy("date").rowsBetween(
+    Window.currentRow, Window.unboundedFollowing
+)
+
+joined = daily_df.join(monthly_df, on="date", how="left")
+filled = (
+    joined
+    .withColumn("fed_rate",
+        F.last(F.col("fed_rate"), ignorenulls=True).over(fill_window))
+    .withColumn("fed_rate",
+        F.first(F.col("fed_rate"), ignorenulls=True).over(back_window))
+)</pre>
             </div>
 
-            <p class="proj-text">The result is a Silver table where every daily S&amp;P 500 row carries the rate in effect on that day, and the daily percentage return is computed in the same pass.</p>
+            <p class="proj-text">Each trading day carries the rate in effect on that day — a point-in-time join with no lookahead bias.</p>
 
+            <figure style="margin:24px auto; text-align:center;">
+                <img src="../related_files/silver_quality.png" alt="Silver notebook output showing all quality checks passing: row count, null checks, range checks, duplicate checks for silver_market table" style="width:100%; border-radius:6px; cursor:zoom-in;" class="inline-zoomable">
+                <figcaption>Quality check output after the Silver layer runs — every check passes before the pipeline proceeds to Gold.</figcaption>
+            </figure>
         </section>
 
-        <!-- Section 3: AI-Augmented Workflow -->
-        <section class="proj-section" id="ai-workflow">
-            <h3>AI-Augmented Development</h3>
+        <!-- Section 3: Gold Layer -->
+        <section class="proj-section" id="gold">
+            <h3>Gold Layer</h3>
 
-            <p class="proj-text">Two AI tools were used throughout:</p>
+            <p class="proj-text">The Gold layer computes all metrics needed by the dashboard over the Silver table. Rolling statistics use explicit window sizes (20 and 60 trading days) rather than calendar periods, which gives consistent behaviour across holiday gaps. Regime classifications use threshold rules calibrated to the 2010&ndash;present rate environment. The ECB rate turned negative in 2014 and stayed there until 2022 — a regime the US never entered — so the EU labels include a &ldquo;negative&rdquo; band that has no equivalent on the US side.</p>
 
-            <ul class="proj-text" style="padding-left:1.4em; margin-top:0; margin-bottom:0;">
-                <li style="margin-bottom:10px;"><strong>GitHub Copilot</strong> generated the PySpark transformation scripts for each layer, given a description of the input schema and the required output. The forward-fill join logic, schema validation functions, and Gold aggregation queries were all produced this way.</li>
-                <li><strong>Databricks Assistant</strong> was used for SQL optimisation and to scaffold the Streamlit dashboard — iterating on chart layout and connection logic against the Unity Catalog schema.</li>
-            </ul>
-
-            <p class="proj-text" style="margin-top:14px;">The pipeline architecture, join strategy, and data quality rules were specified by hand; code generation was delegated to the AI tools. This keeps the reasoning behind each design decision explicit and easy to verify.</p>
-
+            <figure style="margin:24px auto; text-align:center;">
+                <img src="../related_files/gold_notebook.png" alt="Gold notebook summary output showing row counts, regime distribution table, and most recent rows from gold_analytics Delta table" style="width:100%; border-radius:6px; cursor:zoom-in;" class="inline-zoomable">
+                <figcaption>Gold notebook summary — regime distribution and most recent rows from the gold_analytics table.</figcaption>
+            </figure>
         </section>
 
-        <!-- Section 4: Dashboard -->
+        <!-- Section 4: SAS Converter -->
+        <section class="proj-section" id="converter">
+            <h3>SAS &rarr; PySpark Converter</h3>
+
+            <p class="proj-text">A tool that takes legacy SAS code and outputs PySpark DataFrame API, Databricks SQL, or dbt YAML. Common SAS patterns — <code>PROC SORT</code>, <code>PROC MEANS</code>, <code>PROC SQL</code>, <code>DATA</code> steps with <code>KEEP</code>, <code>DROP</code>, <code>RENAME</code>, <code>WHERE</code>, <code>IF-THEN-ELSE</code>, and date functions — are handled by a deterministic rule engine: the same input always produces the same output, no API key required, and every conversion is auditable. Code that falls outside the rule set is passed to Claude AI, which returns a conversion with a review note flagging anything that needs human verification.</p>
+
+            <p class="proj-text">The converter is tested with 23 pytest cases covering every supported pattern. It is accessible from the dashboard without any local setup.</p>
+
+            <figure style="margin:24px auto; text-align:center;">
+                <img src="../related_files/dashboard_sas_converter.png" alt="SAS to PySpark Converter page showing a PROC SORT example converted to PySpark DataFrame orderBy" style="width:100%; border-radius:6px; cursor:zoom-in;" class="inline-zoomable">
+                <figcaption>The SAS &rarr; PySpark Converter: a PROC SORT pattern converted to PySpark automatically by the rule engine.</figcaption>
+            </figure>
+        </section>
+
+        <!-- Section 5: Dashboard -->
         <section class="proj-section" id="dashboard">
             <h3>Dashboard</h3>
 
-            <p class="proj-text">A Streamlit dashboard connects to the Gold layer to visualise the relationship between US monetary policy and equity market behaviour. Key views:</p>
+            <p class="proj-text">A live Streamlit app at <a href="https://financial-analytics-databricks.streamlit.app" target="_blank" rel="noopener">financial-analytics-databricks.streamlit.app</a>, connected directly to the Gold Delta table on Databricks — no local data files needed.</p>
 
-            <ul class="proj-text" style="padding-left:1.4em; margin-top:0; margin-bottom:0;">
-                <li style="margin-bottom:10px;">S&amp;P 500 price and Federal Funds Rate plotted on a shared time axis — showing the lag between rate decisions and market response.</li>
-                <li style="margin-bottom:10px;">VIX overlaid with rate change events — visible spikes in volatility around the 2022 hiking cycle.</li>
-                <li>30-day rolling volatility as a function of rate regime (rising, falling, stable).</li>
-            </ul>
+            <figure style="margin:24px auto; text-align:center;">
+                <img src="../related_files/dashboard_home.png" alt="Dashboard home page showing two sections: The Pipeline and The Migration Tool" style="width:100%; border-radius:6px; cursor:zoom-in;" class="inline-zoomable">
+                <figcaption>Dashboard home page — the two components of the project side by side.</figcaption>
+            </figure>
 
+            <p class="proj-text">The Analytics Dashboard page opens with the key patterns surfaced from 15 years of data, followed by current market metrics directly from the Gold table. Interactive charts for equity indices, central bank rates, realised volatility, US&ndash;EU equity correlation, S&amp;P 500 drawdown, and regime classifications let the reader explore any period — date range is filterable.</p>
+
+            <figure style="margin:24px auto; text-align:center;">
+                <img src="../related_files/dashboard_analytics.png" alt="Analytics Dashboard showing key patterns in market data and current market state metrics" style="width:100%; border-radius:6px; cursor:zoom-in;" class="inline-zoomable">
+                <figcaption>Analytics Dashboard: key patterns from the data, followed by current market state and interactive charts.</figcaption>
+            </figure>
+
+            <p class="proj-text">Taken together, the pipeline and the converter address both sides of a migration from legacy financial analytics to a modern lakehouse: building the new infrastructure, and moving the existing code to it.</p>
         </section>
 
     </div>
+
+    <div class="figure-lightbox" id="imgLightbox"><img src="" alt=""></div>
 
     <button id="backToTop" class="back-to-top" aria-label="Back to top">&#8593; <span class="top-text">TOP</span></button>
 
@@ -127,6 +155,20 @@ FROM filled;</pre>
 
 <script>
 document.querySelectorAll(".js-year").forEach(function(el){ el.textContent = new Date().getFullYear(); });
+
+(function(){
+    var lb = document.getElementById('imgLightbox');
+    var lbImg = lb.querySelector('img');
+    document.querySelectorAll('.inline-zoomable, .proj-section figure img').forEach(function(img){
+        img.addEventListener('click', function(){
+            lbImg.src = img.src;
+            lbImg.alt = img.alt;
+            lb.classList.add('active');
+        });
+    });
+    lb.addEventListener('click', function(){ lb.classList.remove('active'); });
+    document.addEventListener('keydown', function(e){ if(e.key === 'Escape') lb.classList.remove('active'); });
+})();
 
 (function(){
     var btn = document.querySelector('.hamburger');
