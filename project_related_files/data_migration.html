@@ -114,7 +114,21 @@ filled = (
             </figure>
         </section>
 
-        <!-- Section 4: Community Edition and Production Databricks -->
+        <!-- Section 4: SAS Converter -->
+        <section class="proj-section" id="converter">
+            <h3>SAS &rarr; PySpark Converter</h3>
+
+            <p class="proj-text">Moving the infrastructure to Databricks is the easier half of a migration. The harder half is the code: financial institutions have decades of SAS scripts covering risk models, regulatory reports, and portfolio calculations. Rewriting each one by hand is the bottleneck that stalls most migrations. This converter automates the translation. Common SAS patterns — <code>PROC SORT</code>, <code>PROC MEANS</code>, <code>PROC SQL</code>, <code>DATA</code> steps with <code>KEEP</code>, <code>DROP</code>, <code>RENAME</code>, <code>WHERE</code>, <code>IF-THEN-ELSE</code>, and date functions — are handled by a deterministic rule engine: the same input always produces the same output, no API key required. SAS code the rule engine does not recognise is sent to Claude AI, which converts it and adds a note on anything that needs a human check.</p>
+
+            <p class="proj-text">The converter is tested with 23 pytest cases covering every supported pattern. It is accessible from the dashboard without any local setup.</p>
+
+            <figure style="margin:24px auto; text-align:center;">
+                <img src="../related_files/streamlit_converter.png" alt="SAS to PySpark Converter page with a PROC SORT example loaded and pyspark selected as the target format" style="width:100%; border-radius:6px; cursor:zoom-in;" class="inline-zoomable">
+                <figcaption>The SAS &rarr; PySpark Converter: paste SAS code, choose a target format, and get working PySpark or Databricks SQL back.</figcaption>
+            </figure>
+        </section>
+
+        <!-- Section 5: Community Edition and Production Databricks -->
         <section class="proj-section" id="production">
             <h3>Community Edition and Production Databricks</h3>
 
@@ -180,21 +194,7 @@ def bronze_sp500():
     )</pre>
             </div>
 
-            <p class="proj-text">Quality checks become <code>@dlt.expect</code> decorators. The write is implicit. The Bronze &rarr; Silver &rarr; Gold dependency graph is inferred automatically from <code>dlt.read("bronze_sp500")</code> references in each downstream table, and the pipeline auto-scales without manual cluster configuration. The Silver and Gold layers follow the same pattern.</p>
-        </section>
-
-        <!-- Section 5: SAS Converter -->
-        <section class="proj-section" id="converter">
-            <h3>SAS &rarr; PySpark Converter</h3>
-
-            <p class="proj-text">Moving the infrastructure to Databricks is the easier half of a migration. The harder half is the code: financial institutions have decades of SAS scripts covering risk models, regulatory reports, and portfolio calculations. Rewriting each one by hand is the bottleneck that stalls most migrations. This converter automates the translation. Common SAS patterns — <code>PROC SORT</code>, <code>PROC MEANS</code>, <code>PROC SQL</code>, <code>DATA</code> steps with <code>KEEP</code>, <code>DROP</code>, <code>RENAME</code>, <code>WHERE</code>, <code>IF-THEN-ELSE</code>, and date functions — are handled by a deterministic rule engine: the same input always produces the same output, no API key required. SAS code the rule engine does not recognise is sent to Claude AI, which converts it and adds a note on anything that needs a human check.</p>
-
-            <p class="proj-text">The converter is tested with 23 pytest cases covering every supported pattern. It is accessible from the dashboard without any local setup.</p>
-
-            <figure style="margin:24px auto; text-align:center;">
-                <img src="../related_files/streamlit_converter.png" alt="SAS to PySpark Converter page with a PROC SORT example loaded and pyspark selected as the target format" style="width:100%; border-radius:6px; cursor:zoom-in;" class="inline-zoomable">
-                <figcaption>The SAS &rarr; PySpark Converter: paste SAS code, choose a target format, and get working PySpark or Databricks SQL back.</figcaption>
-            </figure>
+            <p class="proj-text">Quality checks become <code>@dlt.expect</code> decorators. The write is implicit. The Bronze &rarr; Silver &rarr; Gold dependency graph is inferred automatically from <code>dlt.read("bronze_sp500")</code> references in each downstream table, and the pipeline auto-scales without manual cluster configuration.</p>
         </section>
 
         <!-- Section 6: AI-Assisted Development -->
