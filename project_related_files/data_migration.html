@@ -59,6 +59,8 @@
 
             <p class="proj-text">Beyond the join problem, Bronze preserves every source observation exactly as received. If a cleaning rule changes in Silver, the full history can be re-derived by rerunning Silver against Bronze &mdash; without going back to the original APIs. Quality checks at each layer transition enforce correctness: a reusable module runs row count, null, range, duplicate, and date-gap checks at every Bronze&ndash;Silver and Silver&ndash;Gold transition, and the pipeline halts immediately if any check fails rather than passing bad data downstream silently. In SAS, ingestion, cleaning, joining, and business logic typically live in a single script. A change to any part reruns everything and there is no clean separation between what was ingested and what was computed. The medallion architecture makes each transformation an explicit, independently testable step.</p>
 
+            <p class="proj-text">The case for moving from SAS to Databricks goes beyond architecture patterns. SAS analytics runs on a single server: as data volumes grow, the only option is a larger machine. PySpark distributes across a cluster and scales horizontally &mdash; a risk model that takes hours on a SAS node runs in minutes on Spark without changing the business logic. At the governance level, Delta Lake records every write as a new version; a regulator or auditor asking for the state of any risk table on a specific date gets a <code>VERSION AS OF</code> query rather than a search through archived flat files. At the team level, SAS expertise is concentrated in practitioners nearing retirement &mdash; Python and Spark skills are widely available, which matters for both hiring and long-term maintainability.</p>
+
             <figure style="margin:24px auto; text-align:center;">
                 <img src="../related_files/catalog_tables.png" alt="Databricks Catalog showing all seven Delta tables: five Bronze tables, silver_market, and gold_analytics" style="width:100%; border-radius:6px; cursor:zoom-in;" class="inline-zoomable">
                 <figcaption>All seven Delta tables in the Databricks Catalog after a full pipeline run.</figcaption>
@@ -112,7 +114,76 @@ filled = (
             </figure>
         </section>
 
-        <!-- Section 4: SAS Converter -->
+        <!-- Section 4: Community Edition and Production Databricks -->
+        <section class="proj-section" id="production">
+            <h3>Community Edition and Production Databricks</h3>
+
+            <p class="proj-text">This project runs on Databricks Community Edition &mdash; a free tier that includes standard Delta Lake and classic compute. The architecture is designed to be production-ready; moving to a full workspace is a configuration change, not a rewrite.</p>
+
+            <table style="width:100%;border-collapse:collapse;font-size:0.9em;margin:18px 0;">
+                <thead>
+                    <tr style="background:#F1F5F9;text-align:left;">
+                        <th style="padding:10px 14px;border:1px solid #E2E8F0;font-weight:600;">Feature</th>
+                        <th style="padding:10px 14px;border:1px solid #E2E8F0;font-weight:600;">Community Edition (this project)</th>
+                        <th style="padding:10px 14px;border:1px solid #E2E8F0;font-weight:600;">Full Databricks workspace</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="padding:9px 14px;border:1px solid #E2E8F0;">Data governance</td>
+                        <td style="padding:9px 14px;border:1px solid #E2E8F0;">Hive Metastore, table-level only</td>
+                        <td style="padding:9px 14px;border:1px solid #E2E8F0;">Unity Catalog &mdash; column-level security, data lineage, three-level naming (<code>trading.bronze.sp500</code>)</td>
+                    </tr>
+                    <tr style="background:#F8FAFC;">
+                        <td style="padding:9px 14px;border:1px solid #E2E8F0;">Pipeline definition</td>
+                        <td style="padding:9px 14px;border:1px solid #E2E8F0;">Manual notebook execution, explicit writes, quality check function calls</td>
+                        <td style="padding:9px 14px;border:1px solid #E2E8F0;">Delta Live Tables &mdash; declarative, <code>@dlt.expect</code> quality rules, auto-scaling, dependency graph inferred automatically</td>
+                    </tr>
+                    <tr>
+                        <td style="padding:9px 14px;border:1px solid #E2E8F0;">Ingestion</td>
+                        <td style="padding:9px 14px;border:1px solid #E2E8F0;">Batch CSV files synced via Repos</td>
+                        <td style="padding:9px 14px;border:1px solid #E2E8F0;">Auto Loader &mdash; incremental, schema inference, handles late-arriving files automatically</td>
+                    </tr>
+                    <tr style="background:#F8FAFC;">
+                        <td style="padding:9px 14px;border:1px solid #E2E8F0;">Orchestration</td>
+                        <td style="padding:9px 14px;border:1px solid #E2E8F0;">Polling script (<code>run_pipeline.py</code>)</td>
+                        <td style="padding:9px 14px;border:1px solid #E2E8F0;">Databricks Jobs &mdash; dependency graph, retry logic, alerts, schedule</td>
+                    </tr>
+                    <tr>
+                        <td style="padding:9px 14px;border:1px solid #E2E8F0;">Dashboard hosting</td>
+                        <td style="padding:9px 14px;border:1px solid #E2E8F0;">Streamlit Community Cloud</td>
+                        <td style="padding:9px 14px;border:1px solid #E2E8F0;">Databricks Apps &mdash; hosted inside the workspace, workspace authentication</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p class="proj-text">The most visible change at the pipeline level is Delta Live Tables. The Bronze notebook currently writes each table explicitly and calls a quality check function. In a full workspace, both collapse into a declarative definition:</p>
+
+            <div class="eq-block">
+                <span class="eq-label">Bronze ingestion: Community Edition vs Delta Live Tables</span>
+                <pre style="margin:0; font-family:var(--font-mono); font-size:13px; line-height:1.6; overflow-x:auto;"># Community Edition — explicit write + quality check function
+run_quality_checks(sp500_df, "bronze_sp500", min_rows=3000, null_cols=["close"])
+sp500_df.write.format("delta").mode("overwrite").saveAsTable("bronze_sp500")
+
+# Full Databricks — Delta Live Tables
+import dlt
+
+@dlt.table(name="bronze_sp500")
+@dlt.expect_or_fail("valid_close", "close IS NOT NULL")
+@dlt.expect_or_fail("sufficient_rows", "COUNT(*) > 3000")
+def bronze_sp500():
+    return (
+        spark.read.csv(f"{DATA_DIR}/sp500.csv", header=True)
+        .withColumn("date",  F.col("date").cast(DateType()))
+        .withColumn("close", F.col("close").cast(DoubleType()))
+        .withColumn("ingested_at", F.current_timestamp())
+    )</pre>
+            </div>
+
+            <p class="proj-text">Quality checks become <code>@dlt.expect</code> decorators. The write is implicit. The Bronze &rarr; Silver &rarr; Gold dependency graph is inferred automatically from <code>dlt.read("bronze_sp500")</code> references in each downstream table, and the pipeline auto-scales without manual cluster configuration. The Silver and Gold layers follow the same pattern.</p>
+        </section>
+
+        <!-- Section 5: SAS Converter -->
         <section class="proj-section" id="converter">
             <h3>SAS &rarr; PySpark Converter</h3>
 
@@ -126,7 +197,14 @@ filled = (
             </figure>
         </section>
 
-        <!-- Section 5: Dashboard -->
+        <!-- Section 6: AI-Assisted Development -->
+        <section class="proj-section" id="ai-development">
+            <h3>AI-Assisted Development</h3>
+
+            <p class="proj-text">This project was built with Claude Code (Anthropic&rsquo;s AI coding assistant) as a development collaborator &mdash; used for architecture decisions, the quality checks module, the converter&rsquo;s rule engine design, and iterative review across all three pipeline layers. The SAS &rarr; PySpark converter&rsquo;s Claude AI fallback uses the same capability in a production context: where AI assistance accelerated the engineering work, the converter deploys it to automate code migration at scale. The project demonstrates both uses of LLMs in data engineering &mdash; as a development tool and as a deployed feature.</p>
+        </section>
+
+        <!-- Section 7: Dashboard -->
         <section class="proj-section" id="dashboard">
             <h3>Dashboard</h3>
 
