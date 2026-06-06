@@ -69,8 +69,6 @@
         <section class="proj-section" id="join">
             <h3>Joining Monthly Rates to Daily Prices</h3>
 
-            <p class="proj-text">In a SAS script, this join would sit alongside the ingestion, cleaning, and analytics in the same file — handled implicitly, with no separation between the data preparation and the business logic that depends on it. The medallion architecture makes it explicit: Silver owns the join, solves it once, and every downstream calculation reads from the same aligned source.</p>
-
             <p class="proj-text">The Fed Funds Rate and ECB rate are published monthly; equity data is daily. A standard date join leaves most rows null because the rate observation dates rarely fall on trading days. The Silver layer resolves this with a two-pass window function: first a forward-fill to carry each rate reading forward through subsequent trading days, then a backward-fill to handle the initial days at the start of the series before the first rate observation date.</p>
 
             <div class="eq-block">
@@ -114,7 +112,26 @@ filled = (
             </figure>
         </section>
 
-        <!-- Section 4: SAS Converter -->
+        <!-- Section 4: Dashboard -->
+        <section class="proj-section" id="dashboard">
+            <h3>Dashboard</h3>
+
+            <p class="proj-text">The dashboard is the end-to-end proof that the migration works. Rolling volatility, correlations, and rate regime classifications are shown here running correctly in PySpark, reading live from the Gold Delta table on Databricks. No local data files. No intermediate exports.</p>
+
+            <figure style="margin:24px auto; text-align:center;">
+                <img src="../related_files/streamlit_home.png" alt="Dashboard home page showing two sections: The Pipeline and The Migration Tool" style="width:100%; border-radius:6px; cursor:zoom-in;" class="inline-zoomable">
+                <figcaption>Dashboard home page — the pipeline and the migration tool side by side.</figcaption>
+            </figure>
+
+            <p class="proj-text">The Analytics Dashboard opens with what the pipeline found: US and EU markets fall together in crises; the ECB held rates below zero for eight years while the US did not; 2022 saw the fastest rate rises in four decades; COVID markets recovered their pre-crash highs within 12 months. These are the outputs of the Bronze &rarr; Silver &rarr; Gold pipeline on 15 years of real data &mdash; not inputs, not assumptions. Interactive charts let the reader filter to any period and see the same patterns in the underlying data.</p>
+
+            <figure style="margin:24px auto; text-align:center;">
+                <img src="../related_files/streamlit_plots.png" alt="Analytics Dashboard showing key patterns found in 15 years of US and European market data" style="width:100%; border-radius:6px; cursor:zoom-in;" class="inline-zoomable">
+                <figcaption>Analytics Dashboard: key patterns from 15 years of US and European market data, drawn from the Gold layer output.</figcaption>
+            </figure>
+        </section>
+
+        <!-- Section 5: SAS Converter -->
         <section class="proj-section" id="converter">
             <h3>SAS &rarr; PySpark Converter</h3>
 
@@ -133,9 +150,11 @@ filled = (
                 <img src="../related_files/test_cases.png" alt="pytest terminal output showing all 46 tests passing — 39 SAS converter tests and 7 pipeline script tests" style="width:100%; border-radius:6px; cursor:zoom-in;" class="inline-zoomable">
                 <figcaption>All 46 tests passing — 39 for the SAS converter, 7 for the pipeline script.</figcaption>
             </figure>
+
+            <p class="proj-text">Taken together, the pipeline and the converter address both sides of a migration: building the new infrastructure on Databricks, and moving the existing code to it.</p>
         </section>
 
-        <!-- Section 5: Community Edition and Production Databricks -->
+        <!-- Section 6: Community Edition and Production Databricks -->
         <section class="proj-section" id="production">
             <h3>Community Edition and Production Databricks</h3>
 
@@ -204,32 +223,11 @@ def bronze_sp500():
             <p class="proj-text">Quality checks become <code>@dlt.expect</code> decorators, the write is implicit, and the dependency graph is inferred automatically from <code>dlt.read()</code> calls &mdash; Silver reads from Bronze and Gold reads from Silver, so execution order and scaling are handled by the framework rather than the notebook.</p>
         </section>
 
-        <!-- Section 6: AI-Assisted Development -->
+        <!-- Section 7: AI-Assisted Development -->
         <section class="proj-section" id="ai-development">
             <h3>AI-Assisted Development</h3>
 
             <p class="proj-text">This project was built with Claude Code (Anthropic&rsquo;s AI coding assistant) as a development collaborator &mdash; used for architecture decisions, the quality checks module, the converter&rsquo;s rule engine design, and iterative review across all three pipeline layers. The SAS &rarr; PySpark converter&rsquo;s Claude AI fallback uses the same capability in a production context: where AI assistance accelerated the engineering work, the converter deploys it to automate code migration at scale. The project demonstrates both uses of LLMs in data engineering &mdash; as a development tool and as a deployed feature.</p>
-        </section>
-
-        <!-- Section 7: Dashboard -->
-        <section class="proj-section" id="dashboard">
-            <h3>Dashboard</h3>
-
-            <p class="proj-text">The dashboard is the end-to-end proof that the migration works. Rolling volatility, correlations, and rate regime classifications are shown here running correctly in PySpark, reading live from the Gold Delta table on Databricks. No local data files. No intermediate exports.</p>
-
-            <figure style="margin:24px auto; text-align:center;">
-                <img src="../related_files/streamlit_home.png" alt="Dashboard home page showing two sections: The Pipeline and The Migration Tool" style="width:100%; border-radius:6px; cursor:zoom-in;" class="inline-zoomable">
-                <figcaption>Dashboard home page — the pipeline and the migration tool side by side.</figcaption>
-            </figure>
-
-            <p class="proj-text">The Analytics Dashboard opens with what the pipeline found: US and EU markets fall together in crises; the ECB held rates below zero for eight years while the US did not; 2022 saw the fastest rate rises in four decades; COVID markets recovered their pre-crash highs within 12 months. These are the outputs of the Bronze &rarr; Silver &rarr; Gold pipeline on 15 years of real data &mdash; not inputs, not assumptions. Interactive charts let the reader filter to any period and see the same patterns in the underlying data.</p>
-
-            <figure style="margin:24px auto; text-align:center;">
-                <img src="../related_files/streamlit_plots.png" alt="Analytics Dashboard showing key patterns found in 15 years of US and European market data" style="width:100%; border-radius:6px; cursor:zoom-in;" class="inline-zoomable">
-                <figcaption>Analytics Dashboard: key patterns from 15 years of US and European market data, drawn from the Gold layer output.</figcaption>
-            </figure>
-
-            <p class="proj-text">Taken together, the pipeline and the converter address both sides of a migration: building the new infrastructure on Databricks, and moving the existing code to it.</p>
         </section>
 
         <!-- Section 8: References -->
