@@ -41,7 +41,7 @@
 
         <p class="proj-text">The pipeline covers five data series — S&amp;P 500, Euro Stoxx 50, VIX (a measure of market uncertainty), US Federal Funds Rate, and ECB (European Central Bank) Deposit Facility Rate — across three Delta Lake layers (Bronze, Silver, Gold), and serves the results through an interactive Streamlit dashboard. The converter handles the code side: paste legacy SAS, get working PySpark or Databricks SQL back.</p>
 
-        <p class="proj-text"><a href="https://financial-analytics-databricks.streamlit.app" target="_blank" rel="noopener">Live dashboard ↗</a> &nbsp;·&nbsp; <a href="https://github.com/madhurima-nath/databricks-ai-automated-pipeline" target="_blank" rel="noopener">GitHub ↗</a> &nbsp;·&nbsp; Medium writeup (coming soon)</p>
+        <p class="proj-text"><a href="https://financial-analytics-databricks.streamlit.app" target="_blank" rel="noopener">Live dashboard ↗</a> &nbsp;·&nbsp; <a href="https://github.com/madhurima-nath/databricks-ai-automated-pipeline" target="_blank" rel="noopener">GitHub ↗</a> &nbsp;·&nbsp; <a href="https://medium.com/@m.nath/migrating-financial-analytics-to-a-lakehouse-on-databricks-a-working-demo-38a3eb9f16d5" target="_blank" rel="noopener">Medium ↗</a></p>
 
         <!-- Section 1: Architecture -->
         <section class="proj-section" id="architecture">
@@ -52,7 +52,7 @@
             <ul class="proj-text" style="padding-left:1.4em; margin-top:0; margin-bottom:0;">
                 <li style="margin-bottom:10px;"><strong>Bronze.</strong> Raw ingestion from two sources: Yahoo Finance (daily price and volume data for S&amp;P 500, Euro Stoxx 50, and VIX) and FRED (Federal Reserve Economic Data — monthly US Federal Funds Rate and ECB Deposit Facility Rate). Five Delta tables written without any transformation — source data is preserved exactly as received.</li>
                 <li style="margin-bottom:10px;"><strong>Silver.</strong> Quality checks, cleaning, and a forward-fill join that aligns monthly interest rates onto the daily trading day sequence. Log returns and the US&ndash;EU rate differential are computed here. A reusable quality check module runs at every layer transition and halts the pipeline on any failure.</li>
-                <li><strong>Gold.</strong> Analysis-ready aggregates: rolling realised volatility (20-day and 60-day, annualised) for both indices, 60-day rolling correlation between US and EU equity returns, S&amp;P 500 drawdown from its 52-week high, and a policy divergence classification.</li>
+                <li><strong>Gold.</strong> Analysis-ready aggregates: rolling realised volatility (20-day and 60-day, annualised) for both indices, 60-day rolling correlation between US and EU equity returns, S&amp;P 500 % decline from its 52-week high, and a policy divergence classification.</li>
             </ul>
 
             <p class="proj-text" style="margin-top:18px;">The separation matters because of a data alignment problem: interest rates are monthly, equity prices are daily. A standard date join leaves the rate column empty for roughly 20 out of every 21 rows. Silver solves this once, in a single tested transformation, and every downstream calculation reads from the same aligned source.</p>
@@ -106,7 +106,7 @@ filled = (
         <section class="proj-section" id="gold">
             <h3>Gold Layer</h3>
 
-            <p class="proj-text">In the Databricks medallion architecture, the Gold layer is the consumption-ready layer where final business rules and aggregations are applied for specific use cases (<a href="https://www.databricks.com/glossary/medallion-architecture" target="_blank" rel="noopener">Databricks: Medallion Architecture</a>). Here, Gold computes the financial analytics: rolling realised volatility at 20-day and 60-day windows (annualised), 60-day rolling Pearson correlation between US and EU equity returns, S&amp;P 500 drawdown from its 52-week high, and rate regime classifications for both central banks. A financial analyst opening the dashboard gets these answers directly, with no further calculation needed.</p>
+            <p class="proj-text">In the Databricks medallion architecture, the Gold layer is the consumption-ready layer where final business rules and aggregations are applied for specific use cases (<a href="https://www.databricks.com/glossary/medallion-architecture" target="_blank" rel="noopener">Databricks: Medallion Architecture</a>). Here, Gold computes the financial analytics: rolling realised volatility at 20-day and 60-day windows (annualised), 60-day rolling Pearson correlation between US and EU equity returns, S&amp;P 500 % decline from its 52-week high, and rate regime classifications for both central banks. A financial analyst opening the dashboard gets these answers directly, with no further calculation needed.</p>
 
             <p class="proj-text">Regime classifications use threshold rules calibrated to the 2010&ndash;present rate environment. The ECB rate turned negative in 2014 and stayed there until 2022, a regime the US never entered, so the EU classification includes a negative band that has no equivalent on the US side. Each pipeline run appends a record to a <code>pipeline_run_log</code> Delta table: stage, table name, rows written, date range covered, and timestamp. Delta Lake records every write as a new version, so any prior state of <code>gold_analytics</code> can be queried with <code>VERSION AS OF</code> or <code>TIMESTAMP AS OF</code>.</p>
 
@@ -129,7 +129,7 @@ filled = (
                 <figcaption>The SAS &rarr; PySpark Converter: paste SAS code, choose a target format, and get working PySpark or Databricks SQL back.</figcaption>
             </figure>
 
-            <p class="proj-text">The converter is tested with 39 pytest cases covering every supported SAS construct &mdash; sort, aggregation, SQL, conditional logic, date functions, and constructs like <code>RETAIN</code> that cannot be translated mechanically and raise a warning instead &mdash; as well as confidence scoring, config-driven library and macro variable resolution, multi-block script conversion, and migration manifest generation. A further 7 tests cover the pipeline submission script &mdash; credential loading, correct exit codes, and job status handling. All 46 run automatically on every push to main via GitHub Actions. The pipeline notebooks are validated on Databricks through quality checks at every layer transition, which halt the pipeline immediately if row counts, nulls, ranges, or duplicates fall outside expected bounds.</p>
+            <p class="proj-text">The converter is tested with 39 pytest cases covering every supported SAS construct &mdash; sort, aggregation, SQL, conditional logic, date functions, and constructs like <code>RETAIN</code> that cannot be translated mechanically and raise a warning instead &mdash; as well as confidence scoring, config-driven library and macro variable resolution, multi-block script conversion, and migration manifest generation. A further 7 tests cover the pipeline script &mdash; credential loading, correct exit codes, and job status handling. The pipeline notebooks are validated on Databricks through quality checks at every layer transition, which halt the pipeline immediately if row counts, nulls, ranges, or duplicates fall outside expected bounds.</p>
 
             <figure style="margin:24px auto; text-align:center;">
                 <img src="../related_files/test_cases.png" alt="pytest terminal output showing all 46 tests passing — 39 SAS converter tests and 7 pipeline script tests" style="width:100%; border-radius:6px; cursor:zoom-in;" class="inline-zoomable">
@@ -217,7 +217,7 @@ def bronze_sp500():
         <section class="proj-section" id="dashboard">
             <h3>Dashboard</h3>
 
-            <p class="proj-text">The dashboard is the end-to-end proof that the migration works. Rolling volatility, cross-market correlations, and drawdown &mdash; the analytics a financial risk team runs in SAS today &mdash; are shown here running correctly in PySpark, reading live from the Gold Delta table on Databricks. No local data files. No intermediate exports. The same query that would run against a SAS dataset now runs against a Delta table.</p>
+            <p class="proj-text">The dashboard is the end-to-end proof that the migration works. Rolling volatility, correlations, and rate regime classifications are shown here running correctly in PySpark, reading live from the Gold Delta table on Databricks. No local data files. No intermediate exports.</p>
 
             <figure style="margin:24px auto; text-align:center;">
                 <img src="../related_files/streamlit_home.png" alt="Dashboard home page showing two sections: The Pipeline and The Migration Tool" style="width:100%; border-radius:6px; cursor:zoom-in;" class="inline-zoomable">
@@ -231,7 +231,7 @@ def bronze_sp500():
                 <figcaption>Analytics Dashboard: key patterns from 15 years of US and European market data, drawn from the Gold layer output.</figcaption>
             </figure>
 
-            <p class="proj-text">Taken together, the pipeline and the converter address both sides of a migration from legacy financial analytics to a modern data lakehouse (a platform that combines Delta Lake storage, distributed compute, and built-in version history on a single unified system): building the new infrastructure, and moving the existing code to it.</p>
+            <p class="proj-text">Taken together, the pipeline and the converter address both sides of a migration: building the new infrastructure on Databricks, and moving the existing code to it.</p>
         </section>
 
     </div>
