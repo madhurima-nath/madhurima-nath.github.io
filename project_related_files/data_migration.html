@@ -71,6 +71,8 @@
         <section class="proj-section" id="join">
             <h3>Joining Monthly Rates to Daily Prices</h3>
 
+            <p class="proj-text">In a SAS script, this join would sit alongside the ingestion, cleaning, and analytics in the same file — handled implicitly, with no separation between the data preparation and the business logic that depends on it. The medallion architecture makes it explicit: Silver owns the join, solves it once, and every downstream calculation reads from the same aligned source.</p>
+
             <p class="proj-text">The Fed Funds Rate and ECB rate are published monthly; equity data is daily. A standard date join leaves most rows null because the rate observation dates rarely fall on trading days. The Silver layer resolves this with a two-pass window function: first a forward-fill to carry each rate reading forward through subsequent trading days, then a backward-fill to handle the initial days at the start of the series before the first rate observation date.</p>
 
             <div class="eq-block">
