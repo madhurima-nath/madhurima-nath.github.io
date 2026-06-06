@@ -37,7 +37,7 @@
 
         <h2 style="margin-top: 10px;">Financial Analytics Pipeline on Databricks</h2>
 
-        <p class="proj-text">Financial institutions have been running market analytics in SAS for decades. Moving to a modern data platform means replacing both the infrastructure and the legacy code. This project builds both — as a personal exploration outside work, on real data: a Databricks medallion pipeline on 15 years of US and European market data, and a tool that converts legacy SAS analytics code to PySpark or Databricks SQL automatically.</p>
+        <p class="proj-text">SAS has been the standard for market analytics in financial institutions for decades. Moving to a modern data platform means replacing both the infrastructure and the legacy code. This project builds both — as a personal exploration outside work, on real data: a Databricks medallion pipeline on 15 years of US and European market data, and a tool that converts legacy SAS analytics code to PySpark (Python for Apache Spark) or Databricks SQL automatically.</p>
 
         <p class="proj-text">The pipeline covers five data series — S&amp;P 500, Euro Stoxx 50, VIX (a measure of expected US stock market volatility), US Federal Funds Rate, and ECB (European Central Bank) Deposit Facility Rate — across three Delta Lake layers (Bronze, Silver, Gold). The ECB rate turned negative in 2014 and stayed there until 2022 — a regime the US never entered, which appears clearly in the regime classifications. The converter handles the code side: paste legacy SAS, get working PySpark or Databricks SQL back.</p>
 
@@ -229,7 +229,7 @@ def bronze_sp500():
         <section class="proj-section" id="ai-development">
             <h3>AI-Assisted Development</h3>
 
-            <p class="proj-text">This project was built with Claude Code (Anthropic&rsquo;s AI coding assistant) as a development collaborator &mdash; used for architecture decisions, the quality checks module, the converter&rsquo;s rule engine design, and iterative review across all three pipeline layers. The SAS &rarr; PySpark converter&rsquo;s Claude AI fallback uses the same capability in a production context: where AI assistance accelerated the engineering work, the converter deploys it to automate code migration at scale. The project demonstrates both uses of LLMs in data engineering &mdash; as a development tool and as a deployed feature.</p>
+            <p class="proj-text">This project was built with Claude Code (Anthropic&rsquo;s AI coding assistant) as a development collaborator &mdash; used for architecture decisions, the quality checks module, the converter&rsquo;s rule engine design, and iterative review across all three pipeline layers. The SAS &rarr; PySpark converter&rsquo;s Claude AI fallback uses the same capability in a different context: where AI assistance accelerated the engineering work, the converter deploys it to translate SAS code across an entire codebase &mdash; as a development tool and as a deployed feature.</p>
         </section>
 
         <!-- Section 8: References -->
