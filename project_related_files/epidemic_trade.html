@@ -10,7 +10,7 @@
     <title>Epidemic &amp; Trade Networks · Madhurima Nath</title>
     <link rel="icon" type="image/png" href="../tools/favicon-32.png?v=1">
     <link rel="icon" type="image/svg+xml" href="../tools/favicon.svg?v=3">
-    <link rel="stylesheet" href="../style.css?v=43">
+    <link rel="stylesheet" href="../style.css?v=44">
     <script>MathJax = { tex: { inlineMath: [['\\(','\\)']] } };</script>
     <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
 </head>
@@ -39,46 +39,57 @@
 
         <h2 style="margin-top: 10px;">Epidemic &amp; Trade Network Applications</h2>
 
-        <p class="proj-text">Doctoral research, Virginia Tech, 2013&ndash;2018, supervised by Prof. Stephen Eubank. Moore-Shannon network reliability is applied here to two classes of networked systems: human contact networks, where it measures epidemic potential and reveals structural limitations of graph models; and international food trade networks, where it identifies contagion clusters and vulnerability to crop-specific disruptions. The <a href="https://vtechworks.lib.vt.edu/handle/10919/86841" target="_blank" rel="noopener">full dissertation</a> is available online.</p>
+        <p class="proj-text">Doctoral research, Virginia Tech, 2013&ndash;2018, supervised by Prof. Stephen Eubank. <a href="network_reliability.html">Moore-Shannon network reliability</a> &mdash; a polynomial that encodes both network structure and the dynamics of a process running on it &mdash; is applied here to two systems: human contact networks, where it reveals how standard graph models fail to reproduce epidemic dynamics; and international food trade networks, where it identifies which groups of countries share vulnerability to a crop-borne invasive species. The <a href="https://vtechworks.lib.vt.edu/handle/10919/86841" target="_blank" rel="noopener">full dissertation</a> is available online.</p>
 
         <!-- Section 1: Epidemic Modelling -->
         <section class="proj-section" id="epidemiology">
             <h3>SIR Dynamics on Contact Networks</h3>
-            <div class="theme-content">
-                <div class="theme-text">
-                    <p class="proj-text">Contact networks shape how diseases spread through populations. The transmission of an infectious disease through a contact network can be modelled as a diffusive process on a graph, where each edge carries a probability of transmitting infection. This work compares SIR epidemic outcomes on observed contact networks from the Add Health dataset with outcomes on exponential random graph models (ERGMs) constructed to match the same summary statistics, using Moore-Shannon network reliability to measure epidemic potential.</p>
 
-                    <div class="eq-block">
-                        <span class="eq-label">SIR dynamics and network reliability</span>
-                        <p>Under SIR dynamics, each node is susceptible \((S)\), infectious \((I)\), or removed \((R)\). A node in state \(I\) transmits infection to each susceptible neighbour independently with probability \(x\). For "N-Terminal" reliability, \(R(x;\,\mathcal{G},D_\text{SIR},P_N)\) gives the probability that infecting a single randomly chosen node leads to an outbreak involving at least \(N\) people. This is a finite-degree polynomial in \(x\) that captures both the network structure and the transmission dynamics in a single quantity.</p>
-                    </div>
+            <p class="proj-text">Infectious diseases spread through contact networks &mdash; graphs in which each person is a node and each potential transmission route an edge. Under the SIR model, each person is susceptible \((S)\), infectious \((I)\), or recovered \((R)\). An infectious person transmits to each susceptible contact independently with probability \(x\). The central question is whether networks constructed to match observed local statistics also reproduce the epidemic dynamics observed on the real network.</p>
 
-                    <p class="proj-text">Networks generated from ERGMs overestimated infection numbers by up to 50% compared to observed networks, despite matching degree distribution and clustering coefficients. Network reliability analysis revealed that temporal patterns also differed systematically &mdash; peak infection timing, outbreak magnitude, and duration all varied between real and modelled networks. Across multiple Monte Carlo runs, these differences persisted consistently. Standard network statistics fail to capture structural features critical to epidemic dynamics, and observed contact network data remains essential when evaluating control strategies.</p>
-                </div>
-                <div class="theme-figure">
-                    <img src="../related_files/epidemic_epicurves.png" alt="Mean epidemic curves showing infection counts over time for SIR dynamics on observed contact networks versus ERGM models, with ERGMs overestimating peak infection" style="cursor:zoom-in;">
-                    <img src="../related_files/epidemic_calibration.png" alt="Network reliability curves R(x) for observed contact networks and ERGM models at matched network statistics, showing structural differences not captured by degree distribution or clustering" style="margin-top: 18px; cursor:zoom-in;">
-                    <figcaption>Mean epicurves and reliability \(R(x;\alpha)\) for observed vs. modelled networks.</figcaption>
-                </div>
+            <div class="eq-block">
+                <span class="eq-label">N-Terminal reliability under SIR dynamics</span>
+                <p>\(R(x;\,\mathcal{G},D_\text{SIR},\mathcal{P}_N)\) gives the probability that infecting a single randomly chosen node leads to an outbreak involving at least \(N\) people, where \(x\) is the per-edge transmission probability. It is a finite-degree polynomial in \(x\) that captures both network topology and epidemic dynamics in a single quantity.</p>
             </div>
+
+            <p class="proj-text">The observed network is <em>school 86</em> &mdash; a friendship network drawn from Wave I of the Add Health study, a US national longitudinal survey of adolescent social networks. It covers two high schools with 1,460 students and 974 mutual friendship links. Against this, ensembles of exponential random graph models (ERGMs) &mdash; statistical models that generate random networks constrained to match specified properties &mdash; were constructed to match school 86 on edge count, node attributes, clustering, and a geometric weighting of shared partnerships. The Faux Magnolia network, a well-known ERGM fit in the literature based on the same data, serves as the primary comparison.</p>
+
+            <p class="proj-text">Comparing \(R(x;\alpha)\) across all networks shows that school 86 is significantly more resistant to large outbreaks than any of the ERGMs, even those that closely match its degree distribution, clustering coefficients, and centrality measures. At matched transmission probability, ERGMs overestimate infection numbers by up to 50%. When transmission probability is re-calibrated so that all networks have the same epidemic potential, systematic differences in peak infection height and outbreak duration persist. A less constrained random network, re-calibrated to the same epidemic potential, performs as well as or better than Faux Magnolia at reproducing school 86 dynamics &mdash; indicating that over-constraining to local statistics introduces spurious global structure.</p>
+
+            <p class="proj-text">The conclusion is that attack rate depends on global topological features not captured by degree distribution or clustering. Standard summary statistics are insufficient to characterise epidemic dynamics, and observed contact network data remains essential when designing and evaluating intervention strategies such as vaccination.</p>
+
+            <figure style="margin:24px auto; text-align:center;">
+                <img src="../related_files/epidemic_epicurves.png" alt="Mean epidemic curves showing infection counts over time for SIR dynamics on observed contact networks versus ERGM models, with ERGMs overestimating peak infection" style="width:100%; border-radius:6px; cursor:zoom-in;" class="inline-zoomable">
+                <figcaption>Mean epicurves for school 86, Faux Magnolia, and ERGM ensembles under SIR dynamics. ERGMs overestimate peak infection and outbreak duration relative to the observed network.</figcaption>
+            </figure>
+
+            <figure style="margin:24px auto; text-align:center;">
+                <img src="../related_files/epidemic_calibration.png" alt="Network reliability curves R(x;α) for observed contact networks and ERGM models, showing that school 86 requires higher transmission probability to achieve the same epidemic potential" style="width:100%; border-radius:6px; cursor:zoom-in;" class="inline-zoomable">
+                <figcaption>Reliability curves \(R(x;\alpha)\) for observed and modelled networks. School 86 shifts significantly rightward, requiring higher transmission probability to reach the same epidemic potential as ERGMs built to match it.</figcaption>
+            </figure>
         </section>
 
         <!-- Section 2: Food Trade -->
         <section class="proj-section" id="trade">
-            <h3>Food Trade Networks &amp; Pestilence Distribution</h3>
-            <div class="theme-content">
-                <div class="theme-text">
-                    <p class="proj-text">Global food systems are increasingly interconnected through long-distance trade, creating vulnerability to disruptions from climate events, pests, and contamination. This research applies Moore-Shannon network reliability community detection to international food trade networks to identify clusters of countries whose trade patterns create mutual dependencies in how disruptions propagate.</p>
-                    <p class="proj-text">The spread of the South American tomato leafminer (<em>Tuta absoluta</em>) through the Solanaceae trade &mdash; tomato, potato, eggplant, and pepper &mdash; is modelled as an independent cascade process on networks constructed from FAO trade matrix data. Contagion clusters are well-connected maximal subsets of nodes such that if infection enters a cluster, it spreads rapidly within it. Analysis of the resulting clusters shows they form primarily between geographically adjacent countries with strong bilateral trade relationships. The hierarchical structure of communities shifts with the reliability threshold: larger clusters break into progressively smaller, more cohesive subgroups. Forecasting the propagation of contagion conditions across identified clusters achieved approximately 96% precision.</p>
-                    <p class="proj-text">As global trade intensifies over time, clusters grow larger and fewer countries remain outside network effects. Identifying vulnerable clusters enables targeted surveillance, highlights critical trade routes requiring monitoring, and indicates where supply chain diversification or biosecurity measures would be most effective in reducing systemic vulnerability.</p>
-                </div>
-                <div class="theme-figure">
-                    <img src="../related_files/food_trade_map.png" alt="World map showing geographic contagion clusters in the international tomato trade network, with colours indicating cluster membership" style="cursor:zoom-in;">
-                    <figcaption>Geographic contagion clusters in the international tomato trade network.</figcaption>
-                    <img src="../related_files/food_trade_temporal.png" alt="Temporal evolution of tomato trade contagion clusters for 2005, 2007, and 2009, showing cluster growth as global trade intensifies" style="margin-top: 18px; cursor:zoom-in;">
-                    <figcaption>Temporal evolution of tomato trade clusters: 2005, 2007, and 2009.</figcaption>
-                </div>
-            </div>
+            <h3>Invasive Species Spread in Food Trade Networks</h3>
+
+            <p class="proj-text">The global food system depends on long-distance trade in agricultural commodities, which creates pathways for invasive species and crop pests to propagate between countries. This work applies Moore-Shannon network reliability to identify <em>contagion clusters</em> in international food trade networks &mdash; groups of countries with shared vulnerability, where a pest entering one country substantially increases the likelihood of spread to the others.</p>
+
+            <p class="proj-text">The case study is <em>Tuta absoluta</em> (South American tomato leafminer), an invasive pest that has spread from its native South America to most of Europe, Africa, and West, Central, and South Asia. Trade data for the four crops of the Solanaceae family &mdash; tomato, potato, eggplant, and pepper &mdash; comes from the FAO (Food and Agriculture Organization of the United Nations) Detailed Trade Matrices at country level, covering 2005&ndash;2013. Edge weights are set to the maximum of reported export and import volumes between each country pair, representing a worst-case scenario for contagion risk.</p>
+
+            <p class="proj-text">Contagion clusters are identified using a reliability-based algorithm that removes trade edges in order of their marginal contribution to network reliability, until no strongly connected component exceeds a specified size. This ranks trade routes by structural importance to the contagion process. The minimum cut needed to disconnect each cluster, and its total incoming and outgoing trade volumes, characterise its vulnerability and influence in the wider network.</p>
+
+            <p class="proj-text">A stable European cluster &mdash; Portugal, Netherlands, Belgium, France, and Spain &mdash; appears in the tomato trade network across all years. A distinct North American cluster (USA, Mexico, Canada) is identified separately. Clusters form primarily among geographically adjacent countries with strong bilateral trade, and the structure is robust: stable across different transmission probability values and different trade volume quantisation levels. As total trade volumes grow between 2005 and 2013, clusters expand and fewer countries remain outside network effects. Forecasting contagion propagation across identified clusters achieved approximately 96% precision.</p>
+
+            <figure style="margin:24px auto; text-align:center;">
+                <img src="../related_files/food_trade_map.png" alt="World map showing geographic contagion clusters in the international tomato trade network, with colours indicating cluster membership" style="width:100%; border-radius:6px; cursor:zoom-in;" class="inline-zoomable">
+                <figcaption>Geographic contagion clusters in the international tomato trade network (2013). The European cluster (Portugal, Netherlands, Belgium, France, Spain) and North American cluster (USA, Mexico, Canada) are the most prominent.</figcaption>
+            </figure>
+
+            <figure style="margin:24px auto; text-align:center;">
+                <img src="../related_files/food_trade_temporal.png" alt="Temporal evolution of tomato trade contagion clusters for 2005, 2007, and 2009, showing cluster growth as global trade intensifies" style="width:100%; border-radius:6px; cursor:zoom-in;" class="inline-zoomable">
+                <figcaption>Temporal evolution of tomato trade clusters (2005&ndash;2013). As trade volumes grow, clusters expand and mutual exposure increases across countries.</figcaption>
+            </figure>
         </section>
 
         <!-- Publications -->
@@ -119,7 +130,7 @@ document.querySelectorAll(".js-year").forEach(function(el){ el.textContent = new
 (function(){
     var lb = document.getElementById('imgLightbox');
     var lbImg = lb.querySelector('img');
-    document.querySelectorAll('.theme-figure img').forEach(function(img){
+    document.querySelectorAll('.inline-zoomable, .proj-section figure img').forEach(function(img){
         img.addEventListener('click', function(){
             lbImg.src = img.src;
             lbImg.alt = img.alt;
