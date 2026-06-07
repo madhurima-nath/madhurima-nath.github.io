@@ -39,7 +39,9 @@
 
         <h2 style="margin-top: 10px;">Epidemic &amp; Trade Network Applications</h2>
 
-        <p class="proj-text">Doctoral research, Virginia Tech, 2013&ndash;2018, supervised by Prof. Stephen Eubank. The theoretical foundation is Moore-Shannon network reliability, described in detail on the <a href="network_reliability.html">network reliability project page</a>: a polynomial that encodes both network structure and the dynamics of a process running on it. That framework is applied here to two systems: human contact networks, where it reveals how standard graph models fail to reproduce epidemic dynamics even when they closely match local statistics; and international food trade networks, where it identifies stable clusters of countries that share vulnerability to a crop-borne invasive species. In both cases, the framework reveals structure that standard methods miss. The <a href="https://vtechworks.lib.vt.edu/handle/10919/86841" target="_blank" rel="noopener">full dissertation</a> is available online.</p>
+        <p class="proj-text">Doctoral research, Virginia Tech, 2013&ndash;2018, supervised by Prof. Stephen Eubank. The theoretical foundation is Moore-Shannon network reliability, described in detail on the <a href="network_reliability.html">network reliability project page</a>: a polynomial that encodes both network structure and the dynamics of a process running on it. That framework is applied here to two systems: human contact networks, where it reveals how standard graph models fail to reproduce epidemic dynamics even when they closely match local statistics; and international food trade networks, where it identifies stable clusters of countries that share vulnerability to a crop-borne invasive species. <strong>In both cases, the framework reveals structure that standard methods miss.</strong></p>
+
+        <p class="proj-text"><a href="https://vtechworks.lib.vt.edu/handle/10919/86841" target="_blank" rel="noopener">Full dissertation ↗</a> &nbsp;&middot;&nbsp; <a href="https://www.sciencedirect.com/science/article/pii/S002251931730560X" target="_blank" rel="noopener">Journal of Theoretical Biology (2018) ↗</a></p>
 
         <!-- Section 1: Epidemic Modelling -->
         <section class="proj-section" id="epidemiology">
@@ -56,7 +58,7 @@
 
             <p class="proj-text">Against this, ensembles of exponential random graph models (ERGMs) &mdash; statistical models that generate random networks constrained to match specified properties &mdash; were constructed to match school 86 on edge count, node attributes, clustering, and the distribution of shared connections. The Faux Magnolia network, a well-known ERGM fit in the literature based on the same data, serves as the primary comparison.</p>
 
-            <p class="proj-text">Comparing reliability curves across all networks shows that school 86 is significantly more resistant to large outbreaks than any of the ERGMs, even those that closely match its degree distribution, clustering coefficients, and centrality measures. At the same transmission probability, ERGMs overestimate infection numbers by up to 50%. To ask whether this gap is purely in overall infectiousness or also in the shape of the epidemic, transmission probability is then re-calibrated so that all networks share the same epidemic potential &mdash; the same overall probability of a large outbreak. Systematic differences in peak infection height and outbreak duration persist even after re-calibration. More strikingly, a less constrained random network, once re-calibrated, performs as well as or better than Faux Magnolia: adding more constraints to match local statistics does not improve how well the model reproduces real epidemic dynamics, and can introduce spurious global structure.</p>
+            <p class="proj-text">Computing \(R(x;\,\mathcal{G},D_\text{SIR},\mathcal{P}_N)\) for each network shows that school 86 is significantly more resistant to large outbreaks than any of the ERGMs, even those that closely match its degree distribution, clustering coefficients, and centrality measures. At the same transmission probability, ERGMs overestimate infection numbers by up to 50%. To ask whether this gap is purely in overall infectiousness or also in the shape of the epidemic, transmission probability is then re-calibrated so that all networks share the same epidemic potential &mdash; the same overall probability of a large outbreak. Systematic differences in peak infection height and outbreak duration persist even after re-calibration. More strikingly, a less constrained random network, once re-calibrated, performs as well as or better than Faux Magnolia: adding more constraints to match local statistics does not improve how well the model reproduces real epidemic dynamics, and can introduce spurious global structure.</p>
 
             <p class="proj-text">The conclusion is that how widely an outbreak spreads depends on global topological features not captured by degree distribution or clustering. Standard summary statistics are insufficient to characterise epidemic dynamics, and observed contact network data remains essential when designing and evaluating intervention strategies such as vaccination.</p>
 
@@ -67,7 +69,7 @@
                 </figure>
                 <figure style="flex:1; min-width:260px; text-align:center; margin:0;">
                     <img src="../related_files/epidemic_calibration.png" alt="Network reliability curves R(x;α) for observed contact networks and ERGM models, showing that school 86 requires higher transmission probability to achieve the same epidemic potential" style="width:100%; border-radius:6px; cursor:zoom-in;" class="inline-zoomable">
-                    <figcaption>Reliability curves \(R(x;\alpha)\) for observed and modelled networks. School 86 shifts significantly rightward, requiring higher transmission probability to reach the same epidemic potential as ERGMs built to match it.</figcaption>
+                    <figcaption>Reliability curves for observed and modelled networks. School 86 shifts significantly rightward, requiring higher transmission probability to reach the same epidemic potential as ERGMs built to match it.</figcaption>
                 </figure>
             </div>
         </section>
@@ -97,7 +99,7 @@
         </section>
 
         <!-- Publications -->
-        <h2>Publications</h2>
+        <h2>Related Publications</h2>
         <ol class="harvard-refs">
             <li>
                 <a href="https://link.springer.com/chapter/10.1007/978-3-031-21131-7_21" target="_blank" rel="noopener">
