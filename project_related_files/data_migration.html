@@ -90,7 +90,7 @@ filled = (
 )</pre>
             </div>
 
-            <p class="proj-text">Each trading day carries the rate in effect on that day — a point-in-time join with no lookahead bias.</p>
+            <p class="proj-text">Each trading day carries only the rate that was known at that date — no future data bleeds back.</p>
 
             <figure style="margin:24px auto; text-align:center;">
                 <img src="../related_files/silver_quality.png" alt="Silver notebook output showing all quality checks passing: row count, null checks, range checks, duplicate checks for silver_market table" style="width:100%; border-radius:6px; cursor:zoom-in;" class="inline-zoomable">
@@ -229,7 +229,7 @@ def bronze_sp500():
         <section class="proj-section" id="ai-development">
             <h3>AI-Assisted Development</h3>
 
-            <p class="proj-text">This project was built with Claude Code (Anthropic&rsquo;s AI coding assistant) as a development collaborator &mdash; used for architecture decisions, the quality checks module, the converter&rsquo;s rule engine design, and iterative review across all three pipeline layers. The SAS &rarr; PySpark converter&rsquo;s Claude AI fallback uses the same capability in a different context: where AI assistance accelerated the engineering work, the converter deploys it to translate SAS code across an entire codebase &mdash; as a development tool and as a deployed feature.</p>
+            <p class="proj-text">This project was built with Claude Code (Anthropic&rsquo;s AI coding assistant) as a development collaborator &mdash; used for architecture decisions, the quality checks module, the converter&rsquo;s rule engine design, and iterative review across all three pipeline layers. The SAS &rarr; PySpark converter&rsquo;s Claude AI fallback uses the same capability in a different context: where AI assistance accelerated the engineering work, the converter deploys it to translate SAS code across an entire codebase.</p>
         </section>
 
         <!-- Section 8: References -->
