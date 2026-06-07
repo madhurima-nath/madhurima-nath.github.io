@@ -39,7 +39,7 @@
 
         <h2 style="margin-top: 10px;">Epidemic &amp; Trade Network Applications</h2>
 
-        <p class="proj-text">Doctoral research, Virginia Tech, 2013&ndash;2018, supervised by Prof. Stephen Eubank. <a href="network_reliability.html">Moore-Shannon network reliability</a> &mdash; a polynomial that encodes both network structure and the dynamics of a process running on it &mdash; is applied here to two systems: human contact networks, where it reveals how standard graph models fail to reproduce epidemic dynamics; and international food trade networks, where it identifies which groups of countries share vulnerability to a crop-borne invasive species. The <a href="https://vtechworks.lib.vt.edu/handle/10919/86841" target="_blank" rel="noopener">full dissertation</a> is available online.</p>
+        <p class="proj-text">Doctoral research, Virginia Tech, 2013&ndash;2018, supervised by Prof. Stephen Eubank. The theoretical foundation is Moore-Shannon network reliability, described in detail on the <a href="network_reliability.html">network reliability project page</a>: a polynomial that encodes both network structure and the dynamics of a process running on it in a single quantity. That framework is applied here to two systems: human contact networks, where it reveals how standard graph models fail to reproduce epidemic dynamics; and international food trade networks, where it identifies which groups of countries share vulnerability to a crop-borne invasive species. The <a href="https://vtechworks.lib.vt.edu/handle/10919/86841" target="_blank" rel="noopener">full dissertation</a> is available online.</p>
 
         <!-- Section 1: Epidemic Modelling -->
         <section class="proj-section" id="epidemiology">
@@ -52,21 +52,22 @@
                 <p>\(R(x;\,\mathcal{G},D_\text{SIR},\mathcal{P}_N)\) gives the probability that infecting a single randomly chosen node leads to an outbreak involving at least \(N\) people, where \(x\) is the per-edge transmission probability. It is a finite-degree polynomial in \(x\) that captures both network topology and epidemic dynamics in a single quantity.</p>
             </div>
 
-            <p class="proj-text">The observed network is <em>school 86</em> &mdash; a friendship network drawn from Wave I of the Add Health study, a US national longitudinal survey of adolescent social networks. It covers two high schools with 1,460 students and 974 mutual friendship links. Against this, ensembles of exponential random graph models (ERGMs) &mdash; statistical models that generate random networks constrained to match specified properties &mdash; were constructed to match school 86 on edge count, node attributes, clustering, and a geometric weighting of shared partnerships. The Faux Magnolia network, a well-known ERGM fit in the literature based on the same data, serves as the primary comparison.</p>
+            <p class="proj-text">The observed network is <em>school 86</em> &mdash; a friendship network drawn from Wave I of <a href="https://addhealth.unc.edu/" target="_blank" rel="noopener">Add Health</a> (the National Longitudinal Study of Adolescent to Adult Health), a large US government-funded survey that followed a nationally representative sample of adolescents from the mid-1990s into adulthood, tracking health, social relationships, and behaviour over time. Wave I, collected in 1994&ndash;1995, included detailed data on friendship networks within schools. School 86 covers two linked high schools with 1,460 students and 974 mutual friendship links. Against this, ensembles of exponential random graph models (ERGMs) &mdash; statistical models that generate random networks constrained to match specified properties &mdash; were constructed to match school 86 on edge count, node attributes, clustering, and a geometric weighting of shared partnerships. The Faux Magnolia network, a well-known ERGM fit in the literature based on the same data, serves as the primary comparison.</p>
 
             <p class="proj-text">Comparing \(R(x;\alpha)\) across all networks shows that school 86 is significantly more resistant to large outbreaks than any of the ERGMs, even those that closely match its degree distribution, clustering coefficients, and centrality measures. At matched transmission probability, ERGMs overestimate infection numbers by up to 50%. When transmission probability is re-calibrated so that all networks have the same epidemic potential, systematic differences in peak infection height and outbreak duration persist. A less constrained random network, re-calibrated to the same epidemic potential, performs as well as or better than Faux Magnolia at reproducing school 86 dynamics &mdash; indicating that over-constraining to local statistics introduces spurious global structure.</p>
 
             <p class="proj-text">The conclusion is that attack rate depends on global topological features not captured by degree distribution or clustering. Standard summary statistics are insufficient to characterise epidemic dynamics, and observed contact network data remains essential when designing and evaluating intervention strategies such as vaccination.</p>
 
-            <figure style="margin:24px auto; text-align:center;">
-                <img src="../related_files/epidemic_epicurves.png" alt="Mean epidemic curves showing infection counts over time for SIR dynamics on observed contact networks versus ERGM models, with ERGMs overestimating peak infection" style="width:100%; border-radius:6px; cursor:zoom-in;" class="inline-zoomable">
-                <figcaption>Mean epicurves for school 86, Faux Magnolia, and ERGM ensembles under SIR dynamics. ERGMs overestimate peak infection and outbreak duration relative to the observed network.</figcaption>
-            </figure>
-
-            <figure style="margin:24px auto; text-align:center;">
-                <img src="../related_files/epidemic_calibration.png" alt="Network reliability curves R(x;α) for observed contact networks and ERGM models, showing that school 86 requires higher transmission probability to achieve the same epidemic potential" style="width:100%; border-radius:6px; cursor:zoom-in;" class="inline-zoomable">
-                <figcaption>Reliability curves \(R(x;\alpha)\) for observed and modelled networks. School 86 shifts significantly rightward, requiring higher transmission probability to reach the same epidemic potential as ERGMs built to match it.</figcaption>
-            </figure>
+            <div style="display:flex; gap:16px; margin:24px 0; flex-wrap:wrap;">
+                <figure style="flex:1; min-width:260px; text-align:center; margin:0;">
+                    <img src="../related_files/epidemic_epicurves.png" alt="Mean epidemic curves showing infection counts over time for SIR dynamics on observed contact networks versus ERGM models, with ERGMs overestimating peak infection" style="width:100%; border-radius:6px; cursor:zoom-in;" class="inline-zoomable">
+                    <figcaption>Mean epicurves for school 86, Faux Magnolia, and ERGM ensembles under SIR dynamics. ERGMs overestimate peak infection and outbreak duration relative to the observed network.</figcaption>
+                </figure>
+                <figure style="flex:1; min-width:260px; text-align:center; margin:0;">
+                    <img src="../related_files/epidemic_calibration.png" alt="Network reliability curves R(x;α) for observed contact networks and ERGM models, showing that school 86 requires higher transmission probability to achieve the same epidemic potential" style="width:100%; border-radius:6px; cursor:zoom-in;" class="inline-zoomable">
+                    <figcaption>Reliability curves \(R(x;\alpha)\) for observed and modelled networks. School 86 shifts significantly rightward, requiring higher transmission probability to reach the same epidemic potential as ERGMs built to match it.</figcaption>
+                </figure>
+            </div>
         </section>
 
         <!-- Section 2: Food Trade -->
@@ -81,15 +82,16 @@
 
             <p class="proj-text">A stable European cluster &mdash; Portugal, Netherlands, Belgium, France, and Spain &mdash; appears in the tomato trade network across all years. A distinct North American cluster (USA, Mexico, Canada) is identified separately. Clusters form primarily among geographically adjacent countries with strong bilateral trade, and the structure is robust: stable across different transmission probability values and different trade volume quantisation levels. As total trade volumes grow between 2005 and 2013, clusters expand and fewer countries remain outside network effects. Forecasting contagion propagation across identified clusters achieved approximately 96% precision.</p>
 
-            <figure style="margin:24px auto; text-align:center;">
-                <img src="../related_files/food_trade_map.png" alt="World map showing geographic contagion clusters in the international tomato trade network, with colours indicating cluster membership" style="width:100%; border-radius:6px; cursor:zoom-in;" class="inline-zoomable">
-                <figcaption>Geographic contagion clusters in the international tomato trade network (2013). The European cluster (Portugal, Netherlands, Belgium, France, Spain) and North American cluster (USA, Mexico, Canada) are the most prominent.</figcaption>
-            </figure>
-
-            <figure style="margin:24px auto; text-align:center;">
-                <img src="../related_files/food_trade_temporal.png" alt="Temporal evolution of tomato trade contagion clusters for 2005, 2007, and 2009, showing cluster growth as global trade intensifies" style="width:100%; border-radius:6px; cursor:zoom-in;" class="inline-zoomable">
-                <figcaption>Temporal evolution of tomato trade clusters (2005&ndash;2013). As trade volumes grow, clusters expand and mutual exposure increases across countries.</figcaption>
-            </figure>
+            <div style="display:flex; gap:16px; margin:24px 0; flex-wrap:wrap;">
+                <figure style="flex:1; min-width:260px; text-align:center; margin:0;">
+                    <img src="../related_files/food_trade_map.png" alt="World map showing geographic contagion clusters in the international tomato trade network, with colours indicating cluster membership" style="width:100%; border-radius:6px; cursor:zoom-in;" class="inline-zoomable">
+                    <figcaption>Geographic contagion clusters in the international tomato trade network (2013). The European cluster (Portugal, Netherlands, Belgium, France, Spain) and North American cluster (USA, Mexico, Canada) are the most prominent.</figcaption>
+                </figure>
+                <figure style="flex:1; min-width:260px; text-align:center; margin:0;">
+                    <img src="../related_files/food_trade_temporal.png" alt="Temporal evolution of tomato trade contagion clusters for 2005, 2007, and 2009, showing cluster growth as global trade intensifies" style="width:100%; border-radius:6px; cursor:zoom-in;" class="inline-zoomable">
+                    <figcaption>Temporal evolution of tomato trade clusters (2005&ndash;2013). As trade volumes grow, clusters expand and mutual exposure increases across countries.</figcaption>
+                </figure>
+            </div>
         </section>
 
         <!-- Publications -->
