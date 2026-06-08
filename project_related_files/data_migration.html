@@ -37,11 +37,13 @@
 
         <h2 style="margin-top: 10px;">Financial Analytics Pipeline on Databricks</h2>
 
-        <p class="proj-text">SAS has been the standard for market analytics in financial institutions for decades. Moving to a modern data platform means replacing both the infrastructure and the legacy code. This project builds both — as a personal exploration outside work, on real data: a Databricks medallion pipeline on 15 years of US and European market data, and a tool that converts legacy SAS analytics code to PySpark automatically.</p>
+        <p class="proj-text">SAS has been the standard for market analytics in financial institutions for decades. Moving to a modern data platform means replacing both the infrastructure and the code. This is a <strong>personal project</strong> &mdash; built outside work on real data: a Databricks medallion pipeline on 15 years of US and European market data, and a tool that converts SAS code to PySpark automatically.</p>
 
-        <p class="proj-text">The pipeline covers five data series — S&amp;P 500, Euro Stoxx 50, VIX (a measure of expected US stock market volatility), US Federal Funds Rate, and ECB (European Central Bank) Deposit Facility Rate — across three Delta Lake layers (Bronze, Silver, Gold). The ECB rate turned negative in 2014 and stayed there until 2022 — a regime the US never entered, which appears clearly in the regime classifications. The converter handles the code side: paste legacy SAS, get working PySpark back.</p>
+        <p class="proj-text">The pipeline covers five data series: S&amp;P 500, Euro Stoxx 50, VIX (a measure of expected US stock market volatility), US Federal Funds Rate, and ECB (European Central Bank) Deposit Facility Rate. These run through three Delta Lake layers — Bronze, Silver, Gold. The ECB rate turned negative in 2014 and stayed there until 2022 — a regime the US never entered, which appears clearly in the regime classifications. The converter handles the code side: SAS in, PySpark out.</p>
 
-        <p class="proj-text"><a href="https://financial-analytics-databricks.streamlit.app" target="_blank" rel="noopener">Live dashboard ↗</a> &nbsp;·&nbsp; <a href="https://github.com/madhurima-nath/databricks-ai-automated-pipeline" target="_blank" rel="noopener">GitHub ↗</a> &nbsp;·&nbsp; <a href="https://medium.com/@m.nath/migrating-financial-analytics-to-a-lakehouse-on-databricks-a-working-demo-38a3eb9f16d5" target="_blank" rel="noopener">Medium ↗</a></p>
+        <p class="proj-text"><a href="https://financial-analytics-databricks.streamlit.app" target="_blank" rel="noopener">Live dashboard ↗</a> &nbsp;·&nbsp; <a href="https://github.com/madhurima-nath/databricks-ai-automated-pipeline" target="_blank" rel="noopener">GitHub ↗</a> &nbsp;·&nbsp; <a href="https://medium.com/@m.nath/migrating-financial-analytics-to-a-lakehouse-on-databricks-a-working-demo-38a3eb9f16d5" target="_blank" rel="noopener">Lakehouse overview ↗</a> &nbsp;·&nbsp; <a href="https://medium.com/@m.nath/a-sas-migration-on-databricks-a-hands-on-project-13582e8f7004" target="_blank" rel="noopener">SAS pipeline ↗</a> &nbsp;·&nbsp; <a href="https://medium.com/@m.nath/automating-sas-to-pyspark-migration-rule-engine-first-ai-for-the-rest-d9d0b19ca1a8" target="_blank" rel="noopener">SAS converter ↗</a></p>
+
+        <p class="proj-text" style="font-size:0.88em; color:#64748B; margin-top:2px;"><em>The dashboard is hosted on Streamlit Community Cloud and may be sleeping after inactivity &mdash; clicking will wake it up within a few seconds.</em></p>
 
         <!-- Section 1: Architecture -->
         <section class="proj-section" id="architecture">
@@ -51,13 +53,11 @@
 
             <ul class="proj-text" style="padding-left:1.4em; margin-top:0; margin-bottom:0;">
                 <li style="margin-bottom:10px;"><strong>Bronze.</strong> Raw ingestion from two sources: Yahoo Finance (daily price and volume data for S&amp;P 500, Euro Stoxx 50, and VIX) and FRED (Federal Reserve Economic Data — monthly US Federal Funds Rate and ECB Deposit Facility Rate). Five Delta tables written without any transformation — source data is preserved exactly as received.</li>
-                <li style="margin-bottom:10px;"><strong>Silver.</strong> Quality checks, cleaning, and a forward-fill join that aligns monthly interest rates onto the daily trading day sequence. Log returns (a standard measure of proportional price change) and the US&ndash;EU rate differential are computed here. A reusable quality check module runs at every layer transition and halts the pipeline on any failure.</li>
-                <li><strong>Gold.</strong> Analysis-ready aggregates: rolling realised volatility (20-day and 60-day, annualised) for both indices, 60-day rolling correlation between US and EU equity returns, S&amp;P 500 % decline from its 52-week high, and rate regime classifications for both central banks.</li>
+                <li style="margin-bottom:10px;"><strong>Silver.</strong> Quality checks, cleaning, and a forward-fill join that aligns monthly interest rates onto the daily trading sequence. Log returns (a standard measure of proportional price change) and the US&ndash;EU rate differential are computed here. A reusable quality check module runs at every layer transition and halts the pipeline on any failure.</li>
+                <li><strong>Gold.</strong> Rolling realised volatility (20-day and 60-day, annualised) for both equity indices, 60-day US&ndash;EU equity correlation, S&amp;P 500 % decline from its 52-week high, and rate regime classifications for both central banks.</li>
             </ul>
 
-            <p class="proj-text" style="margin-top:18px;">The separation matters because of a data alignment problem: interest rates are monthly, equity prices are daily. A standard date join leaves the rate column empty for roughly 20 out of every 21 rows. Silver solves this once, in a single tested transformation, and every downstream calculation reads from the same aligned source.</p>
-
-            <p class="proj-text">Bronze preserves source observations exactly as received &mdash; if a cleaning rule changes in Silver, the full history re-derives from Bronze without calling the original APIs again. Quality checks run at each layer transition and halt the pipeline immediately on any failure. In SAS, ingestion, cleaning, and business logic typically share one script with no clean boundary between them; the medallion architecture makes each step explicit and independently testable.</p>
+            <p class="proj-text" style="margin-top:18px;">The separation matters because interest rates are monthly while equity prices are daily &mdash; a simple date join leaves the rate column empty on most trading days. Silver solves this in a single tested transformation, and everything built on top reads from the same aligned source. Bronze preserves source data exactly as received; if a cleaning rule changes, the full history can be re-derived without calling the original APIs again. In SAS, ingestion, cleaning, and analytics typically share one script with no clear boundary; the medallion architecture makes each step explicit and independently testable.</p>
 
             <figure style="margin:24px auto; text-align:center;">
                 <img src="../related_files/catalog_tables.png" alt="Databricks Catalog showing all seven Delta tables: five Bronze tables, silver_market, and gold_analytics" style="width:100%; border-radius:6px; cursor:zoom-in;" class="inline-zoomable">
@@ -69,7 +69,7 @@
         <section class="proj-section" id="join">
             <h3>Joining Monthly Rates to Daily Prices</h3>
 
-            <p class="proj-text">The Fed Funds Rate and ECB rate are published monthly; equity data is daily. A standard date join leaves most rows null because the rate observation dates rarely fall on trading days. The Silver layer resolves this with a two-pass window function: first a forward-fill to carry each rate reading forward through subsequent trading days, then a backward-fill to handle the initial days at the start of the series before the first rate observation date.</p>
+            <p class="proj-text">The Silver layer handles this alignment with two window functions: a forward-fill carries each rate reading forward through subsequent trading days, and a backward-fill covers the period before the first rate observation.</p>
 
             <div class="eq-block">
                 <span class="eq-label">Forward- and backward-fill — Silver layer (PySpark)</span>
@@ -102,11 +102,9 @@ filled = (
         <section class="proj-section" id="gold">
             <h3>Gold Layer</h3>
 
-            <p class="proj-text">Gold computes the financial analytics: rolling realised volatility at 20-day and 60-day windows (annualised), 60-day rolling Pearson correlation between US and EU equity returns, S&amp;P 500 % decline from its 52-week high, and rate regime classifications for both central banks. A financial analyst opening the dashboard gets these answers directly, with no further calculation needed.</p>
+            <p class="proj-text">Gold computes the financial analytics: rolling realised volatility at 20-day and 60-day windows (annualised), 60-day rolling Pearson correlation between US and EU equity returns, S&amp;P 500 % decline from its 52-week high, and rate regime classifications for both central banks. The dashboard reads these figures directly from the Gold table.</p>
 
-            <p class="proj-text">Regime classifications use threshold rules calibrated to the 2010&ndash;present rate environment. The ECB rate turned negative in 2014 and stayed there until 2022 — a regime the US never entered — so the EU classification includes a negative band that has no equivalent on the US side.</p>
-
-            <p class="proj-text">Each pipeline run appends a record to a <code>pipeline_run_log</code> Delta table: stage, table name, rows written, date range covered, and timestamp. Delta Lake records every write as a new version, so any prior state of <code>gold_analytics</code> can be queried with <code>VERSION AS OF</code> or <code>TIMESTAMP AS OF</code>.</p>
+            <p class="proj-text">Regime classifications use threshold rules calibrated to the 2010&ndash;present rate environment. The EU classification includes a negative rate band that has no equivalent on the US side.</p>
 
             <figure style="margin:24px auto; text-align:center;">
                 <img src="../related_files/gold_notebook.png" alt="Gold notebook summary output showing row counts, regime distribution table, and most recent rows from gold_analytics Delta table" style="width:100%; border-radius:6px; cursor:zoom-in;" class="inline-zoomable">
@@ -118,14 +116,14 @@ filled = (
         <section class="proj-section" id="dashboard">
             <h3>Dashboard</h3>
 
-            <p class="proj-text">The dashboard is the end-to-end proof that the migration works. Rolling volatility, correlations, and rate regime classifications are shown here running correctly in PySpark, reading live from the Gold Delta table on Databricks. No local data files. No intermediate exports. The app may be sleeping due to inactivity &mdash; click to wake it up and it will be ready in a few seconds.</p>
+            <p class="proj-text">The dashboard shows the full pipeline working. Rolling volatility, correlations, and rate regime classifications run here in PySpark, reading live from the Gold Delta table on Databricks. No local data files, no intermediate exports. The app may be sleeping due to inactivity &mdash; clicking will wake it up within a few seconds.</p>
 
             <figure style="margin:24px auto; text-align:center;">
                 <img src="../related_files/streamlit_home.png" alt="Dashboard home page showing two sections: The Pipeline and The Migration Tool" style="width:100%; border-radius:6px; cursor:zoom-in;" class="inline-zoomable">
                 <figcaption>Dashboard home page — the pipeline and the migration tool side by side.</figcaption>
             </figure>
 
-            <p class="proj-text">The Analytics Dashboard opens with what the pipeline found: US and EU markets fall together in crises; the ECB held rates below zero for eight years while the US did not; 2022 saw the fastest rate rises in four decades; COVID markets recovered their pre-crash highs within 12 months. These are the outputs of the Bronze &rarr; Silver &rarr; Gold pipeline on 15 years of real data &mdash; not inputs, not assumptions. Interactive charts let the reader filter to any period and see the same patterns in the underlying data.</p>
+            <p class="proj-text">The Analytics Dashboard opens with what the pipeline found: US and EU markets fall together in crises; the ECB held rates below zero for eight years while the US did not; 2022 saw the fastest rate rises in four decades; COVID markets recovered their pre-crash highs within 12 months. All of this comes from 15 years of real market data flowing through the Bronze &rarr; Silver &rarr; Gold pipeline, with interactive charts to explore any time period.</p>
 
             <figure style="margin:24px auto; text-align:center;">
                 <img src="../related_files/streamlit_plots.png" alt="Analytics Dashboard showing key patterns found in 15 years of US and European market data" style="width:100%; border-radius:6px; cursor:zoom-in;" class="inline-zoomable">
@@ -137,30 +135,31 @@ filled = (
         <section class="proj-section" id="converter">
             <h3>SAS &rarr; PySpark Converter</h3>
 
-            <p class="proj-text">Moving the infrastructure to Databricks is the easier half of a migration. The harder half is the code: financial institutions have decades of SAS scripts covering risk models, regulatory reports, and portfolio calculations. Rewriting each one by hand is the bottleneck that impedes most migrations. This converter automates the translation. Common SAS patterns &mdash; <code>PROC SORT</code>, <code>PROC MEANS</code>, <code>PROC SQL</code>, and <code>DATA</code> steps with variable handling, conditional logic, and date functions &mdash; are handled by a rule engine: the same input always produces the same output, no API key required. SAS code the rule engine cannot handle is passed to an LLM, which produces the translation. All output should be validated against the original SAS results before use in production.</p>
+            <p class="proj-text">Moving the infrastructure to Databricks is the easier half of a migration. The harder half is the code: financial institutions have decades of SAS scripts covering risk models, regulatory reports, and portfolio calculations. Rewriting them by hand takes months; this converter automates the translation. A rule engine handles the common patterns — <code>PROC SORT</code>, <code>PROC MEANS</code>, <code>PROC SQL</code>, <code>DATA</code> steps — with consistent output and no API key needed. Anything it cannot handle is passed to an LLM.</p>
 
-            <p class="proj-text">The converter has two modes. Community mode converts a single SAS block, with three preloaded examples and a fourth tab that shows — on a <code>RETAIN</code> example — what the rule engine flags versus what an LLM produces. Enterprise mode adds a YAML config file that maps SAS library names and variable references to Databricks table paths, converts a full multi-block script in one pass, and scores each block by confidence. Blocks below 85% are flagged for review. The dashboard preloads a four-block financial analytics script; Block 4 contains a <code>RETAIN</code> statement the rule engine cannot fully translate, and the LLM-produced window function equivalent is shown alongside the flag. Both the converted code and a per-block review manifest are downloadable.</p>
+            <p class="proj-text">The converter has two modes. Community mode converts a single SAS block, with three built-in examples and a fourth tab that shows &mdash; on a <code>RETAIN</code> example &mdash; what the rule engine flags versus what an LLM produces.</p>
+
+            <p class="proj-text">Enterprise mode takes a full SAS script and a YAML config file that maps library names and variable references to Databricks paths. It converts the script in one pass, scores each block by confidence, and flags anything below 85% for review. The dashboard includes a four-block example script. The first three blocks are handled by the rule engine; Block 4 contains a <code>RETAIN</code> statement it cannot translate, and the LLM equivalent is shown alongside. Both the converted code and a per-block review manifest are downloadable.</p>
 
             <figure style="margin:24px auto; text-align:center;">
                 <img src="../related_files/streamlit_converter.png" alt="SAS to PySpark Converter in Community mode showing three preloaded example tabs and a fourth tab demonstrating where an LLM is needed" style="width:100%; border-radius:6px; cursor:zoom-in;" class="inline-zoomable">
                 <figcaption>The SAS &rarr; PySpark Converter: Community mode with preloaded examples; Enterprise mode converts a full script in one pass and scores each block by confidence.</figcaption>
             </figure>
 
-            <p class="proj-text">The converter is tested with 39 pytest cases covering every supported SAS construct &mdash; sort, aggregation, SQL, conditional logic, date functions, <code>RETAIN</code> handling, confidence scoring, Enterprise mode config file support, multi-block script conversion, and YAML summary generation. A further 7 tests cover the pipeline script &mdash; credential loading, correct exit codes, and job status handling.</p>
+            <p class="proj-text">39 pytest cases cover every supported SAS construct across Community and Enterprise modes &mdash; including <code>RETAIN</code> handling, confidence scoring, and config file support. A further 7 cover the pipeline script &mdash; credential loading, exit codes, and job status.</p>
 
             <figure style="margin:24px auto; text-align:center;">
                 <img src="../related_files/test_cases.png" alt="pytest terminal output showing all 46 tests passing — 39 SAS converter tests and 7 pipeline script tests" style="width:100%; border-radius:6px; cursor:zoom-in;" class="inline-zoomable">
                 <figcaption>All 46 tests passing — 39 for the SAS converter, 7 for the pipeline script.</figcaption>
             </figure>
 
-            <p class="proj-text">Taken together, the pipeline and the converter address both sides of a migration: building the new infrastructure on Databricks, and moving the existing code to it.</p>
         </section>
 
         <!-- Section 6: Community Edition and Production Databricks -->
         <section class="proj-section" id="production">
             <h3>Community Edition and Production Databricks</h3>
 
-            <p class="proj-text">This project runs on Databricks Community Edition &mdash; a free tier that includes standard Delta Lake and classic compute. The architecture is designed to be production-ready; moving to a full workspace is a configuration change, not a rewrite.</p>
+            <p class="proj-text">This project runs on Databricks Community Edition &mdash; a free tier with standard Delta Lake and classic compute. The code is production-ready; moving to a full workspace changes how the pipeline is run and orchestrated, not the underlying data logic.</p>
 
             <table style="width:100%;border-collapse:collapse;font-size:0.9em;margin:18px 0;">
                 <thead>
@@ -183,7 +182,7 @@ filled = (
                     </tr>
                     <tr>
                         <td style="padding:9px 14px;border:1px solid #E2E8F0;">Ingestion</td>
-                        <td style="padding:9px 14px;border:1px solid #E2E8F0;">Batch CSV files synced via Repos</td>
+                        <td style="padding:9px 14px;border:1px solid #E2E8F0;">API-based ingestion — yfinance and FRED API called directly from notebooks</td>
                         <td style="padding:9px 14px;border:1px solid #E2E8F0;">Auto Loader &mdash; incremental, schema inference, handles late-arriving files automatically</td>
                     </tr>
                     <tr style="background:#F8FAFC;">
@@ -222,14 +221,14 @@ def bronze_sp500():
     )</pre>
             </div>
 
-            <p class="proj-text">Quality checks become <code>@dlt.expect</code> decorators, the write is implicit, and the dependency graph is inferred automatically from <code>dlt.read()</code> calls &mdash; Silver reads from Bronze and Gold reads from Silver, so execution order and scaling are handled by the framework rather than the notebook.</p>
+            <p class="proj-text">Quality checks become <code>@dlt.expect</code> decorators and the write is implicit. Execution order is inferred automatically from <code>dlt.read()</code> calls &mdash; Silver reads from Bronze, Gold reads from Silver &mdash; so ordering and scaling are handled by the framework, not the notebook.</p>
         </section>
 
         <!-- Section 7: AI-Assisted Development -->
         <section class="proj-section" id="ai-development">
             <h3>AI-Assisted Development</h3>
 
-            <p class="proj-text">This project was built with Claude Code (Anthropic&rsquo;s AI coding assistant) as a development collaborator &mdash; used for architecture decisions, the quality checks module, the converter&rsquo;s rule engine design, and iterative review across all three pipeline layers. The SAS &rarr; PySpark converter&rsquo;s LLM fallback uses the same Claude API in a different context: where it accelerated the engineering work, the converter deploys it to translate SAS code across an entire codebase.</p>
+            <p class="proj-text">This project was built with Claude Code (Anthropic&rsquo;s AI coding assistant) as a development collaborator &mdash; used for architecture decisions, the quality checks module, the converter&rsquo;s rule engine design, and review throughout all three pipeline layers. The converter&rsquo;s LLM fallback runs on the same Claude API &mdash; the difference is context: here it assisted with engineering decisions; there it translates SAS code across an entire migration.</p>
         </section>
 
         <!-- Section 8: References -->
@@ -239,7 +238,7 @@ def bronze_sp500():
                 <li style="margin-bottom:8px;"><a href="https://www.databricks.com/glossary/medallion-architecture" target="_blank" rel="noopener">Databricks: Medallion Architecture</a></li>
                 <li style="margin-bottom:8px;"><a href="https://medium.com/@m.nath/migrating-financial-analytics-to-a-lakehouse-on-databricks-a-working-demo-38a3eb9f16d5" target="_blank" rel="noopener">Medium: Migrating Financial Analytics to a Lakehouse on Databricks — A Working Demo</a></li>
                 <li style="margin-bottom:8px;"><a href="https://medium.com/@m.nath/a-sas-migration-on-databricks-a-hands-on-project-13582e8f7004" target="_blank" rel="noopener">Medium: A SAS Migration on Databricks: A Hands-On Project</a></li>
-                <li><em>Medium: Automating SAS-to-PySpark Code Migration with a Rule Engine and AI Fallback</em> (forthcoming)</li>
+                <li><a href="https://medium.com/@m.nath/automating-sas-to-pyspark-migration-rule-engine-first-ai-for-the-rest-d9d0b19ca1a8" target="_blank" rel="noopener">Medium: Automating SAS-to-PySpark Migration: Rule Engine First, AI for the Rest</a></li>
             </ul>
         </section>
 
