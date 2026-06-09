@@ -2585,6 +2585,21 @@ tr:nth-child(even) {
 	color: #2d5fae !important;
 }
 
+/* Italic for inline prose links — excludes nav, cards, publications */
+.proj-text a,
+.introduction a,
+.outreach-entry p a,
+.outreach-entry li a,
+.teaching-intro a,
+.pedagogy-list p a,
+.pedagogy-list li a,
+.ta-timeline p a,
+.wave-optics-topics li a,
+.pull-quote a,
+.eval-note a {
+	font-style: italic;
+}
+
 /* ========================================
    TERMINAL EQUATION BLOCKS (research_theory.html)
    ======================================== */
