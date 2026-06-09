@@ -2282,7 +2282,7 @@ tr:nth-child(even) {
 .pub-cv-link {
 	margin-top: 22px;
 	font-family: var(--font-sans);
-	font-size: clamp(14px, 1.6vw, 15px);
+	font-size: clamp(15px, 1.8vw, 17px);
 	font-weight: 600;
 }
 .pub-cv-link a {
