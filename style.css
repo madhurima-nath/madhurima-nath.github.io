@@ -1662,14 +1662,19 @@ tr:nth-child(even) {
 
 /* ===== Teaching: evaluation note ===== */
 .eval-note {
-	margin-top: 24px;
-	padding-top: 18px;
-	border-top: 1px dashed var(--border);
+	margin-top: 52px;
+	padding-top: 0;
+	border-top: none;
 }
 
 .eval-note h3 {
-	font-size: 17px;
-	margin: 0 0 4px;
+	font-family: var(--font-sans);
+	font-size: clamp(18px, 2.2vw, 22px);
+	font-weight: 700;
+	color: var(--accent);
+	margin: 0;
+	padding-bottom: 10px;
+	border-bottom: 2px solid var(--accent);
 }
 
 .eval-note > p {
@@ -1855,17 +1860,33 @@ tr:nth-child(even) {
 	text-align: right;
 }
 
+/* Outreach cluster headings — match teaching-group-label visual style */
+.page-outreach .container h2 {
+	font-size: clamp(18px, 2.2vw, 22px);
+	font-weight: 700;
+	margin: 52px 0 0;
+	padding-bottom: 10px;
+	border-bottom: 2px solid var(--accent);
+	letter-spacing: 0;
+}
+
+.page-outreach .container h2:first-of-type {
+	margin-top: 0;
+}
+
+.page-outreach .outreach-entry {
+	margin-top: 20px;
+}
+
 .outreach-entry {
 	margin: 0 0 32px;
 }
 .outreach-entry h3 {
-	font-size: 16px;
-	font-weight: 700;
-	margin: 0 0 12px;
-	letter-spacing: 0.06em;
-	text-transform: uppercase;
-	padding-bottom: 8px;
-	border-bottom: 1px solid var(--border);
+	font-family: var(--font-sans);
+	font-size: clamp(16px, 2vw, 19px);
+	font-weight: 600;
+	color: var(--accent);
+	margin: 0 0 10px;
 	hyphens: none;
 	-webkit-hyphens: none;
 }
