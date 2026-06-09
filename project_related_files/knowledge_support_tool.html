@@ -56,7 +56,14 @@
             <h3>Knowledge Support Tool</h3>
             <p class="proj-text">A leading equipment rental firm needed to help sales representatives respond to customer inquiries faster, reduce manual document searches, and support internal training. Subject matter experts (SMEs) needed to be able to review and correct any flagged response.</p>
             <p class="proj-text">The knowledge base was built from the firm's existing documents — structured (CSV, JSON) and unstructured (PDF, HTML) — ingested into S3 and converted to embeddings using GPT-3.5. Chroma was used as the vector store. The RAG pipeline used LangChain's RetrievalQA Chain with a prompt template matching the client's requirements: answers formatted as lists where appropriate, with links to source documents.</p>
-            <p class="proj-text">The deployment ran on AWS: Lambda functions handled input processing, LLM responses, and SME feedback updates; LangChain dependencies ran on EC2 via Docker; Amazon Lex handled natural language understanding; API Gateway connected the SME review interface; metadata was stored in DynamoDB.</p>
+            <p class="proj-text">The deployment ran on AWS:</p>
+            <ul class="proj-text" style="padding-left:1.4em; margin-top:0; margin-bottom:0;">
+                <li style="margin-bottom:6px;">Lambda &mdash; input processing, LLM responses, and SME feedback updates</li>
+                <li style="margin-bottom:6px;">EC2 via Docker &mdash; LangChain dependencies</li>
+                <li style="margin-bottom:6px;">Amazon Lex &mdash; natural language understanding</li>
+                <li style="margin-bottom:6px;">API Gateway &mdash; SME review interface</li>
+                <li>DynamoDB &mdash; metadata storage</li>
+            </ul>
             <p class="proj-text">Customer inquiry response time was reduced by 22%.</p>
 
             <figure style="margin:20px auto; text-align:center;">
