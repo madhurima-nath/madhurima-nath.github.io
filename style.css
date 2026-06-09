@@ -2307,6 +2307,7 @@ tr:nth-child(even) {
 	font-weight: 600;
 }
 .pub-cv-link a {
+	font-size: inherit;
 	color: var(--accent);
 	text-decoration: none;
 }
