@@ -37,7 +37,7 @@
 
         <h2 style="margin-top: 10px;">NLP Pipelines</h2>
 
-        <p class="proj-text">Three engagements applying text classification, sentiment analysis, and topic modelling to domain-specific text — each tackling a different operational problem: product taxonomy harmonisation, safety theme extraction from incident reports, and legal document classification for e-discovery.</p>
+        <p class="proj-text">Two engagements applying text classification, sentiment analysis, and topic modelling to domain-specific text: product taxonomy harmonisation for a global consumer goods company, and safety theme extraction from incident reports for an energy utility.</p>
 
         <figure style="margin:20px auto; text-align:center;">
             <img src="../related_files/nlp_schematic.png" alt="Two-panel NLP pipeline schematic: text classification (Raw Text → Preprocess → Vectorise → Classifier → Category Label) and sentiment and topic modelling (Raw Text → Preprocess → Sentiment Score → Topic Model → Themes and Insights)" style="width:100%; border-radius:6px; mix-blend-mode:multiply;">
@@ -59,12 +59,6 @@
             <p class="proj-text">Related writing: <a href="https://medium.com/@m.nath/topic-modeling-algorithms-b7f97cec6005" target="_blank" rel="noopener">topic modelling algorithms</a> and <a href="https://medium.com/@m.nath/advantages-of-sparknlp-and-application-to-perform-topic-modeling-94712141e02" target="_blank" rel="noopener">SparkNLP for topic modelling</a> on Medium; <a href="https://github.com/madhurima-nath/topicModeling" target="_blank" rel="noopener">code on GitHub</a>.</p>
         </section>
 
-        <!-- Section 3: Legal -->
-        <section class="proj-section" id="legal">
-            <h3>Document Review</h3>
-            <p class="proj-text">In e-discovery, legal teams must classify large document collections for relevance to a case — a process that is slow and expensive when done manually at scale.</p>
-            <p class="proj-text">A document classification system was built on AWS SageMaker using Word2Vec embeddings and an SVM classifier. Rather than retraining from scratch as new labelled data arrived, an incremental retraining pipeline kept the model current with minimal overhead. The system cut manual review hours and the associated costs.</p>
-        </section>
 
     </div>
 

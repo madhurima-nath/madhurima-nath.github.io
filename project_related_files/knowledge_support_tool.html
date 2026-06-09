@@ -43,7 +43,7 @@
         <section class="proj-section" id="finance">
             <h3>Product Discovery</h3>
             <p class="proj-text">A major financial institution needed internal teams to find relevant products across a large, complex catalogue. Manual search was slow and inconsistent — the goal was a system that could take a natural language query and surface the right products with supporting context.</p>
-            <p class="proj-text">Built on Databricks with Claude as the LLM and LangChain's agent framework. MLflow handled experiment tracking and pipeline management throughout. Development was coordinated closely with compliance teams to meet the institution's regulatory requirements. Internal teams could find the right products faster, with consistent results across the full catalogue.</p>
+            <p class="proj-text">Built on Databricks with LangChain's agent framework and an LLM (Claude shown in the architecture diagram; the production deployment used Llama). MLflow handled experiment tracking and pipeline management. Compliance requirements for the financial sector were addressed throughout the build.</p>
 
             <figure style="margin:20px auto; text-align:center;">
                 <img src="../related_files/genai-2.jpeg" alt="Architecture diagram for product discovery system: LangChain agent and chain, cloud storage with preprocessed plots and summarised characteristics, Claude 2.1 LLM, batch processing of raw descriptions via Python and LangChain" style="width:100%; border-radius:6px; cursor:zoom-in; mix-blend-mode:multiply;" class="inline-zoomable">
