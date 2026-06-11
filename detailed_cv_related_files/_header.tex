@@ -3,52 +3,46 @@
 %====================
 
 \RequirePackage{fancyhdr}
+\RequirePackage{afterpage}
+
 \fancypagestyle{fancy}{%
 \fancyhf{}
 
-
 \lhead{
-    
-        \href{mailto:\email}{\email} % EMAIL     
-        $\|$
-        \href{mailto:\email}{\vtemail} % EMAIL 
-        $\|$
-        \phone % PHONE
-        }
-	    
-	\chead{%
-	    \centering {\LARGE \skills \name} \\ %
-	    %{\color{highlight} \Large{\role}}
-	    \vspace{2mm}
-	    }%
-	
-	\rhead{
-	
-	\href{https://madhurima-nath.github.io}{madhurima-nath.github.io}
-	$\|$
-	\href{https://github.com/\github}{GitHub} 
+    \href{mailto:\email}{\email}
     $\|$
-    \href{https://www.linkedin.com/in/\LinkedIn}{LinkedIn} % LinkedIn 
-    $\|$  \href{https://scholar.google.com/citations?user=p_5Pdv0AAAAJ&hl=en}{\gscholar} 
-	}
-   
+    \phone
+    }
 
+\chead{%
+    \centering {\LARGE \skills \name} \\
+    \vspace{1mm}
+    }%
 
-%\usepackage{everypage}
-%\AddEverypageHook{%	    
+\rhead{
+\href{https://madhurima-nath.github.io}{madhurima-nath.github.io}
+$\|$
+\href{https://github.com/\github}{GitHub}
+$\|$
+\href{https://www.linkedin.com/in/\LinkedIn}{LinkedIn}
+$\|$ \href{https://scholar.google.com/citations?user=p_5Pdv0AAAAJ&hl=en}{\gscholar}
+}
 
-%  \ifthenelse{\value{page}=1}%
-    \renewcommand{\headrulewidth}{1pt}% 1pt header rule
-%
-   % {\renewcommand{\headrulewidth}{0.5pt}}%
-%}
-
+\cfoot{\small \thepage}
+\renewcommand{\headrulewidth}{1pt}
 \renewcommand{\headrule}{\hbox to\headwidth{%
   \color{highlight}\leaders\hrule height \headrulewidth\hfill}}
 }
 
+\fancypagestyle{plain}{%
+\fancyhf{}
+\lhead{\small \name}
+\rhead{\small \href{https://madhurima-nath.github.io}{madhurima-nath.github.io}}
+\cfoot{\small \thepage}
+\renewcommand{\headrulewidth}{0pt}
+}
 
 \pagestyle{fancy}
 
-\setlength{\headheight}{70pt}
-\setlength{\headsep}{1pt}
+\setlength{\headheight}{40pt}
+\setlength{\headsep}{3pt}
