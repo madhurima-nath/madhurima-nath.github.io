@@ -84,6 +84,24 @@
             </figure>
         </section>
 
+        <!-- Section 3: Healthcare -->
+        <section class="proj-section" id="healthcare">
+            <h3>Data Modernisation</h3>
+            <p class="proj-text">A healthcare services organisation migrated data pipelines from its legacy SQL Server, Salesforce, Redshift and BigQuery systems to Databricks, using an AI-automated conversion tool. The tool converted the existing codebase into Databricks Asset Bundle repositories on GCP, governed under Unity Catalog, saving weeks of effort compared with a manual, line-by-line rewrite.</p>
+            <p class="proj-text">The first phase built out the lakehouse's medallion architecture:</p>
+            <ul class="proj-text" style="padding-left:1.4em; margin-top:0; margin-bottom:0;">
+                <li style="margin-bottom:6px;">94 patient and 68 supply chain data objects were ingested as raw copies into Bronze layers.</li>
+                <li style="margin-bottom:6px;">Custom Silver layers cleaned and conformed that data.</li>
+                <li>Gold layers aggregated it for downstream use.</li>
+            </ul>
+            <p class="proj-text">This cut reporting latency from 8&ndash;10 hours down to near real-time.</p>
+            <p class="proj-text">Alongside the migration, enhancements to the company-wide conversion tool were engineered independently using Claude Code:</p>
+            <ul class="proj-text" style="padding-left:1.4em; margin-top:0; margin-bottom:0;">
+                <li style="margin-bottom:6px;">A reference document backend was built to give the tool relevant context when generating conversions.</li>
+                <li>Support for BigQuery was added as a source system, needed to bring this client's BigQuery-based objects into scope.</li>
+            </ul>
+        </section>
+
 
     </div>
 
