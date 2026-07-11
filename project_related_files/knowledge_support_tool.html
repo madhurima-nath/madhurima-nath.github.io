@@ -48,11 +48,6 @@
                 <li>Gold layers aggregated it for downstream use.</li>
             </ul>
             <p class="proj-text">This cut reporting latency from 8&ndash;10 hours down to near real-time.</p>
-            <p class="proj-text">Alongside the migration, enhancements to the company-wide conversion tool were engineered independently using Claude Code:</p>
-            <ul class="proj-text" style="padding-left:1.4em; margin-top:0; margin-bottom:0;">
-                <li style="margin-bottom:6px;">A reference document backend was built to give the tool relevant context when generating conversions.</li>
-                <li>Support for BigQuery was added as a source system, needed to bring this client's BigQuery-based objects into scope.</li>
-            </ul>
 
             <figure style="margin:20px auto; text-align:center;">
                 <img src="../related_files/healthcare_diagram_draft.svg" alt="Data Modernisation flow: legacy SQL Server, Salesforce, Redshift and BigQuery systems feed into an AI-automated conversion tool, which produces Databricks Asset Bundle repos governed under Unity Catalog; these package the jobs that build the lakehouse's Bronze, Silver and Gold layers, cutting reporting latency to near real-time" style="width:100%; border-radius:6px; cursor:zoom-in;" class="inline-zoomable">
