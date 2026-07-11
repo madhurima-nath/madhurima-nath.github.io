@@ -37,7 +37,25 @@
 
         <h2 style="margin-top: 10px; padding-bottom: 10px; border-bottom: 2px solid var(--accent);">GenAI &amp; Large Language Model Applications</h2>
 
-        <!-- Section 1: Financial Services -->
+        <!-- Section 1: Healthcare -->
+        <section class="proj-section" id="healthcare">
+            <h3>Data Modernisation</h3>
+            <p class="proj-text">A healthcare services organisation migrated data pipelines from its legacy SQL Server, Salesforce, Redshift and BigQuery systems to Databricks, using an AI-automated conversion tool. The tool converted the existing codebase into Databricks Asset Bundle repositories on GCP, governed under Unity Catalog, saving weeks of effort compared with a manual, line-by-line rewrite.</p>
+            <p class="proj-text">The first phase built out the lakehouse's medallion architecture:</p>
+            <ul class="proj-text" style="padding-left:1.4em; margin-top:0; margin-bottom:0;">
+                <li style="margin-bottom:6px;">94 patient and 68 supply chain data objects were ingested as raw copies into Bronze layers.</li>
+                <li style="margin-bottom:6px;">Custom Silver layers cleaned and conformed that data.</li>
+                <li>Gold layers aggregated it for downstream use.</li>
+            </ul>
+            <p class="proj-text">This cut reporting latency from 8&ndash;10 hours down to near real-time.</p>
+            <p class="proj-text">Alongside the migration, enhancements to the company-wide conversion tool were engineered independently using Claude Code:</p>
+            <ul class="proj-text" style="padding-left:1.4em; margin-top:0; margin-bottom:0;">
+                <li style="margin-bottom:6px;">A reference document backend was built to give the tool relevant context when generating conversions.</li>
+                <li>Support for BigQuery was added as a source system, needed to bring this client's BigQuery-based objects into scope.</li>
+            </ul>
+        </section>
+
+        <!-- Section 2: Financial Services -->
         <section class="proj-section" id="finance">
             <h3>Product Discovery</h3>
             <p class="proj-text">A major financial institution needed both business users and product specialists to find relevant products quickly across its catalogue. Keyword search often struggled to return relevant results, since queries phrased in plain business language rarely matched the exact terminology used in the product documentation. Users then had to manually sift through several documents to confirm a match. The first phase was scoped to a catalogue of over 2,000 products, enough to validate whether an agentic RAG approach would work before considering a wider rollout.</p>
@@ -61,7 +79,7 @@
 
         </section>
 
-        <!-- Section 2: Equipment Rental -->
+        <!-- Section 3: Equipment Rental -->
         <section class="proj-section" id="equipment-rental">
             <h3>Knowledge Support Tool</h3>
             <p class="proj-text">A leading equipment rental firm needed to help sales representatives respond to customer inquiries faster, reduce manual document searches, and support internal training. Subject matter experts (SMEs) needed to be able to review and correct any flagged response.</p>
@@ -80,24 +98,6 @@
                 <img src="../related_files/genai-1.jpeg" alt="AWS architecture for knowledge support tool: Amazon Lex, Lambda functions, S3 bucket with PDFs and CSVs, LangChain RetrievalQA Chain, OpenAI GPT-3.5 on SageMaker, DynamoDB, Docker on EC2, API Gateway, SME review interface" style="width:100%; border-radius:6px; cursor:zoom-in; mix-blend-mode:multiply;" class="inline-zoomable">
                 <figcaption>System architecture — knowledge support tool: real-time interactions via Amazon Lex and Lambda; batch processing ingests documents into S3, creates embeddings, and retrains with SME feedback.</figcaption>
             </figure>
-        </section>
-
-        <!-- Section 3: Healthcare -->
-        <section class="proj-section" id="healthcare">
-            <h3>Data Modernisation</h3>
-            <p class="proj-text">A healthcare services organisation migrated data pipelines from its legacy SQL Server, Salesforce, Redshift and BigQuery systems to Databricks, using an AI-automated conversion tool. The tool converted the existing codebase into Databricks Asset Bundle repositories on GCP, governed under Unity Catalog, saving weeks of effort compared with a manual, line-by-line rewrite.</p>
-            <p class="proj-text">The first phase built out the lakehouse's medallion architecture:</p>
-            <ul class="proj-text" style="padding-left:1.4em; margin-top:0; margin-bottom:0;">
-                <li style="margin-bottom:6px;">94 patient and 68 supply chain data objects were ingested as raw copies into Bronze layers.</li>
-                <li style="margin-bottom:6px;">Custom Silver layers cleaned and conformed that data.</li>
-                <li>Gold layers aggregated it for downstream use.</li>
-            </ul>
-            <p class="proj-text">This cut reporting latency from 8&ndash;10 hours down to near real-time.</p>
-            <p class="proj-text">Alongside the migration, enhancements to the company-wide conversion tool were engineered independently using Claude Code:</p>
-            <ul class="proj-text" style="padding-left:1.4em; margin-top:0; margin-bottom:0;">
-                <li style="margin-bottom:6px;">A reference document backend was built to give the tool relevant context when generating conversions.</li>
-                <li>Support for BigQuery was added as a source system, needed to bring this client's BigQuery-based objects into scope.</li>
-            </ul>
         </section>
 
 
