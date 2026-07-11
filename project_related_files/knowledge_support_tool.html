@@ -42,8 +42,19 @@
         <!-- Section 1: Financial Services -->
         <section class="proj-section" id="finance">
             <h3>Product Discovery</h3>
-            <p class="proj-text">A major financial institution needed internal teams to find relevant products across a large product catalogue. Manual search was slow and inconsistent — the goal was a system that could take a natural language query and surface the right products with supporting context.</p>
-            <p class="proj-text">Built on Databricks with LangChain's agent framework and Llama as the LLM. MLflow handled experiment tracking and pipeline management. Data governance and compliance controls were built in throughout to meet financial sector requirements. Retrieval quality improved over the keyword search it replaced.</p>
+            <p class="proj-text">A major financial institution needed both business users and product specialists to find relevant products quickly across its catalogue. Keyword search often struggled to return relevant results, since queries phrased in plain business language rarely matched the exact terminology used in the product documentation. Users then had to manually sift through several documents to confirm a match. The first phase was scoped to a catalogue of over 2,000 products, enough to validate whether an agentic RAG approach would work before considering a wider rollout.</p>
+            <p class="proj-text">On the Databricks Mosaic AI platform:</p>
+            <ul class="proj-text" style="padding-left:1.4em; margin-top:0; margin-bottom:0;">
+                <li style="margin-bottom:6px;">Product documentation was embedded via a Databricks-hosted model through the Foundation Model API and indexed once into a Databricks Vector Search index, refreshed as new or updated documents were added.</li>
+                <li>When a user asked a question:
+                    <ul style="padding-left:1.4em; margin-top:6px; margin-bottom:0;">
+                        <li style="margin-bottom:6px;">The LangChain agent used Llama to interpret the query and retrieve the matching product documents from the index.</li>
+                        <li>Llama then drafted a response tailored to the user: business users received a concise, plain-language answer, while product specialists received a more detailed response with links to the source documentation.</li>
+                    </ul>
+                </li>
+            </ul>
+            <p class="proj-text">Unity Catalog governed the whole pipeline, managing access to the documents, the vector index and the models, and enforcing the regulatory compliance guardrails required in financial services. MLflow tracked experiments and versioned each iteration of the pipeline.</p>
+            <p class="proj-text">The proof of concept cut query resolution time, returned more precise product matches than manual keyword search, and passed the client's evaluation for rollout.</p>
 
         </section>
 
