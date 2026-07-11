@@ -56,6 +56,11 @@
             <p class="proj-text">Unity Catalog governed the whole pipeline, managing access to the documents, the vector index and the models, and enforcing the regulatory compliance guardrails required in financial services. MLflow tracked experiments and versioned each iteration of the pipeline.</p>
             <p class="proj-text">The proof of concept cut query resolution time, returned more precise product matches than manual keyword search, and passed the client's evaluation for rollout.</p>
 
+            <figure style="margin:20px auto; text-align:center;">
+                <img src="../related_files/finserv_diagram.svg" alt="Product Discovery process flow: product documents are embedded via a Databricks-hosted model and indexed into a Vector Search index; at query time a LangChain agent retrieves matches from the index and Llama drafts the tailored response; Unity Catalog governs the whole pipeline, including the MLflow registry" style="width:100%; border-radius:6px; cursor:zoom-in;" class="inline-zoomable">
+                <figcaption>Process flow: product documents are embedded and indexed into Vector Search; at query time the agent retrieves matches and Llama drafts the response. Unity Catalog governs the entire pipeline, including the MLflow registry.</figcaption>
+            </figure>
+
         </section>
 
         <!-- Section 2: Equipment Rental -->
