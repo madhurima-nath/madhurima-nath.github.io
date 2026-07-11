@@ -137,16 +137,16 @@ filled = (
 
             <p class="proj-text">Moving the infrastructure to Databricks is the easier half of a migration. The harder half is the code: financial institutions have decades of SAS scripts covering risk models, regulatory reports, and portfolio calculations. Rewriting them by hand takes months; this converter automates the translation. A rule engine handles the common patterns — <code>PROC SORT</code>, <code>PROC MEANS</code>, <code>PROC SQL</code>, <code>DATA</code> steps — with consistent output and no API key needed. Anything it cannot handle is passed to an LLM.</p>
 
-            <p class="proj-text">The converter has two modes. Community mode converts a single SAS block, with three built-in examples and a fourth tab that shows &mdash; on a <code>RETAIN</code> example &mdash; what the rule engine flags versus what an LLM produces.</p>
+            <p class="proj-text">The converter has two modes. Free Edition mode converts a single SAS block, with three built-in examples and a fourth tab that shows &mdash; on a <code>RETAIN</code> example &mdash; what the rule engine flags versus what an LLM produces.</p>
 
             <p class="proj-text">Enterprise mode takes a full SAS script and a YAML config file that maps library names and variable references to Databricks paths. It converts the script in one pass, scores each block by confidence, and flags anything below 85% for review. The dashboard includes a four-block example script. The first three blocks are handled by the rule engine; Block 4 contains a <code>RETAIN</code> statement it cannot translate, and the LLM equivalent is shown alongside. Both the converted code and a per-block review manifest are downloadable.</p>
 
             <figure style="margin:24px auto; text-align:center;">
-                <img src="../related_files/streamlit_converter.png" alt="SAS to PySpark Converter in Community mode showing three preloaded example tabs and a fourth tab demonstrating where an LLM is needed" style="width:100%; border-radius:6px; cursor:zoom-in;" class="inline-zoomable">
-                <figcaption>The SAS &rarr; PySpark Converter: Community mode with preloaded examples; Enterprise mode converts a full script in one pass and scores each block by confidence.</figcaption>
+                <img src="../related_files/streamlit_converter.png" alt="SAS to PySpark Converter in Free Edition mode showing three preloaded example tabs and a fourth tab demonstrating where an LLM is needed" style="width:100%; border-radius:6px; cursor:zoom-in;" class="inline-zoomable">
+                <figcaption>The SAS &rarr; PySpark Converter: Free Edition mode with preloaded examples; Enterprise mode converts a full script in one pass and scores each block by confidence.</figcaption>
             </figure>
 
-            <p class="proj-text">39 pytest cases cover every supported SAS construct across Community and Enterprise modes &mdash; including <code>RETAIN</code> handling, confidence scoring, and config file support. A further 7 cover the pipeline script &mdash; credential loading, exit codes, and job status.</p>
+            <p class="proj-text">39 pytest cases cover every supported SAS construct across Free Edition and Enterprise modes &mdash; including <code>RETAIN</code> handling, confidence scoring, and config file support. A further 7 cover the pipeline script &mdash; credential loading, exit codes, and job status.</p>
 
             <figure style="margin:24px auto; text-align:center;">
                 <img src="../related_files/test_cases.png" alt="pytest terminal output showing all 46 tests passing — 39 SAS converter tests and 7 pipeline script tests" style="width:100%; border-radius:6px; cursor:zoom-in;" class="inline-zoomable">
@@ -155,17 +155,17 @@ filled = (
 
         </section>
 
-        <!-- Section 6: Community Edition and Production Databricks -->
+        <!-- Section 6: Free Edition and Production Databricks -->
         <section class="proj-section" id="production">
-            <h3>Community Edition and Production Databricks</h3>
+            <h3>Free Edition and Production Databricks</h3>
 
-            <p class="proj-text">This project runs on Databricks Community Edition &mdash; a free tier with standard Delta Lake and classic compute. The code is production-ready; moving to a full workspace changes how the pipeline is run and orchestrated, not the underlying data logic.</p>
+            <p class="proj-text">This project runs on Databricks Free Edition &mdash; a free tier with standard Delta Lake and classic compute. The code is production-ready; moving to a full workspace changes how the pipeline is run and orchestrated, not the underlying data logic.</p>
 
             <table style="width:100%;border-collapse:collapse;font-size:0.9em;margin:18px 0;">
                 <thead>
                     <tr style="background:#F1F5F9;text-align:left;">
                         <th style="padding:10px 14px;border:1px solid #E2E8F0;font-weight:600;">Feature</th>
-                        <th style="padding:10px 14px;border:1px solid #E2E8F0;font-weight:600;">Community Edition (this project)</th>
+                        <th style="padding:10px 14px;border:1px solid #E2E8F0;font-weight:600;">Free Edition (this project)</th>
                         <th style="padding:10px 14px;border:1px solid #E2E8F0;font-weight:600;">Full Databricks workspace</th>
                     </tr>
                 </thead>
@@ -201,8 +201,8 @@ filled = (
             <p class="proj-text">The most visible change at the pipeline level is Delta Live Tables. The Bronze notebook currently writes each table explicitly and calls a quality check function. In a full workspace, both collapse into a declarative definition:</p>
 
             <div class="eq-block">
-                <span class="eq-label">Bronze ingestion: Community Edition vs Delta Live Tables</span>
-                <pre style="margin:0; font-family:var(--font-mono); font-size:13px; line-height:1.6; overflow-x:auto;"># Community Edition — explicit write + quality check function
+                <span class="eq-label">Bronze ingestion: Free Edition vs Delta Live Tables</span>
+                <pre style="margin:0; font-family:var(--font-mono); font-size:13px; line-height:1.6; overflow-x:auto;"># Free Edition — explicit write + quality check function
 run_quality_checks(sp500_df, "bronze_sp500", min_rows=3000, null_cols=["close"])
 sp500_df.write.format("delta").mode("overwrite").saveAsTable("bronze_sp500")
 
