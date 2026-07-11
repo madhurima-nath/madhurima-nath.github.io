@@ -53,6 +53,11 @@
                 <li style="margin-bottom:6px;">A reference document backend was built to give the tool relevant context when generating conversions.</li>
                 <li>Support for BigQuery was added as a source system, needed to bring this client's BigQuery-based objects into scope.</li>
             </ul>
+
+            <figure style="margin:20px auto; text-align:center;">
+                <img src="../related_files/healthcare_diagram_draft.svg" alt="Data Modernisation flow: legacy SQL Server, Salesforce, Redshift and BigQuery systems feed into an AI-automated conversion tool, which produces Databricks Asset Bundle repos governed under Unity Catalog; these package the jobs that build the lakehouse's Bronze, Silver and Gold layers, cutting reporting latency to near real-time" style="width:100%; border-radius:6px; cursor:zoom-in;" class="inline-zoomable">
+                <figcaption>Data Modernisation flow: legacy systems feed the conversion tool, which produces Databricks Asset Bundle repos under Unity Catalog governance; these build the lakehouse's medallion layers, cutting latency to near real-time.</figcaption>
+            </figure>
         </section>
 
         <!-- Section 2: Financial Services -->
