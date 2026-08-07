@@ -2477,7 +2477,6 @@ tr:nth-child(even) {
 	color: inherit;
 	overflow: hidden;
 	transition: transform var(--transition), box-shadow var(--transition);
-
 	/* Removes default iOS gray tap highlight box */
 	-webkit-tap-highlight-color: rgba(0,0,0,0); 
 }
@@ -2686,6 +2685,27 @@ tr:nth-child(even) {
 	.proj-grid {
 		grid-template-columns: 1fr;
 		gap: 18px;
+	}
+}
+
+@media (hover: hover) {
+	.proj-card:hover {
+		transform: translateY(-5px);
+		box-shadow: 0 14px 36px rgba(20, 40, 60, 0.14);
+		text-decoration: none !important;
+	}
+	.proj-card:hover .proj-card-img img {
+		transform: scale(1.04);
+	}
+}
+
+@media (hover: none) {
+	.proj-card:active {
+		transform: translateY(-5px);
+		box-shadow: 0 14px 36px rgba(20, 40, 60, 0.14);
+	}
+	.proj-card:active .proj-card-img img {
+		transform: scale(1.04);
 	}
 }
 
