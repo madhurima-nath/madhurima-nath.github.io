@@ -2699,16 +2699,26 @@ tr:nth-child(even) {
 	}
 }
 
-/* MOBILE & TABLETS ONLY: Touch Tap Response */
+/* MOBILE & TABLETS ONLY: High-Visibility Instant Response (iOS & Android) */
 @media (hover: none) {
+	/* Accelerate the transition speed specifically for mobile touch screens */
+	.proj-card, 
+	.proj-card .proj-card-img img {
+		transition: transform 0.1s ease, box-shadow 0.1s ease, background-color 0.1s ease !important;
+	}
+
+	/* Bold styling changes during the tap event */
 	.proj-card:active,
 	.proj-card.is-tapped {
-		transform: translateY(-5px);
-		box-shadow: 0 14px 36px rgba(20, 40, 60, 0.14);
+		transform: scale(0.97); /* Inward button press effect */
+		background-color: rgba(20, 40, 60, 0.05) !important; /* Visual shading shift */
+		border-color: var(--accent) !important; /* Highlights card border */
+		box-shadow: inset 0 0 10px rgba(20, 40, 60, 0.1);
 	}
+	
 	.proj-card:active .proj-card-img img,
 	.proj-card.is-tapped .proj-card-img img {
-		transform: scale(1.04);
+		transform: scale(0.97); /* Matches the shrink effect */
 	}
 }
 
