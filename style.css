@@ -2477,6 +2477,9 @@ tr:nth-child(even) {
 	color: inherit;
 	overflow: hidden;
 	transition: transform var(--transition), box-shadow var(--transition);
+
+	/* Removes default iOS gray tap highlight box */
+	-webkit-tap-highlight-color: rgba(0,0,0,0); 
 }
 
 .proj-card:hover {
