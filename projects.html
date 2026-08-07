@@ -146,8 +146,25 @@
     </script>
 
     <script>
-        document.addEventListener("touchstart", function() {}, true);
-    </script>
+    // 1. Force iOS to listen to touch events
+    document.addEventListener("touchstart", function() {}, true);
+
+    // 2. Fix for Android Chrome active tap state
+    const cards = document.querySelectorAll('.proj-card');
+    cards.forEach(card => {
+        card.addEventListener('touchstart', () => {
+            card.classList.add('is-tapped');
+        }, { passive: true });
+        
+        card.addEventListener('touchend', () => {
+            card.classList.remove('is-tapped');
+        }, { passive: true });
+
+        card.addEventListener('touchcancel', () => {
+            card.classList.remove('is-tapped');
+        }, { passive: true });
+    });
+</script>
 
 </body>
 

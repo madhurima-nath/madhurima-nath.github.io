@@ -2699,12 +2699,15 @@ tr:nth-child(even) {
 	}
 }
 
+/* MOBILE & TABLETS ONLY: Touch Tap Response */
 @media (hover: none) {
-	.proj-card:active {
+	.proj-card:active,
+	.proj-card.is-tapped {
 		transform: translateY(-5px);
 		box-shadow: 0 14px 36px rgba(20, 40, 60, 0.14);
 	}
-	.proj-card:active .proj-card-img img {
+	.proj-card:active .proj-card-img img,
+	.proj-card.is-tapped .proj-card-img img {
 		transform: scale(1.04);
 	}
 }
