@@ -501,7 +501,7 @@ hr {
 	align-items: center;
 	gap: 6px;
 	font-family: var(--font-sans);
-	font-size: 16px;
+	font-size: 15px;
 	color: #5c6bc0;
 	text-decoration: none;
 	transition: color var(--transition);
@@ -2329,7 +2329,7 @@ tr:nth-child(even) {
 	align-items: center;
 	gap: 6px;
 	font-family: var(--font-sans);
-	font-size: 14px;
+	font-size: 16px;
 	color: var(--text-meta);
 }
 .connect-location svg {
@@ -2339,7 +2339,7 @@ tr:nth-child(even) {
 }
 .connect-label {
 	font-family: var(--font-sans);
-	font-size: 20px;
+	font-size: 18px;
 	font-weight: 700;
 	letter-spacing: 0.06em;
 	text-transform: uppercase;
