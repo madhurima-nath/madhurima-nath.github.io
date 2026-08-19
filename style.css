@@ -387,8 +387,8 @@ body.page-home .content-wrapper {
 	margin-bottom: 14px;
 	font-size: clamp(15px, 1.8vw, 17px);
 	font-family: var(--font-mono-body);
-	text-align: justify;
-	hyphens: auto;
+	text-align: left;
+	hyphens: none;
 	-webkit-hyphens: auto;
 }
 
