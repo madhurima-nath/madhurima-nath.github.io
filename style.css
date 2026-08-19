@@ -387,9 +387,16 @@ body.page-home .content-wrapper {
 	margin-bottom: 14px;
 	font-size: clamp(15px, 1.8vw, 17px);
 	font-family: var(--font-mono-body);
-	text-align: left;
-	hyphens: none;
-	-webkit-hyphens: auto;
+	text-align: left !important;
+    
+    /* Force turn off all hyphens */
+    hyphens: none !important;
+    -webkit-hyphens: none !important;
+    -ms-hyphens: none !important;
+    
+    /* Prevent mid-word splitting */
+    word-break: keep-all !important;
+    overflow-wrap: normal !important;
 }
 
 .introduction a {
