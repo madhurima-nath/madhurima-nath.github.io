@@ -1649,7 +1649,7 @@ tr:nth-child(even) {
 	font-weight: 600;
 	font-family: var(--font-sans);
 	font-size: 15px;
-	color: #1d2b35;
+	/* color: #1d2b35; */
 }
 
 .pedagogy-tag {
