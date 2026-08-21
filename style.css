@@ -1991,19 +1991,7 @@ tr:nth-child(even) {
 .entry-photo .pull-quote {
 	margin: 10px 0 0;
 }
-.diwali-photo-strip {
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
-	gap: 10px;
-	margin-top: 14px;
-}
-.diwali-photo-strip img {
-	width: 100%;
-	border-radius: 5px;
-	display: block;
-	object-fit: cover;
-	aspect-ratio: 4 / 3;
-}
+
 @media (max-width: 600px) {
 	.entry-with-photo,
 	.entry-with-photo--wide {
@@ -2018,9 +2006,6 @@ tr:nth-child(even) {
 	.physics-diagrams {
 		width: 100%;
 		margin: 0;
-	}
-	.diwali-photo-strip {
-		grid-template-columns: 1fr;
 	}
 }
 
@@ -2166,7 +2151,7 @@ tr:nth-child(even) {
 .theme-figure figcaption,
 .proj-section figcaption {
 	font-family: var(--font-mono-body);
-	font-size: 13px;
+	font-size: 15px;
 	color: var(--text-meta);
 	text-align: center;
 	padding: 4px 0 8px;
@@ -2263,6 +2248,9 @@ tr:nth-child(even) {
 	font-size: .93rem;
 	line-height: 1.6;
 	margin: 0 0 10px;
+	/* Prevent mid-word splitting */
+    word-break: keep-all !important;
+    overflow-wrap: normal !important;
 }
 
 .theme-refs {
@@ -2607,9 +2595,12 @@ tr:nth-child(even) {
 	line-height: 1.75;
 	color: var(--text-main);
 	margin-bottom: 14px;
-	text-align: justify;
-	hyphens: auto;
-	-webkit-hyphens: auto;
+	text-align: left;
+	hyphens: none;
+	-webkit-hyphens: none;
+	/* Prevent mid-word splitting */
+    word-break: keep-all !important;
+    overflow-wrap: normal !important;
 }
 
 .proj-text a {
@@ -2738,6 +2729,9 @@ tr:nth-child(even) {
 	font-size: clamp(15px, 1.8vw, 17px);
 	line-height: 1.75;
 	margin-bottom: 14px;
+	/* Prevent mid-word splitting */
+    word-break: keep-all !important;
+    overflow-wrap: normal !important;
 }
 
 /* Section without card background */
