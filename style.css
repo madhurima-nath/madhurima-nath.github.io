@@ -1902,9 +1902,14 @@ tr:nth-child(even) {
 	font-size: clamp(15px, 1.8vw, 17px);
 	color: var(--text-main);
 	line-height: 1.8;
-	text-align: justify;
-	hyphens: none;
-	-webkit-hyphens: none;
+	text-align: left !important;
+    /* Force turn off all hyphens */
+    hyphens: none !important;
+    -webkit-hyphens: none !important;
+    -ms-hyphens: none !important;
+    /* Prevent mid-word splitting */
+    word-break: keep-all !important;
+    overflow-wrap: normal !important;
 	margin-bottom: 8px;
 }
 .outreach-entry p:last-child {
