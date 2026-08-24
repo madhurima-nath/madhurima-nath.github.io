@@ -1995,23 +1995,10 @@ tr:nth-child(even) {
 	margin: 10px 0 0;
 }
 
-.butterfly-container {
-	width: 100%;
-}
-
 .butterfly-image {
-	float: right; /* image to right side */
-    margin-left: 20px; /* Space between image and text */
-    margin-bottom: 10px;
-    max-width: 300px; /* Adjust size as needed */
-    height: auto;
+	width: 100%;
+	display: block;
 	border-radius: 4px;
-}
-
-.butterfly-container::after {
-	content: "";
-	display: table;
-	clear: both;
 }
 
 @media (max-width: 600px) {
