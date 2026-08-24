@@ -1944,13 +1944,13 @@ tr:nth-child(even) {
 }
 .entry-with-photo {
 	display: grid;
-	grid-template-columns: 1fr 270px;
+	grid-template-columns: 1fr 200px;
 	gap: 20px;
 	align-items: start;
 	margin-bottom: 12px;
 }
 .entry-with-photo--wide {
-	grid-template-columns: 1fr 420px;
+	grid-template-columns: 1fr 220px;
 }
 .physics-outreach-wrap {
 	display: grid;
