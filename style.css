@@ -1997,7 +1997,6 @@ tr:nth-child(even) {
 
 .butterfly-diagrams img {
 	width: 80%;
-	height: auto;
 	display: block;
 	border-radius: 4px;
 }
