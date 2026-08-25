@@ -81,11 +81,15 @@
 
         </section>
 
-        <!-- Section 3: Equipment Rental -->
-        <section class="proj-section" id="equipment-rental">
+        <!-- Section 3:  -->
+        <section class="proj-section" id="support-tool">
             <h3>Knowledge Support Tool</h3>
-            <p class="proj-text">A leading equipment rental firm needed to help sales representatives respond to customer inquiries faster, reduce manual document searches, and support internal training. Subject matter experts (SMEs) needed to be able to review and correct any flagged response.</p>
-            <p class="proj-text">The knowledge base was built from the firm's existing documents — structured (CSV, JSON) and unstructured (PDF, HTML) — ingested into S3 and converted to embeddings using GPT-3.5. Chroma was used as the vector store. The RAG pipeline used LangChain's RetrievalQA Chain with a prompt template matching the client's requirements: answers formatted as lists where appropriate, with links to source documents.</p>
+            <p class="proj-text">Multiple clients - healthcare, finance, equipment rental - needed to help (sales) representatives respond to customer inquiries faster, reduce manual document searches, and support internal training. 
+                Subject matter experts (SMEs) needed to be able to review and correct any flagged response.</p>
+            <p class="proj-text">The knowledge base was built from the existing documents and stored in a vector store — structured (CSV, JSON) and unstructured (PDF, HTML) — ingested 
+                into S3 and converted to embeddings using an LLM.
+                The RAG pipeline used LangChain's RetrievalQA Chain with a prompt template matching the client's requirements: answers 
+                formatted as lists where appropriate, with links to source documents.</p>
             <p class="proj-text">The deployment ran on AWS:</p>
             <ul class="proj-text" style="padding-left:1.4em; margin-top:0; margin-bottom:0;">
                 <li style="margin-bottom:6px;">Lambda &mdash; input processing, LLM responses, and SME feedback updates</li>
@@ -94,7 +98,13 @@
                 <li style="margin-bottom:6px;">API Gateway &mdash; SME review interface</li>
                 <li>DynamoDB &mdash; metadata storage</li>
             </ul>
-            <p class="proj-text">Response time for customer inquiries improved by ~22%.</p>
+            <p class="proj-text">Estimated improvement in response time for customer inquiries ~10-20%.</p>
+
+            <p class="proj-text"><em>Note</em>: Chroma and GPT-3.5 are examples of a vector store and LLM that was used for one of the projects.</p>
+            <ul class="proj-text" style="padding-left: 1.4em; margin-top:0; margin-bottom:0;">
+                <li style="margin-bottom:6px;">Other vector store options: Databricks Vector Store, Pinecone, pgvector (PostgreSQL)</li>
+                <li style="margin-bottom:6px;">Other LLMs: Anthropic Claude, Llama</li>
+            </ul>
 
             <figure style="margin:20px auto; text-align:center;">
                 <img src="../related_files/genai-1.jpeg" alt="AWS architecture for knowledge support tool: Amazon Lex, Lambda functions, S3 bucket with PDFs and CSVs, LangChain RetrievalQA Chain, OpenAI GPT-3.5 on SageMaker, DynamoDB, Docker on EC2, API Gateway, SME review interface" style="width:100%; border-radius:6px; cursor:zoom-in; mix-blend-mode:multiply;" class="inline-zoomable">
