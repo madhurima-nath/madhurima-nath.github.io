@@ -2001,6 +2001,36 @@ tr:nth-child(even) {
 	border-radius: 4px;
 }
 
+.video-top-row {
+    display: flex;
+    gap: 15px; /* space between videos */
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+/* This ensures each video container takes up exactly 1/3 of the row */
+.video-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* This makes all videos the same size regardless of original shape */
+.video-wrapper video {
+    width: 100%;
+    aspect-ratio: 1 / 1; /* This makes them all perfectly square */
+    object-fit: cover;   /* This crops the video to fit the square without stretching */
+    border-radius: 4px;
+    background: #000;    /* Background color in case of slow loading */
+}
+
+.video-label {
+    margin-top: 8px;
+    font-size: 14px;
+    color: #555;
+    text-align: center;
+}
+
 @media (max-width: 600px) {
 	.entry-with-photo,
 	.entry-with-photo--wide {
@@ -2016,6 +2046,10 @@ tr:nth-child(even) {
 		width: 100%;
 		margin: 0;
 	}
+    .video-top-row {
+        flex-direction: column;
+    }
+
 }
 
 /* ===== Research page: Dissertation Promo ===== */
