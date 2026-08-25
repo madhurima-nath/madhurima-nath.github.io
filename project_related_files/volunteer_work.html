@@ -70,33 +70,24 @@
             </p>
             <div class="video-top-row">
                 <div class="video-wrapper">
-                    <div class="video-container">
                     <video autoplay loop muted playsinline class="clickable-video">
                         <source src="../related_files/butterfly_video1.mov" type="video/mp4">
                     </video>
-                    <div class="play-button-overlay">▶</div>
-                    </div>
-                    <span class="video-caption">Leading a butterfly tour (Click to play/pause)</span>
+                    <span class="outreach-photo-caption">Leading a butterfly tour (Click to play/pause)</span>
                 </div>
 
                 <div class="video-wrapper">
-                    <div class="video-container">
                     <video autoplay loop muted playsinline class="clickable-video">
                         <source src="../related_files/butterfly_video2.mov" type="video/mp4">
                     </video>
-                    <div class="play-button-overlay">▶</div>
                     <span class="outreach-photo-caption">Leading a butterfly tour (Click to play/pause)</span>
-                    </div>
                 </div>
 
                 <div class="video-wrapper">
-                    <div class="video-container">
                     <video autoplay loop muted playsinline class="clickable-video">
                         <source src="../related_files/butterfly_video3.mov" type="video/mp4">
-                        <span class="outreach-photo-caption">Leading a butterfly tour (Click to play/pause)</span>
                     </video>
-                    <div class="play-button-overlay">▶</div>
-                    </div>
+                    <span class="outreach-photo-caption">Leading a butterfly tour (Click to play/pause)</span>
                 </div>
             </div>
         </div>
@@ -157,18 +148,12 @@ document.querySelectorAll(".js-year").forEach(function(el){ el.textContent = new
 </script>
 
 <script>
-    const videoContainers = document.querySelectorAll('.video-container');
-
-    videoContainers.forEach(container => {
-        const vid = container.querySelector('video');
-
-        container.addEventListener('click', function() {
-            if (vid.paused) {
-                vid.play();
-                container.classList.remove('is-paused');
+    document.querySelectorAll('.clickable-video').forEach(video => {
+        video.addEventListener('click', function() {
+            if (this.paused) {
+                this.play();
             } else {
-                vid.pause();
-                container.classList.add('is-paused');
+                this.pause();
             }
         });
     });
