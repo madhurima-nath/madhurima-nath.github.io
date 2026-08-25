@@ -70,21 +70,22 @@
             </p>
             <div class="video-top-row">
                 <div class="video-wrapper">
-                    <video autoplay loop muted playsinline>
+                    <video loop muted playsinline class="clickable-video">
                         <source src="../related_files/butterfly_video1.mov" type="video/mp4">
-                        <span class="video-label">Leading a butterfly tour</span>
+                        <span class="video-label">Leading a butterfly tour (Click to play/pause)</span>
                     </video>
                 </div>
                 <div class="video-wrapper">
-                    <video autoplay loop muted playsinline>
+                    <video autoplay loop muted playsinline class="clickable-video">
                         <source src="../related_files/butterfly_video2.mov" type="video/mp4">
-                        <span class="video-label">Leading a butterfly tour</span>
+                        <span class="video-label">Leading a butterfly tour (Click to play/pause)</span>
                     </video>
                 </div>
                 <div class="video-wrapper">
-                    <video autoplay loop muted playsinline>
+                    <video autoplay loop muted playsinline class="clickable-video">
                         <source src="../related_files/butterfly_video3.mov" type="video/mp4">
-                        <span class="video-label">Leading a butterfly tour</span>
+                        <span class="video-label">Leading a butterfly tour (Click to play/pause)</span>
+                        <p class="outreach-photo-caption">The butterfly (Painted Lady) likes me!</p>
                     </video>
                 </div>
             </div>
@@ -143,6 +144,21 @@ document.querySelectorAll(".js-year").forEach(function(el){ el.textContent = new
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 })();
+</script>
+
+<!-- The Video Play/Pause Script -->
+<script>
+    const videos = document.querySelectorAll('.clickable-video');
+
+    videos.forEach(video => {
+        video.addEventListener('click', function() {
+            if (this.paused) {
+                this.play();
+            } else {
+                this.pause();
+            }
+        });
+    });
 </script>
 </body>
 </html>
