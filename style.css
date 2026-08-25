@@ -2005,24 +2005,59 @@ tr:nth-child(even) {
 /* The 3-Column Top Video Row */
 .video-top-row {
     display: flex;
-    gap: 15px;
-    margin-bottom: 30px;
+    gap: 20px;
+    margin: 20px 0;
 }
 
 /* This ensures each video container takes up exactly 1/3 of the row */
+/* Individual Wrapper for Video + Caption */
 .video-wrapper {
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers everything */
+}
+
+/* The Box containing the video and the hidden play button */
+.video-container {
     position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
     cursor: pointer;
 }
 
-/* Forces all videos to be identical squares regardless of original mov size */
-.video-wrapper video {
+.video-container video {
     width: 100%;
-    aspect-ratio: 1 / 1; 
-    object-fit: cover; 
-    border-radius: 4px; /* Adjust to match your site's images */
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
     display: block;
+}
+
+/* THE PLAY BUTTON OVERLAY */
+/* This is hidden while the video is playing */
+.play-button-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 50px;
+    color: white;
+    background: rgba(0, 0, 0, 0.4);
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0; /* Hidden by default */
+    transition: opacity 0.2s;
+    pointer-events: none;
+}
+
+/* This class will be added/removed by JavaScript */
+.video-container.is-paused .play-button-overlay {
+    opacity: 1; /* Shows button when paused */
 }
 
 
