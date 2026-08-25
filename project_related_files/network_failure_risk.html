@@ -137,7 +137,7 @@ document.querySelectorAll(".js-year").forEach(function(el){ el.textContent = new
     var backToTopBtn = document.getElementById('backToTop');
     if(!backToTopBtn) return;
     window.addEventListener('scroll', function(){
-        backToTopBtn.classList.toggle('show', window.pageYOffset > 300);
+        backToTopBtn.classList.toggle('show', window.pageYOffset > 100);
     });
     backToTopBtn.addEventListener('click', function(){
         window.scrollTo({ top: 0, behavior: 'smooth' });
