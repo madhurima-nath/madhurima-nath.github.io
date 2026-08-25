@@ -1259,8 +1259,8 @@ tr:nth-child(even) {
 	line-height: 1.8;
 	margin: 8px 0 12px;
 	text-align: justify;
-	hyphens: auto;
-	-webkit-hyphens: auto;
+	hyphens: none;
+	-webkit-hyphens: none;
 }
 
 .pedagogy-link-note {
