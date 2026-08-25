@@ -1984,8 +1984,9 @@ tr:nth-child(even) {
 	line-height: 1.4;
 }
 .entry-photo img {
-	width: 100%;
-	border-radius: 5px;
+	width: 120%;
+	height: auto;
+	border-radius: 4px;
 	display: block;
 }
 .entry-photo .outreach-photo-caption {
@@ -1997,7 +1998,7 @@ tr:nth-child(even) {
 
 .butterfly-image {
 	width: 80%;
-	height: 45%;
+	height: 35%;
 	display: block;
 	border-radius: 4px;
 }
