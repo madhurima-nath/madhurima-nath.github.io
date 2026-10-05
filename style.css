@@ -1990,19 +1990,12 @@ tr:nth-child(even) {
 	display: block;
 }
 .entry-photo .outreach-photo-caption {
-	text-align: center;
+	text-align: center !important;
 }
 .entry-photo .pull-quote {
 	margin: 10px 0 0;
 }
 
-/* .butterfly-image {
-	width: 30%;
-	height: 35%;
-	display: block;
-	border-radius: 4px;	
-	align-self: center;
-} */
 
 /* The 3-Column Top Video Row */
 .video-top-row {
