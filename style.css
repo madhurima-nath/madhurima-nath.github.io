@@ -1997,10 +1997,11 @@ tr:nth-child(even) {
 }
 
 .butterfly-image {
-	width: 80%;
+	width: 60%;
 	height: 35%;
 	display: block;
 	border-radius: 4px;
+	align-self: center;
 }
 
 /* The 3-Column Top Video Row */
