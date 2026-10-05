@@ -1984,7 +1984,7 @@ tr:nth-child(even) {
 	line-height: 1.4;
 }
 .entry-photo img {
-	width: 120%;
+	width: 100%;
 	height: auto;
 	border-radius: 4px;
 	display: block;
@@ -1996,13 +1996,13 @@ tr:nth-child(even) {
 	margin: 10px 0 0;
 }
 
-.butterfly-image {
+/* .butterfly-image {
 	width: 30%;
 	height: 35%;
 	display: block;
 	border-radius: 4px;	
 	align-self: center;
-}
+} */
 
 /* The 3-Column Top Video Row */
 .video-top-row {
