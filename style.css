@@ -1837,7 +1837,6 @@ tr:nth-child(even) {
 	font-style: italic;
 	line-height: 1.4;
 	width: fit-content;         /* Forces the box to wrap tightly around the text */
-	margin-left: auto;          /* Centers the tight box horizontally */
 	margin-right: auto;
 }
 
