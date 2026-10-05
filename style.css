@@ -1833,10 +1833,14 @@ tr:nth-child(even) {
 	font-size: 13px;
 	color: var(--text-meta);
 	margin-top: 6px;
-	text-align: center;
+	text-align: center !important;
 	font-style: italic;
 	line-height: 1.4;
+	width: fit-content;         /* Forces the box to wrap tightly around the text */
+	margin-left: auto;          /* Centers the tight box horizontally */
+	margin-right: auto;
 }
+
 @media (max-width: 480px) {
 	.outreach-photo-pair {
 		grid-template-columns: 1fr;
@@ -1989,9 +1993,9 @@ tr:nth-child(even) {
 	border-radius: 4px;
 	display: block;
 }
-.entry-photo .outreach-photo-caption {
+/* .entry-photo .outreach-photo-caption {
 	text-align: center !important;
-}
+} */
 .entry-photo .pull-quote {
 	margin: 10px 0 0;
 }
