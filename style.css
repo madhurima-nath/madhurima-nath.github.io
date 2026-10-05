@@ -1997,10 +1997,10 @@ tr:nth-child(even) {
 }
 
 .butterfly-image {
-	width: 60%;
+	width: 30%;
 	height: 35%;
 	display: block;
-	border-radius: 4px;
+	border-radius: 4px;	
 	align-self: center;
 }
 
