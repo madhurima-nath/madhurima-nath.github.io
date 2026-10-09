@@ -1994,6 +1994,7 @@ tr:nth-child(even) {
     border-radius: 4px;
     display: block;
     margin: 0 auto; /* Centers it nicely if max-width is smaller than the container */
+	align-items: start; /* <--- THIS IS THE KEY FIX */
 }
 
 .entry-photo .pull-quote {
@@ -2093,6 +2094,11 @@ tr:nth-child(even) {
 	.entry-photo {
 		order: -1;
 	}
+	/* ADD THIS: Constrain the first photo on mobile so it isn't giant */
+    .entry-with-photo--wide .entry-photo img {
+        max-width: 260px; /* Adjust this number to make it smaller/larger */
+        margin: 0 auto;   /* Centers the image */
+    }
 	.physics-outreach-wrap {
 		grid-template-columns: 1fr;
 	}
@@ -2101,7 +2107,16 @@ tr:nth-child(even) {
 		margin: 0;
 	}
     .video-top-row {
+		display: flex;
         flex-direction: column;
+		gap: 20px;
+    }
+	.video-wrapper {
+        width: 100% !important; /* Forces each video container to take full width */
+    }
+	.video-wrapper video {
+        width: 100%;            /* Ensures the video player itself matches the width */
+        height: auto;
     }
 	.video-column {
         width: 100%;
