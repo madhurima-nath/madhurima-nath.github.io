@@ -1988,10 +1988,12 @@ tr:nth-child(even) {
 	line-height: 1.4;
 }
 .entry-photo img {
-	width: 100%;
-	height: auto;
-	border-radius: 4px;
-	display: block;
+    width: 100%;
+    max-width: 400px; /* Adjust this value to your liking for desktop */
+    height: auto;
+    border-radius: 4px;
+    display: block;
+    margin: 0 auto; /* Centers it nicely if max-width is smaller than the container */
 }
 
 .entry-photo .pull-quote {
