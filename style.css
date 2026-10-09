@@ -2035,9 +2035,13 @@ tr:nth-child(even) {
 
 .outreach-gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    /* Use auto-fit with minmax, but cap the maximum column size so they don't stretch too wide */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 250px));
+    /* Center the grid items horizontally if they don't fill the full row */
+    justify-content: center; 
     gap: 16px;
-    margin: 24px 0;
+    margin: 24px auto; /* 'auto' left/right helps center if max-width is set */
+    max-width: 900px;  /* Adjust this value depending on how wide you want the total matrix to be */
 }
 
 .gallery-item {
