@@ -2031,37 +2031,39 @@ tr:nth-child(even) {
 }
 
 
-
 /* ========================================
    CURATED OUTREACH GALLERY
    ======================================== */
 
 .outreach-gallery {
     display: grid;
-    /* Use auto-fit with minmax, but cap the maximum column size so they don't stretch too wide */
-    grid-template-columns: repeat(auto-fit, minmax(200px, 250px));
-    /* Center the grid items horizontally if they don't fill the full row */
-    justify-content: center; 
-    gap: 16px;
-    margin: 24px auto; /* 'auto' left/right helps center if max-width is set */
-    max-width: 900px;  /* Adjust this value depending on how wide you want the total matrix to be */
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin: 24px auto;
+    max-width: 1000px;
+    align-items: start;
 }
 
 .gallery-item {
     position: relative;
-    aspect-ratio: 1 / 1;
-    overflow: hidden;
-    border-radius: 6px;
-    border: 1px solid var(--border);
     background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
 }
 
 .gallery-item img,
 .gallery-item video {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto;
+    max-height: 350px;
+    object-fit: contain;
     display: block;
+    background: #fdfdfd;
 }
 
 /* Hover Label Styling */
@@ -2070,7 +2072,7 @@ tr:nth-child(even) {
     bottom: 0;
     left: 0;
     right: 0;
-    background: rgba(23, 58, 107, 0.85); /* Matches your --ink color */
+    background: rgba(23, 58, 107, 0.85);
     color: #ffffff;
     font-family: var(--font-sans);
     font-size: 13.5px;
@@ -2084,7 +2086,6 @@ tr:nth-child(even) {
 .gallery-item:hover .hover-label {
     transform: translateY(0);
 }
-
 
 @media (max-width: 600px) {
 	.entry-with-photo,
