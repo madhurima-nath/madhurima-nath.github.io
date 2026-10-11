@@ -2105,7 +2105,6 @@ tr:nth-child(even) {
     height: 100%;
     object-fit: cover;
     display: block;
-    pointer-events: none;
 }
 
 .gallery-item.is-video::after {
