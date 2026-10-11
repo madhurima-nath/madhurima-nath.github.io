@@ -72,28 +72,30 @@
                 native plants and pollinators, providing visitors with a unique and engaging experience as 
                 butterflies frequently landed on them during the tours.
             </p>
+            
             <div class="video-top-row">
-                <div class="video-wrapper">
+                <div class="video-wrapper gallery-item">
                     <video autoplay loop muted playsinline class="clickable-video">
                         <source src="../related_files/butterfly_video1.mov" type="video/mp4">
                     </video>
-                    <span class="outreach-photo-caption">Leading a butterfly tour (Click to play/pause)</span>
+                    <div class="hover-label">Leading a butterfly tour</div>
                 </div>
 
-                <div class="video-wrapper">
+                <div class="video-wrapper gallery-item">
                     <video autoplay loop muted playsinline class="clickable-video">
                         <source src="../related_files/butterfly_video2.mov" type="video/mp4">
                     </video>
-                    <span class="outreach-photo-caption">Butterfly on my hand (Click to play/pause)</span>
+                    <div class="hover-label">Butterfly on my hand</div>
                 </div>
 
-                <div class="video-wrapper">
+                <div class="video-wrapper gallery-item">
                     <video autoplay loop muted playsinline class="clickable-video">
                         <source src="../related_files/butterfly_video3.mov" type="video/mp4">
                     </video>
-                    <span class="outreach-photo-caption">Bees on flowers (Click to play/pause)</span>
+                    <div class="hover-label">Bees on flowers</div>
                 </div>
             </div>
+
         </div>
 
 
@@ -206,92 +208,95 @@
         </div>
     </footer>
 
-<script>
+    <script>
     // 1. Dynamic Year in Footer
     document.querySelectorAll(".js-year").forEach(function(el){ el.textContent = new Date().getFullYear(); });
 
-    // 2. Lightbox functionality (Updated to include gallery items & captions)
+    // 2. Lightbox functionality with Next/Prev navigation
     (function(){
-    var lb = document.getElementById('imgLightbox');
-    var lbImg = document.getElementById('lightboxImg');
-    var lbVid = document.getElementById('lightboxVid');
-    var lbCaption = document.getElementById('lightboxCaption');
-    var prevBtn = document.getElementById('lightboxPrev');
-    var nextBtn = document.getElementById('lightboxNext');
+        var lb = document.getElementById('imgLightbox');
+        var lbImg = document.getElementById('lightboxImg');
+        var lbVid = document.getElementById('lightboxVid');
+        var lbCaption = document.getElementById('lightboxCaption');
+        var prevBtn = document.getElementById('lightboxPrev');
+        var nextBtn = document.getElementById('lightboxNext');
 
-    // Gather all gallery items
-    var galleryItems = document.querySelectorAll('.gallery-item');
-    var currentIndex = 0;
+        // Gathers ALL items with the .gallery-item class (Top 3 videos + 3x3 grid)
+        var galleryItems = document.querySelectorAll('.gallery-item');
+        var currentIndex = 0;
 
-    function updateLightbox(index) {
-        var item = galleryItems[index];
-        var img = item.querySelector('img');
-        var vid = item.querySelector('video');
-        var label = item.querySelector('.hover-label');
-        var captionText = label ? label.textContent : "";
+        function updateLightbox(index) {
+            var item = galleryItems[index];
+            var img = item.querySelector('img');
+            var vid = item.querySelector('video');
+            var label = item.querySelector('.hover-label');
+            var captionText = label ? label.textContent : "";
 
-        if (img) {
-            lbImg.src = img.src;
-            lbImg.style.display = 'block';
-            lbVid.style.display = 'none';
-            lbVid.pause();
-        } else if (vid) {
-            var source = vid.querySelector('source');
-            lbVid.src = source ? source.src : vid.src;
-            lbVid.style.display = 'block';
-            lbImg.style.display = 'none';
-            lbVid.play();
+            if (img) {
+                lbImg.src = img.src;
+                lbImg.style.display = 'block';
+                lbVid.style.display = 'none';
+                lbVid.pause();
+            } else if (vid) {
+                var source = vid.querySelector('source');
+                lbVid.src = source ? source.src : vid.src;
+                lbVid.style.display = 'block';
+                lbImg.style.display = 'none';
+                lbVid.play();
+            }
+
+            lbCaption.textContent = captionText;
         }
 
-        lbCaption.textContent = captionText;
-    }
-
-    // Attach click events to gallery items to open lightbox
-    galleryItems.forEach(function(item, index) {
-        item.style.cursor = 'zoom-in';
-        item.addEventListener('click', function() {
-            currentIndex = index;
-            updateLightbox(currentIndex);
-            lb.classList.add('active');
+        // Click gallery items to open lightbox
+        galleryItems.forEach(function(item, index) {
+            item.style.cursor = 'zoom-in';
+            item.addEventListener('click', function(e) {
+                // If they click a video in the top row, let it open the lightbox 
+                // instead of triggering local play/pause
+                currentIndex = index;
+                updateLightbox(currentIndex);
+                lb.classList.add('active');
+            });
         });
-    });
 
-    // Navigation buttons
-    prevBtn.addEventListener('click', function(e) {
-        e.stopPropagation();
-        currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
-        updateLightbox(currentIndex);
-    });
-
-    nextBtn.addEventListener('click', function(e) {
-        e.stopPropagation();
-        currentIndex = (currentIndex + 1) % galleryItems.length;
-        updateLightbox(currentIndex);
-    });
-
-    // Close on background click
-    lb.addEventListener('click', function(e) {
-        if (e.target === lb || e.target.classList.contains('lightbox-content')) {
-            lb.classList.remove('active');
-            lbVid.pause();
-        }
-    });
-
-    // Keyboard controls (Esc to close, Left/Right arrows to navigate)
-    document.addEventListener('keydown', function(e) {
-        if (!lb.classList.contains('active')) return;
-        if (e.key === 'Escape') {
-            lb.classList.remove('active');
-            lbVid.pause();
-        } else if (e.key === 'ArrowLeft') {
+        // Navigation buttons
+        prevBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
             currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
             updateLightbox(currentIndex);
-        } else if (e.key === 'ArrowRight') {
+        });
+
+        nextBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
             currentIndex = (currentIndex + 1) % galleryItems.length;
             updateLightbox(currentIndex);
-        }
-    });
+        });
+
+        // Close on background click
+        lb.addEventListener('click', function(e) {
+            if (e.target === lb || e.target.classList.contains('lightbox-content')) {
+                lb.classList.remove('active');
+                lbVid.pause();
+            }
+        });
+
+        // Keyboard controls (Esc to close, Left/Right arrows to navigate)
+        document.addEventListener('keydown', function(e) {
+            if (!lb.classList.contains('active')) return;
+            if (e.key === 'Escape') {
+                lb.classList.remove('active');
+                lbVid.pause();
+            } else if (e.key === 'ArrowLeft') {
+                currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
+                updateLightbox(currentIndex);
+            } else if (e.key === 'ArrowRight') {
+                currentIndex = (currentIndex + 1 + galleryItems.length) % galleryItems.length;
+                updateLightbox(currentIndex);
+            }
+        });
     })();
+
     // 3. Hamburger Menu Toggle
     (function(){
         var btn = document.querySelector('.hamburger');
@@ -322,21 +327,6 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     })();
-
-    // 5. Clickable Video Play/Pause
-    document.querySelectorAll('.clickable-video').forEach(video => {
-        video.addEventListener('click', function(e) {
-            // Prevent the lightbox from opening immediately if they just want to play/pause 
-            // (Optional: remove this line if clicking the video *should* open the lightbox instead)
-            // e.stopPropagation(); 
-            
-            if (this.paused) {
-                this.play();
-            } else {
-                this.pause();
-            }
-        });
-    });
-</script>
+    </script>
 </body>
 </html>
