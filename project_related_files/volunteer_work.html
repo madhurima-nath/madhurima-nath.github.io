@@ -189,10 +189,13 @@
     </div>
 
     <div class="figure-lightbox" id="imgLightbox">
-    <div class="lightbox-content">
-        <img src="" alt="">
-        <div id="lightboxCaption" class="lightbox-caption"></div>
-    </div>
+        <button id="lightboxPrev" class="lightbox-nav prev" aria-label="Previous item">&#10094;</button>
+        <div class="lightbox-content">
+            <img id="lightboxImg" src="" alt="">
+            <video id="lightboxVid" src="" controls autoplay loop muted style="display:none; max-width:85vw; max-height:75vh; border-radius:8px;"></video>
+            <div id="lightboxCaption" class="lightbox-caption"></div>
+        </div>
+        <button id="lightboxNext" class="lightbox-nav next" aria-label="Next item">&#10095;</button>
     </div>
 
     <button id="backToTop" class="back-to-top" aria-label="Back to top">&#8593; <span class="top-text">TOP</span></button>
@@ -210,33 +213,85 @@
     // 2. Lightbox functionality (Updated to include gallery items & captions)
     (function(){
     var lb = document.getElementById('imgLightbox');
-    var lbImg = lb.querySelector('img');
+    var lbImg = document.getElementById('lightboxImg');
+    var lbVid = document.getElementById('lightboxVid');
     var lbCaption = document.getElementById('lightboxCaption');
-    
-    var zoomables = document.querySelectorAll('.entry-photo img, .physics-diagrams img, .gallery-item img, .gallery-item video');
-    
-    zoomables.forEach(function(media){
-        media.style.cursor = 'zoom-in';
-        media.addEventListener('click', function(e){
-            let src = media.tagName === 'VIDEO' ? media.querySelector('source').src : media.src;
-            lbImg.src = src;
-            
-            // Extract the caption text
-            let label = media.closest('.gallery-item') ? media.closest('.gallery-item').querySelector('.hover-label') : null;
-            let captionText = label ? label.textContent : (media.alt || "");
-            
-            if(lbCaption) {
-                lbCaption.textContent = captionText;
-            }
-            
+    var prevBtn = document.getElementById('lightboxPrev');
+    var nextBtn = document.getElementById('lightboxNext');
+
+    // Gather all gallery items
+    var galleryItems = document.querySelectorAll('.gallery-item');
+    var currentIndex = 0;
+
+    function updateLightbox(index) {
+        var item = galleryItems[index];
+        var img = item.querySelector('img');
+        var vid = item.querySelector('video');
+        var label = item.querySelector('.hover-label');
+        var captionText = label ? label.textContent : "";
+
+        if (img) {
+            lbImg.src = img.src;
+            lbImg.style.display = 'block';
+            lbVid.style.display = 'none';
+            lbVid.pause();
+        } else if (vid) {
+            var source = vid.querySelector('source');
+            lbVid.src = source ? source.src : vid.src;
+            lbVid.style.display = 'block';
+            lbImg.style.display = 'none';
+            lbVid.play();
+        }
+
+        lbCaption.textContent = captionText;
+    }
+
+    // Attach click events to gallery items to open lightbox
+    galleryItems.forEach(function(item, index) {
+        item.style.cursor = 'zoom-in';
+        item.addEventListener('click', function() {
+            currentIndex = index;
+            updateLightbox(currentIndex);
             lb.classList.add('active');
         });
     });
 
-    lb.addEventListener('click', function(){ lb.classList.remove('active'); });
-    document.addEventListener('keydown', function(e){ if(e.key === 'Escape') lb.classList.remove('active'); });
-    })();
+    // Navigation buttons
+    prevBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
+        updateLightbox(currentIndex);
+    });
 
+    nextBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        currentIndex = (currentIndex + 1) % galleryItems.length;
+        updateLightbox(currentIndex);
+    });
+
+    // Close on background click
+    lb.addEventListener('click', function(e) {
+        if (e.target === lb || e.target.classList.contains('lightbox-content')) {
+            lb.classList.remove('active');
+            lbVid.pause();
+        }
+    });
+
+    // Keyboard controls (Esc to close, Left/Right arrows to navigate)
+    document.addEventListener('keydown', function(e) {
+        if (!lb.classList.contains('active')) return;
+        if (e.key === 'Escape') {
+            lb.classList.remove('active');
+            lbVid.pause();
+        } else if (e.key === 'ArrowLeft') {
+            currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
+            updateLightbox(currentIndex);
+        } else if (e.key === 'ArrowRight') {
+            currentIndex = (currentIndex + 1) % galleryItems.length;
+            updateLightbox(currentIndex);
+        }
+    });
+    })();
     // 3. Hamburger Menu Toggle
     (function(){
         var btn = document.querySelector('.hamburger');
