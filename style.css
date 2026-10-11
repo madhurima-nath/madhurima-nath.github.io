@@ -2155,6 +2155,16 @@ tr:nth-child(even) {
     background: var(--accent);
 }
 
+/* MOBILE & TOUCH SCREENS: Make gallery labels visible permanently since there is no hover */
+@media (hover: none) {
+    .gallery-item .hover-label {
+        transform: translateY(0) !important;
+        background: rgba(23, 58, 107, 0.9); /* Slightly darker solid background for readability */
+        font-size: 12px;
+        padding: 6px 10px;
+    }
+}
+
 
 @media (max-width: 768px) {
     .outreach-gallery {
