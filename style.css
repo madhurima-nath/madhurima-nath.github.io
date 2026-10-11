@@ -2030,6 +2030,21 @@ tr:nth-child(even) {
     cursor: pointer;
 }
 
+.video-top-row .gallery-item {
+    aspect-ratio: auto !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.video-top-row .gallery-item video {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+}
+
 
 /* ========================================
    CURATED OUTREACH GALLERY
