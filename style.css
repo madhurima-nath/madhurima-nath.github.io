@@ -2152,7 +2152,6 @@ tr:nth-child(even) {
 
 .gallery-item.is-video:hover::after {
     transform: translate(-50%, -50%) scale(1.1);
-    background: var(--accent);
 }
 
 /* MOBILE & TOUCH SCREENS: Make gallery labels visible permanently since there is no hover */
