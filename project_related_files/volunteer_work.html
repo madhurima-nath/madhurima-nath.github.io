@@ -188,7 +188,12 @@
         </div>
     </div>
 
-    <div class="figure-lightbox" id="imgLightbox"><img src="" alt=""></div>
+    <div class="figure-lightbox" id="imgLightbox">
+    <div class="lightbox-content">
+        <img src="" alt="">
+        <div id="lightboxCaption" class="lightbox-caption"></div>
+    </div>
+    </div>
 
     <button id="backToTop" class="back-to-top" aria-label="Back to top">&#8593; <span class="top-text">TOP</span></button>
 
@@ -204,29 +209,32 @@
 
     // 2. Lightbox functionality (Updated to include gallery items & captions)
     (function(){
-        var lb = document.getElementById('imgLightbox');
-        var lbImg = lb.querySelector('img');
-        
-        // Target existing zoomables PLUS the new curated gallery items
-        var zoomables = document.querySelectorAll('.entry-photo img, .physics-diagrams img, .gallery-item img, .gallery-item video');
-        
-        zoomables.forEach(function(media){
-            media.style.cursor = 'zoom-in';
-            media.addEventListener('click', function(e){
-                // Determine source (handles both img tags and video tags)
-                let src = media.tagName === 'VIDEO' ? media.querySelector('source').src : media.src;
-                lbImg.src = src;
-                
-                // Optional: If there is a hover-label or caption nearby, grab it for the alt text
-                let label = media.closest('.gallery-item') ? media.closest('.gallery-item').querySelector('.hover-label') : null;
-                lbImg.alt = label ? label.textContent : (media.alt || "Lightbox view");
-                
-                lb.classList.add('active');
-            });
+    var lb = document.getElementById('imgLightbox');
+    var lbImg = lb.querySelector('img');
+    var lbCaption = document.getElementById('lightboxCaption');
+    
+    var zoomables = document.querySelectorAll('.entry-photo img, .physics-diagrams img, .gallery-item img, .gallery-item video');
+    
+    zoomables.forEach(function(media){
+        media.style.cursor = 'zoom-in';
+        media.addEventListener('click', function(e){
+            let src = media.tagName === 'VIDEO' ? media.querySelector('source').src : media.src;
+            lbImg.src = src;
+            
+            // Extract the caption text
+            let label = media.closest('.gallery-item') ? media.closest('.gallery-item').querySelector('.hover-label') : null;
+            let captionText = label ? label.textContent : (media.alt || "");
+            
+            if(lbCaption) {
+                lbCaption.textContent = captionText;
+            }
+            
+            lb.classList.add('active');
         });
+    });
 
-        lb.addEventListener('click', function(){ lb.classList.remove('active'); });
-        document.addEventListener('keydown', function(e){ if(e.key === 'Escape') lb.classList.remove('active'); });
+    lb.addEventListener('click', function(){ lb.classList.remove('active'); });
+    document.addEventListener('keydown', function(e){ if(e.key === 'Escape') lb.classList.remove('active'); });
     })();
 
     // 3. Hamburger Menu Toggle

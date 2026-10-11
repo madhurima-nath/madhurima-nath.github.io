@@ -2037,33 +2037,28 @@ tr:nth-child(even) {
 
 .outreach-gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(3, 1fr); /* Forces a clean 3-column matrix */
+    gap: 16px;
     margin: 24px auto;
-    max-width: 1000px;
-    align-items: start;
+    max-width: 900px;
 }
 
 .gallery-item {
     position: relative;
-    background: #ffffff;
-    border: 1px solid var(--border);
-    border-radius: 6px;
+    aspect-ratio: 1 / 1; /* Uniform square containers for a clean professional look */
     overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    background: #ffffff;
     cursor: pointer;
 }
 
 .gallery-item img,
 .gallery-item video {
     width: 100%;
-    height: auto;
-    max-height: 350px;
-    object-fit: contain;
+    height: 100%;
+    object-fit: cover; /* Crops uniformly to fill the grid neatly */
     display: block;
-    background: #fdfdfd;
 }
 
 /* Hover Label Styling */
@@ -2085,6 +2080,18 @@ tr:nth-child(even) {
 
 .gallery-item:hover .hover-label {
     transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+    .outreach-gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .outreach-gallery {
+        grid-template-columns: 1fr;
+    }
 }
 
 @media (max-width: 600px) {
@@ -2123,6 +2130,30 @@ tr:nth-child(even) {
         width: 100%;
     }
 
+}
+
+
+/* Lightbox Caption Styling */
+.lightbox-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 90vw;
+    max-height: 90vh;
+}
+.figure-lightbox img {
+    max-width: 85vw;
+    max-height: 75vh;
+    border-radius: 8px;
+    object-fit: contain;
+    background: var(--bg);
+}
+.lightbox-caption {
+    color: #ffffff;
+    font-family: var(--font-sans);
+    font-size: 16px;
+    margin-top: 12px;
+    text-align: center;
 }
 
 /* ===== Research page: Dissertation Promo ===== */
