@@ -2098,6 +2098,39 @@ tr:nth-child(even) {
     transform: translateY(0);
 }
 
+
+/* Video Thumbnail Play Button Overlay */
+.gallery-item video {
+    pointer-events: none; /* Ensures clicks pass straight through to the gallery-item container */
+}
+
+.gallery-item.is-video::after {
+    content: "▶";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 48px;
+    height: 48px;
+    background: rgba(23, 58, 107, 0.85);
+    color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    padding-left: 3px; /* Optically centers the play triangle */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    pointer-events: none; /* Lets clicks pass through */
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.gallery-item.is-video:hover::after {
+    transform: translate(-50%, -50%) scale(1.1);
+    background: var(--accent);
+}
+
+
 @media (max-width: 768px) {
     .outreach-gallery {
         grid-template-columns: repeat(2, 1fr);

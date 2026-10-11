@@ -74,22 +74,22 @@
             </p>
             
             <div class="video-top-row">
-                <div class="video-wrapper gallery-item">
-                    <video autoplay loop muted playsinline class="clickable-video">
+                <div class="video-wrapper gallery-item is-video">
+                    <video muted playsinline>
                         <source src="../related_files/butterfly_video1.mov" type="video/mp4">
                     </video>
                     <div class="hover-label">Leading a butterfly tour</div>
                 </div>
 
-                <div class="video-wrapper gallery-item">
-                    <video autoplay loop muted playsinline class="clickable-video">
+                <div class="video-wrapper gallery-item is-video">
+                    <video muted playsinline>
                         <source src="../related_files/butterfly_video2.mov" type="video/mp4">
                     </video>
                     <div class="hover-label">Butterfly on my hand</div>
                 </div>
 
-                <div class="video-wrapper gallery-item">
-                    <video autoplay loop muted playsinline class="clickable-video">
+                <div class="video-wrapper gallery-item is-video">
+                    <video muted playsinline>
                         <source src="../related_files/butterfly_video3.mov" type="video/mp4">
                     </video>
                     <div class="hover-label">Bees on flowers</div>
@@ -131,8 +131,8 @@
                 </div>
 
                 <!-- Gallery Item 5 (Video) -->
-                <div class="gallery-item">
-                    <video autoplay loop muted playsinline class="clickable-video">
+                <div class="gallery-item is-video">
+                    <video muted playsinline>
                         <source src="../related_files/butterfly_blue.mov" type="video/mp4">
                     </video>
                     <div class="hover-label">Eastern Black Swallowtail in Action!</div>
@@ -212,7 +212,7 @@
     // 1. Dynamic Year in Footer
     document.querySelectorAll(".js-year").forEach(function(el){ el.textContent = new Date().getFullYear(); });
 
-    // 2. Lightbox functionality with Next/Prev navigation
+    // 2. Lightbox functionality with Next/Prev navigation & clean pause-on-close
     (function(){
         var lb = document.getElementById('imgLightbox');
         var lbImg = document.getElementById('lightboxImg');
@@ -221,7 +221,6 @@
         var prevBtn = document.getElementById('lightboxPrev');
         var nextBtn = document.getElementById('lightboxNext');
 
-        // Gathers ALL items with the .gallery-item class (Top 3 videos + 3x3 grid)
         var galleryItems = document.querySelectorAll('.gallery-item');
         var currentIndex = 0;
 
@@ -232,28 +231,36 @@
             var label = item.querySelector('.hover-label');
             var captionText = label ? label.textContent : "";
 
+            // Stop any currently playing video before switching
+            lbVid.pause();
+            lbVid.currentTime = 0;
+
             if (img) {
                 lbImg.src = img.src;
                 lbImg.style.display = 'block';
                 lbVid.style.display = 'none';
-                lbVid.pause();
             } else if (vid) {
                 var source = vid.querySelector('source');
                 lbVid.src = source ? source.src : vid.src;
                 lbVid.style.display = 'block';
                 lbImg.style.display = 'none';
-                lbVid.play();
+                // Starts paused with controls so user chooses when to play
+                lbVid.pause(); 
             }
 
             lbCaption.textContent = captionText;
+        }
+
+        function closeLightbox() {
+            lb.classList.remove('active');
+            lbVid.pause();
+            lbVid.currentTime = 0;
         }
 
         // Click gallery items to open lightbox
         galleryItems.forEach(function(item, index) {
             item.style.cursor = 'zoom-in';
             item.addEventListener('click', function(e) {
-                // If they click a video in the top row, let it open the lightbox 
-                // instead of triggering local play/pause
                 currentIndex = index;
                 updateLightbox(currentIndex);
                 lb.classList.add('active');
@@ -276,8 +283,7 @@
         // Close on background click
         lb.addEventListener('click', function(e) {
             if (e.target === lb || e.target.classList.contains('lightbox-content')) {
-                lb.classList.remove('active');
-                lbVid.pause();
+                closeLightbox();
             }
         });
 
@@ -285,8 +291,7 @@
         document.addEventListener('keydown', function(e) {
             if (!lb.classList.contains('active')) return;
             if (e.key === 'Escape') {
-                lb.classList.remove('active');
-                lbVid.pause();
+                closeLightbox();
             } else if (e.key === 'ArrowLeft') {
                 currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
                 updateLightbox(currentIndex);
