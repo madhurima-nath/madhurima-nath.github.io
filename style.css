@@ -44,63 +44,61 @@ body {
 	overflow-x: hidden;
 }
 
-/* Desktop only: vertical centering + compact layout so home fits without scrolling */
+/* Desktop only: flexible layout that adapts cleanly to different screen sizes */
 @media (min-width: 1000px) {
 	body.page-home {
+		min-height: 100vh;
 		justify-content: center;
-		overflow: hidden;
-		height: 100vh;
 	}
 
 	body.page-home > .container {
 		max-width: 1200px;
-		margin-top: auto;
-		margin-bottom: auto;
-		padding-top: 18px;
-		padding-bottom: 18px;
+		margin: auto;
+		padding-top: 28px;
+		padding-bottom: 40px;
 	}
 
 	body.page-home .site-header {
-		padding-bottom: 10px;
+		padding-bottom: 16px;
 	}
 
 	body.page-home .content-wrapper {
-		margin-top: 14px;
-		gap: 24px;
+		margin-top: 20px;
+		gap: 32px;
 	}
 
 	body.page-home .sidebar {
-		flex: 0 0 150px;
+		flex: 0 0 170px;
 	}
 
 	body.page-home .introduction p {
 		font-size: clamp(15px, 1.8vw, 17px);
-		margin-bottom: 9px;
-		line-height: 1.6;
+		margin-bottom: 14px;
+		line-height: 1.7;
 	}
 
 	body.page-home .affiliations {
-		margin: 12px 0 10px;
+		margin: 20px 0 6px;
 	}
 
 	body.page-home .affil-item {
-		line-height: 1.8;
+		line-height: 1.85;
 	}
 
 	body.page-home .docs-line {
-		margin-bottom: 18px;
+		margin: 6px 0 24px;
 	}
 
 	body.page-home .selected-pubs {
-		margin-top: 35px;
-		margin-bottom: 22px;
+		margin-top: 16px;
+		margin-bottom: 16px;
 	}
 	body.page-home .selected-pubs h2 {
-		margin-top: 0;
+		margin-top: 40px;
 	}
 
 	.connect-label {
-		margin-top: 20px;
+		margin-top: 28px;
 	}
 }
 
