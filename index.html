@@ -126,6 +126,8 @@
 
     </div>
 
+<div class="figure-lightbox" id="imgLightbox"><img src="" alt=""></div>
+
     <button id="backToTop" class="back-to-top" aria-label="Back to top">&#8593; <span class="top-text">TOP</span></button>
 
     <footer class="site-footer">
@@ -136,6 +138,20 @@
 
 <script>
 document.querySelectorAll(".js-year").forEach(function(el){ el.textContent = new Date().getFullYear(); });
+
+(function(){
+    var lb = document.getElementById('imgLightbox');
+    var lbImg = lb.querySelector('img');
+    document.querySelectorAll('.pedagogy-figure img, .wave-optics-figures img').forEach(function(img){
+        img.addEventListener('click', function(){
+            lbImg.src = img.src;
+            lbImg.alt = img.alt;
+            lb.classList.add('active');
+        });
+    });
+    lb.addEventListener('click', function(){ lb.classList.remove('active'); });
+    document.addEventListener('keydown', function(e){ if(e.key === 'Escape') lb.classList.remove('active'); });
+})();
 
 (function(){
     var btn = document.querySelector('.hamburger');
@@ -170,6 +186,7 @@ document.querySelectorAll(".js-year").forEach(function(el){ el.textContent = new
     });
 })();
 </script>
+
 </body>
 
 </html>
